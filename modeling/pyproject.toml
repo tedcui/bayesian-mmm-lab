@@ -6,7 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "mmm-lab"
 version = "0.1.0"
 description = "Bayesian marketing mix modeling lab scaffold"
-requires-python = ">=3.10"
+requires-python = ">=3.12,<3.13"
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

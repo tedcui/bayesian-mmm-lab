@@ -1,1 +1,38 @@
-# Placeholder: define CI jobs when the project is implemented.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.12'
+          enable-cache: true
+      - name: Sync Python environment
+        run: uv sync --locked
+        working-directory: modeling
+      - name: Python tests
+        run: uv run --locked pytest
+        working-directory: modeling
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: web
+      - name: Typecheck
+        run: npm run typecheck
+        working-directory: web
+      - name: Frontend tests
+        run: npm test
+        working-directory: web
+      - name: Build frontend
+        run: npm run build
+        working-directory: web

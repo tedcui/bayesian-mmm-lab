@@ -70,15 +70,58 @@ A milestone is complete only when:
 - Documentation is updated
 - The application or notebook can be executed locally
 - No placeholder statistical metrics remain in production views
-# Bayesian MMM Lab
+# Bayesian MMM Decision Lab
 
-Project scaffold for a Bayesian marketing mix modeling lab. The data files, model artifact, notebooks, application code, and workflows are placeholders; no simulation, model fit, or deployment has been run yet.
+M1 repository foundation for a synthetic-data Bayesian marketing mix modeling demonstration. The React screen is a setup placeholder. There are no generated observations, fitted models, diagnostics, or exported metrics yet.
 
-## Layout
+## Requirements
 
-- `data/`: raw and processed data plus simulation metadata
-- `notebooks/`: exploration, modeling, and evaluation notebooks
-- `modeling/`: Python package, tests, and model artifacts
-- `web/`: Vite web application and exported model data
-- `worker/`: Cloudflare Worker
-- `.github/workflows/`: CI and deployment workflows
+- Python 3.12 and [uv](https://docs.astral.sh/uv/)
+- Node.js 24 and npm
+
+On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm`.
+
+## Local setup
+
+From `modeling/`:
+
+```sh
+uv sync --locked
+uv run --locked pytest
+```
+
+From `web/`:
+
+```sh
+npm ci
+npm run dev
+npm run typecheck
+npm test
+npm run build
+npm run preview
+```
+
+The Vite build uses `/bayesian-mmm-lab/` as its GitHub Pages base path. The frontend build reads static assets only; it does not run Python or fit a model. `ci.yml` runs Python and frontend checks on pushes and pull requests. Deployment remains disabled until the release milestone.
+
+## Repository and artifact policy
+
+`modeling/src/mmm_lab/` is the installable Python package. `paths.py` resolves repository paths from the package location, independent of the caller's working directory. Root-level notebooks will use this package in later milestones. `web/` contains the React/TypeScript/Vite shell. `worker/` is reserved for the optional final phase.
+
+The `data/`, `modeling/artifacts/`, and `web/public/model-data/` directories contain only `.gitkeep` files in M1. Later milestones will generate and validate their contents. Keep compact synthetic datasets, metadata, versioned frontend exports, notebooks without large outputs, and both lockfiles in Git. Ignore large posterior NetCDF files, local environments, caches, and build output. Ground truth is reserved for evaluation and must never become a model feature.
+
+## M1 verification (2026-11-13)
+
+| Command | Result |
+|---|---|
+| `uv sync --locked` | Passed with Python 3.12.13; 7 packages resolved |
+| `uv run --locked pytest -q` | Passed; 1 test |
+| `npm ci` | Passed; 44 packages installed from lockfile |
+| `npm run typecheck` | Passed |
+| `npm test` | Passed; 1 test |
+| `npm run build` | Passed; Vite production output created in `web/dist/` |
+
+The first frontend typecheck found a missing Vite CSS type declaration. Adding Vite client types to `tsconfig.json` resolved it; the table records the successful rerun. Local checks do not verify the hosted GitHub Actions runner or deployment.
+
+## Next milestone
+
+M2 generates the deterministic synthetic dataset, data dictionary, and exploration notebook, with schema and reconstruction tests. Model fitting starts in M3.

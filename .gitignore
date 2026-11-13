@@ -1,7 +1,13 @@
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
 .venv/
 node_modules/
 dist/
 .wrangler/
+modeling/.uv-cache/
+modeling/.uv-python/
+modeling/.venv/
+web/.npm-cache/
+*.nc
