@@ -1,6 +1,6 @@
 # Bayesian MMM Decision Lab
 
-A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results for the web. The frontend pages still show the foundation placeholder until M5.
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results; M5 presents those results in an interactive analytical dashboard.
 
 ## Current architecture
 
@@ -11,7 +11,7 @@ A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fit
 - Reconciled 720-row segment-week mart, leakage-safe model projection, [ETL dictionary](data/metadata/etl_data_dictionary.md), and QA/lineage reports
 - Three PyMC posterior fits, [model specification](docs/MODEL_SPECIFICATION.md), and [evaluation report](modeling/artifacts/evaluation.json)
 - Versioned, lineage-checked [M4 browser exports](docs/EXPORT_CONTRACT.md) in `web/public/model-data/`
-- React/TypeScript/Vite foundation in `web/`; its current screen is a setup placeholder
+- React/TypeScript/Vite, Plotly and Tailwind analytical dashboard in `web/`, with Overview, Decomposition and Segment Comparison pages
 - GitHub Actions CI for lightweight checks; no deployment is enabled
 
 The exact 44 transaction, 42 store, and 19 product column inventories are documented in [the source contract](docs/SOURCE_SCHEMA_AND_ETL.md). [The modeling data contract](docs/MODELING_DATA_CONTRACT.md) describes the later source-to-mart route. [Milestone prompts](docs/CODEX_PROMPTS.md) supersede the earlier direct-panel M2.
@@ -61,7 +61,17 @@ Holdout accuracy does **not** establish channel identification. The partial mode
 
 `mmm-export` checks source, ETL, model-input, fit, evaluation, and posterior hashes before writing five static JSON files. `overview.json` and `contributions.json` cover all 720 segment-weeks and 21 draw-first aggregates. `segments.json` compares all three fitted specifications against simulation truth. `simulator.json` carries 96 jointly indexed partial-pooling draws, exact transformation parameters, prior spend history, a 12-week holdout replay plan, fixed controls, and spend support bounds. The four data payloads total **1,501,691 bytes** before compression; no transaction details or full posterior files are public. See the [export contract](docs/EXPORT_CONTRACT.md) for schemas and interval semantics.
 
-Partial pooling is a labeled educational reference for the weekly export, **not** the statistically best recovered segment-effect model. The exported comparison shows no pooling's stronger coefficient recovery. Expected-sales credible intervals and future-observation predictive intervals are separate. The simulator plan is a conditional historical replay, not an unconditional forecast; no scenario engine or dashboard chart is implemented in M4.
+Partial pooling is a labeled educational reference for the weekly export, **not** the statistically best recovered segment-effect model. The exported comparison shows no pooling's stronger coefficient recovery. Expected-sales credible intervals and future-observation predictive intervals are separate. The simulator plan is a conditional historical replay, not an unconditional forecast; no scenario engine is implemented yet.
+
+## M5 analytical dashboard
+
+From `web/`, run `npm ci` and `npm run dev`, then open the local Vite address. The app loads the versioned M4 JSON bundle, verifies payload hashes and schemas, and shows an error with retry if validation fails. Navigation uses static-host-compatible hash routes. No operational transaction or contact details are loaded by the browser.
+
+- **Overview** filters a single business region and inclusive week range. It shows observed sales, partial-pooling expected sales, a 90% *predictive* interval for weekly observations, planned channel spending, and WAPE/MAE computed only over holdout weeks in the selected range. The first holdout week is marked on the chart.
+- **Decomposition** displays posterior mean baseline and three modeled channel contributions, a selectable channel's weekly 90% *credible* interval, and observed = expected + residual reconciliation. Model-based contributions depend on assumptions and are not experimentally proven lift.
+- **Segment Comparison** shows the three fitted pooling specifications, their 90% parameter intervals, holdout and known-truth recovery summaries, and an optional synthetic-truth overlay. The selected region is a focus for explaining partial pooling. Its effects were fitted on the fixed 100-week training window; date filters do not refit coefficients.
+
+The weekly charts use one region at a time because the export has per-region weekly uncertainty, not draw-first all-region weekly intervals. For exact full, training or holdout windows, the app can display exported draw-first total credible intervals. For a custom date range it shows sums of weekly means and omits a total interval; percentile endpoints cannot be summed. Holdout predictions are conditional on planned spend and pre-outcome context, not ex-ante forecasts. Correlated promotions and targeting limit causal interpretation even in this synthetic demonstration. The decision simulator remains a later milestone.
 
 ## Reproducibility and artifact policy
 
@@ -88,5 +98,6 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M4 | `uv run --offline --locked mmm-export` | Passed; five lineage-bound JSON files, payload sizes above |
 | M4 | `uv run --offline --locked pytest -q` | Passed; 32 tests |
 | M4 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 4 frontend tests and static build |
+| M5 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 8 frontend tests across 3 files and static build |
 
-These local checks do not establish causal promotion effects or a live public website. M5, analytical pages using the validated exports, is the next suggested milestone.
+These local checks do not establish causal promotion effects or a live public website. No public deployment has occurred.
