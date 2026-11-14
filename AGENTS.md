@@ -29,7 +29,7 @@ Only hosting conventions carry over: **GitHub Pages**, optionally **Cloudflare W
 
 1. Read the reference files and inspect existing code before changing anything. Do not assume M1/M2 repository outputs match this revised contract.
 2. Work on **exactly one milestone** per prompt. Report changed files, commands run, test results, assumptions, blockers and next step. Stop; do not silently begin the next milestone.
-3. **M1 remains complete. The former direct-panel M2 is superseded.** Inventory and preserve existing code/data rather than deleting it blindly. Migrate to **M2A source simulation** and **M2B ETL / analytical mart** before M3.
+3. **M1 remains complete. The former direct-panel M2 is superseded and its old files were removed after M2A validation at the user's request.** Build **M2B ETL / analytical mart** from M2A sources before M3.
 4. Do not invent model results, implied relationships, source-field semantics, constraints, causal evidence, or business ROI. Label synthetic demonstration metrics clearly.
 5. Put reusable logic in Python package modules; notebooks import functions and show findings. Code in notebooks must not become the only implementation of ETL, model, or simulation.
 6. Use deterministic seeds and pinned dependencies. Store the generator settings, source-data lineage, schema hashes, train/holdout rules, and model/export versions.
@@ -92,7 +92,6 @@ bayesian-mmm-lab/
 │   ├── marts/                      # transaction enrichment + segment-week fact
 │   ├── processed/                  # model_ready.parquet or model_ready.csv
 │   ├── metadata/                   # manifests, quality reports, ground truth (evaluation only)
-│   └── legacy/                     # optional preserved old M2 outputs
 ├── notebooks/
 │   ├── 00_source_simulation_and_qa.ipynb
 │   ├── 01_data_exploration.ipynb
@@ -211,8 +210,8 @@ CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend type
 ## Milestone status and required sequence
 
 - **M1 COMPLETE** — Preserve existing repository foundation.
-- **M2 OLD COMPLETE BUT SUPERSEDED** — Standalone direct-panel simulation is no longer the canonical pipeline. Archive/migrate safely.
-- **M2A NEXT** — Simulate three silver source tables plus clearly labeled auxiliary context/spend sources.
+- **M2 OLD COMPLETE BUT SUPERSEDED** — Standalone direct-panel simulation and its archived files were retired after M2A validation.
+- **M2A COMPLETE** — Three source-aligned tables and separate auxiliary context/spend sources are generated and validated.
 - **M2B NEXT** — Build/test ETL to generate the segment-week mart and final `model_ready` panel.
 - **M3** — Fit/evaluate pooled, unpooled and hierarchical Bayesian MMM.
 - **M4** — Export real fitted posterior results for the web.

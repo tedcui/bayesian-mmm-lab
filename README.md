@@ -30,15 +30,15 @@ The default seed is `20261113`. Six business regions—Northeast, Southeast, Gre
 
 For fast development tests, `SimulationConfig(weeks=4, unit_scale=0.1)` reduces the quantity of generated detail while preserving the full source schemas. The CLI uses the default configuration. `source_manifest.json` includes file checksums, schema hash, generation order, and simulation-only field semantics. `source_quality.json` records schema, reference, key, and unit-reconciliation checks.
 
-## Archived previous M2
+## Superseded direct-panel M2
 
-The earlier M2 built `synthetic_mmm.csv` and `model_ready.csv` directly. Those files, their generator, preprocessor, tests, notebook, and metadata are preserved under [data/legacy/direct_panel_m2](data/legacy/direct_panel_m2/README.md) with an SHA256 archive manifest. The active direct-panel files and CLI were retired. That route is historical and must not feed the later model.
+The earlier M2 built `synthetic_mmm.csv` and `model_ready.csv` directly. After M2A source generation and reconciliation passed, its archived CSVs, metadata, generator, preprocessor, tests, notebook, and the one-time migration guide were removed at the user's request. The direct-panel CLI was already retired. The new source files and auxiliary plans are the only active synthetic inputs.
 
-M2A does **not** produce a mart or `model_ready` dataset. M2B is the next milestone: validate/enrich the source tables, aggregate transaction quantities to segment-week, join independently planned spend and pre-outcome context, reconcile units, then create the leakage-safe panel. The active `01_data_exploration.ipynb` is reserved for that ETL result.
+M2A does **not** produce a mart or `model_ready` dataset. M2B is the next milestone: validate/enrich the source tables, aggregate transaction quantities to segment-week, join independently planned spend and pre-outcome context, reconcile units, then create the leakage-safe panel and its exploration notebook.
 
 ## Reproducibility and artifact policy
 
-`modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. The generated source files, truth, manifest, QA report, compact auxiliary files, and archival material are reviewable locally. Large generated transaction Parquet and temporary Python/frontend build files are ignored by Git; regenerate the source with the CLI. No full MCMC runs in ordinary CI.
+`modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. The generated source files, truth, manifest, QA report, and compact auxiliary files are reviewable locally. Large generated transaction Parquet and temporary Python/frontend build files are ignored by Git; regenerate the source with the CLI. No full MCMC runs in ordinary CI.
 
 The fixed synthetic equations, complete references, and known truth make engineering checks possible but simplify real observational marketing data. Correlated campaigns, promotion-linked price changes, imperfect targeting, unknown source semantics, and possible missing or revised records limit later causal interpretation. The truth file is evaluation-only and must never become a model feature. No public source data or deployment has been created.
 

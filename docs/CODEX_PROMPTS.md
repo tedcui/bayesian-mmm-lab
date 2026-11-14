@@ -1,6 +1,6 @@
 # Sequential Codex Prompts — Revised Source-Driven Bayesian MMM
 
-> **Status:** M1 is already complete. The old direct-to-`synthetic_mmm.csv` M2 is **superseded**, not proof that the new source-driven design is complete. Perform **M2A**, then **M2B**, then **M3–M8**. Do not ask Codex to implement all phases at once. Each prompt stops after execution, tests, report, and docs update.
+> **Status:** M1 and M2A are complete. The old direct-to-`synthetic_mmm.csv` M2 is **superseded**, and its old files have been removed. Perform **M2B** next, then **M3–M8**. Each prompt stops after execution, tests, report, and docs update.
 >
 > 
 > Copy each fenced prompt to Codex separately. Ensure `AGENTS.md`, `docs/SOURCE_SCHEMA_AND_ETL.md`, and `docs/MODELING_DATA_CONTRACT.md` are present at the paths referenced before starting.
@@ -11,7 +11,7 @@
 Read AGENTS.md, docs/SOURCE_SCHEMA_AND_ETL.md, and docs/MODELING_DATA_CONTRACT.md. Inspect the existing M1 and old M2 code and data. Implement M2A ONLY.
 
 1. Preserve M1 tooling: uv, npm, React/Vite, GitHub Actions; do not create a Makefile.
-2. Inventory the existing M2 synthetic_mmm.csv, model_ready.csv, CLI, notebook, and generator. Mark old direct-panel outputs superseded, preserve/archive safely, and report what changed. Do not delete previous work without a migration plan.
+2. Inventory any existing direct-panel M2 CSV, CLI, notebook, and generator. Do not use them as M2A inputs. The previous copies were removed after M2A validation at the user's request; report any remaining direct-panel files as stale.
 3. Implement deterministic source simulation under modeling/src/mmm_lab/simulation/ with fixed seed and config. Generate ALL 44 documented transaction, 42 store and 19 product source columns, as separate source-aligned Parquet files:
    data/silver/source_transactions.parquet
    data/silver/source_stores.parquet
@@ -50,7 +50,7 @@ Read AGENTS.md, SOURCE_SCHEMA_AND_ETL.md, MODELING_DATA_CONTRACT.md, and inspect
 10. Final model-ready panel should have segment_id, week_start, time_index, is_holdout, sales_units, price_index, distribution_index, competitor_index, holiday, coupon_spend, retailer_promo_spend, and digital_spend. Keep post-outcome discount and promo-line metrics in the descriptive mart, not as default model predictors.
 11. Add a train/holdout split of weeks 1–100 vs 101–120. No scaler fitted on holdout. Preserve source/ETL provenance, campaign plan-as-of timing and adstock history.
 12. Reconcile sum(eligible source QUANTITY) to sum(mart sales_units) overall and by segment-week, with explicit documented exceptions; reconcile planned spend totals and ensure no duplicate segment-week keys.
-13. Implement 'uv run mmm-build-mart', output reconciliation and quality reports, and update notebook 01_data_exploration.ipynb to inspect the actual downstream mart.
+13. Implement 'uv run mmm-build-mart', output reconciliation and quality reports, and create notebook 01_data_exploration.ipynb to inspect the actual downstream mart.
 14. Add tests for joined reference fanout, missing references, nullable UPC, duplicate lookup-key fixture, late-arriving source submission, independent time axes, idempotence where supported, crosswalk preservation, leakage controls, quantity reconciliation and complete calendar coverage.
 15. Validate regenerated model_ready only comes from M2A source and auxiliary files. Do not call the old standalone direct-panel simulation to populate it.
 

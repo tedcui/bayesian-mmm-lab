@@ -257,7 +257,7 @@ The synthetic demand-generating mechanism must be consistent with the model targ
 ## Key tests and acceptance checklist
 
 - Exact source-aligned inventories: **44 transaction + 42 store + 19 product columns**.
-- Stable seeded re-creation and file/content hashes; original 720-row direct-panel dataset is archived, not substituted.
+- Stable seeded re-creation and file/content hashes; the original direct-panel dataset was retired and must not be substituted for the source-driven data.
 - Source reference uniqueness is validated (not assumed); zero fanout; unmatched lines preserved and counted.
 - No unintentional null-to-null product UPC matches.
 - Master IDs are distinct from submitted IDs; multiple submitted items may share a master ID without join explosions.
