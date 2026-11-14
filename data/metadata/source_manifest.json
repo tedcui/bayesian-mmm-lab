@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "generator": "mmm_lab.simulation.generate",
+  "config": {
+    "seed": 20261113,
+    "weeks": 120,
+    "start_date": "2023-01-02",
+    "unit_scale": 1.0
+  },
+  "source_schema_sha256": "a3afbf70a8d6c7e7dc85b2d8464a690ffa4f11de7616a4bc38d46c687acd67cd",
+  "simulation_semantics": {
+    "price": "Pre-discount USD per unit for this simulation; source production semantics are unverified",
+    "quantity": "Whole units on a transaction detail line; multiple lines may share a basket",
+    "status_A": "Active and eligible in this simulation only; not a production code dictionary",
+    "promotion_flag": "A simulated receipt-level promotion or redemption, not a planned budget",
+    "planned_spend": "USD budget set before the sales week in a separate synthetic source",
+    "event_timezone": "Naive business event timestamps; submission and audit timestamps use UTC",
+    "reference_mapping": "Current-state submitted identity to master identity; no historical versions"
+  },
+  "lineage_order": [
+    "reference_tables",
+    "planned_marketing_and_context",
+    "latent_demand",
+    "realized_units",
+    "transaction_detail"
+  ],
+  "files": {
+    "source_stores": {
+      "relative_path": "silver/source_stores.parquet",
+      "rows": 190,
+      "sha256": "7e3d32d4e676766c656604ca253c4dd3be74fab97f0aa891ad77cb8358643073"
+    },
+    "source_brands": {
+      "relative_path": "silver/source_brands.parquet",
+      "rows": 36,
+      "sha256": "51ac3b56a1a9a48a7bfb3ebac499f44f34178af28328d94667352afe5ae54679"
+    },
+    "source_transactions": {
+      "relative_path": "silver/source_transactions.parquet",
+      "rows": 171741,
+      "sha256": "65866a39dfdc0978cfc6ce9ddaf36a19702b84f6e7409ba4dfcfc6b1b675fb69"
+    },
+    "sim_marketing_plan": {
+      "relative_path": "auxiliary/sim_marketing_plan.parquet",
+      "rows": 2160,
+      "sha256": "740bb2440605f69818da8b1c388bef9a161eab7f33768c8f4c61b92761f3a1ac"
+    },
+    "sim_market_context": {
+      "relative_path": "auxiliary/sim_market_context.parquet",
+      "rows": 720,
+      "sha256": "ef11de60ba930f3654786908e7f1306cd583529cbf2fef14eeed1d7a614fcb5a"
+    }
+  },
+  "ground_truth_sha256": "cd5b0b457da6f5c32669f5dd7d449019bb3d2e8131e55e45420f539fb1ebae5c"
+}

@@ -9,5 +9,8 @@ dist/
 modeling/.uv-cache/
 modeling/.uv-python/
 modeling/.venv/
+modeling/.ipython/
+modeling/.jupyter-runtime/
 web/.npm-cache/
 *.nc
+data/silver/source_transactions.parquet

@@ -5,6 +5,10 @@ from pathlib import Path
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 DATA_DIR = REPOSITORY_ROOT / "data"
+SILVER_DIR = DATA_DIR / "silver"
+AUXILIARY_DIR = DATA_DIR / "auxiliary"
+MARTS_DIR = DATA_DIR / "marts"
+LEGACY_DIR = DATA_DIR / "legacy"
 RAW_DATA_DIR = DATA_DIR / "raw"
 PROCESSED_DATA_DIR = DATA_DIR / "processed"
 METADATA_DIR = DATA_DIR / "metadata"

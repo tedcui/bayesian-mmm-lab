@@ -1,0 +1,52 @@
+[
+  {
+    "path": "data/raw/synthetic_mmm.csv",
+    "size_bytes": 138151,
+    "sha256": "FF35F03C8CC9C624FDD252AA66619DA70D18469C013B09574FD9858E02DB0813"
+  },
+  {
+    "path": "data/processed/model_ready.csv",
+    "size_bytes": 185059,
+    "sha256": "F2701163262F5CC58388FF4F4DEFD6A89BD508BF4FAE74669BC4361A488CAEC7"
+  },
+  {
+    "path": "data/metadata/ground_truth.json",
+    "size_bytes": 399056,
+    "sha256": "E490CF9329877F0FEE9660DF920AB407190108BD8FBA37B06ADAD5D302939B05"
+  },
+  {
+    "path": "data/metadata/preprocessing.json",
+    "size_bytes": 496,
+    "sha256": "02665090E77316CF6A3F0F507AB2B40A8D288ADAAB9F7CCF5B90CE4AA65343E7"
+  },
+  {
+    "path": "data/metadata/data_dictionary.md",
+    "size_bytes": 4216,
+    "sha256": "72FE26B4D19C7769330B29819222B33BCD56B3240CBD5E11875EFFBD6B01BA64"
+  },
+  {
+    "path": "modeling/src/mmm_lab/simulate.py",
+    "size_bytes": 7638,
+    "sha256": "93D136494041FCCC15C688E4A29952EF77D1EECD3EED936A850BAEFCAAD32559"
+  },
+  {
+    "path": "modeling/src/mmm_lab/preprocess.py",
+    "size_bytes": 2226,
+    "sha256": "23FB6F406BC0405ABBB4BACB6D787E39BD46E779E07F2D46BDA471B7EFE92EF3"
+  },
+  {
+    "path": "modeling/tests/test_simulate.py",
+    "size_bytes": 2733,
+    "sha256": "5011DE7C464B4AA8705CBC628FD4E6F470925A3EE5464757E4359CCBCFE284DD"
+  },
+  {
+    "path": "modeling/tests/test_preprocess.py",
+    "size_bytes": 1921,
+    "sha256": "4754C827CF25CAD03C52A1499E58D88F382AA837A209DDD4174EBC5A9C5B8440"
+  },
+  {
+    "path": "notebooks/01_data_exploration.ipynb",
+    "size_bytes": 5009,
+    "sha256": "90E838CCACC95FB7CEF6C16BC68D60C7B2315684788343C75768674A7E178B67"
+  }
+]

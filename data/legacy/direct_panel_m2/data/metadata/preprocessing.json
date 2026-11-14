@@ -1,0 +1,18 @@
+{
+  "training_week_end": 100,
+  "scaling_scope": "pooled training rows only",
+  "controls": {
+    "price_index": {
+      "train_mean": 0.9989499745415297,
+      "train_standard_deviation": 0.027236691077730052
+    },
+    "distribution_index": {
+      "train_mean": 0.9067588764560103,
+      "train_standard_deviation": 0.01874900244444569
+    },
+    "competitor_index": {
+      "train_mean": 0.9992368827686058,
+      "train_standard_deviation": 0.03930698189608237
+    }
+  }
+}

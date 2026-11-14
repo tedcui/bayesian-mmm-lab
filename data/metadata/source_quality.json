@@ -1,0 +1,22 @@
+{
+  "schema_valid": true,
+  "transaction_lines": 171741,
+  "store_rows": 190,
+  "product_rows": 36,
+  "plan_rows": 2160,
+  "context_rows": 720,
+  "intended_segment_weeks": 720,
+  "total_sales_units": 601108,
+  "allocated_source_units": 601108,
+  "unmatched_store_lines": 0,
+  "unmatched_product_lines": 0,
+  "null_upc_lines": 0,
+  "multi_line_baskets": 63038,
+  "store_reference_rows": 190,
+  "product_reference_rows": 36,
+  "duplicate_store_keys": 0,
+  "duplicate_product_keys": 0,
+  "standard_state_fallback_stores": 20,
+  "distinct_master_store_ids": 96,
+  "distinct_master_brand_ids": 18
+}

@@ -1,127 +1,55 @@
-
 # Bayesian MMM Decision Lab
 
-## Project objective
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. The long-term product will fit real hierarchical models and show assumption-dependent contributions and budget scenarios. M2A contains the operational source simulation only; there are no fitted models or analytical frontend results.
 
-Build a production-quality portfolio web application demonstrating Bayesian hierarchical marketing mix modeling using reproducible synthetic data.
+## Current architecture
 
-The application must visualize genuine fitted model outputs, compare pooling strategies, and run valid posterior-based marketing spend scenarios.
+- Python 3.12 package in `modeling/`, managed with `uv`
+- Three simulated, source-aligned silver Parquet tables in `data/silver/`
+- Two explicitly **additional synthetic** pre-outcome sources in `data/auxiliary/`
+- Evaluation-only truth, manifest, QA report, and [source data dictionary](data/metadata/source_data_dictionary.md) in `data/metadata/`
+- React/TypeScript/Vite foundation in `web/`; its current screen is a setup placeholder
+- GitHub Actions CI for lightweight checks; no deployment is enabled
 
-## Architecture
+The exact 44 transaction, 42 store, and 19 product column inventories are documented in [the source contract](docs/SOURCE_SCHEMA_AND_ETL.md). [The modeling data contract](docs/MODELING_DATA_CONTRACT.md) describes the later source-to-mart route. [Milestone prompts](docs/CODEX_PROMPTS.md) supersede the earlier direct-panel M2.
 
-- Python modeling package with PyMC-Marketing/PyMC
-- Jupyter notebooks for exploration, estimation, and evaluation
-- React + TypeScript + Vite frontend
-- Plotly.js for interactive statistical visualizations
-- Static model exports in JSON
-- GitHub Pages hosting
-- Cloudflare Workers AI integration only in the final phase
+## Setup and generation
 
-## Development rules
-
-1. Work on one milestone at a time.
-2. Do not create fake model results or hardcode dashboard metrics.
-3. Build reusable Python functions; notebooks should import them.
-4. Use synthetic data with a fixed seed and save the true generating parameters.
-5. Implement real hierarchical partial pooling.
-6. Fit separate full-pooling and no-pooling baselines.
-7. Validate before exporting model data.
-8. Preserve units and posterior uncertainty.
-9. All scenario calculations must derive from the fitted model.
-10. Verify the current installed library API before implementing.
-11. Add tests for data generation, transformations, exports, and scenario parity.
-12. Never include client-confidential or real healthcare data.
-13. Commit completed milestones with meaningful commit messages.
-14. Do not start the next milestone until the current one passes its acceptance checks.
-
-## Statistical requirements
-
-- Segment-specific promotional response parameters
-- Shared hierarchical hyperparameters
-- Seasonality and appropriate controls
-- Adstock and saturation
-- Prior and posterior predictive checks
-- Convergence diagnostics
-- Temporal holdout evaluation
-- Parameter recovery using synthetic ground truth
-- Comparison of full, no, and partial pooling
-- Explicit uncertainty in charts and decisions
-
-## UI requirements
-
-Create independent pages:
-
-1. Overview
-2. Decomposition
-3. Segment Comparison & Partial Pooling
-4. Decision Simulator
-
-The app must be responsive, readable, and suitable for technical interviews.
-
-Display a clear "Synthetic Data" indicator.
-
-## Definition of done
-
-A milestone is complete only when:
-
-- Its required files exist
-- Relevant tests pass
-- Outputs are reproducible
-- Documentation is updated
-- The application or notebook can be executed locally
-- No placeholder statistical metrics remain in production views
-# Bayesian MMM Decision Lab
-
-M1 repository foundation for a synthetic-data Bayesian marketing mix modeling demonstration. The React screen is a setup placeholder. There are no generated observations, fitted models, diagnostics, or exported metrics yet.
-
-## Requirements
-
-- Python 3.12 and [uv](https://docs.astral.sh/uv/)
-- Node.js 24 and npm
-
-On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm`.
-
-## Local setup
-
-From `modeling/`:
+Install Python 3.12 and `uv`. From `modeling/`:
 
 ```sh
 uv sync --locked
-uv run --locked pytest
+uv run --locked mmm-generate-source
+uv run --locked pytest -q
+uv run --locked jupyter lab
 ```
 
-From `web/`:
+Open `../notebooks/00_source_simulation_and_qa.ipynb` with the kernel at `modeling/.venv/Scripts/python.exe` on Windows. The notebook imports `mmm_lab` and reads generated sources. It contains no model fitting or ETL. On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm` for frontend commands. The frontend foundation still uses `npm ci`, `npm run typecheck`, `npm test`, and `npm run build` from `web/`.
 
-```sh
-npm ci
-npm run dev
-npm run typecheck
-npm test
-npm run build
-npm run preview
-```
+The default seed is `20261113`. Six business regions—Northeast, Southeast, Great Lakes, South Central, Mountain West, and Pacific Coast—are derived from store geography. Their exact state mapping and stable `segment_id` values are in the [source data dictionary](data/metadata/source_data_dictionary.md). There are 120 Monday weeks from 2023-01-02, 190 stores, 36 submitted product records, 171,741 transaction details, 2,160 segment-week-channel marketing plans, and 720 segment-week context rows. The 601,108 allocated transaction units match the known synthetic demand targets exactly. Transaction detail is generated **after** planned campaigns, context, and latent demand. Receipt discounts are observations, not planned marketing budgets.
 
-The Vite build uses `/bayesian-mmm-lab/` as its GitHub Pages base path. The frontend build reads static assets only; it does not run Python or fit a model. `ci.yml` runs Python and frontend checks on pushes and pull requests. Deployment remains disabled until the release milestone.
+For fast development tests, `SimulationConfig(weeks=4, unit_scale=0.1)` reduces the quantity of generated detail while preserving the full source schemas. The CLI uses the default configuration. `source_manifest.json` includes file checksums, schema hash, generation order, and simulation-only field semantics. `source_quality.json` records schema, reference, key, and unit-reconciliation checks.
 
-## Repository and artifact policy
+## Archived previous M2
 
-`modeling/src/mmm_lab/` is the installable Python package. `paths.py` resolves repository paths from the package location, independent of the caller's working directory. Root-level notebooks will use this package in later milestones. `web/` contains the React/TypeScript/Vite shell. `worker/` is reserved for the optional final phase.
+The earlier M2 built `synthetic_mmm.csv` and `model_ready.csv` directly. Those files, their generator, preprocessor, tests, notebook, and metadata are preserved under [data/legacy/direct_panel_m2](data/legacy/direct_panel_m2/README.md) with an SHA256 archive manifest. The active direct-panel files and CLI were retired. That route is historical and must not feed the later model.
 
-The `data/`, `modeling/artifacts/`, and `web/public/model-data/` directories contain only `.gitkeep` files in M1. Later milestones will generate and validate their contents. Keep compact synthetic datasets, metadata, versioned frontend exports, notebooks without large outputs, and both lockfiles in Git. Ignore large posterior NetCDF files, local environments, caches, and build output. Ground truth is reserved for evaluation and must never become a model feature.
+M2A does **not** produce a mart or `model_ready` dataset. M2B is the next milestone: validate/enrich the source tables, aggregate transaction quantities to segment-week, join independently planned spend and pre-outcome context, reconcile units, then create the leakage-safe panel. The active `01_data_exploration.ipynb` is reserved for that ETL result.
 
-## M1 verification (2026-11-13)
+## Reproducibility and artifact policy
 
-| Command | Result |
-|---|---|
-| `uv sync --locked` | Passed with Python 3.12.13; 7 packages resolved |
-| `uv run --locked pytest -q` | Passed; 1 test |
-| `npm ci` | Passed; 44 packages installed from lockfile |
-| `npm run typecheck` | Passed |
-| `npm test` | Passed; 1 test |
-| `npm run build` | Passed; Vite production output created in `web/dist/` |
+`modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. The generated source files, truth, manifest, QA report, compact auxiliary files, and archival material are reviewable locally. Large generated transaction Parquet and temporary Python/frontend build files are ignored by Git; regenerate the source with the CLI. No full MCMC runs in ordinary CI.
 
-The first frontend typecheck found a missing Vite CSS type declaration. Adding Vite client types to `tsconfig.json` resolved it; the table records the successful rerun. Local checks do not verify the hosted GitHub Actions runner or deployment.
+The fixed synthetic equations, complete references, and known truth make engineering checks possible but simplify real observational marketing data. Correlated campaigns, promotion-linked price changes, imperfect targeting, unknown source semantics, and possible missing or revised records limit later causal interpretation. The truth file is evaluation-only and must never become a model feature. No public source data or deployment has been created.
 
-## Next milestone
+## Verification
 
-M2 generates the deterministic synthetic dataset, data dictionary, and exploration notebook, with schema and reconstruction tests. Model fitting starts in M3.
+| Milestone | Command | Result |
+|---|---|---|
+| M1 | `uv sync --locked`; `uv run --locked pytest -q` | Passed; 1 foundation test |
+| M1 | `npm ci`; `npm run typecheck`; `npm test`; `npm run build` | Passed at foundation milestone |
+| M2A | `uv run --locked mmm-generate-source` | Passed; row counts above and SHA256 checksums in source manifest |
+| M2A | `uv run --locked pytest -q` | Passed; 11 tests |
+| M2A | Notebook execution | Passed; all 6 code cells executed |
+
+M2A checks are local. They do not establish that a model fits, that source-based estimates are causal, or that a public website is live.
