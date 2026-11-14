@@ -71,7 +71,11 @@ From `web/`, run `npm ci` and `npm run dev`, then open the local Vite address. T
 - **Decomposition** displays posterior mean baseline and three modeled channel contributions, a selectable channel's weekly 90% *credible* interval, and observed = expected + residual reconciliation. Model-based contributions depend on assumptions and are not experimentally proven lift.
 - **Segment Comparison** shows the three fitted pooling specifications, their 90% parameter intervals, holdout and known-truth recovery summaries, and an optional synthetic-truth overlay. The selected region is a focus for explaining partial pooling. Its effects were fitted on the fixed 100-week training window; date filters do not refit coefficients.
 
-The weekly charts use one region at a time because the export has per-region weekly uncertainty, not draw-first all-region weekly intervals. For exact full, training or holdout windows, the app can display exported draw-first total credible intervals. For a custom date range it shows sums of weekly means and omits a total interval; percentile endpoints cannot be summed. Holdout predictions are conditional on planned spend and pre-outcome context, not ex-ante forecasts. Correlated promotions and targeting limit causal interpretation even in this synthetic demonstration. The decision simulator remains a later milestone.
+The weekly charts use one region at a time because the export has per-region weekly uncertainty, not draw-first all-region weekly intervals. For exact full, training or holdout windows, the app can display exported draw-first total credible intervals. For a custom date range it shows sums of weekly means and omits a total interval; percentile endpoints cannot be summed. Holdout predictions are conditional on planned spend and pre-outcome context, not ex-ante forecasts. Correlated promotions and targeting limit causal interpretation even in this synthetic demonstration. The decision simulator page remains a later milestone.
+
+## M6A reference scenario engine
+
+Python and TypeScript now evaluate paired 12-week planned-spend alternatives from the **same 96 fitted partial-pooling draws**. They carry forward all 108 prior weeks of adstock, apply the exact M3 Hill transformation and fixed controls, and return expected-unit and channel differences with 90% parameter credible intervals. The spend-pattern scaling helper adjusts each channel's existing weekly plan. Support flags identify proposals beyond training or observed spending maxima. No simulator page or optimizer is included in M6A. See the [scenario engine contract](docs/SCENARIO_ENGINE.md) for equations, units, fixture regeneration and limitations.
 
 ## Reproducibility and artifact policy
 
@@ -99,5 +103,6 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M4 | `uv run --offline --locked pytest -q` | Passed; 32 tests |
 | M4 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 4 frontend tests and static build |
 | M5 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 8 frontend tests across 3 files and static build |
+| M6A | `uv run --offline --locked pytest -q`; `npm.cmd ci`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | 38 Python and 12 frontend tests passed; 96-draw paired parity and baseline reconstruction passed |
 
 These local checks do not establish causal promotion effects or a live public website. No public deployment has occurred.
