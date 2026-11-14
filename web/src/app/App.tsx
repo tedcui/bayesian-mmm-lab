@@ -5,13 +5,15 @@ import { dateLabel } from '../lib/format'
 import { Overview } from '../pages/Overview'
 import { Decomposition } from '../pages/Decomposition'
 import { Segments } from '../pages/Segments'
+import { Simulator } from '../pages/Simulator'
 import type { ModelDataBundle } from '../types/modelData'
 
-type Page = 'overview' | 'decomposition' | 'segments'
+type Page = 'overview' | 'decomposition' | 'segments' | 'simulator'
 const nav: { id: Page; label: string; detail: string }[] = [
   { id: 'overview', label: 'Overview', detail: 'Sales & spend' },
   { id: 'decomposition', label: 'Decomposition', detail: 'Modeled drivers' },
   { id: 'segments', label: 'Segment comparison', detail: 'Pooling effects' },
+  { id: 'simulator', label: 'Decision simulator', detail: '12-week replay' },
 ]
 
 function pageFromHash(): Page {
@@ -91,17 +93,18 @@ export function App() {
               <h1>{selected.label}</h1>
               <p className="lead">{page === 'overview' ? 'Observed demand and model predictions across the retail calendar.'
                 : page === 'decomposition' ? 'How the fitted reference model allocates expected units across baseline and planned channels.'
-                  : 'How complete, independent, and hierarchical pooling estimate channel response.'}</p></div>
+                  : page === 'segments' ? 'How complete, independent, and hierarchical pooling estimate channel response.'
+                    : 'Replay a 12-week planned-spend alternative using paired fitted posterior draws.'}</p></div>
             <div className="export-badge"><span className="status-dot" /> VERIFIED EXPORT <small>{bundle.manifest.schema_version}</small></div>
           </div>
           <section className="filter-panel" aria-label="Analysis filters">
-            <div className="filter-heading"><strong>VIEW CONTROLS</strong><span>{page === 'segments' ? 'Region focus · fitted on weeks 1–100' : 'Select a region and calendar window'}</span></div>
+            <div className="filter-heading"><strong>VIEW CONTROLS</strong><span>{page === 'segments' ? 'Region focus · fitted on weeks 1–100' : page === 'simulator' ? 'Region focus · fixed 12-week replay' : 'Select a region and calendar window'}</span></div>
             <div className="filter-grid">
               <label>Business region<select aria-label="Business region" value={filter.segmentId}
                 onChange={event => setFilter({ ...filter, segmentId: event.target.value })}>
                 {bundle.manifest.segments.map(id => <option value={id} key={id}>{regionLabel(id)}</option>)}
               </select></label>
-              {page !== 'segments' && <>
+              {page !== 'segments' && page !== 'simulator' && <>
                 <label>From week<select aria-label="From week" value={filter.startWeek}
                   onChange={event => setFilter({ ...filter, startWeek: event.target.value,
                     endWeek: event.target.value > filter.endWeek ? event.target.value : filter.endWeek })}>
@@ -116,10 +119,12 @@ export function App() {
               <div className="filter-meta"><span>REFERENCE FIT</span><strong>Hierarchical partial pooling</strong></div>
             </div>
             {page === 'segments' && <p className="filter-note">The region selector highlights a comparison row. Channel effects are fitted over the fixed training window, so changing a weekly date range cannot refit them.</p>}
+            {page === 'simulator' && <p className="filter-note">The replay uses the exported final 12 holdout weeks. Region changes reset the spending controls and budget search.</p>}
           </section>
           {page === 'overview' && <Overview bundle={bundle} filter={filter} />}
           {page === 'decomposition' && <Decomposition bundle={bundle} filter={filter} />}
           {page === 'segments' && <Segments bundle={bundle} filter={filter} />}
+          {page === 'simulator' && <Simulator key={filter.segmentId} bundle={bundle} segmentId={filter.segmentId} />}
           <footer className="page-footer">
             <p>{bundle.manifest.disclosure}. Six segments are business-defined regions from store geography, not clustering output.</p>
             <p>Version {bundle.manifest.schema_version} · Bundle {bundle.manifest.bundle_id.slice(0, 12)} · Weekly intervals use fitted synthetic data.</p>

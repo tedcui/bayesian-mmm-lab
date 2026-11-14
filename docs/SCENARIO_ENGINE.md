@@ -1,6 +1,6 @@
-# M6A scenario engine contract
+# M6 scenario engine and decision simulator contract
 
-M6A implements the **reference calculation only**. The decision simulator page and optimizer are M6B. The engine consumes the hash-checked M4 `manifest.json` and `simulator.json`; TypeScript callers use the existing `loadModelData()`/`validateModelDataBundle()` first. No MCMC runs in Python scenario evaluation or the browser.
+M6A implements the reference calculation; M6B adds the decision simulator page and bounded fixed-budget search. The engine consumes the hash-checked M4 `manifest.json` and `simulator.json`; TypeScript callers use the existing `loadModelData()`/`validateModelDataBundle()` first. No MCMC runs in Python scenario evaluation or the browser.
 
 ## Inputs and units
 
@@ -19,6 +19,16 @@ The result contains all 96 paired draw totals, 12-week total planned USD by chan
 Each plan reports weekly counts above the region/channel **training maximum** and above the **maximum observed in all 120 weeks**. Zero is the documented minimum. The engine accepts finite nonnegative proposed USD values above support and flags them explicitly; it does not silently clip them. Such scenarios are outside observed support and should not be treated as credible causal extrapolations. Negative, nonfinite, malformed, missing-history, mixed-version or mismatched-bundle inputs fail.
 
 The baseline and alternatives replay known holdout plans and fixed pre-outcome context. They are **conditional historical model calculations**, not prospective forecasts, experiment-validated incremental lift, profit or ROI. The M3 partial-pooling reference has weak effect identification in some region/channel cells; no pooling covered 17/18 known synthetic effects in 90% intervals versus 15/18 for partial pooling. That limitation applies to any scenario interpretation.
+
+## M6B browser controls and optimization
+
+Open `#/simulator` in the local Vite app. Choose a business region. Three accessible range controls initially read 100% and set `proposed_spend[t,c] = exported_baseline_spend[t,c] × control_percent[c]/100` for each of the 12 holdout weeks. Reset restores all multipliers to one, and changing regions resets the page. The fixed 108-week spend history and 12-week context never change. The page shows the same M6A paired expected-unit summaries, channel differences and planned USD totals; displayed quantities are rounded only after the engine has calculated full-precision values. The 90% credible intervals describe expected-unit parameter uncertainty from 96 jointly indexed posterior draws, excluding future-observation noise.
+
+The manual controls may exceed support. The page reports the number of weeks above the training maximum and, separately, above the maximum observed across all 120 weeks. Above-observed spending is explicitly marked unsupported. The optimizer enforces each region/channel's exported `min_usd = 0` and `max_usd` **per week**. Its upper channel-total bound is the original 12-week channel total multiplied by `min_t(max_usd[c] / baseline_spend[t,c])` over positive baseline weeks. This preserves the original within-channel weekly profile and prevents a large original week from crossing its cap. Zero-baseline channels cannot receive spend under this fixed-profile rule.
+
+The requested optimizer budget is an absolute USD total over all three channels and all 12 weeks. Feasibility requires `0 ≤ budget ≤ sum_c(channel_total_cap[c])`; an impossible budget is reported without an allocation. Starting from capped baseline proportions, a deterministic bounded pairwise-transfer search moves dollars between channels, accepting only changes that improve the **mean paired incremental expected units** from `evaluateScenario`. Each transfer preserves the total. Five descending transfer sizes provide local refinement; the search is a heuristic and does **not** certify global optimality. It reports channels at zero or their caps, the allocated total, 90% credible interval, and comparison to the original baseline. Applied optimizer allocations convert back to channel multipliers and use the same manual scenario engine. A search can remain above training support even while meeting observed caps; the UI says so.
+
+The source lineage is M2A simulated transaction/store/item references plus independent pre-outcome synthetic marketing plans and context → M2B reconciled mart → M3 partial-pooling posterior → checksum-validated M4 browser export → M6A exact replay → M6B controls/search. Synthetic known truth is evaluation-only and is never used by the optimizer. The app makes no causal, profit, or ROI recommendation.
 
 ## Reproduce and verify
 

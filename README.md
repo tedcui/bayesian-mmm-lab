@@ -61,7 +61,7 @@ Holdout accuracy does **not** establish channel identification. The partial mode
 
 `mmm-export` checks source, ETL, model-input, fit, evaluation, and posterior hashes before writing five static JSON files. `overview.json` and `contributions.json` cover all 720 segment-weeks and 21 draw-first aggregates. `segments.json` compares all three fitted specifications against simulation truth. `simulator.json` carries 96 jointly indexed partial-pooling draws, exact transformation parameters, prior spend history, a 12-week holdout replay plan, fixed controls, and spend support bounds. The four data payloads total **1,501,691 bytes** before compression; no transaction details or full posterior files are public. See the [export contract](docs/EXPORT_CONTRACT.md) for schemas and interval semantics.
 
-Partial pooling is a labeled educational reference for the weekly export, **not** the statistically best recovered segment-effect model. The exported comparison shows no pooling's stronger coefficient recovery. Expected-sales credible intervals and future-observation predictive intervals are separate. The simulator plan is a conditional historical replay, not an unconditional forecast; no scenario engine is implemented yet.
+Partial pooling is a labeled educational reference for the weekly export, **not** the statistically best recovered segment-effect model. The exported comparison shows no pooling's stronger coefficient recovery. Expected-sales credible intervals and future-observation predictive intervals are separate. The simulator plan is a conditional historical replay, not an unconditional forecast; M6 uses its fitted posterior draws in the browser.
 
 ## M5 analytical dashboard
 
@@ -71,11 +71,17 @@ From `web/`, run `npm ci` and `npm run dev`, then open the local Vite address. T
 - **Decomposition** displays posterior mean baseline and three modeled channel contributions, a selectable channel's weekly 90% *credible* interval, and observed = expected + residual reconciliation. Model-based contributions depend on assumptions and are not experimentally proven lift.
 - **Segment Comparison** shows the three fitted pooling specifications, their 90% parameter intervals, holdout and known-truth recovery summaries, and an optional synthetic-truth overlay. The selected region is a focus for explaining partial pooling. Its effects were fitted on the fixed 100-week training window; date filters do not refit coefficients.
 
-The weekly charts use one region at a time because the export has per-region weekly uncertainty, not draw-first all-region weekly intervals. For exact full, training or holdout windows, the app can display exported draw-first total credible intervals. For a custom date range it shows sums of weekly means and omits a total interval; percentile endpoints cannot be summed. Holdout predictions are conditional on planned spend and pre-outcome context, not ex-ante forecasts. Correlated promotions and targeting limit causal interpretation even in this synthetic demonstration. The decision simulator page remains a later milestone.
+The weekly charts use one region at a time because the export has per-region weekly uncertainty, not draw-first all-region weekly intervals. For exact full, training or holdout windows, the app can display exported draw-first total credible intervals. For a custom date range it shows sums of weekly means and omits a total interval; percentile endpoints cannot be summed. Holdout predictions are conditional on planned spend and pre-outcome context, not ex-ante forecasts. Correlated promotions and targeting limit causal interpretation even in this synthetic demonstration. The decision simulator is described below.
 
 ## M6A reference scenario engine
 
 Python and TypeScript now evaluate paired 12-week planned-spend alternatives from the **same 96 fitted partial-pooling draws**. They carry forward all 108 prior weeks of adstock, apply the exact M3 Hill transformation and fixed controls, and return expected-unit and channel differences with 90% parameter credible intervals. The spend-pattern scaling helper adjusts each channel's existing weekly plan. Support flags identify proposals beyond training or observed spending maxima. No simulator page or optimizer is included in M6A. See the [scenario engine contract](docs/SCENARIO_ENGINE.md) for equations, units, fixture regeneration and limitations.
+
+## M6B decision simulator
+
+From `web/`, run `npm ci` and `npm run dev`, then open `#/simulator`. Choose a region and move any of the three planned-spend controls; each starts at 100% of that channel's exported 12-week plan and scales its **weekly** values. Reset restores the baseline. The page compares baseline and alternative expected sales with posterior means and central 90% credible intervals, paired incremental expected units, each channel's modeled response change, and exact 12-week planned USD totals. Its chart and warnings explain uncertainty and spending outside training or observed support.
+
+Enter a single absolute 12-week USD budget to search for an allocation across channels. The bounded local search evaluates each candidate with the same 96-draw scenario engine, preserves each channel's original weekly spend profile, and caps every week at the exported observed maximum. It reports infeasibility and boundary allocations; it does not claim a global optimum. The objective is modeled incremental expected **units**, not profit or ROI. This is a conditional historical replay under fixed controls, not an ex-ante forecast or experimentally identified causal lift. The partial-pooling reference covered 15/18 known synthetic coefficients versus 17/18 for no pooling. See [the M6 contract](docs/SCENARIO_ENGINE.md) for the equations, support rules, provenance and validation.
 
 ## Reproducibility and artifact policy
 
@@ -104,5 +110,6 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M4 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 4 frontend tests and static build |
 | M5 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 8 frontend tests across 3 files and static build |
 | M6A | `uv run --offline --locked pytest -q`; `npm.cmd ci`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | 38 Python and 12 frontend tests passed; 96-draw paired parity and baseline reconstruction passed |
+| M6B | `uv run --offline --locked --no-sync pytest -q` with a temporary `UV_CACHE_DIR`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | 38 Python and 16 frontend tests passed; 96-draw parity, UI reset, budget feasibility, spend-cap checks, and static build passed |
 
 These local checks do not establish causal promotion effects or a live public website. No public deployment has occurred.
