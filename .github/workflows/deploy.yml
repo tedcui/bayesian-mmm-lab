@@ -1,1 +1,58 @@
-# Placeholder: define deployment jobs when the project is implemented.
+# Preparation only: no push trigger. Publishing requires an authorized manual run
+# from main and a protected github-pages environment in repository settings.
+name: Deploy validated site to GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install locked frontend dependencies
+        run: npm ci
+        working-directory: web
+      - name: Verify committed export hashes
+        run: npm run validate:public
+        working-directory: web
+      - name: Check TypeScript and browser parity
+        run: npm run typecheck && npm test
+        working-directory: web
+      - name: Build static site
+        run: npm run build
+        working-directory: web
+      - name: Verify Pages artifact and repository base
+        run: npm run validate:dist
+        working-directory: web
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

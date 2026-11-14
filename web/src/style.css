@@ -7,6 +7,8 @@ button, select, input { font: inherit; }
 button, select { cursor: pointer; }
 button:focus-visible, select:focus-visible, a:focus-visible, input:focus-visible, .info-tip:focus-visible { outline: 3px solid #52b6bd; outline-offset: 2px; }
 .app-shell { display: flex; min-height: 100vh; }
+.skip-link { position: absolute; z-index: 100; left: 14px; top: -60px; background: #fff; color: #135f6b; border: 2px solid #135f6b; border-radius: 6px; padding: 9px 12px; font-weight: 700; }
+.skip-link:focus { top: 10px; }
 .sidebar { width: 244px; flex: 0 0 244px; position: sticky; top: 0; height: 100vh; background: #142a39; color: #eaf2f2; display: flex; flex-direction: column; padding: 26px 15px 22px; }
 .brand { display: flex; align-items: center; gap: 12px; padding: 2px 13px 38px; }
 .brand strong { display: block; font-size: 15px; letter-spacing: -.02em; }

@@ -1,6 +1,6 @@
 # Bayesian MMM Decision Lab
 
-A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results; M5 presents those results in an interactive analytical dashboard.
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results; M5–M6 present them in a four-page analytical dashboard and conditional decision simulator. M7 prepares local release checks and a manual Pages workflow; no site has been published.
 
 ## Current architecture
 
@@ -11,14 +11,14 @@ A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fit
 - Reconciled 720-row segment-week mart, leakage-safe model projection, [ETL dictionary](data/metadata/etl_data_dictionary.md), and QA/lineage reports
 - Three PyMC posterior fits, [model specification](docs/MODEL_SPECIFICATION.md), and [evaluation report](modeling/artifacts/evaluation.json)
 - Versioned, lineage-checked [M4 browser exports](docs/EXPORT_CONTRACT.md) in `web/public/model-data/`
-- React/TypeScript/Vite, Plotly and Tailwind analytical dashboard in `web/`, with Overview, Decomposition and Segment Comparison pages
-- GitHub Actions CI for lightweight checks; no deployment is enabled
+- React/TypeScript/Vite, Plotly and Tailwind analytical dashboard in `web/`, with Overview, Decomposition, Segment Comparison and Decision Simulator pages
+- GitHub Actions CI for locked checks and a manual-only Pages workflow; no deployment has run
 
 The exact 44 transaction, 42 store, and 19 product column inventories are documented in [the source contract](docs/SOURCE_SCHEMA_AND_ETL.md). [The modeling data contract](docs/MODELING_DATA_CONTRACT.md) describes the later source-to-mart route. [Milestone prompts](docs/CODEX_PROMPTS.md) supersede the earlier direct-panel M2.
 
 ## Setup and generation
 
-Install Python 3.12 and `uv`. From `modeling/`:
+Install Python 3.12 and `uv`. From `modeling/`, the full regeneration sequence is:
 
 ```sh
 uv sync --locked
@@ -32,6 +32,8 @@ uv run --locked jupyter lab
 ```
 
 Open the notebooks in `../notebooks/` with the kernel at `modeling/.venv/Scripts/python.exe` on Windows. Notebook 02 inspects the saved fits and can call `fit_models()` if artifacts are absent; notebook 03 evaluates them. A full fit takes several minutes and does not run during normal CI or frontend builds. On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm` for frontend commands.
+
+The committed browser export lets you run the dashboard without fitting MCMC. From `web/`, run `npm ci`, `npm run validate:public`, `npm test`, and `npm run dev`; open the Vite URL ending in `/bayesian-mmm-lab/`. The project uses `uv` and npm lockfiles; there is no Makefile.
 
 The default seed is `20261113`. Six business regions—Northeast, Southeast, Great Lakes, South Central, Mountain West, and Pacific Coast—are derived from store geography. Their exact state mapping and stable `segment_id` values are in the [source data dictionary](data/metadata/source_data_dictionary.md). There are 120 Monday weeks from 2023-01-02, 190 stores, 36 submitted product records, 171,741 transaction details, 2,160 segment-week-channel marketing plans, and 720 segment-week context rows. The 601,108 allocated transaction units match the known synthetic demand targets exactly. Transaction detail is generated **after** planned campaigns, context, and latent demand. Receipt discounts are observations, not planned marketing budgets.
 
@@ -83,6 +85,12 @@ From `web/`, run `npm ci` and `npm run dev`, then open `#/simulator`. Choose a r
 
 Enter a single absolute 12-week USD budget to search for an allocation across channels. The bounded local search evaluates each candidate with the same 96-draw scenario engine, preserves each channel's original weekly spend profile, and caps every week at the exported observed maximum. It reports infeasibility and boundary allocations; it does not claim a global optimum. The objective is modeled incremental expected **units**, not profit or ROI. This is a conditional historical replay under fixed controls, not an ex-ante forecast or experimentally identified causal lift. The partial-pooling reference covered 15/18 known synthetic coefficients versus 17/18 for no pooling. See [the M6 contract](docs/SCENARIO_ENGINE.md) for the equations, support rules, provenance and validation.
 
+## M7 local release preparation and hosting
+
+The four hash routes are `#/overview`, `#/decomposition`, `#/segments`, and `#/simulator`. The Vite base is `/bayesian-mmm-lab/`, so the local preview and intended GitHub Pages project URL use that subpath. From `web/`, run `npm ci`, `npm run validate:public`, `npm run typecheck`, `npm test`, `npm run build`, and `npm run validate:dist`; then `npm run preview` to inspect the built site. The release validator checks the exact five committed JSON files, manifest hashes, the approved posterior subset, the Pages asset paths, and unexpected or sensitive artifact files. CI runs Python source-generation/ETL tests and these frontend gates without refitting the Bayesian models.
+
+The Pages workflow in `.github/workflows/deploy.yml` is **manual only** and accepts `main` only. It validates committed M4 exports, tests and builds the static site, then uses the protected `github-pages` environment. No Git remote is configured in this checkout, and neither Pages settings nor a deployment has been changed. Before any public push, review the [source metadata and release findings](docs/PUBLIC_RELEASE_REVIEW.md) and explicitly approve the publication scope. Then set **Settings → Pages → Build and deployment → Source: GitHub Actions**, require a reviewer and restrict `github-pages` to `main` under **Settings → Environments**, run the workflow manually after passing CI, and verify all four pages on the actual GitHub Pages URL. A connected visual browser was unavailable during M7, so desktop/mobile inspection remains a release check.
+
 ## Reproducibility and artifact policy
 
 `modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. Large generated transaction, enriched-fact, and posterior NetCDF files and temporary Python/frontend build files are ignored by Git; regenerate them with the CLIs. Compact fit/evaluation JSON and notebooks without saved outputs are reviewable. Fixed RNG seeds and input hashes support reproducibility; platform-level MCMC bitwise identity is not promised. No full MCMC runs in ordinary CI.
@@ -111,5 +119,6 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M5 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 8 frontend tests across 3 files and static build |
 | M6A | `uv run --offline --locked pytest -q`; `npm.cmd ci`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | 38 Python and 12 frontend tests passed; 96-draw paired parity and baseline reconstruction passed |
 | M6B | `uv run --offline --locked --no-sync pytest -q` with a temporary `UV_CACHE_DIR`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | 38 Python and 16 frontend tests passed; 96-draw parity, UI reset, budget feasibility, spend-cap checks, and static build passed |
+| M7 | `uv sync --offline --locked`; `uv run --locked mmm-generate-source`; `uv run --locked mmm-build-mart`; `uv run --locked pytest -q`; `npm.cmd ci`; `npm.cmd run validate:public`; `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build`; `npm.cmd run validate:dist` | 38 Python and 16 frontend tests passed; source/ETL reconciliation, export/artifact hashes and Pages subpath passed; visual browser QA pending |
 
 These local checks do not establish causal promotion effects or a live public website. No public deployment has occurred.

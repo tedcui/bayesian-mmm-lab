@@ -47,6 +47,8 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
   </section>
 
   const result = calculation.result
+  const partialEffects = bundle.segments.effects.filter(effect => effect.pooling === 'partial')
+  const noPoolingEffects = bundle.segments.effects.filter(effect => effect.pooling === 'none')
   const horizon = prepared.simulator.horizon_week_starts
   const spendDelta = result.alternative_spend_usd.total - result.baseline_spend_usd.total
   const warningChannels = channelOrder.filter(channel => result.alternative_support.by_channel[channel].above_training_max_weeks > 0)
@@ -182,6 +184,6 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
     <p className="method-note"><strong>How to read this.</strong> Geometric adstock carries earlier planned spend into later weeks; Hill saturation makes each additional dollar less responsive at higher spend.
       These 90% intervals describe parameter uncertainty in conditional expected sales from a subset of {result.draw_count} jointly indexed draws, excluding observation noise.
       Results depend on observational identification assumptions and are not demonstrated causal lift, profit, or ROI.
-      In synthetic truth recovery, partial pooling covered 15/18 effects versus 17/18 for no pooling; the partial model is an educational reference, not a proven best effect model.</p>
+      In synthetic truth recovery, partial pooling covered {partialEffects.filter(effect => effect.interval_contains_truth).length}/{partialEffects.length} effects versus {noPoolingEffects.filter(effect => effect.interval_contains_truth).length}/{noPoolingEffects.length} for no pooling; the partial model is an educational reference, not a proven best effect model.</p>
   </div>
 }

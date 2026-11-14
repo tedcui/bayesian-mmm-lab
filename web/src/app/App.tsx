@@ -54,6 +54,10 @@ export function App() {
   const selected = nav.find(item => item.id === page)!
 
   return <div className="app-shell">
+    <a className="skip-link" href="#main-content" onClick={event => {
+      event.preventDefault()
+      document.getElementById('main-content')?.focus()
+    }}>Skip to main content</a>
     <aside className="sidebar" aria-label="Main navigation">
       <div className="brand">
         <div className="brand-symbol" aria-hidden="true"><span /><span /><span /></div>
@@ -79,7 +83,7 @@ export function App() {
         <div className="breadcrumb">ANALYSIS <span>/</span> {selected.label.toUpperCase()}</div>
         <div className="topbar-pill">SYNTHETIC DATA <span>·</span> ILLUSTRATIVE RESULTS</div>
       </header>
-      <main id="main-content" className="main-content">
+      <main id="main-content" className="main-content" tabIndex={-1}>
         {loading && <div className="state-panel" role="status"><div className="loading-ring" />
           <h1>Loading validated model results</h1><p>Checking the versioned export bundle and its file hashes.</p></div>}
         {!loading && error && <div className="state-panel" role="alert">
@@ -127,7 +131,9 @@ export function App() {
           {page === 'simulator' && <Simulator key={filter.segmentId} bundle={bundle} segmentId={filter.segmentId} />}
           <footer className="page-footer">
             <p>{bundle.manifest.disclosure}. Six segments are business-defined regions from store geography, not clustering output.</p>
-            <p>Version {bundle.manifest.schema_version} · Bundle {bundle.manifest.bundle_id.slice(0, 12)} · Weekly intervals use fitted synthetic data.</p>
+            <p>Holdout scenarios are conditional historical replays, not prospective forecasts. Channel contributions are model-based and not experimentally identified causal lift. The partial-pooling model covered {bundle.segments.effects.filter(effect => effect.pooling === 'partial' && effect.interval_contains_truth).length}/{bundle.segments.effects.filter(effect => effect.pooling === 'partial').length} known synthetic effects in 90% intervals, versus {bundle.segments.effects.filter(effect => effect.pooling === 'none' && effect.interval_contains_truth).length}/{bundle.segments.effects.filter(effect => effect.pooling === 'none').length} for no pooling.</p>
+            <p>90% credible intervals describe fitted expected outcomes or effects; 90% predictive intervals also include modeled observation noise.</p>
+            <p>Version {bundle.manifest.schema_version} · Bundle {bundle.manifest.bundle_id.slice(0, 12)} · Model intervals use fitted synthetic data.</p>
           </footer>
         </>}
       </main>

@@ -37,6 +37,7 @@ describe('M5 analytical UI', () => {
     expect(screen.getByText((_, element) => element?.tagName === 'P' &&
       (element.textContent?.includes('90% predictive interval includes modeled observation noise') ?? false))).toBeTruthy()
     expect(screen.getByText(/business-defined regions from store geography/)).toBeTruthy()
+    expect(screen.getByText(/90% credible intervals describe fitted expected outcomes/)).toBeTruthy()
 
     fireEvent.change(screen.getByLabelText('Business region'), { target: { value: 'mountain_west' } })
     fireEvent.change(screen.getByLabelText('From week'), { target: { value: manifest.dates.first_holdout_week } })
@@ -56,6 +57,9 @@ describe('M5 analytical UI', () => {
     expect(screen.getByText(/not experimentally established causal lift/)).toBeTruthy()
     fireEvent.click(screen.getByRole('link', { name: /Segment comparison/ }))
     await screen.findByRole('heading', { name: 'What pooling changes' })
+    fireEvent.click(screen.getByRole('link', { name: 'Skip to main content' }))
+    expect(window.location.hash).toBe('#/segments')
+    expect(document.activeElement?.id).toBe('main-content')
     expect(screen.getAllByText('Complete pooling').length).toBeGreaterThan(0)
     expect(screen.getAllByText('No pooling').length).toBeGreaterThan(0)
     expect(screen.getAllByText('Partial pooling').length).toBeGreaterThan(0)

@@ -205,7 +205,7 @@ The simulator uses a 12-week horizon, planned marketing spend (not realized disc
 
 ## CI, deployment and optional AI (M7–M8)
 
-CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend typecheck/test/build. **No full MCMC on every push.** M7 deploys prevalidated frontend data to GitHub Pages at `/bayesian-mmm-lab/`, with appropriate static routing; no deployment without approval. Optional M8 Cloudflare Workers AI uses grounded exported summaries, does not invent numbers or refit models, applies request validation and safe key management, and always leaves the dashboard usable if AI is unavailable.
+CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend typecheck/test/build. **No full MCMC on every push.** M7 prepares a manual GitHub Pages workflow for `/bayesian-mmm-lab/`, with appropriate static routing; no deployment without approval. Optional M8 Cloudflare Workers AI uses grounded exported summaries, does not invent numbers or refit models, applies request validation and safe key management, and always leaves the dashboard usable if AI is unavailable.
 
 ## Milestone status and required sequence
 
@@ -214,10 +214,10 @@ CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend type
 - **M2A COMPLETE** — Three source-aligned tables and separate auxiliary context/spend sources are generated and validated.
 - **M2B COMPLETE** — ETL generates the reconciled segment-week mart and `model_ready` panel.
 - **M3 COMPLETE WITH IDENTIFICATION LIMITATIONS** — Three fitted specifications and evaluation exist; weak segment/channel recovery is documented and must remain visible in later exports.
-- **M4 COMPLETE** — Versioned fitted-model exports, TypeScript contracts, and validation exist; the dashboard awaits M5.
-- **M5** — Build Overview, Decomposition, Segment Comparison.
-- **M6** — Build posterior-based decision simulator and optimization.
-- **M7** — QA and prepare/authorize GitHub Pages deployment.
+- **M4 COMPLETE** — Versioned fitted-model exports, TypeScript contracts, and validation exist.
+- **M5 COMPLETE** — Overview, Decomposition, and Segment Comparison use validated exports.
+- **M6 COMPLETE** — Paired-draw simulator and bounded fixed-budget search passed parity and UI checks.
+- **M7 PREPARED, NOT PUBLISHED** — Local release checks and manual Pages workflow exist; metadata review, visual browser QA, publication authorization and live verification remain.
 - **M8 OPTIONAL** — Cloudflare AI explanations.
 
 Use the precise sequential Codex prompts in `docs/CODEX_PROMPTS.md`. Each milestone stops after testing and reporting.

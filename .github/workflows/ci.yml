@@ -4,8 +4,11 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  foundation:
+  python:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,32 +16,43 @@ jobs:
         with:
           python-version: '3.12'
           enable-cache: true
-      - name: Sync Python environment
+      - name: Sync locked Python environment
         run: uv sync --locked
         working-directory: modeling
-      - name: Generate synthetic sources
+      - name: Generate simulated source tables
         run: uv run --locked mmm-generate-source
         working-directory: modeling
-      - name: Build source-derived mart
+      - name: Reconcile source-derived mart
         run: uv run --locked mmm-build-mart
         working-directory: modeling
-      - name: Python tests
-        run: uv run --locked pytest
+      - name: Schema, ETL, export, and scenario tests
+        run: uv run --locked pytest -q
         working-directory: modeling
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
           cache: npm
           cache-dependency-path: web/package-lock.json
-      - name: Install frontend dependencies
+      - name: Install locked frontend dependencies
         run: npm ci
+        working-directory: web
+      - name: Verify committed public data and hashes
+        run: npm run validate:public
         working-directory: web
       - name: Typecheck
         run: npm run typecheck
         working-directory: web
-      - name: Frontend tests
+      - name: Frontend schema, UI, and Python parity fixture tests
         run: npm test
         working-directory: web
       - name: Build frontend
         run: npm run build
+        working-directory: web
+      - name: Verify Pages artifact
+        run: npm run validate:dist
         working-directory: web
