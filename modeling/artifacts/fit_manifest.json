@@ -1,0 +1,60 @@
+{
+  "etl_manifest_sha256": "a0de49cb1ed5855fb1156807af399054ae5c255e6af70c0906e669766e82be5d",
+  "files": {
+    "complete": {
+      "path": "posterior_complete.nc",
+      "sha256": "dc36f5ef62f3b3cacf1ef5b6836c4edf54ae9345b8658b6c2bf4ccdb02ae3b66"
+    },
+    "none": {
+      "path": "posterior_none.nc",
+      "sha256": "d0f712fcec689f905ea612ca1e7e80c85a6365df23742deeb0989243c56eed92"
+    },
+    "partial": {
+      "path": "posterior_partial.nc",
+      "sha256": "86affb68198e3a9f76e7105805cee659b09026b4daf2365aa238a1140cf328af"
+    }
+  },
+  "holdout_weeks": [
+    101,
+    120
+  ],
+  "model_input_sha256": "3789d2ca5a41317de5566097b4be4969aceca0cd83a216cb1de4e4dc3c0a188d",
+  "model_version": "m3-1",
+  "pooling": [
+    "complete",
+    "none",
+    "partial"
+  ],
+  "sales_scale": 100.0,
+  "sampler_by_model": {
+    "complete": {
+      "chains": 2,
+      "draws": 600,
+      "target_accept": 0.92,
+      "tune": 600
+    },
+    "none": {
+      "chains": 2,
+      "draws": 600,
+      "target_accept": 0.92,
+      "tune": 600
+    },
+    "partial": {
+      "chains": 4,
+      "draws": 800,
+      "target_accept": 0.98,
+      "tune": 1000
+    }
+  },
+  "schema_version": 1,
+  "seed": 20261114,
+  "spend_scale": 1000.0,
+  "train_weeks": [
+    1,
+    100
+  ],
+  "versions": {
+    "arviz": "1.3.0",
+    "pymc": "6.4.0"
+  }
+}

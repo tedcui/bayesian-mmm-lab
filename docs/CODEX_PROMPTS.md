@@ -1,6 +1,6 @@
 # Sequential Codex Prompts — Revised Source-Driven Bayesian MMM
 
-> **Status:** M1, M2A, and M2B are complete. The old direct-to-`synthetic_mmm.csv` M2 is **superseded**, and its old files have been removed. Perform **M3** next, then **M4–M8**. Each prompt stops after execution, tests, report, and docs update.
+> **Status:** M1, M2A, M2B, and M3 are complete. M3's weak channel-effect recovery is documented and must remain visible in future exports. The old direct-to-`synthetic_mmm.csv` M2 is **superseded**, and its old files have been removed. Perform **M4** next, then **M5–M8**. Each prompt stops after execution, tests, report, and docs update.
 >
 > 
 > Copy each fenced prompt to Codex separately. Ensure `AGENTS.md`, `docs/SOURCE_SCHEMA_AND_ETL.md`, and `docs/MODELING_DATA_CONTRACT.md` are present at the paths referenced before starting.

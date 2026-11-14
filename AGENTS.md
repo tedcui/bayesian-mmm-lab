@@ -29,7 +29,7 @@ Only hosting conventions carry over: **GitHub Pages**, optionally **Cloudflare W
 
 1. Read the reference files and inspect existing code before changing anything. Do not assume M1/M2 repository outputs match this revised contract.
 2. Work on **exactly one milestone** per prompt. Report changed files, commands run, test results, assumptions, blockers and next step. Stop; do not silently begin the next milestone.
-3. **M1 remains complete. The former direct-panel M2 is superseded and its old files were removed after M2A validation at the user's request.** Build **M2B ETL / analytical mart** from M2A sources before M3.
+3. **M1, M2A, M2B, and M3 are complete. The former direct-panel M2 is superseded and its old files were removed after M2A validation at the user's request.** M3 fits use only the validated M2B analytical mart; preserve their documented identification limitations in M4 exports.
 4. Do not invent model results, implied relationships, source-field semantics, constraints, causal evidence, or business ROI. Label synthetic demonstration metrics clearly.
 5. Put reusable logic in Python package modules; notebooks import functions and show findings. Code in notebooks must not become the only implementation of ETL, model, or simulation.
 6. Use deterministic seeds and pinned dependencies. Store the generator settings, source-data lineage, schema hashes, train/holdout rules, and model/export versions.
@@ -212,8 +212,8 @@ CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend type
 - **M1 COMPLETE** — Preserve existing repository foundation.
 - **M2 OLD COMPLETE BUT SUPERSEDED** — Standalone direct-panel simulation and its archived files were retired after M2A validation.
 - **M2A COMPLETE** — Three source-aligned tables and separate auxiliary context/spend sources are generated and validated.
-- **M2B NEXT** — Build/test ETL to generate the segment-week mart and final `model_ready` panel.
-- **M3** — Fit/evaluate pooled, unpooled and hierarchical Bayesian MMM.
+- **M2B COMPLETE** — ETL generates the reconciled segment-week mart and `model_ready` panel.
+- **M3 COMPLETE WITH IDENTIFICATION LIMITATIONS** — Three fitted specifications and evaluation exist; weak segment/channel recovery is documented and must remain visible in later exports.
 - **M4** — Export real fitted posterior results for the web.
 - **M5** — Build Overview, Decomposition, Segment Comparison.
 - **M6** — Build posterior-based decision simulator and optimization.

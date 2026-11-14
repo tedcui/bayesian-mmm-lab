@@ -1,0 +1,830 @@
+{
+  "fit_manifest_sha256": "4bf0243b328871f99b67a7d87aa8f2a003b5dbb904334b68389197794037dba4",
+  "holdout_observations": 120,
+  "limitations": [
+    "Synthetic generator truth is available for evaluation only, never model fitting.",
+    "Three channels overlap and co-vary; individual effects and shapes may be weakly identified.",
+    "Holdout predictions condition on planned spend and pre-outcome market context.",
+    "Normal observation noise approximates rounded nonnegative integer sales units.",
+    "Model-based contributions are assumption dependent, not experiment-validated incrementality.",
+    "Prior sensitivity reweights one population prior only; poor importance ESS would require an independent refit."
+  ],
+  "model_input_sha256": "3789d2ca5a41317de5566097b4be4969aceca0cd83a216cb1de4e4dc3c0a188d",
+  "models": {
+    "complete": {
+      "conditional_holdout": {
+        "bias_units_predicted_minus_observed": -9.077,
+        "mae_units": 36.984,
+        "predictive_90_coverage": 0.925,
+        "segment_mae_units": {
+          "great_lakes": 38.292,
+          "mountain_west": 43.296,
+          "northeast": 40.658,
+          "pacific_coast": 36.731,
+          "south_central": 33.86,
+          "southeast": 29.067
+        },
+        "wape": 0.04044
+      },
+      "diagnostics": {
+        "divergences": 0,
+        "max_rhat": 1.0056,
+        "min_bulk_ess": 266.3,
+        "parameters_with_rhat_above_1_01": []
+      },
+      "prior_predictive": {
+        "draws": 100,
+        "negative_sales_fraction": 0.0546,
+        "overall_mean_units": 891.582
+      },
+      "recovery": {
+        "baseline_90_coverage": 0.5653,
+        "baseline_mae_units": 30.17,
+        "channel_contribution_90_coverage": 0.9301,
+        "channel_contribution_mae_units": 11.949,
+        "coefficient_90_coverage": 0.6667,
+        "coefficient_by_segment_channel": [
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "northeast",
+            "true_max_units": 180.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "northeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "northeast",
+            "true_max_units": 115.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "southeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "southeast",
+            "true_max_units": 120.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "southeast",
+            "true_max_units": 100.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "great_lakes",
+            "true_max_units": 130.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "great_lakes",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "great_lakes",
+            "true_max_units": 90.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "south_central",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "south_central",
+            "true_max_units": 95.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "south_central",
+            "true_max_units": 75.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "mountain_west",
+            "true_max_units": 80.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "mountain_west",
+            "true_max_units": 70.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "mountain_west",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 122.437,
+            "credible_90_low": 30.57,
+            "posterior_mean_max_units": 72.267,
+            "segment_id": "pacific_coast",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.162,
+            "credible_90_low": 84.272,
+            "posterior_mean_max_units": 159.776,
+            "segment_id": "pacific_coast",
+            "true_max_units": 55.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.867,
+            "credible_90_low": 53.974,
+            "posterior_mean_max_units": 130.53,
+            "segment_id": "pacific_coast",
+            "true_max_units": 50.0
+          }
+        ],
+        "coefficient_mean_absolute_error_units": 52.376,
+        "shared_shape_recovery": [
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 0.9555,
+            "credible_90_low": 0.1062,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.6103,
+            "true_value": 0.25,
+            "units": "unitless"
+          },
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 6717.0781,
+            "credible_90_low": 1533.8641,
+            "parameter": "half_saturation",
+            "posterior_mean": 3504.8642,
+            "true_value": 2800.0,
+            "units": "USD"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 0.5376,
+            "credible_90_low": 0.0475,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.2419,
+            "true_value": 0.45,
+            "units": "unitless"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 6458.7437,
+            "credible_90_low": 1715.0726,
+            "parameter": "half_saturation",
+            "posterior_mean": 3637.1316,
+            "true_value": 3300.0,
+            "units": "USD"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 0.8572,
+            "credible_90_low": 0.0672,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.3912,
+            "true_value": 0.65,
+            "units": "unitless"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 6858.9955,
+            "credible_90_low": 1539.4777,
+            "parameter": "half_saturation",
+            "posterior_mean": 3665.8349,
+            "true_value": 3500.0,
+            "units": "USD"
+          }
+        ]
+      },
+      "train": {
+        "bias_units_predicted_minus_observed": -0.124,
+        "mae_units": 36.932,
+        "predictive_90_coverage": 0.9283,
+        "segment_mae_units": {
+          "great_lakes": 36.048,
+          "mountain_west": 37.639,
+          "northeast": 33.96,
+          "pacific_coast": 43.678,
+          "south_central": 34.959,
+          "southeast": 35.31
+        },
+        "wape": 0.0451
+      }
+    },
+    "none": {
+      "conditional_holdout": {
+        "bias_units_predicted_minus_observed": -9.15,
+        "mae_units": 37.114,
+        "predictive_90_coverage": 0.925,
+        "segment_mae_units": {
+          "great_lakes": 37.789,
+          "mountain_west": 43.607,
+          "northeast": 40.332,
+          "pacific_coast": 36.737,
+          "south_central": 34.448,
+          "southeast": 29.769
+        },
+        "wape": 0.04058
+      },
+      "diagnostics": {
+        "divergences": 0,
+        "max_rhat": 1.0097,
+        "min_bulk_ess": 427.7,
+        "parameters_with_rhat_above_1_01": []
+      },
+      "prior_predictive": {
+        "draws": 100,
+        "negative_sales_fraction": 0.0702,
+        "overall_mean_units": 887.491
+      },
+      "recovery": {
+        "baseline_90_coverage": 0.9236,
+        "baseline_mae_units": 32.648,
+        "channel_contribution_90_coverage": 0.9986,
+        "channel_contribution_mae_units": 11.255,
+        "coefficient_90_coverage": 0.9444,
+        "coefficient_by_segment_channel": [
+          {
+            "channel": "coupon",
+            "credible_90_high": 213.876,
+            "credible_90_low": 48.345,
+            "posterior_mean_max_units": 120.149,
+            "segment_id": "northeast",
+            "true_max_units": 180.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 277.634,
+            "credible_90_low": 69.092,
+            "posterior_mean_max_units": 160.207,
+            "segment_id": "northeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 217.501,
+            "credible_90_low": 38.021,
+            "posterior_mean_max_units": 112.178,
+            "segment_id": "northeast",
+            "true_max_units": 115.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 133.604,
+            "credible_90_low": 22.435,
+            "posterior_mean_max_units": 67.379,
+            "segment_id": "southeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 253.412,
+            "credible_90_low": 57.0,
+            "posterior_mean_max_units": 146.129,
+            "segment_id": "southeast",
+            "true_max_units": 120.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 228.157,
+            "credible_90_low": 35.659,
+            "posterior_mean_max_units": 112.409,
+            "segment_id": "southeast",
+            "true_max_units": 100.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 179.473,
+            "credible_90_low": 29.967,
+            "posterior_mean_max_units": 90.578,
+            "segment_id": "great_lakes",
+            "true_max_units": 130.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 211.316,
+            "credible_90_low": 37.701,
+            "posterior_mean_max_units": 110.314,
+            "segment_id": "great_lakes",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 194.244,
+            "credible_90_low": 35.764,
+            "posterior_mean_max_units": 101.548,
+            "segment_id": "great_lakes",
+            "true_max_units": 90.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 176.702,
+            "credible_90_low": 32.607,
+            "posterior_mean_max_units": 91.054,
+            "segment_id": "south_central",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 236.77,
+            "credible_90_low": 38.06,
+            "posterior_mean_max_units": 118.449,
+            "segment_id": "south_central",
+            "true_max_units": 95.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 374.894,
+            "credible_90_low": 56.866,
+            "posterior_mean_max_units": 189.347,
+            "segment_id": "south_central",
+            "true_max_units": 75.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 263.676,
+            "credible_90_low": 40.473,
+            "posterior_mean_max_units": 134.406,
+            "segment_id": "mountain_west",
+            "true_max_units": 80.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 241.139,
+            "credible_90_low": 33.393,
+            "posterior_mean_max_units": 112.385,
+            "segment_id": "mountain_west",
+            "true_max_units": 70.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 305.626,
+            "credible_90_low": 34.27,
+            "posterior_mean_max_units": 132.935,
+            "segment_id": "mountain_west",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 184.855,
+            "credible_90_low": 25.143,
+            "posterior_mean_max_units": 83.394,
+            "segment_id": "pacific_coast",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 239.392,
+            "credible_90_low": 28.111,
+            "posterior_mean_max_units": 108.621,
+            "segment_id": "pacific_coast",
+            "true_max_units": 55.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 221.648,
+            "credible_90_low": 27.181,
+            "posterior_mean_max_units": 94.699,
+            "segment_id": "pacific_coast",
+            "true_max_units": 50.0
+          }
+        ],
+        "coefficient_mean_absolute_error_units": 37.972,
+        "shared_shape_recovery": [
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 0.9286,
+            "credible_90_low": 0.1111,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.6344,
+            "true_value": 0.25,
+            "units": "unitless"
+          },
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 7788.1153,
+            "credible_90_low": 1556.9563,
+            "parameter": "half_saturation",
+            "posterior_mean": 3964.6904,
+            "true_value": 2800.0,
+            "units": "USD"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 0.5381,
+            "credible_90_low": 0.0594,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.2507,
+            "true_value": 0.45,
+            "units": "unitless"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 6274.1168,
+            "credible_90_low": 1476.6293,
+            "parameter": "half_saturation",
+            "posterior_mean": 3362.3902,
+            "true_value": 3300.0,
+            "units": "USD"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 0.7725,
+            "credible_90_low": 0.072,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.3555,
+            "true_value": 0.65,
+            "units": "unitless"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 6815.3564,
+            "credible_90_low": 1641.7763,
+            "parameter": "half_saturation",
+            "posterior_mean": 3696.1928,
+            "true_value": 3500.0,
+            "units": "USD"
+          }
+        ]
+      },
+      "train": {
+        "bias_units_predicted_minus_observed": 0.103,
+        "mae_units": 36.819,
+        "predictive_90_coverage": 0.93,
+        "segment_mae_units": {
+          "great_lakes": 36.276,
+          "mountain_west": 37.494,
+          "northeast": 33.749,
+          "pacific_coast": 43.726,
+          "south_central": 34.793,
+          "southeast": 34.874
+        },
+        "wape": 0.04496
+      }
+    },
+    "partial": {
+      "conditional_holdout": {
+        "bias_units_predicted_minus_observed": -9.023,
+        "mae_units": 36.954,
+        "predictive_90_coverage": 0.925,
+        "segment_mae_units": {
+          "great_lakes": 38.059,
+          "mountain_west": 43.29,
+          "northeast": 40.499,
+          "pacific_coast": 36.634,
+          "south_central": 33.83,
+          "southeast": 29.409
+        },
+        "wape": 0.0404
+      },
+      "diagnostics": {
+        "divergences": 0,
+        "max_rhat": 1.0043,
+        "min_bulk_ess": 1146.4,
+        "parameters_with_rhat_above_1_01": []
+      },
+      "prior_predictive": {
+        "draws": 100,
+        "negative_sales_fraction": 0.0487,
+        "overall_mean_units": 936.171
+      },
+      "prior_sensitivity": {
+        "alternate_log_population_prior_sigma": 1.0,
+        "available_draws": 3200,
+        "base_log_population_prior_sigma": 0.7,
+        "importance_effective_draws": 2172.9,
+        "max_absolute_coefficient_mean_shift_units": 9.696,
+        "mean_absolute_coefficient_mean_shift_units": 6.59,
+        "method": "posterior importance reweighting, not independent MCMC refit"
+      },
+      "recovery": {
+        "baseline_90_coverage": 0.7972,
+        "baseline_mae_units": 30.92,
+        "channel_contribution_90_coverage": 0.9968,
+        "channel_contribution_mae_units": 11.596,
+        "coefficient_90_coverage": 0.8333,
+        "coefficient_by_segment_channel": [
+          {
+            "channel": "coupon",
+            "credible_90_high": 163.092,
+            "credible_90_low": 26.509,
+            "posterior_mean_max_units": 81.853,
+            "segment_id": "northeast",
+            "true_max_units": 180.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 272.337,
+            "credible_90_low": 87.42,
+            "posterior_mean_max_units": 168.865,
+            "segment_id": "northeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 232.411,
+            "credible_90_low": 44.392,
+            "posterior_mean_max_units": 127.61,
+            "segment_id": "northeast",
+            "true_max_units": 115.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 120.623,
+            "credible_90_low": 19.582,
+            "posterior_mean_max_units": 63.794,
+            "segment_id": "southeast",
+            "true_max_units": 145.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 250.205,
+            "credible_90_low": 79.337,
+            "posterior_mean_max_units": 158.074,
+            "segment_id": "southeast",
+            "true_max_units": 120.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 226.077,
+            "credible_90_low": 39.668,
+            "posterior_mean_max_units": 120.48,
+            "segment_id": "southeast",
+            "true_max_units": 100.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 132.565,
+            "credible_90_low": 22.462,
+            "posterior_mean_max_units": 69.17,
+            "segment_id": "great_lakes",
+            "true_max_units": 130.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 243.322,
+            "credible_90_low": 70.452,
+            "posterior_mean_max_units": 148.394,
+            "segment_id": "great_lakes",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 214.645,
+            "credible_90_low": 39.767,
+            "posterior_mean_max_units": 117.412,
+            "segment_id": "great_lakes",
+            "true_max_units": 90.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 140.04,
+            "credible_90_low": 22.957,
+            "posterior_mean_max_units": 72.448,
+            "segment_id": "south_central",
+            "true_max_units": 105.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 262.025,
+            "credible_90_low": 69.918,
+            "posterior_mean_max_units": 156.768,
+            "segment_id": "south_central",
+            "true_max_units": 95.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 299.599,
+            "credible_90_low": 47.564,
+            "posterior_mean_max_units": 146.602,
+            "segment_id": "south_central",
+            "true_max_units": 75.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 172.915,
+            "credible_90_low": 24.339,
+            "posterior_mean_max_units": 82.271,
+            "segment_id": "mountain_west",
+            "true_max_units": 80.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 269.342,
+            "credible_90_low": 66.616,
+            "posterior_mean_max_units": 156.177,
+            "segment_id": "mountain_west",
+            "true_max_units": 70.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 257.822,
+            "credible_90_low": 45.801,
+            "posterior_mean_max_units": 136.164,
+            "segment_id": "mountain_west",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "coupon",
+            "credible_90_high": 131.553,
+            "credible_90_low": 21.1,
+            "posterior_mean_max_units": 68.053,
+            "segment_id": "pacific_coast",
+            "true_max_units": 65.0
+          },
+          {
+            "channel": "retailer_promotion",
+            "credible_90_high": 264.701,
+            "credible_90_low": 62.051,
+            "posterior_mean_max_units": 152.55,
+            "segment_id": "pacific_coast",
+            "true_max_units": 55.0
+          },
+          {
+            "channel": "digital",
+            "credible_90_high": 226.176,
+            "credible_90_low": 36.696,
+            "posterior_mean_max_units": 117.499,
+            "segment_id": "pacific_coast",
+            "true_max_units": 50.0
+          }
+        ],
+        "coefficient_mean_absolute_error_units": 49.981,
+        "shared_shape_recovery": [
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 0.9491,
+            "credible_90_low": 0.1036,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.6174,
+            "true_value": 0.25,
+            "units": "unitless"
+          },
+          {
+            "channel": "coupon",
+            "contains_truth": true,
+            "credible_90_high": 7571.9875,
+            "credible_90_low": 1485.6024,
+            "parameter": "half_saturation",
+            "posterior_mean": 3749.4418,
+            "true_value": 2800.0,
+            "units": "USD"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 0.5501,
+            "credible_90_low": 0.0513,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.2509,
+            "true_value": 0.45,
+            "units": "unitless"
+          },
+          {
+            "channel": "retailer_promotion",
+            "contains_truth": true,
+            "credible_90_high": 6943.127,
+            "credible_90_low": 1660.8387,
+            "parameter": "half_saturation",
+            "posterior_mean": 3675.862,
+            "true_value": 3300.0,
+            "units": "USD"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 0.838,
+            "credible_90_low": 0.0762,
+            "parameter": "adstock_alpha",
+            "posterior_mean": 0.3955,
+            "true_value": 0.65,
+            "units": "unitless"
+          },
+          {
+            "channel": "digital",
+            "contains_truth": true,
+            "credible_90_high": 7081.4311,
+            "credible_90_low": 1584.109,
+            "parameter": "half_saturation",
+            "posterior_mean": 3733.4651,
+            "true_value": 3500.0,
+            "units": "USD"
+          }
+        ]
+      },
+      "train": {
+        "bias_units_predicted_minus_observed": -0.053,
+        "mae_units": 36.876,
+        "predictive_90_coverage": 0.9283,
+        "segment_mae_units": {
+          "great_lakes": 36.132,
+          "mountain_west": 37.589,
+          "northeast": 33.837,
+          "pacific_coast": 43.669,
+          "south_central": 34.92,
+          "southeast": 35.111
+        },
+        "wape": 0.04503
+      }
+    }
+  },
+  "observations": 720,
+  "schema_version": 1,
+  "training_campaign_spend_correlations": {
+    "great_lakes": {
+      "coupon_vs_digital": 0.6151,
+      "coupon_vs_retailer_promotion": 0.595,
+      "retailer_promotion_vs_digital": 0.5374
+    },
+    "mountain_west": {
+      "coupon_vs_digital": 0.3958,
+      "coupon_vs_retailer_promotion": 0.503,
+      "retailer_promotion_vs_digital": 0.5811
+    },
+    "northeast": {
+      "coupon_vs_digital": 0.5004,
+      "coupon_vs_retailer_promotion": 0.5201,
+      "retailer_promotion_vs_digital": 0.557
+    },
+    "pacific_coast": {
+      "coupon_vs_digital": 0.4919,
+      "coupon_vs_retailer_promotion": 0.6058,
+      "retailer_promotion_vs_digital": 0.5191
+    },
+    "south_central": {
+      "coupon_vs_digital": 0.6331,
+      "coupon_vs_retailer_promotion": 0.5744,
+      "retailer_promotion_vs_digital": 0.642
+    },
+    "southeast": {
+      "coupon_vs_digital": 0.6082,
+      "coupon_vs_retailer_promotion": 0.5641,
+      "retailer_promotion_vs_digital": 0.526
+    }
+  },
+  "training_observations": 600
+}
