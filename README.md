@@ -1,6 +1,6 @@
 # Bayesian MMM Decision Lab
 
-A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel. There are no analytical frontend results yet.
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results for the web. The frontend pages still show the foundation placeholder until M5.
 
 ## Current architecture
 
@@ -10,6 +10,7 @@ A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fit
 - Evaluation-only truth, manifest, QA report, and [source data dictionary](data/metadata/source_data_dictionary.md) in `data/metadata/`
 - Reconciled 720-row segment-week mart, leakage-safe model projection, [ETL dictionary](data/metadata/etl_data_dictionary.md), and QA/lineage reports
 - Three PyMC posterior fits, [model specification](docs/MODEL_SPECIFICATION.md), and [evaluation report](modeling/artifacts/evaluation.json)
+- Versioned, lineage-checked [M4 browser exports](docs/EXPORT_CONTRACT.md) in `web/public/model-data/`
 - React/TypeScript/Vite foundation in `web/`; its current screen is a setup placeholder
 - GitHub Actions CI for lightweight checks; no deployment is enabled
 
@@ -25,6 +26,7 @@ uv run --locked mmm-generate-source
 uv run --locked mmm-build-mart
 uv run --locked mmm-fit
 uv run --locked mmm-evaluate
+uv run --locked mmm-export
 uv run --locked pytest -q
 uv run --locked jupyter lab
 ```
@@ -55,6 +57,12 @@ The first hierarchical run had 3 divergences and max R-hat 1.0192. A documented 
 
 Holdout accuracy does **not** establish channel identification. The partial model's 90% response intervals cover 15/18 true maximum effects, and its small-region retailer/digital effect means exceed truth while remaining uncertain. Shared adstock decay intervals all contain truth but are broad. Campaign spend correlations are about 0.40–0.64 within regions. Reweighting the hierarchical log population prior from standard deviation 0.7 to 1.0 shifts mean response coefficients by up to 9.696 units with importance ESS 2,172.9/3,200; this is a local sensitivity check, not a new fit. The [evaluation report](modeling/artifacts/evaluation.json) contains per-channel recovery, baseline/contribution checks, and limitations. Promotional contributions are model-based, assumption-dependent estimates, not experiment-validated incrementality.
 
+## M4 model exports
+
+`mmm-export` checks source, ETL, model-input, fit, evaluation, and posterior hashes before writing five static JSON files. `overview.json` and `contributions.json` cover all 720 segment-weeks and 21 draw-first aggregates. `segments.json` compares all three fitted specifications against simulation truth. `simulator.json` carries 96 jointly indexed partial-pooling draws, exact transformation parameters, prior spend history, a 12-week holdout replay plan, fixed controls, and spend support bounds. The four data payloads total **1,501,691 bytes** before compression; no transaction details or full posterior files are public. See the [export contract](docs/EXPORT_CONTRACT.md) for schemas and interval semantics.
+
+Partial pooling is a labeled educational reference for the weekly export, **not** the statistically best recovered segment-effect model. The exported comparison shows no pooling's stronger coefficient recovery. Expected-sales credible intervals and future-observation predictive intervals are separate. The simulator plan is a conditional historical replay, not an unconditional forecast; no scenario engine or dashboard chart is implemented in M4.
+
 ## Reproducibility and artifact policy
 
 `modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. Large generated transaction, enriched-fact, and posterior NetCDF files and temporary Python/frontend build files are ignored by Git; regenerate them with the CLIs. Compact fit/evaluation JSON and notebooks without saved outputs are reviewable. Fixed RNG seeds and input hashes support reproducibility; platform-level MCMC bitwise identity is not promised. No full MCMC runs in ordinary CI.
@@ -77,5 +85,8 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M3 | `uv run --offline --locked mmm-evaluate` | Passed; verified posterior/input hashes and saved conditional holdout/recovery diagnostics |
 | M3 | `uv run --offline --locked pytest -q` | Passed; 26 tests |
 | M3 | Notebook 02 and 03 execution | Passed; 4 and 5 code cells respectively |
+| M4 | `uv run --offline --locked mmm-export` | Passed; five lineage-bound JSON files, payload sizes above |
+| M4 | `uv run --offline --locked pytest -q` | Passed; 32 tests |
+| M4 | `npm.cmd run typecheck`; `npm.cmd test`; `npm.cmd run build` | Passed; 4 frontend tests and static build |
 
-These local checks do not establish causal promotion effects or a live public website. M4, versioned fitted-model exports, is the next suggested milestone after reviewing M3's weak effect identification.
+These local checks do not establish causal promotion effects or a live public website. M5, analytical pages using the validated exports, is the next suggested milestone.

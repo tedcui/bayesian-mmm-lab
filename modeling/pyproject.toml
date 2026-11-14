@@ -23,6 +23,7 @@ mmm-generate-source = "mmm_lab.simulation.generate:main"
 mmm-build-mart = "mmm_lab.etl.pipeline:main"
 mmm-fit = "mmm_lab.model:main"
 mmm-evaluate = "mmm_lab.evaluate:main"
+mmm-export = "mmm_lab.export:main"
 
 [dependency-groups]
 dev = [
