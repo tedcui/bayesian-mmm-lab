@@ -16,6 +16,7 @@ dependencies = [
 
 [project.scripts]
 mmm-generate-source = "mmm_lab.simulation.generate:main"
+mmm-build-mart = "mmm_lab.etl.pipeline:main"
 
 [dependency-groups]
 dev = [

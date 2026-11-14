@@ -1,0 +1,13 @@
+{
+  "eligible_transaction_lines": 171741,
+  "event_week_max": "2025-04-14",
+  "event_week_min": "2023-01-02",
+  "excluded_transaction_lines": 0,
+  "exclusion_reason_counts": {},
+  "join_fanout_lines": 0,
+  "null_upc_lines": 0,
+  "product_matched_lines": 171741,
+  "source_file_submissions": 720,
+  "source_transaction_lines": 171741,
+  "store_matched_lines": 171741
+}

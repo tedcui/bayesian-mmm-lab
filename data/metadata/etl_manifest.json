@@ -1,0 +1,86 @@
+{
+  "etl_rule_file_sha256": {
+    "aggregate": "6d69d267033692e654d8620b9f26aa7ed8e304a7fdba046d1893b6150a3e192d",
+    "enrich": "d9cc450d14cd6e1fb70105f6cac20cc696e9b87227f09aa23739e694d5f7d53a",
+    "features": "78b32e277cef8f87ff5aed5deab1ada5d81621fa338aa977cfefdad7d01c9c42",
+    "pipeline": "6e968b2548bdf204e18fe601fab74d1693ec75b627ab76ca1ee195b9e34ac97c",
+    "report": "d276c64cad9086f59f75cf75f16b519c53046a0d36e946536d3c3458d4a0e067",
+    "validation": "9826f0187fb55af48af7e835c9a711cdd5a751f870c6bd1c7f2260d804c75c46"
+  },
+  "etl_version": "m2b-1",
+  "model_columns": [
+    "segment_id",
+    "week_start",
+    "time_index",
+    "is_holdout",
+    "sales_units",
+    "price_index",
+    "distribution_index",
+    "competitor_index",
+    "holiday",
+    "coupon_spend",
+    "retailer_promo_spend",
+    "digital_spend"
+  ],
+  "output_hashes": {
+    "etl_quality": "5f4c86186116a70c02e5f1db593486874c3c37382540d4d6eae4551721a77e73",
+    "etl_reconciliation": "5bf058a14f9275bd153261a15d25b1559385ca6411df38331ee715647c10f3f8",
+    "fact_transactions_enriched": "621b7a8ac40a578001c2a467c6a7865699ad27f5e773d7939cb1358f2fddd9cb",
+    "mart_segment_week": "6fd61fe691e7bf80c54df66506ea15b5faf24fa0a0da23f48ba42d3694d981c5",
+    "model_ready": "3789d2ca5a41317de5566097b4be4969aceca0cd83a216cb1de4e4dc3c0a188d"
+  },
+  "schema_version": 1,
+  "source_files": {
+    "sim_market_context": {
+      "relative_path": "auxiliary/sim_market_context.parquet",
+      "sha256": "ef11de60ba930f3654786908e7f1306cd583529cbf2fef14eeed1d7a614fcb5a"
+    },
+    "sim_marketing_plan": {
+      "relative_path": "auxiliary/sim_marketing_plan.parquet",
+      "sha256": "740bb2440605f69818da8b1c388bef9a161eab7f33768c8f4c61b92761f3a1ac"
+    },
+    "source_brands": {
+      "relative_path": "silver/source_brands.parquet",
+      "sha256": "51ac3b56a1a9a48a7bfb3ebac499f44f34178af28328d94667352afe5ae54679"
+    },
+    "source_stores": {
+      "relative_path": "silver/source_stores.parquet",
+      "sha256": "7e3d32d4e676766c656604ca253c4dd3be74fab97f0aa891ad77cb8358643073"
+    },
+    "source_transactions": {
+      "relative_path": "silver/source_transactions.parquet",
+      "sha256": "65866a39dfdc0978cfc6ce9ddaf36a19702b84f6e7409ba4dfcfc6b1b675fb69"
+    }
+  },
+  "source_generator_config": {
+    "seed": 20261113,
+    "start_date": "2023-01-02",
+    "unit_scale": 1.0,
+    "weeks": 120
+  },
+  "source_manifest_sha256": "4f601bc597a370e2dfab4e8ab2e637070a6bc14cc9dd312f1e931aa20c35ac9d",
+  "source_to_feature": {
+    "competitor_index": "SIM_MARKET_CONTEXT.competitor_index",
+    "coupon_spend": "SIM_MARKETING_PLAN planned_spend where channel=coupon",
+    "digital_spend": "SIM_MARKETING_PLAN planned_spend where channel=digital",
+    "distribution_index": "SIM_MARKET_CONTEXT.availability_index",
+    "holiday": "ISO calendar weeks 47 through 52",
+    "price_index": "SIM_MARKET_CONTEXT.planned_price_index",
+    "retailer_promo_spend": "SIM_MARKETING_PLAN planned_spend where channel=retailer_promotion",
+    "sales_units": "sum eligible SOURCE_TRANSACTIONS.QUANTITY by store-derived segment and event Monday",
+    "segment_id": "SOURCE_STORES.STANDARD_STATE, falling back to STATE, then geographic crosswalk",
+    "week_start": "Monday of SOURCE_TRANSACTIONS.TRANSACTION_DATE"
+  },
+  "split": {
+    "adstock_history": "all preceding spend retained in model_ready",
+    "holdout_weeks": [
+      101,
+      120
+    ],
+    "scaling": "none",
+    "train_weeks": [
+      1,
+      100
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Bayesian MMM Decision Lab
 
-A synthetic, source-driven Bayesian marketing mix modeling demonstration. The long-term product will fit real hierarchical models and show assumption-dependent contributions and budget scenarios. M2A contains the operational source simulation only; there are no fitted models or analytical frontend results.
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. M2B adds validated source-to-mart ETL; there are no fitted models or analytical frontend results.
 
 ## Current architecture
 
@@ -8,6 +8,7 @@ A synthetic, source-driven Bayesian marketing mix modeling demonstration. The lo
 - Three simulated, source-aligned silver Parquet tables in `data/silver/`
 - Two explicitly **additional synthetic** pre-outcome sources in `data/auxiliary/`
 - Evaluation-only truth, manifest, QA report, and [source data dictionary](data/metadata/source_data_dictionary.md) in `data/metadata/`
+- Reconciled 720-row segment-week mart, leakage-safe model projection, [ETL dictionary](data/metadata/etl_data_dictionary.md), and QA/lineage reports
 - React/TypeScript/Vite foundation in `web/`; its current screen is a setup placeholder
 - GitHub Actions CI for lightweight checks; no deployment is enabled
 
@@ -20,11 +21,12 @@ Install Python 3.12 and `uv`. From `modeling/`:
 ```sh
 uv sync --locked
 uv run --locked mmm-generate-source
+uv run --locked mmm-build-mart
 uv run --locked pytest -q
 uv run --locked jupyter lab
 ```
 
-Open `../notebooks/00_source_simulation_and_qa.ipynb` with the kernel at `modeling/.venv/Scripts/python.exe` on Windows. The notebook imports `mmm_lab` and reads generated sources. It contains no model fitting or ETL. On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm` for frontend commands. The frontend foundation still uses `npm ci`, `npm run typecheck`, `npm test`, and `npm run build` from `web/`.
+Open `../notebooks/00_source_simulation_and_qa.ipynb` or `../notebooks/01_data_exploration.ipynb` with the kernel at `modeling/.venv/Scripts/python.exe` on Windows. The latter inspects the actual downstream ETL outputs and contains no model fitting. On Windows PowerShell with script execution disabled, use `npm.cmd` in place of `npm` for frontend commands. The frontend foundation still uses `npm ci`, `npm run typecheck`, `npm test`, and `npm run build` from `web/`.
 
 The default seed is `20261113`. Six business regions—Northeast, Southeast, Great Lakes, South Central, Mountain West, and Pacific Coast—are derived from store geography. Their exact state mapping and stable `segment_id` values are in the [source data dictionary](data/metadata/source_data_dictionary.md). There are 120 Monday weeks from 2023-01-02, 190 stores, 36 submitted product records, 171,741 transaction details, 2,160 segment-week-channel marketing plans, and 720 segment-week context rows. The 601,108 allocated transaction units match the known synthetic demand targets exactly. Transaction detail is generated **after** planned campaigns, context, and latent demand. Receipt discounts are observations, not planned marketing budgets.
 
@@ -34,11 +36,11 @@ For fast development tests, `SimulationConfig(weeks=4, unit_scale=0.1)` reduces 
 
 The earlier M2 built `synthetic_mmm.csv` and `model_ready.csv` directly. After M2A source generation and reconciliation passed, its archived CSVs, metadata, generator, preprocessor, tests, notebook, and the one-time migration guide were removed at the user's request. The direct-panel CLI was already retired. The new source files and auxiliary plans are the only active synthetic inputs.
 
-M2A does **not** produce a mart or `model_ready` dataset. M2B is the next milestone: validate/enrich the source tables, aggregate transaction quantities to segment-week, join independently planned spend and pre-outcome context, reconcile units, then create the leakage-safe panel and its exploration notebook.
+M2B validates source hashes and Arrow schemas, enriches every transaction line with two nonmultiplying LEFT joins, records exclusions and lineage, aggregates eligible units, then merges independent planned spend and pre-outcome context. Its `model_ready.parquet` is built only from M2A source and auxiliary files. It retains all 120 weeks per segment, including history needed for adstock. Weeks 1–100 train and 101–120 hold out. Missing eligible segment-weeks fail rather than silently become zero sales. No scaler is fitted in M2B. See the [ETL dictionary](data/metadata/etl_data_dictionary.md) for source-to-feature mappings and limitations.
 
 ## Reproducibility and artifact policy
 
-`modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. The generated source files, truth, manifest, QA report, and compact auxiliary files are reviewable locally. Large generated transaction Parquet and temporary Python/frontend build files are ignored by Git; regenerate the source with the CLI. No full MCMC runs in ordinary CI.
+`modeling/uv.lock` and `web/package-lock.json` are committed. `paths.py` resolves repository paths independently of the working directory. The generated source files, truth, manifest, QA report, and compact auxiliary files are reviewable locally. Large generated transaction and enriched-fact Parquet files and temporary Python/frontend build files are ignored by Git; regenerate the source and mart with the CLIs. No full MCMC runs in ordinary CI.
 
 The fixed synthetic equations, complete references, and known truth make engineering checks possible but simplify real observational marketing data. Correlated campaigns, promotion-linked price changes, imperfect targeting, unknown source semantics, and possible missing or revised records limit later causal interpretation. The truth file is evaluation-only and must never become a model feature. No public source data or deployment has been created.
 
@@ -51,5 +53,8 @@ The fixed synthetic equations, complete references, and known truth make enginee
 | M2A | `uv run --locked mmm-generate-source` | Passed; row counts above and SHA256 checksums in source manifest |
 | M2A | `uv run --locked pytest -q` | Passed; 11 tests |
 | M2A | Notebook execution | Passed; all 6 code cells executed |
+| M2B | `uv sync --offline`; `uv run --offline --locked mmm-build-mart` | Passed; 171,741 lines joined, 601,108 units reconciled, 720 mart rows |
+| M2B | `uv run --offline --locked pytest -q` | Passed; 21 tests |
+| M2B | Notebook execution | Passed; all 5 code cells executed |
 
-M2A checks are local. They do not establish that a model fits, that source-based estimates are causal, or that a public website is live.
+These local checks do not establish that a model fits, that source-based estimates are causal, or that a public website is live. M3 is the next suggested milestone.

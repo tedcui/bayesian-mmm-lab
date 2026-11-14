@@ -1,0 +1,12 @@
+{
+  "excluded_source_units": 0,
+  "mart_sales_units": 601108,
+  "planned_spend_usd_by_channel": {
+    "coupon": 1033339.06,
+    "digital": 718425.25,
+    "retailer_promotion": 848975.27
+  },
+  "segment_weeks_reconciled": 720,
+  "source_eligible_units": 601108,
+  "unmatched_store_lines_outside_geography": 0
+}
