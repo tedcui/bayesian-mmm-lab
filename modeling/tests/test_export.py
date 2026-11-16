@@ -37,6 +37,7 @@ def test_committed_export_hashes_and_model_lineage_without_mcmc():
         path = WEB_MODEL_DATA_DIR / name
         assert path.stat().st_size == info["bytes"]
         assert sha256_file(path) == info["sha256"]
+        assert b"\r\n" not in path.read_bytes()
         payload = json.loads(path.read_text(encoding="utf-8"))
         assert payload["bundle_id"] == manifest["bundle_id"]
 

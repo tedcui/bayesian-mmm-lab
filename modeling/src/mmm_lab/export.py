@@ -26,8 +26,8 @@ def _read_json(path: Path) -> dict:
 
 
 def _write_json(path: Path, value: dict) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n",
-                    encoding="utf-8")
+    # Hash the same bytes on Windows and Linux; text-mode writes translate newlines.
+    path.write_bytes((json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8"))
 
 
 def _summary(values: np.ndarray) -> dict:
