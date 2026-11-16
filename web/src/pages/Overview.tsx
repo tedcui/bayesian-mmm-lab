@@ -3,6 +3,7 @@ import { MetricCard } from '../components/MetricCard'
 import { ALL_REGIONS, filterWeeks, holdoutMetrics, matchingAggregate, regionLabel,
   spendTotals, channelOrder, channelLabel, channelColor, type WeeklyFilter } from '../lib/analytics'
 import { dateLabel, dollars, percent, units } from '../lib/format'
+import { demandAxisRange, regionSizeRank } from '../lib/chartAxis'
 import type { ModelDataBundle } from '../types/modelData'
 
 export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: WeeklyFilter }) {
@@ -20,6 +21,8 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
   const aggregate = matchingAggregate(bundle.overview.aggregates, filter,
     dates.first_week, dates.last_training_week, dates.first_holdout_week, dates.last_week)
   const x = rows.map(row => row.week_start)
+  const salesRange = demandAxisRange(rows,
+    regionSizeRank(bundle.overview.weekly, bundle.manifest.segments, allRegions ? null : filter.segmentId))
   const boundaryVisible = filter.startWeek <= dates.first_holdout_week && filter.endWeek >= dates.first_holdout_week
   const boundary = boundaryVisible ? [{ type: 'line', x0: dates.first_holdout_week,
     x1: dates.first_holdout_week, yref: 'paper', y0: 0, y1: 1,
@@ -65,10 +68,10 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
       <PlotChart label={`Observed sales, expected sales and 90% predictive interval for ${regionLabel(filter.segmentId)}`}
         traces={salesTraces} height={390}
         layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-          yaxis: { title: 'Sales units', autorange: true, gridcolor: '#dedfd5' },
+          yaxis: { title: 'Sales units', range: salesRange, gridcolor: '#dedfd5' },
           shapes: boundary, annotations: boundaryVisible ? [{ x: dates.first_holdout_week, y: 1.02,
             yref: 'paper', text: 'HOLDOUT START', showarrow: false, font: { size: 10, color: '#a2623b' } }] : [] }} />
-      <p className="chart-caption">The shaded area is a <strong>90% predictive interval</strong> for weekly sales{allRegions ? ' across all regions' : ''}. The line shows modeled average sales. The vertical scale follows the selected data and may not start at zero. Holdout results use spending and market conditions recorded for those weeks, so they are a look back, not a future forecast. {boundaryVisible && `The dotted line marks the start of the holdout period, ${dateLabel(dates.first_holdout_week)}.`}</p>
+      <p className="chart-caption">The shaded area is a <strong>90% predictive interval</strong> for weekly sales{allRegions ? ' across all regions' : ''}. The line shows modeled average sales. The vertical scale gives the selected data room and may not start at zero; compare axis values when switching regions. Holdout results use spending and market conditions recorded for those weeks, so they are a look back, not a future forecast. {boundaryVisible && `The dotted line marks the start of the holdout period, ${dateLabel(dates.first_holdout_week)}.`}</p>
     </section>
     <div className="two-column">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">PLANNED INPUTS</p><h3>Marketing spend</h3></div><span className="tiny-badge">USD</span></div>
