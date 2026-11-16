@@ -3,7 +3,7 @@ import { PlotChart, type PlotTrace } from '../components/PlotChart'
 import { MetricCard } from '../components/MetricCard'
 import { ALL_REGIONS, channelColor, channelLabel, channelOrder, decompositionTotals,
   filterWeeks, matchingAggregate, regionLabel, type WeeklyFilter } from '../lib/analytics'
-import { dateLabel, decimal, units } from '../lib/format'
+import { dateLabel, units } from '../lib/format'
 import type { Channel, ModelDataBundle } from '../types/modelData'
 
 export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; filter: WeeklyFilter }) {
@@ -38,31 +38,29 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
       fill: 'tonexty', fillcolor: `${channelColor[channel]}33`, line: { width: 0 },
       name: '90% credible interval', hovertemplate: 'Upper bound: %{y:,.0f} units<extra></extra>' },
     { x, y: rows.map(row => row.channels_units[channel].mean), type: 'scatter', mode: 'lines',
-      name: 'Posterior mean', line: { color: channelColor[channel], width: 3 },
+      name: 'Modeled average', line: { color: channelColor[channel], width: 3 },
       hovertemplate: '%{x}<br>Modeled contribution: %{y:,.0f} units<extra></extra>' },
   ]
-  const reconciliation = totals.expected + totals.residual
-  const roundingDifference = totals.observed - reconciliation
 
   return <div className="page-stack">
-    <div className="section-intro"><span className="section-kicker">02 / MODEL DECOMPOSITION</span>
-      <h2>Where expected units are assigned</h2>
+    <div className="section-intro"><span className="section-kicker">02 / SALES BREAKDOWN</span>
+      <h2>What contributes to expected sales</h2>
       <p>{regionLabel(filter.segmentId)} · {dateLabel(filter.startWeek)}–{dateLabel(filter.endWeek)} · {rows.length} weeks</p>
     </div>
     <div className="metric-grid">
-      <MetricCard label="Modeled baseline" value={units(totals.baseline)} sub="Posterior mean units, selected weeks"
-        tip="Expected demand assigned to the intercept and nonmarketing controls by the fitted model." />
-      <MetricCard label="Three channel contributions" value={units(promo)} sub="Sum of posterior mean units"
-        tip="Coupons, retailer promotions and digital advertising modeled together. These are not experiment-validated causal effects." />
+      <MetricCard label="Modeled baseline" value={units(totals.baseline)} sub="Estimated units in selected weeks"
+        tip="Estimated sales without the three modeled marketing contributions." />
+      <MetricCard label="Three channel contributions" value={units(promo)} sub="Estimated units in selected weeks"
+        tip="Estimated contribution from coupons, retailer promotions, and digital advertising under the model's assumptions." />
       <MetricCard label="Expected sales" value={units(totals.expected)} sub="Baseline plus channel means" />
       <MetricCard label="Observed − expected" value={`${totals.residual >= 0 ? '+' : ''}${units(totals.residual)}`}
-        sub="Residual units; may be negative" tip="Observed sales minus the fitted posterior mean of expected sales. It is not another channel contribution." />
+        sub="Difference in units; may be negative" tip="Observed sales minus modeled expected sales." />
     </div>
     <section className="chart-card"><div className="card-header"><div><p className="section-kicker">WEEKLY COMPONENTS</p><h3>Baseline and modeled channel response</h3></div><span className="tiny-badge">UNITS</span></div>
       <PlotChart label={`Modeled baseline and three channel contributions with observed sales for ${regionLabel(filter.segmentId)}`}
         traces={stack} height={390} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
           yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
-      <p className="chart-caption">Stacked areas sum the <strong>posterior mean</strong> baseline and modeled channel contributions{allRegions ? ' across all six regions' : ''}. The observed line can differ because sales include residual variation. Campaigns are correlated and targeted; this allocation is assumption dependent.</p>
+      <p className="chart-caption">Stacked areas show modeled baseline and channel contributions{allRegions ? ' across all regions' : ''}. Observed sales may differ. The marketing contributions depend on model assumptions and are not proven causal lift.</p>
     </section>
     <div className="two-column decomposition-lower">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">UNCERTAINTY</p><h3>Channel contribution band</h3></div>
@@ -73,23 +71,21 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
         <PlotChart label={`Weekly modeled ${channelLabel[channel]} contribution for ${regionLabel(filter.segmentId)} with 90% credible interval`}
           traces={band} height={295} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
             yaxis: { title: 'Contribution units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
-        <p className="chart-caption">The shaded 5th–95th percentile band is a <strong>90% credible interval for each week's expected channel contribution</strong>{allRegions ? ', summed across six regions within each joint posterior draw' : ''}. It is not a prediction interval for observed sales.</p>
+        <p className="chart-caption">The shaded area is a <strong>90% credible interval</strong> for this channel's modeled weekly contribution{allRegions ? ' across all regions' : ''}. It does not describe future observed sales.</p>
       </section>
-      <section className="detail-card"><p className="section-kicker">ACCOUNTING CHECK</p><h3>Reconciliation</h3>
-        <div className="equation"><span>Expected sales</span><strong>{units(totals.expected)}</strong></div>
-        <div className="equation"><span>+ Residual</span><strong>{totals.residual >= 0 ? '+' : ''}{units(totals.residual)}</strong></div>
-        <div className="equation total"><span>= Observed sales</span><strong>{units(totals.observed)}</strong></div>
-        <p className="detail-note">Observed minus (expected + residual) is {decimal(roundingDifference, 3)} units; any small difference comes from four-decimal export rounding.</p>
+      <section className="detail-card"><p className="section-kicker">SALES BREAKDOWN</p><h3>Modeled vs observed</h3>
+        <div className="equation"><span>Modeled expected sales</span><strong>{units(totals.expected)}</strong></div>
+        <div className="equation"><span>Difference from observed</span><strong>{totals.residual >= 0 ? '+' : ''}{units(totals.residual)}</strong></div>
+        <div className="equation total"><span>Observed sales</span><strong>{units(totals.observed)}</strong></div>
         <div className="detail-rule" />
-        <h4>Selected-period component means</h4>
+        <h4>Modeled contribution by channel</h4>
         {channelOrder.map(name => <div className="contribution-row" key={name}>
           <span className="legend-dot" style={{ background: channelColor[name] }} />
           <span>{channelLabel[name]}</span><strong>{units(totals.channels[name])}</strong>
         </div>)}
-        {aggregate && <p className="detail-note">For this exact {aggregate.period} period, the {channelLabel[channel].toLowerCase()} total has a draw-first 90% credible interval of {units(aggregate.channels_units[channel].p05)}–{units(aggregate.channels_units[channel].p95)} units.</p>}
-        {!aggregate && <p className="detail-note">Custom-window total intervals are unavailable in this export. Weekly interval endpoints cannot be summed.</p>}
+        {aggregate && <p className="detail-note">{channelLabel[channel]} total: 90% credible interval of {units(aggregate.channels_units[channel].p05)}–{units(aggregate.channels_units[channel].p95)} units.</p>}
+        {!aggregate && <p className="detail-note">A total interval is available for the All weeks, Training, and Holdout ranges.</p>}
       </section>
     </div>
-    <p className="method-note"><strong>Interpretation</strong> · {bundle.contributions.interpretation} Model-based contributions are conditional on the synthetic data-generating assumptions. They are not experimentally established causal lift or a measure of profit. Partial pooling missed some known synthetic channel effects in M3.</p>
   </div>
 }

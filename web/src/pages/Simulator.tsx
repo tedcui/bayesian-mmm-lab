@@ -40,15 +40,13 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
   }, [prepared, multipliers])
 
   if (preparationError || calculation.error) return <section className="state-panel" role="alert">
-    <h2>Scenario unavailable</h2><p>{preparationError || calculation.error}</p>
+    <h2>Scenario unavailable</h2><p>We could not calculate this scenario. Please reload the dashboard and try again.</p>
   </section>
   if (!prepared || !bounds || !calculation.result) return <section className="empty-panel" role="status">
-    No validated scenario draws are available for this region.
+    Scenario data is unavailable for this region.
   </section>
 
   const result = calculation.result
-  const partialEffects = bundle.segments.effects.filter(effect => effect.pooling === 'partial')
-  const noPoolingEffects = bundle.segments.effects.filter(effect => effect.pooling === 'none')
   const horizon = prepared.simulator.horizon_week_starts
   const spendDelta = result.alternative_spend_usd.total - result.baseline_spend_usd.total
   const warningChannels = channelOrder.filter(channel => result.alternative_support.by_channel[channel].above_training_max_weeks > 0)
@@ -82,9 +80,8 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
   }
 
   return <div className="page-stack">
-    <p className="method-note"><strong>Conditional historical replay · {dateLabel(horizon[0])}–{dateLabel(horizon[11])}.</strong>{' '}
-      The fitted model replays the last 12 holdout weeks with price, distribution, competitor conditions, trend, seasonality, and holidays held fixed.
-      This is not an ex-ante forecast. Plans are synthetic, pre-outcome marketing spend in USD.</p>
+    <p className="method-note"><strong>Weeks starting {dateLabel(horizon[0])}–{dateLabel(horizon[11])}.</strong>{' '}
+      Explore how a different spending plan might have changed modeled sales during these 12 weeks. Other market conditions stay the same. This is a historical scenario, not a future forecast.</p>
 
     <section className="detail-card" aria-labelledby="scenario-controls-title">
       <div className="card-header"><div><p className="section-kicker">01 / PLAN AN ALTERNATIVE</p>
@@ -92,7 +89,7 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
         <button className="secondary-button" type="button" onClick={() => {
           setMultipliers([1, 1, 1]); setOptimization(null); setOptimizationError(null)
         }}>Reset to baseline</button></div>
-      <p className="simulator-help">Each control scales that channel's original 12 weekly values. 100% preserves its exported plan; 0% removes replay-window spend while historical adstock continues.</p>
+      <p className="simulator-help">Each control adjusts one channel's spending across the 12 weeks. At 100%, the original plan is unchanged; at 0%, that channel has no new spending in this period.</p>
       <div className="spend-controls">
         {channelOrder.map((channel, c) => {
           const original = prepared.segment.baseline_plan_usd.map(week => week[c])
@@ -113,22 +110,22 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
       <div className="spend-summary"><span>12-week baseline planned spend <strong>{dollars(result.baseline_spend_usd.total)}</strong></span>
         <span>12-week alternative planned spend <strong>{dollars(result.alternative_spend_usd.total)}</strong></span>
         <span>Spend change <strong>{signedDollars(spendDelta)}</strong></span></div>
-      {overObserved.length > 0 && <p className="scenario-warning" role="alert"><strong>Outside observed spend bounds:</strong>{' '}
+      {overObserved.length > 0 && <p className="scenario-warning" role="alert"><strong>Outside the observed spending range:</strong>{' '}
         {overObserved.map(channel => `${channelLabel[channel]} (${result.alternative_support.by_channel[channel].above_observed_max_weeks} weeks)`).join(', ')}.
-        This scenario exceeds the exported maximum weekly spend and is unsupported extrapolation. The optimizer will not use it.</p>}
-      {warningChannels.length > 0 && <p className="scenario-warning" role="status"><strong>Above training support:</strong>{' '}
+        The model has not seen weekly spending this high. The budget search stays within the observed range.</p>}
+      {warningChannels.length > 0 && <p className="scenario-warning" role="status"><strong>Above the training spending range:</strong>{' '}
         {warningChannels.map(channel => `${channelLabel[channel]} (${result.alternative_support.by_channel[channel].above_training_max_weeks} weeks)`).join(', ')}.
-        Interpret the modeled response cautiously.</p>}
+        These results rely on spending levels above those used to fit the model.</p>}
     </section>
 
     <div className="metric-grid" aria-live="polite">
-      <MetricCard label="Paired incremental expected units" value={signedUnits(result.summary.incremental_expected_units.mean)}
+      <MetricCard label="Change in expected sales" value={signedUnits(result.summary.incremental_expected_units.mean)}
         sub={`90% credible: ${interval(result.summary.incremental_expected_units)}`} />
-      <MetricCard label="Baseline expected units" value={units(result.summary.baseline_expected_units.mean)}
+      <MetricCard label="Original plan expected sales" value={units(result.summary.baseline_expected_units.mean)}
         sub={`90% credible: ${interval(result.summary.baseline_expected_units)}`} />
-      <MetricCard label="Alternative expected units" value={units(result.summary.alternative_expected_units.mean)}
+      <MetricCard label="New plan expected sales" value={units(result.summary.alternative_expected_units.mean)}
         sub={`90% credible: ${interval(result.summary.alternative_expected_units)}`} />
-      <MetricCard label="Planned spend change" value={signedDollars(spendDelta)} sub="Fixed 12-week USD input; no credible interval" />
+      <MetricCard label="Planned spend change" value={signedDollars(spendDelta)} sub="Across all 12 weeks" />
     </div>
 
     <div className="two-column">
@@ -137,7 +134,7 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
         <PlotChart label="Baseline and alternative model expected units with 90 percent credible intervals"
           traces={chartTraces} layout={{ yaxis: { title: 'Expected sales units', rangemode: 'tozero' },
             showlegend: false, bargap: 0.45 }} height={305} />
-        <p className="simulator-help">Bars are posterior means; whiskers show central 90% credible intervals for expected units. The incremental interval uses paired draw differences, not the distance between whiskers.</p>
+        <p className="simulator-help">Bars show modeled expected sales; whiskers show 90% credible intervals. The change above compares the two plans directly.</p>
       </section>
       <section className="detail-card"><p className="section-kicker">03 / CHANNEL RESPONSE</p><h2>Modeled change by channel</h2>
         <div className="scenario-response-table">
@@ -147,33 +144,33 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
             <small>90% credible: {interval(result.summary.channel_difference_units[channel])}</small>
           </div>)}
         </div>
-        <p className="simulator-help">Channel changes sum within each posterior draw to the modeled total change. They are not experimentally identified causal lift.</p>
+        <p className="simulator-help">These channel changes are model estimates, not proven causal lift.</p>
       </section>
     </div>
 
     <section className="detail-card" aria-labelledby="budget-title"><p className="section-kicker">04 / FIXED-BUDGET SEARCH</p>
       <h2 id="budget-title">Allocate one 12-week budget</h2>
-      <p className="simulator-help">Enter an absolute total in USD for all three channels across the 12 weeks. The search preserves each channel's original weekly pattern, uses the same {result.draw_count} paired posterior draws, and maximizes mean modeled incremental expected units within observed weekly spend caps. It is a deterministic local search, not a certified global optimum.</p>
+      <p className="simulator-help">Set one total budget for the three channels. The search suggests a split that may increase modeled sales while keeping each channel's week-to-week spending pattern within the observed range. The search is approximate.</p>
       <div className="budget-form"><label htmlFor="budget-usd">Total planned budget · 12 weeks (USD)</label>
         <div><input id="budget-usd" type="number" min="0" step="0.01" value={budgetText}
           onChange={event => { setBudgetText(event.target.value); setOptimization(null); setOptimizationError(null) }} />
           <button className="primary-button" type="button" onClick={runOptimizer}>Find allocation</button></div>
-        <small>Feasible range: {dollarsCents(0)} to {dollarsCents(Math.floor(bounds.maximumBudget * 100) / 100)}. Baseline: {dollarsCents(result.baseline_spend_usd.total)}. Each channel has a zero minimum and an observed weekly cap.</small>
+        <small>Budget range: {dollarsCents(0)} to {dollarsCents(Math.floor(bounds.maximumBudget * 100) / 100)}. Original plan: {dollarsCents(result.baseline_spend_usd.total)}.</small>
       </div>
-      {optimizationError && <p className="scenario-warning" role="alert">{optimizationError}</p>}
+      {optimizationError && <p className="scenario-warning" role="alert">We could not calculate an allocation. Try a different budget.</p>}
       {optimization?.status === 'infeasible' && <p className="scenario-warning" role="alert"><strong>Cannot allocate this budget.</strong>{' '}
-        {optimization.reason} Maximum feasible to cents: {dollarsCents(Math.floor(optimization.maximumBudgetUsd * 100) / 100)}.</p>}
+        {optimization.reason} Maximum available: {dollarsCents(Math.floor(optimization.maximumBudgetUsd * 100) / 100)}.</p>}
       {optimization?.status === 'feasible' && <div className="optimization-results" role="status">
-        <h3>Feasible allocation</h3>
+        <h3>Suggested allocation</h3>
         <p>Allocated {dollars(optimization.scenario.alternative_spend_usd.total)} across 12 weeks.
-          Mean modeled incremental expected units vs baseline: <strong>{signedUnits(optimization.scenario.summary.incremental_expected_units.mean)}</strong>{' '}
+          Estimated change in sales: <strong>{signedUnits(optimization.scenario.summary.incremental_expected_units.mean)}</strong>{' '}
           (90% credible: {interval(optimization.scenario.summary.incremental_expected_units)}).</p>
         <div className="allocation-grid">{channelOrder.map(channel => <div key={channel}>
           <span>{channelLabel[channel]}</span><strong>{dollars(optimization.allocationsUsd[channel])}</strong>
           <small>Baseline {dollars(bounds.baselineTotals[channel])} · Max {dollars(bounds.maximumTotals[channel])}</small></div>)}</div>
-        <p>{optimization.boundaryChannels.length ? `At a spend boundary: ${optimization.boundaryChannels.map(item =>
-          `${channelLabel[item.channel]} ${item.bound}`).join(', ')}.` : 'No channel is at its minimum or maximum cap.'}{' '}
-          {optimization.scenario.alternative_support.extrapolates_beyond_training ? 'Some allocated weeks exceed the training maximum; interpret cautiously.' : 'Allocated weeks stay within training maxima.'}</p>
+        {optimization.boundaryChannels.length > 0 && <p>At an allowed spending limit: {optimization.boundaryChannels.map(item =>
+          `${channelLabel[item.channel]} (${item.bound})`).join(', ')}.</p>}
+        {optimization.scenario.alternative_support.extrapolates_beyond_training && <p>Some weeks exceed spending levels used to fit the model.</p>}
         <button className="secondary-button" type="button" onClick={() => {
           setMultipliers(channelOrder.map(channel => bounds.baselineTotals[channel] > 0 ?
             optimization.allocationsUsd[channel] / bounds.baselineTotals[channel] : 0))
@@ -181,9 +178,5 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
       </div>}
     </section>
 
-    <p className="method-note"><strong>How to read this.</strong> Geometric adstock carries earlier planned spend into later weeks; Hill saturation makes each additional dollar less responsive at higher spend.
-      These 90% intervals describe parameter uncertainty in conditional expected sales from a subset of {result.draw_count} jointly indexed draws, excluding observation noise.
-      Results depend on observational identification assumptions and are not demonstrated causal lift, profit, or ROI.
-      In synthetic truth recovery, partial pooling covered {partialEffects.filter(effect => effect.interval_contains_truth).length}/{partialEffects.length} effects versus {noPoolingEffects.filter(effect => effect.interval_contains_truth).length}/{noPoolingEffects.length} for no pooling; the partial model is an educational reference, not a proven best effect model.</p>
   </div>
 }

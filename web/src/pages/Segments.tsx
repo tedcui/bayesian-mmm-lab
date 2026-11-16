@@ -21,7 +21,6 @@ function findEffect(effects: SegmentEffect[], pooling: Pooling, segmentId: strin
 
 export function Segments({ bundle, filter }: { bundle: ModelDataBundle; filter: WeeklyFilter }) {
   const [channel, setChannel] = useState<Channel>('coupon')
-  const [showTruth, setShowTruth] = useState(false)
   const { segments } = bundle
   const ids = bundle.manifest.segments
   const selectedProfile = segments.segment_profiles.find(row => row.segment_id === filter.segmentId)!
@@ -39,28 +38,20 @@ export function Segments({ bundle, filter }: { bundle: ModelDataBundle; filter: 
       hovertemplate: '%{customdata[0]}<br>Mean: %{x:,.1f} units<br>90% credible interval: %{customdata[1]:,.1f}–%{customdata[2]:,.1f}<extra>%{fullData.name}</extra>',
     }
   })
-  if (showTruth) traces.push({ type: 'scatter', mode: 'markers', name: 'Known synthetic truth',
-    x: ids.map(id => findEffect(segments.effects, 'partial', id, channel).synthetic_truth_units),
-    y: ids.map((_, index) => index), marker: { color: '#26394b', size: 11, symbol: 'line-ns-open', line: { width: 2 } },
-    hovertemplate: '%{x:,.0f} true synthetic units<extra></extra>' })
-
   return <div className="page-stack">
-    <div className="section-intro"><span className="section-kicker">03 / HIERARCHICAL COMPARISON</span>
-      <h2>What pooling changes</h2>
-      <p>Three genuinely fitted Bayesian specifications · 90% parameter credible intervals · fixed 100-week training period</p>
+    <div className="section-intro"><span className="section-kicker">03 / REGION COMPARISON</span>
+      <h2>How model estimates compare</h2>
+      <p>Compare how three models estimate marketing effects across six regions.</p>
     </div>
     <div className="model-grid">
       {poolOrder.map(pooling => {
         const model = segments.models[pooling]
-        const hits = segments.effects.filter(row => row.pooling === pooling && row.interval_contains_truth).length
         return <article className={`model-card ${pooling === 'partial' ? 'reference' : ''}`} key={pooling}>
           <div className="model-card-top"><span className="model-mark" style={{ background: poolColor[pooling] }} />
-            <span>{pooling === 'partial' ? 'REFERENCE FIT' : 'COMPARISON FIT'}</span></div>
+            <span>{pooling === 'partial' ? 'USED IN DASHBOARD' : 'ALTERNATIVE MODEL'}</span></div>
           <h3>{poolLabel[pooling]}</h3>
           <p>{pooling === 'complete' ? 'One shared channel effect for every region.' : pooling === 'none' ? 'Independent effects for each region.' : 'Regional effects share a population distribution.'}</p>
-          <div className="model-stat"><span>Conditional holdout WAPE</span><strong>{percent(model.conditional_holdout.wape)}</strong></div>
-          <div className="model-stat"><span>Known effects in 90% interval</span><strong>{hits}/{segments.effects.filter(row => row.pooling === pooling).length}</strong></div>
-          <div className="model-stat"><span>Max R-hat</span><strong>{decimal(model.diagnostics.max_rhat, 4)}</strong></div>
+          <div className="model-stat"><span>Holdout sales error</span><strong>{percent(model.conditional_holdout.wape)}</strong></div>
         </article>
       })}
     </div>
@@ -69,19 +60,17 @@ export function Segments({ bundle, filter }: { bundle: ModelDataBundle; filter: 
         onChange={event => setChannel(event.target.value as Channel)}>
         {channelOrder.map(name => <option value={name} key={name}>{channelLabel[name]}</option>)}
       </select></label></div>
-      <div className="chart-toolbar"><label className="checkbox-label"><input type="checkbox" checked={showTruth}
-        onChange={event => setShowTruth(event.target.checked)} /> Show known synthetic truth (evaluation only)</label>
-        <span>Selected region: <strong>{regionLabel(filter.segmentId)}</strong></span></div>
+      <div className="chart-toolbar"><span>Selected region: <strong>{regionLabel(filter.segmentId)}</strong></span></div>
       <PlotChart label={`${channelLabel[channel]} maximum-effect estimates and 90% credible intervals across six business regions`}
         traces={traces} height={410} layout={{ margin: { l: 135, r: 24, t: 15, b: 72 },
-          xaxis: { title: 'Maximum modeled weekly contribution (units at full saturation)', rangemode: 'tozero', gridcolor: '#e9edf0' },
+          xaxis: { title: 'Maximum modeled weekly contribution (units)', rangemode: 'tozero', gridcolor: '#e9edf0' },
           yaxis: { tickvals: ids.map((_, index) => index), ticktext: ids.map(regionLabel),
             range: [-0.6, ids.length - 0.4], autorange: 'reversed', showgrid: false, zeroline: false } }} />
-      <p className="chart-caption">Points are posterior means; bars are <strong>90% credible intervals for maximum weekly channel effects at full saturation</strong>. They are not marginal units per dollar. Synthetic truth is known only to the generator and was never a fitting input.</p>
+      <p className="chart-caption">Points show each model's estimated maximum weekly contribution; bars show <strong>90% credible intervals</strong>. These estimates describe the model's response at full saturation, not sales per dollar or proven causal lift.</p>
     </section>
     <div className="two-column segment-lower">
       <section className="detail-card"><p className="section-kicker">SELECTED REGION</p><h3>{regionLabel(filter.segmentId)} · {channelLabel[channel]}</h3>
-        <p className="detail-note">Training average: <strong>{units(selectedProfile.training_mean_sales_units)} sales units/week</strong>. Planned {channelLabel[channel].toLowerCase()} spend coefficient of variation: <strong>{decimal(selectedProfile.training_spend_cv[channel], 2)}</strong>.</p>
+        <p className="detail-note">Average weekly sales during training: <strong>{units(selectedProfile.training_mean_sales_units)} units</strong>.</p>
         <div className="effect-table" role="table" aria-label="Selected regional effect estimates">
           <div className="effect-table-head" role="row"><span role="columnheader">Model</span><span role="columnheader">Mean</span><span role="columnheader">90% credible interval</span></div>
           {selectedEffects.map(effect => <div className="effect-table-row" role="row" key={effect.pooling}>
@@ -90,16 +79,14 @@ export function Segments({ bundle, filter }: { bundle: ModelDataBundle; filter: 
             <span role="cell">{decimal(effect.maximum_effect_units.p05)}–{decimal(effect.maximum_effect_units.p95)}</span>
           </div>)}
         </div>
-        {showTruth && <p className="truth-note">Known synthetic truth: {units(selectedEffects[0].synthetic_truth_units)} units at full saturation. This is shown for evaluation, not used as a model feature.</p>}
       </section>
-      <section className="detail-card insight-card"><p className="section-kicker">SMALL-DATA REGION LENS</p><h3>How sharing information helps—and can hurt</h3>
-        <p>Mountain West and Pacific Coast have the lowest training mean sales among these six regions. Lower sales and correlated campaigns make their separate channel responses harder to identify.</p>
-        <p>The hierarchical fit lets regional effects share a population prior. This can draw a weakly informed estimate toward the group, but it can also overshrink a real difference.</p>
+      <section className="detail-card insight-card"><p className="section-kicker">REGIONAL DIFFERENCES</p><h3>Why the model estimates differ</h3>
+        <p>Smaller regions such as Pacific Coast and Mountain West provide less information about each channel's effect.</p>
+        <p>Partial pooling shares information across regions. That can steady an estimate, but it can also smooth over a real difference.</p>
         <div className="insight-stat"><span>Partial-pooling effect here</span><strong>{decimal(selectedEffects[2].maximum_effect_units.mean)} units</strong></div>
         <div className="insight-stat"><span>No-pooling effect here</span><strong>{decimal(selectedEffects[1].maximum_effect_units.mean)} units</strong></div>
-        <p className="detail-note">In this run, no pooling covers more known channel effects than partial pooling, while holdout sales errors are nearly tied. The partial fit is a teaching reference, not a winner selected by coefficient recovery.</p>
+        <p className="detail-note">Here, partial pooling can understate real regional differences. A good sales fit does not confirm each channel's effect.</p>
       </section>
     </div>
-    <p className="method-note"><strong>Model scope</strong> · {segments.effect_definition} {segments.interpretation} The six segments are business-defined geography groups from stores, not algorithmic clusters. Correlated promotions, pricing and targeting can confound observed effects; synthetic recovery does not prove causal identification in real retail data.</p>
   </div>
 }

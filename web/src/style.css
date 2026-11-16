@@ -46,8 +46,6 @@ h2 { font-size: 22px; line-height: 1.2; letter-spacing: -.035em; color: #193244;
 h3 { font-size: 16px; line-height: 1.25; letter-spacing: -.02em; color: #213949; margin: 0; }
 h4 { font-size: 12px; color: #394e5a; margin: 15px 0 8px; }
 .lead { font-size: 13px; color: #647681; margin: 0; line-height: 1.5; }
-.export-badge { flex: 0 0 auto; align-self: center; background: #fff; border: 1px solid #e2e9e8; border-radius: 8px; padding: 10px 13px; color: #47736f; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
-.export-badge small { margin-left: 9px; background: #edf4f3; color: #577c7b; padding: 3px 5px; border-radius: 4px; }
 .filter-panel, .chart-card, .detail-card, .metric-card, .model-card { background: #fff; border: 1px solid #e5eae9; border-radius: 11px; box-shadow: 0 2px 10px #1d344708; }
 .filter-panel { padding: 17px 20px 18px; margin-bottom: 26px; }
 .filter-heading { display: flex; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 13px; }
@@ -114,15 +112,12 @@ select { width: 100%; background: #f7faf9; color: #2a4250; border: 1px solid #dc
 .model-stat strong { color: #2d4956; font-size: 11px; white-space: nowrap; }
 .chart-toolbar { display: flex; justify-content: space-between; gap: 12px; color: #71848b; font-size: 11px; align-items: center; padding: 7px 0 0; }
 .chart-toolbar strong { color: #2e6d73; }
-.checkbox-label { display: flex; align-items: center; gap: 7px; cursor: pointer; }
-.checkbox-label input { accent-color: #167d89; }
 .segment-lower { grid-template-columns: minmax(0, 1.2fr) minmax(315px, 1fr); }
 .effect-table { margin-top: 18px; }
 .effect-table-head, .effect-table-row { display: grid; grid-template-columns: 1.35fr .8fr 1.2fr; gap: 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid #e9eeed; font-size: 11px; }
 .effect-table-head { color: #8b9ba2; font-size: 9px; letter-spacing: .07em; font-weight: 800; }
 .effect-table-row { color: #526b78; }
 .effect-table-row strong { color: #284652; }
-.truth-note { background: #edf3f5; border-radius: 6px; padding: 10px; color: #455f6b; font-size: 11px; line-height: 1.5; }
 .insight-card { background: #f6f9f8; }
 .insight-card p:not(.section-kicker) { color: #5e747d; font-size: 11px; line-height: 1.55; }
 .insight-stat { display: flex; justify-content: space-between; gap: 10px; color: #57707b; font-size: 11px; padding: 10px 0; border-top: 1px solid #dfeae7; }
@@ -169,5 +164,25 @@ select { width: 100%; background: #f7faf9; color: #2a4250; border: 1px solid #dc
 @media (max-width: 1120px) { .sidebar { width: 205px; flex-basis: 205px; } .main-content { padding: 27px 24px 45px; } .topbar { padding: 0 24px; } .filter-grid { grid-template-columns: repeat(3,1fr); } .filter-meta { grid-column: 1 / -1; border-left: none; border-top: 1px solid #e4eae9; padding: 10px 0 0; } }
 @media (max-width: 850px) { .app-shell { display: block; } .sidebar { position: static; width: 100%; height: auto; padding: 13px 18px; } .brand { padding: 0 0 12px; } .sidebar-section, .sidebar-footer, .nav-link small { display: none; } .sidebar nav { display: flex; overflow-x: auto; } .nav-link { min-height: 41px; padding: 8px 11px; white-space: nowrap; } .topbar { height: 48px; } .metric-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .two-column, .decomposition-lower, .segment-lower { grid-template-columns: 1fr; } .model-grid { grid-template-columns: 1fr; } .model-card p { min-height: 0; } }
 @media (max-width: 850px) { .spend-controls { grid-template-columns: 1fr; } }
-@media (max-width: 590px) { .main-content { padding: 20px 14px 38px; } .topbar { padding: 0 14px; } .topbar-pill { display: none; } .page-heading { margin-bottom: 18px; } .export-badge { display: none; } .filter-grid { grid-template-columns: 1fr 1fr; } .filter-grid label:first-child { grid-column: 1 / -1; } .filter-heading span { display: none; } .metric-grid { gap: 9px; } .metric-card { padding: 13px; min-height: 100px; } .metric-value { font-size: 21px; } .chart-card, .detail-card { padding: 14px; } .card-header { flex-wrap: wrap; } .compact-label { min-width: 145px; } .chart-toolbar, .page-footer { display: block; } .effect-table-head, .effect-table-row { grid-template-columns: 1fr .7fr 1fr; font-size: 10px; } }
+@media (max-width: 590px) { .main-content { padding: 20px 14px 38px; } .topbar { padding: 0 14px; } .topbar-pill { display: none; } .page-heading { margin-bottom: 18px; } .filter-grid { grid-template-columns: 1fr 1fr; } .filter-grid label:first-child { grid-column: 1 / -1; } .filter-heading span { display: none; } .metric-grid { gap: 9px; } .metric-card { padding: 13px; min-height: 100px; } .metric-value { font-size: 21px; } .chart-card, .detail-card { padding: 14px; } .card-header { flex-wrap: wrap; } .compact-label { min-width: 145px; } .chart-toolbar, .page-footer { display: block; } .effect-table-head, .effect-table-row { grid-template-columns: 1fr .7fr 1fr; font-size: 10px; } }
 @media (max-width: 590px) { .allocation-grid { grid-template-columns: 1fr; } .budget-form > div { flex-wrap: wrap; } }
+
+/* Quick period choices keep the common views reachable without scrolling 120 dates. */
+.period-presets { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; border-top: 1px solid #e4eae9; margin-top: 14px; padding-top: 13px; }
+.period-presets span { color: #526a75; font-size: 11px; font-weight: 800; letter-spacing: .1em; margin-right: 4px; }
+.period-presets button { color: #315665; background: #f5f9f8; border: 1px solid #b9d1d1; border-radius: 6px; padding: 7px 11px; font-size: 12px; font-weight: 700; }
+.period-presets button:hover { background: #e8f3f1; }
+.period-presets button[aria-pressed="true"] { background: #176f7a; border-color: #176f7a; color: #fff; }
+
+/* Secondary copy is body text, so keep it legible on white and pale cards. */
+.lead, .filter-heading span, .filter-grid label, .compact-label, .filter-note,
+.metric-label, .metric-sub, .chart-caption, .detail-note, .method-note,
+.section-intro p, .model-card p, .model-stat, .chart-toolbar, .simulator-help,
+.control-totals, .spend-summary, .scenario-response-row, .page-footer,
+.budget-form small, .allocation-grid small, .allocation-label, .contribution-row {
+  color: #526a75; font-size: 12px;
+}
+.filter-meta span, .effect-table-head, .model-card-top { color: #526a75; font-size: 11px; }
+.page-footer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); line-height: 1.6; }
+@media (max-width: 590px) { .page-footer { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .loading-ring { animation: none; } }

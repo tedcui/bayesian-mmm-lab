@@ -1,5 +1,11 @@
 # M7 public-release review
 
+## Dashboard usability follow-up
+
+The local dashboard review added one-click all/training/holdout date ranges on Overview and Decomposition, clarified that the end date is inclusive and the simulator is region-specific, increased small secondary text to 12px with darker contrast, and arranged the footer disclosures in two columns on desktop and one on mobile. The quick-range buttons expose their selected state with `aria-pressed`; a custom date choice clears that state. Reduced-motion users no longer see the loading spinner animate.
+
+Current checks pass: 38 Python tests, 18 frontend tests, TypeScript typecheck, frontend build, public and built-artifact validation, and HTTP 200 for the local site and manifest. The built `dist/` totals 3,179,435 bytes, including 1,703,301 bytes of approved JSON; the lazy Plotly chunk remains 1,161,700 bytes and triggers Vite's size warning. A connected visual browser is still unavailable in this session, so desktop/mobile screenshot and interactive chart inspection remain open before public release. The source-schema metadata decision below is also still open. No site was deployed.
+
 This is a local release assessment, not authorization to push or publish. The dashboard is a synthetic portfolio demonstration. No Git remote is configured in the inspected checkout, and no GitHub Pages settings or live site were changed.
 
 ## Browser artifact audit
@@ -15,7 +21,7 @@ These automated checks cover file names, known sensitive field names, checksums 
 | `docs/SOURCE_SCHEMA_AND_ETL.md` | Adapts the supplied three-table source description, including 44/42/19 column names, Oracle-style types, candidate keys and sample joins. These may be organization-specific even though all generated rows are invented. | Obtain explicit approval to publish these metadata, or prepare a coordinated generic public schema and regenerate/test the dependent code and artifacts. Do not silently edit the authoritative private contract. |
 | `AGENTS.md`, milestone prompts | Still name MSA and CareDx as exclusions and describe the origin of the supplied schema. No legacy `rss_silver` table name was found in tracked text. | Replace organization references with generic wording in a reviewed public variant if attribution is not approved. |
 | `modeling/src/mmm_lab/simulation/schema.py`, ETL code, dictionaries and notebooks | Mirror the source column inventory by design. The two small reference Parquets include **invented** store/contact fields; `data/metadata/ground_truth.json` is synthetic evaluation truth. | Review whether to publish those synthetic examples and detailed field names. If anonymization is required, change code, docs, fixtures, generated data and hashes together, then rerun all gates. |
-| `web/public/model-data/` | Contains aggregate synthetic summaries, region/week observations, 96 fitted joint draws and the aggregate known-truth overlay. No source rows or direct identifiers were detected. | Approve the educational synthetic truth and posterior subset as public demo data. Keep the full posterior NetCDF and source detail out of the site. |
+| `web/public/model-data/` | Contains aggregate synthetic summaries, region/week observations, 96 fitted joint draws and aggregate synthetic-truth evaluation fields. The truth fields are not shown in the dashboard. No source rows or direct identifiers were detected. | Review whether the synthetic-truth fields and posterior subset should remain in public demo data. Keep the full posterior NetCDF and source detail out of the site. |
 
 ## Release checks and remaining gates
 

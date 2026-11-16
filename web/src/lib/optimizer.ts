@@ -37,12 +37,12 @@ export function budgetBounds(prepared: PreparedScenario): BudgetBounds {
 export function optimizeFixedBudget(prepared: PreparedScenario, requestedBudgetUsd: number): OptimizationResult {
   const { baselineTotals, maximumTotals, maximumBudget } = budgetBounds(prepared)
   if (!Number.isFinite(requestedBudgetUsd) || requestedBudgetUsd < 0) {
-    return { status: 'infeasible', reason: 'Budget must be a finite, nonnegative 12-week USD total.',
+    return { status: 'infeasible', reason: 'Enter a budget of zero or more dollars.',
       requestedBudgetUsd, maximumBudgetUsd: maximumBudget }
   }
   const tolerance = Math.max(1e-6, maximumBudget * 1e-10)
   if (requestedBudgetUsd > maximumBudget) {
-    return { status: 'infeasible', reason: 'Requested budget exceeds the fixed-profile observed spend caps.',
+    return { status: 'infeasible', reason: 'This budget is above the allowed spending range.',
       requestedBudgetUsd, maximumBudgetUsd: maximumBudget }
   }
   const budget = Math.min(requestedBudgetUsd, maximumBudget)
