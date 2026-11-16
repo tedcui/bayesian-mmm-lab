@@ -38,9 +38,9 @@ export const channelLabel: Record<Channel, string> = {
 }
 
 export const channelColor: Record<Channel, string> = {
-  coupon: '#167d89',
-  retailer_promotion: '#e89c50',
-  digital: '#8b78ae',
+  coupon: '#176d70',
+  retailer_promotion: '#b7774b',
+  digital: '#708a91',
 }
 
 export function regionLabel(id: string): string {

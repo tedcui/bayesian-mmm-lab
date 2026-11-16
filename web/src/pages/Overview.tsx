@@ -23,18 +23,18 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
   const boundaryVisible = filter.startWeek <= dates.first_holdout_week && filter.endWeek >= dates.first_holdout_week
   const boundary = boundaryVisible ? [{ type: 'line', x0: dates.first_holdout_week,
     x1: dates.first_holdout_week, yref: 'paper', y0: 0, y1: 1,
-    line: { color: '#d07058', width: 2, dash: 'dot' } }] : []
+    line: { color: '#b7774b', width: 2, dash: 'dot' } }] : []
   const salesTraces: PlotTrace[] = [
     { x, y: rows.map(row => row.predictive_sales_units.p05), mode: 'lines', type: 'scatter',
       line: { width: 0 }, hoverinfo: 'skip', showlegend: false },
     { x, y: rows.map(row => row.predictive_sales_units.p95), mode: 'lines', type: 'scatter',
-      fill: 'tonexty', fillcolor: 'rgba(22,125,137,0.15)', line: { width: 0 },
+      fill: 'tonexty', fillcolor: 'rgba(23,109,112,0.12)', line: { width: 0 },
       name: '90% predictive interval', hovertemplate: 'Upper predictive bound: %{y:,.0f} units<extra></extra>' },
     { x, y: rows.map(row => row.expected_sales_units.mean), type: 'scatter', mode: 'lines',
-      name: 'Modeled expected sales', line: { color: '#167d89', width: 3 },
+      name: 'Modeled expected sales', line: { color: '#176d70', width: 3 },
       hovertemplate: '%{x}<br>Expected: %{y:,.0f} units<extra></extra>' },
     { x, y: rows.map(row => row.observed_sales_units), type: 'scatter', mode: 'lines+markers',
-      name: 'Observed sales', line: { color: '#26394b', width: 1.5 }, marker: { size: 4 },
+      name: 'Observed sales', line: { color: '#b7774b', width: 1.8, dash: 'dot' }, marker: { size: 4 },
       hovertemplate: '%{x}<br>Observed: %{y:,.0f} units<extra></extra>' },
   ]
   const spendTraces: PlotTrace[] = channelOrder.map(channel => ({
@@ -65,9 +65,9 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
       <PlotChart label={`Observed sales, expected sales and 90% predictive interval for ${regionLabel(filter.segmentId)}`}
         traces={salesTraces} height={390}
         layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-          yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#e9edf0' },
+          yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#dedfd5' },
           shapes: boundary, annotations: boundaryVisible ? [{ x: dates.first_holdout_week, y: 1.02,
-            yref: 'paper', text: 'HOLDOUT START', showarrow: false, font: { size: 10, color: '#b05b47' } }] : [] }} />
+            yref: 'paper', text: 'HOLDOUT START', showarrow: false, font: { size: 10, color: '#a2623b' } }] : [] }} />
       <p className="chart-caption">The shaded area is a <strong>90% predictive interval</strong> for weekly sales{allRegions ? ' across all regions' : ''}. The line shows modeled average sales. Holdout results use spending and market conditions recorded for those weeks, so they are a look back, not a future forecast. {boundaryVisible && `The dotted line marks the start of the holdout period, ${dateLabel(dates.first_holdout_week)}.`}</p>
     </section>
     <div className="two-column">
@@ -75,7 +75,7 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
         <PlotChart label={`Weekly planned channel spend for ${regionLabel(filter.segmentId)}`}
           traces={spendTraces} height={300} layout={{ barmode: 'stack',
             xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-            yaxis: { title: 'Planned spend (USD)', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
+            yaxis: { title: 'Planned spend (USD)', rangemode: 'tozero', gridcolor: '#dedfd5' } }} />
         <p className="chart-caption">Planned channel spending. Coupon redemptions and register discounts are not counted as planned spend.</p>
       </section>
       <section className="detail-card"><p className="section-kicker">SELECTED WINDOW</p><h3>Channel allocation</h3>

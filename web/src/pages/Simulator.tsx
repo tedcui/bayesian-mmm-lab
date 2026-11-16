@@ -53,12 +53,12 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
   const overObserved = channelOrder.filter(channel => result.alternative_support.by_channel[channel].above_observed_max_weeks > 0)
   const chartTraces = [
     { type: 'bar', name: 'Baseline plan', x: ['Baseline plan'],
-      y: [result.summary.baseline_expected_units.mean], marker: { color: '#8faab0' },
+      y: [result.summary.baseline_expected_units.mean], marker: { color: '#708a91' },
       error_y: { type: 'data', symmetric: false,
         array: [result.summary.baseline_expected_units.p95 - result.summary.baseline_expected_units.mean],
         arrayminus: [result.summary.baseline_expected_units.mean - result.summary.baseline_expected_units.p05] } },
     { type: 'bar', name: 'Alternative plan', x: ['Alternative plan'],
-      y: [result.summary.alternative_expected_units.mean], marker: { color: '#167d89' },
+      y: [result.summary.alternative_expected_units.mean], marker: { color: '#176d70' },
       error_y: { type: 'data', symmetric: false,
         array: [result.summary.alternative_expected_units.p95 - result.summary.alternative_expected_units.mean],
         arrayminus: [result.summary.alternative_expected_units.mean - result.summary.alternative_expected_units.p05] } },

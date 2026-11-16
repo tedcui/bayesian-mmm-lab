@@ -9,7 +9,7 @@ const poolLabel: Record<Pooling, string> = {
   complete: 'Complete pooling', none: 'No pooling', partial: 'Partial pooling',
 }
 const poolColor: Record<Pooling, string> = {
-  complete: '#9aa5ad', none: '#dc9155', partial: '#167d89',
+  complete: '#708a91', none: '#b7774b', partial: '#176d70',
 }
 const offsets: Record<Pooling, number> = { complete: -0.22, none: 0, partial: 0.22 }
 
@@ -63,7 +63,7 @@ export function Segments({ bundle, filter }: { bundle: ModelDataBundle; filter: 
       <div className="chart-toolbar"><span>Selected region: <strong>{regionLabel(filter.segmentId)}</strong></span></div>
       <PlotChart label={`${channelLabel[channel]} maximum-effect estimates and 90% credible intervals across six business regions`}
         traces={traces} height={410} layout={{ margin: { l: 135, r: 24, t: 15, b: 72 },
-          xaxis: { title: 'Maximum modeled weekly contribution (units)', rangemode: 'tozero', gridcolor: '#e9edf0' },
+          xaxis: { title: 'Maximum modeled weekly contribution (units)', rangemode: 'tozero', gridcolor: '#dedfd5' },
           yaxis: { tickvals: ids.map((_, index) => index), ticktext: ids.map(regionLabel),
             range: [-0.6, ids.length - 0.4], autorange: 'reversed', showgrid: false, zeroline: false } }} />
       <p className="chart-caption">Points show each model's estimated maximum weekly contribution; bars show <strong>90% credible intervals</strong>. These estimates describe the model's response at full saturation, not sales per dollar or proven causal lift.</p>

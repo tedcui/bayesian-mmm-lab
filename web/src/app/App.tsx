@@ -62,36 +62,24 @@ export function App() {
         : filter.startWeek === bundle.manifest.dates.first_holdout_week && filter.endWeek === bundle.manifest.dates.last_week ? 'holdout' : 'custom'
     : 'custom'
 
-  return <div className="app-shell">
+  return <div className="app-shell editorial-theme">
     <a className="skip-link" href="#main-content" onClick={event => {
       event.preventDefault()
       document.getElementById('main-content')?.focus()
     }}>Skip to main content</a>
-    <aside className="sidebar" aria-label="Main navigation">
-      <div className="brand">
-        <div className="brand-symbol" aria-hidden="true"><span /><span /><span /></div>
-        <div><strong>Bayesian MMM</strong><small>DECISION LAB</small></div>
-      </div>
-      <div className="sidebar-section">ANALYSIS</div>
+    <header className="site-header">
+      <div className="brand"><span className="brand-mark" aria-hidden="true">M</span><span>THE MIX <i>/</i> LAB</span></div>
       <nav aria-label="Analytical pages">
-        {nav.map((item, index) => <a key={item.id} href={`#/${item.id}`}
+        {nav.map(item => <a key={item.id} href={`#/${item.id}`}
           className={`nav-link ${page === item.id ? 'active' : ''}`}
           aria-current={page === item.id ? 'page' : undefined}>
-          <span className="nav-index">0{index + 1}</span>
-          <span><strong>{item.label}</strong><small>{item.detail}</small></span>
+          {item.label}
         </a>)}
       </nav>
-      <div className="sidebar-footer">
-        <span className="status-dot" /> About this dashboard
-        <p>Explore modeled sales and spending with synthetic retail data.</p>
-      </div>
-    </aside>
+      <div className="site-disclosure">SYNTHETIC DATA</div>
+    </header>
 
     <div className="content-shell">
-      <header className="topbar">
-        <div className="breadcrumb">ANALYSIS <span>/</span> {selected.label.toUpperCase()}</div>
-        <div className="topbar-pill">SYNTHETIC DATA <span>·</span> ILLUSTRATIVE RESULTS</div>
-      </header>
       <main id="main-content" className="main-content" tabIndex={-1}>
         {loading && <div className="state-panel" role="status"><div className="loading-ring" />
           <h1>Loading dashboard</h1><p>Preparing sales and marketing results.</p></div>}
@@ -102,8 +90,8 @@ export function App() {
         </div>}
         {!loading && bundle && filter && <>
           <div className="page-heading">
-            <div><p className="eyebrow">SYNTHETIC RETAIL <span> / </span> MODEL ANALYSIS</p>
-              <h1>{selected.label}</h1>
+            <div><p className="eyebrow">SYNTHETIC RETAIL <span> / </span> {selected.label.toUpperCase()}</p>
+              <h1>{page === 'overview' ? 'What shaped sales?' : selected.label}</h1>
               <p className="lead">{page === 'overview' ? 'Observed demand and model predictions across the retail calendar.'
                 : page === 'decomposition' ? 'See how the model divides expected sales among baseline demand and marketing channels.'
                   : page === 'segments' ? 'Compare estimated marketing effects across regions and models.'

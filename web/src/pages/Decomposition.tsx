@@ -21,14 +21,14 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
   const x = rows.map(row => row.week_start)
   const stack: PlotTrace[] = [
     { x, y: rows.map(row => row.baseline_units.mean), type: 'scatter', mode: 'lines',
-      stackgroup: 'one', name: 'Modeled baseline', line: { color: '#293e51', width: 0.5 },
-      fillcolor: '#293e51', hovertemplate: '%{x}<br>Baseline: %{y:,.0f} units<extra></extra>' },
+      stackgroup: 'one', name: 'Modeled baseline', line: { color: '#405c5a', width: 0.5 },
+      fillcolor: '#405c5a', hovertemplate: '%{x}<br>Baseline: %{y:,.0f} units<extra></extra>' },
     ...channelOrder.map(name => ({ x, y: rows.map(row => row.channels_units[name].mean),
       type: 'scatter', mode: 'lines', stackgroup: 'one', name: channelLabel[name],
       line: { color: channelColor[name], width: 0.5 }, fillcolor: channelColor[name],
       hovertemplate: `%{x}<br>${channelLabel[name]}: %{y:,.0f} units<extra></extra>` })),
     { x, y: rows.map(row => row.observed_sales_units), type: 'scatter', mode: 'lines',
-      name: 'Observed sales', line: { color: '#d07058', width: 2.5 },
+      name: 'Observed sales', line: { color: '#b7774b', width: 2.5 },
       hovertemplate: '%{x}<br>Observed: %{y:,.0f} units<extra></extra>' },
   ]
   const band: PlotTrace[] = [
@@ -59,7 +59,7 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
     <section className="chart-card"><div className="card-header"><div><p className="section-kicker">WEEKLY COMPONENTS</p><h3>Baseline and modeled channel response</h3></div><span className="tiny-badge">UNITS</span></div>
       <PlotChart label={`Modeled baseline and three channel contributions with observed sales for ${regionLabel(filter.segmentId)}`}
         traces={stack} height={390} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-          yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
+          yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#dedfd5' } }} />
       <p className="chart-caption">Stacked areas show modeled baseline and channel contributions{allRegions ? ' across all regions' : ''}. Observed sales may differ. The marketing contributions depend on model assumptions and are not proven causal lift.</p>
     </section>
     <div className="two-column decomposition-lower">
@@ -70,7 +70,7 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
         </select></label></div>
         <PlotChart label={`Weekly modeled ${channelLabel[channel]} contribution for ${regionLabel(filter.segmentId)} with 90% credible interval`}
           traces={band} height={295} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-            yaxis: { title: 'Contribution units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
+            yaxis: { title: 'Contribution units', rangemode: 'tozero', gridcolor: '#dedfd5' } }} />
         <p className="chart-caption">The shaded area is a <strong>90% credible interval</strong> for this channel's modeled weekly contribution{allRegions ? ' across all regions' : ''}. It does not describe future observed sales.</p>
       </section>
       <section className="detail-card"><p className="section-kicker">SALES BREAKDOWN</p><h3>Modeled vs observed</h3>

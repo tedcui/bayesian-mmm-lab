@@ -31,7 +31,7 @@ export function PlotChart({ label, traces, layout = emptyLayout, height = 340 }:
         height,
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
-        font: { family: 'Inter, system-ui, sans-serif', color: '#2d3b4a', size: 12 },
+        font: { family: 'Inter, system-ui, sans-serif', color: '#526a60', size: 12 },
         margin: { l: 55, r: 16, t: 28, b: 50 },
         hovermode: 'x unified',
         legend: { orientation: 'h', y: -0.25, x: 0 },
