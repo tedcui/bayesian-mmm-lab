@@ -484,13 +484,3015 @@
       "segment_id": "pacific_coast"
     }
   ],
-  "bundle_id": "befeea8d6e700c01bb1a13cf877729ad7c3f80dee0779ff5861c66e88aa42db8",
+  "all_regions_weekly": [
+    {
+      "expected_sales_units": {
+        "mean": 4835.6748,
+        "p05": 4718.8189,
+        "p50": 4837.3931,
+        "p95": 4948.5752
+      },
+      "observed_sales_units": 4835,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8766.21,
+        "digital": 5823.23,
+        "retailer_promotion": 7799.14
+      },
+      "predictive_sales_units": {
+        "mean": 4832.7496,
+        "p05": 4608.8543,
+        "p50": 4833.1257,
+        "p95": 5046.9321
+      },
+      "residual_to_expected_mean_units": -0.6748,
+      "segment_id": null,
+      "time_index": 1,
+      "week_start": "2023-01-02"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4793.7505,
+        "p05": 4705.4916,
+        "p50": 4795.3594,
+        "p95": 4877.0948
+      },
+      "observed_sales_units": 4644,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6315.27,
+        "digital": 5681.14,
+        "retailer_promotion": 4963.74
+      },
+      "predictive_sales_units": {
+        "mean": 4793.9702,
+        "p05": 4585.4947,
+        "p50": 4796.6171,
+        "p95": 5004.2446
+      },
+      "residual_to_expected_mean_units": -149.7505,
+      "segment_id": null,
+      "time_index": 2,
+      "week_start": "2023-01-09"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4902.9825,
+        "p05": 4831.6407,
+        "p50": 4903.7391,
+        "p95": 4973.6552
+      },
+      "observed_sales_units": 4863,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9841.27,
+        "digital": 5987.59,
+        "retailer_promotion": 5865.53
+      },
+      "predictive_sales_units": {
+        "mean": 4904.6494,
+        "p05": 4708.3769,
+        "p50": 4903.8308,
+        "p95": 5106.5158
+      },
+      "residual_to_expected_mean_units": -39.9825,
+      "segment_id": null,
+      "time_index": 3,
+      "week_start": "2023-01-16"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4778.2459,
+        "p05": 4717.7349,
+        "p50": 4779.7115,
+        "p95": 4834.9033
+      },
+      "observed_sales_units": 4736,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6863.15,
+        "digital": 5857.28,
+        "retailer_promotion": 5844.52
+      },
+      "predictive_sales_units": {
+        "mean": 4774.0488,
+        "p05": 4577.0481,
+        "p50": 4775.6709,
+        "p95": 4969.3808
+      },
+      "residual_to_expected_mean_units": -42.2459,
+      "segment_id": null,
+      "time_index": 4,
+      "week_start": "2023-01-23"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5192.7451,
+        "p05": 5138.44,
+        "p50": 5192.838,
+        "p95": 5245.5463
+      },
+      "observed_sales_units": 5143,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9311.68,
+        "digital": 5915.27,
+        "retailer_promotion": 7888.74
+      },
+      "predictive_sales_units": {
+        "mean": 5192.5128,
+        "p05": 5000.203,
+        "p50": 5190.3755,
+        "p95": 5388.6917
+      },
+      "residual_to_expected_mean_units": -49.7451,
+      "segment_id": null,
+      "time_index": 5,
+      "week_start": "2023-01-30"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5207.4802,
+        "p05": 5153.2258,
+        "p50": 5207.5468,
+        "p95": 5261.8607
+      },
+      "observed_sales_units": 5027,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9856.72,
+        "digital": 5584.18,
+        "retailer_promotion": 7367.62
+      },
+      "predictive_sales_units": {
+        "mean": 5206.9586,
+        "p05": 5008.0978,
+        "p50": 5209.4277,
+        "p95": 5401.6305
+      },
+      "residual_to_expected_mean_units": -180.4802,
+      "segment_id": null,
+      "time_index": 6,
+      "week_start": "2023-02-06"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5095.7782,
+        "p05": 5052.1444,
+        "p50": 5095.6684,
+        "p95": 5138.9158
+      },
+      "observed_sales_units": 5105,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8382.12,
+        "digital": 5873.71,
+        "retailer_promotion": 7106.03
+      },
+      "predictive_sales_units": {
+        "mean": 5095.629,
+        "p05": 4902.4519,
+        "p50": 5093.7558,
+        "p95": 5293.3115
+      },
+      "residual_to_expected_mean_units": 9.2218,
+      "segment_id": null,
+      "time_index": 7,
+      "week_start": "2023-02-13"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5072.7603,
+        "p05": 5030.599,
+        "p50": 5072.5424,
+        "p95": 5114.7161
+      },
+      "observed_sales_units": 5070,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8881.57,
+        "digital": 5945.92,
+        "retailer_promotion": 6829.64
+      },
+      "predictive_sales_units": {
+        "mean": 5070.2451,
+        "p05": 4873.2398,
+        "p50": 5070.4687,
+        "p95": 5264.5839
+      },
+      "residual_to_expected_mean_units": -2.7603,
+      "segment_id": null,
+      "time_index": 8,
+      "week_start": "2023-02-20"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5136.2128,
+        "p05": 5091.9238,
+        "p50": 5136.5441,
+        "p95": 5180.2685
+      },
+      "observed_sales_units": 5284,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8479.18,
+        "digital": 4546.8,
+        "retailer_promotion": 5394.32
+      },
+      "predictive_sales_units": {
+        "mean": 5136.1777,
+        "p05": 4944.7262,
+        "p50": 5135.7962,
+        "p95": 5326.7904
+      },
+      "residual_to_expected_mean_units": 147.7872,
+      "segment_id": null,
+      "time_index": 9,
+      "week_start": "2023-02-27"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5000.2384,
+        "p05": 4958.0205,
+        "p50": 5000.7651,
+        "p95": 5041.3072
+      },
+      "observed_sales_units": 4698,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 5427.49,
+        "digital": 4614.34,
+        "retailer_promotion": 5183.87
+      },
+      "predictive_sales_units": {
+        "mean": 5001.3237,
+        "p05": 4807.8659,
+        "p50": 5002.9523,
+        "p95": 5187.8623
+      },
+      "residual_to_expected_mean_units": -302.2384,
+      "segment_id": null,
+      "time_index": 10,
+      "week_start": "2023-03-06"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5007.8118,
+        "p05": 4968.2133,
+        "p50": 5007.8649,
+        "p95": 5047.1501
+      },
+      "observed_sales_units": 5258,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7813.84,
+        "digital": 5456.91,
+        "retailer_promotion": 5147.57
+      },
+      "predictive_sales_units": {
+        "mean": 5008.3636,
+        "p05": 4816.3258,
+        "p50": 5009.3926,
+        "p95": 5198.0183
+      },
+      "residual_to_expected_mean_units": 250.1882,
+      "segment_id": null,
+      "time_index": 11,
+      "week_start": "2023-03-13"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5304.5637,
+        "p05": 5268.0485,
+        "p50": 5304.3429,
+        "p95": 5342.2924
+      },
+      "observed_sales_units": 5237,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8770.94,
+        "digital": 7323.15,
+        "retailer_promotion": 8999.3
+      },
+      "predictive_sales_units": {
+        "mean": 5304.7793,
+        "p05": 5105.5284,
+        "p50": 5303.4642,
+        "p95": 5495.9217
+      },
+      "residual_to_expected_mean_units": -67.5637,
+      "segment_id": null,
+      "time_index": 12,
+      "week_start": "2023-03-20"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5179.156,
+        "p05": 5139.3917,
+        "p50": 5179.1176,
+        "p95": 5217.6183
+      },
+      "observed_sales_units": 5157,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8576.37,
+        "digital": 4875.32,
+        "retailer_promotion": 6929.5
+      },
+      "predictive_sales_units": {
+        "mean": 5181.0357,
+        "p05": 4985.7309,
+        "p50": 5183.1836,
+        "p95": 5371.1362
+      },
+      "residual_to_expected_mean_units": -22.156,
+      "segment_id": null,
+      "time_index": 13,
+      "week_start": "2023-03-27"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5009.2905,
+        "p05": 4972.269,
+        "p50": 5009.3502,
+        "p95": 5045.4578
+      },
+      "observed_sales_units": 5066,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6947.92,
+        "digital": 4566.35,
+        "retailer_promotion": 6602.22
+      },
+      "predictive_sales_units": {
+        "mean": 5010.2015,
+        "p05": 4814.8272,
+        "p50": 5010.7891,
+        "p95": 5202.1979
+      },
+      "residual_to_expected_mean_units": 56.7095,
+      "segment_id": null,
+      "time_index": 14,
+      "week_start": "2023-04-03"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5074.5889,
+        "p05": 5036.3865,
+        "p50": 5074.2997,
+        "p95": 5112.804
+      },
+      "observed_sales_units": 5037,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8591.83,
+        "digital": 6083.28,
+        "retailer_promotion": 9144.78
+      },
+      "predictive_sales_units": {
+        "mean": 5073.5405,
+        "p05": 4882.9013,
+        "p50": 5074.209,
+        "p95": 5262.7314
+      },
+      "residual_to_expected_mean_units": -37.5889,
+      "segment_id": null,
+      "time_index": 15,
+      "week_start": "2023-04-10"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5162.8291,
+        "p05": 5127.8666,
+        "p50": 5162.702,
+        "p95": 5197.8462
+      },
+      "observed_sales_units": 4957,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8188.29,
+        "digital": 6248.05,
+        "retailer_promotion": 7624.86
+      },
+      "predictive_sales_units": {
+        "mean": 5158.2288,
+        "p05": 4964.0919,
+        "p50": 5160.2319,
+        "p95": 5353.625
+      },
+      "residual_to_expected_mean_units": -205.8291,
+      "segment_id": null,
+      "time_index": 16,
+      "week_start": "2023-04-17"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5114.4842,
+        "p05": 5080.1919,
+        "p50": 5114.1511,
+        "p95": 5149.3017
+      },
+      "observed_sales_units": 5146,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8976.83,
+        "digital": 6494.12,
+        "retailer_promotion": 7876.89
+      },
+      "predictive_sales_units": {
+        "mean": 5113.5702,
+        "p05": 4913.6387,
+        "p50": 5113.6694,
+        "p95": 5307.2
+      },
+      "residual_to_expected_mean_units": 31.5158,
+      "segment_id": null,
+      "time_index": 17,
+      "week_start": "2023-04-24"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5106.0506,
+        "p05": 5069.2543,
+        "p50": 5105.9455,
+        "p95": 5143.267
+      },
+      "observed_sales_units": 5288,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7220.2,
+        "digital": 5006.12,
+        "retailer_promotion": 6742.94
+      },
+      "predictive_sales_units": {
+        "mean": 5104.811,
+        "p05": 4907.7689,
+        "p50": 5106.7396,
+        "p95": 5298.4
+      },
+      "residual_to_expected_mean_units": 181.9494,
+      "segment_id": null,
+      "time_index": 18,
+      "week_start": "2023-05-01"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5088.9298,
+        "p05": 5050.2703,
+        "p50": 5088.4843,
+        "p95": 5127.8571
+      },
+      "observed_sales_units": 5124,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7987.89,
+        "digital": 6869.85,
+        "retailer_promotion": 7693.91
+      },
+      "predictive_sales_units": {
+        "mean": 5089.7896,
+        "p05": 4889.3949,
+        "p50": 5091.4969,
+        "p95": 5288.5882
+      },
+      "residual_to_expected_mean_units": 35.0702,
+      "segment_id": null,
+      "time_index": 19,
+      "week_start": "2023-05-08"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4760.8054,
+        "p05": 4718.8729,
+        "p50": 4760.8072,
+        "p95": 4804.1613
+      },
+      "observed_sales_units": 4994,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9984.79,
+        "digital": 6489.96,
+        "retailer_promotion": 7208.56
+      },
+      "predictive_sales_units": {
+        "mean": 4757.6465,
+        "p05": 4563.6245,
+        "p50": 4759.5765,
+        "p95": 4956.629
+      },
+      "residual_to_expected_mean_units": 233.1946,
+      "segment_id": null,
+      "time_index": 20,
+      "week_start": "2023-05-15"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4754.8978,
+        "p05": 4716.0566,
+        "p50": 4754.9118,
+        "p95": 4794.4345
+      },
+      "observed_sales_units": 4705,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7392.19,
+        "digital": 4532.09,
+        "retailer_promotion": 6288.23
+      },
+      "predictive_sales_units": {
+        "mean": 4752.8268,
+        "p05": 4560.839,
+        "p50": 4751.0295,
+        "p95": 4959.613
+      },
+      "residual_to_expected_mean_units": -49.8978,
+      "segment_id": null,
+      "time_index": 21,
+      "week_start": "2023-05-22"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4740.2554,
+        "p05": 4703.1626,
+        "p50": 4740.0437,
+        "p95": 4778.1833
+      },
+      "observed_sales_units": 4781,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7754.65,
+        "digital": 6127.58,
+        "retailer_promotion": 5999.15
+      },
+      "predictive_sales_units": {
+        "mean": 4741.5286,
+        "p05": 4552.963,
+        "p50": 4742.2688,
+        "p95": 4931.0919
+      },
+      "residual_to_expected_mean_units": 40.7446,
+      "segment_id": null,
+      "time_index": 22,
+      "week_start": "2023-05-29"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4859.2508,
+        "p05": 4823.2269,
+        "p50": 4859.3371,
+        "p95": 4896.2091
+      },
+      "observed_sales_units": 4877,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8501.74,
+        "digital": 6122.31,
+        "retailer_promotion": 6600.02
+      },
+      "predictive_sales_units": {
+        "mean": 4860.6445,
+        "p05": 4665.4387,
+        "p50": 4862.3729,
+        "p95": 5048.2534
+      },
+      "residual_to_expected_mean_units": 17.7492,
+      "segment_id": null,
+      "time_index": 23,
+      "week_start": "2023-06-05"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4856.6982,
+        "p05": 4820.1673,
+        "p50": 4856.4288,
+        "p95": 4893.9276
+      },
+      "observed_sales_units": 4880,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8194.09,
+        "digital": 6844.32,
+        "retailer_promotion": 6709.96
+      },
+      "predictive_sales_units": {
+        "mean": 4861.2675,
+        "p05": 4670.8765,
+        "p50": 4858.4799,
+        "p95": 5063.704
+      },
+      "residual_to_expected_mean_units": 23.3018,
+      "segment_id": null,
+      "time_index": 24,
+      "week_start": "2023-06-12"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4821.4229,
+        "p05": 4783.8123,
+        "p50": 4821.4526,
+        "p95": 4860.2666
+      },
+      "observed_sales_units": 4808,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9944.7,
+        "digital": 6882.2,
+        "retailer_promotion": 7738.9
+      },
+      "predictive_sales_units": {
+        "mean": 4819.5058,
+        "p05": 4620.7097,
+        "p50": 4818.2524,
+        "p95": 5017.4079
+      },
+      "residual_to_expected_mean_units": -13.4229,
+      "segment_id": null,
+      "time_index": 25,
+      "week_start": "2023-06-19"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4811.0176,
+        "p05": 4768.4721,
+        "p50": 4810.6704,
+        "p95": 4853.2486
+      },
+      "observed_sales_units": 4804,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10740.55,
+        "digital": 8075.23,
+        "retailer_promotion": 9830.22
+      },
+      "predictive_sales_units": {
+        "mean": 4808.8695,
+        "p05": 4612.0646,
+        "p50": 4809.3072,
+        "p95": 5001.7666
+      },
+      "residual_to_expected_mean_units": -7.0176,
+      "segment_id": null,
+      "time_index": 26,
+      "week_start": "2023-06-26"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4578.0097,
+        "p05": 4536.0407,
+        "p50": 4578.5918,
+        "p95": 4620.2758
+      },
+      "observed_sales_units": 4618,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6818.66,
+        "digital": 4461.25,
+        "retailer_promotion": 5277.4
+      },
+      "predictive_sales_units": {
+        "mean": 4576.8141,
+        "p05": 4379.0677,
+        "p50": 4576.5554,
+        "p95": 4774.5898
+      },
+      "residual_to_expected_mean_units": 39.9903,
+      "segment_id": null,
+      "time_index": 27,
+      "week_start": "2023-07-03"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4379.2224,
+        "p05": 4329.3474,
+        "p50": 4379.3428,
+        "p95": 4429.027
+      },
+      "observed_sales_units": 4167,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6962.76,
+        "digital": 4428.94,
+        "retailer_promotion": 3120.04
+      },
+      "predictive_sales_units": {
+        "mean": 4382.9017,
+        "p05": 4186.4163,
+        "p50": 4384.1272,
+        "p95": 4572.5381
+      },
+      "residual_to_expected_mean_units": -212.2224,
+      "segment_id": null,
+      "time_index": 28,
+      "week_start": "2023-07-10"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4485.9884,
+        "p05": 4440.8715,
+        "p50": 4486.1619,
+        "p95": 4529.3606
+      },
+      "observed_sales_units": 4383,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 5957.77,
+        "digital": 5416.51,
+        "retailer_promotion": 5718.57
+      },
+      "predictive_sales_units": {
+        "mean": 4484.1934,
+        "p05": 4288.8475,
+        "p50": 4482.2306,
+        "p95": 4679.7262
+      },
+      "residual_to_expected_mean_units": -102.9884,
+      "segment_id": null,
+      "time_index": 29,
+      "week_start": "2023-07-17"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4613.1687,
+        "p05": 4570.15,
+        "p50": 4613.5574,
+        "p95": 4655.5778
+      },
+      "observed_sales_units": 4527,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7671.06,
+        "digital": 6447.09,
+        "retailer_promotion": 7941.69
+      },
+      "predictive_sales_units": {
+        "mean": 4614.8777,
+        "p05": 4418.2169,
+        "p50": 4614.2208,
+        "p95": 4810.1058
+      },
+      "residual_to_expected_mean_units": -86.1687,
+      "segment_id": null,
+      "time_index": 30,
+      "week_start": "2023-07-24"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4503.9956,
+        "p05": 4462.3752,
+        "p50": 4504.1746,
+        "p95": 4544.5248
+      },
+      "observed_sales_units": 4453,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10017.89,
+        "digital": 5558.36,
+        "retailer_promotion": 7226.66
+      },
+      "predictive_sales_units": {
+        "mean": 4504.8092,
+        "p05": 4314.3483,
+        "p50": 4507.2967,
+        "p95": 4697.6435
+      },
+      "residual_to_expected_mean_units": -50.9956,
+      "segment_id": null,
+      "time_index": 31,
+      "week_start": "2023-07-31"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4314.4467,
+        "p05": 4272.9709,
+        "p50": 4314.1773,
+        "p95": 4356.2659
+      },
+      "observed_sales_units": 4328,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8446.44,
+        "digital": 5136.92,
+        "retailer_promotion": 6386.28
+      },
+      "predictive_sales_units": {
+        "mean": 4314.5072,
+        "p05": 4114.6048,
+        "p50": 4315.6318,
+        "p95": 4508.0726
+      },
+      "residual_to_expected_mean_units": 13.5533,
+      "segment_id": null,
+      "time_index": 32,
+      "week_start": "2023-08-07"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4644.6319,
+        "p05": 4606.0225,
+        "p50": 4644.634,
+        "p95": 4683.0303
+      },
+      "observed_sales_units": 4781,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9621.92,
+        "digital": 7182.62,
+        "retailer_promotion": 8120.08
+      },
+      "predictive_sales_units": {
+        "mean": 4645.7978,
+        "p05": 4454.1235,
+        "p50": 4645.1757,
+        "p95": 4843.5471
+      },
+      "residual_to_expected_mean_units": 136.3681,
+      "segment_id": null,
+      "time_index": 33,
+      "week_start": "2023-08-14"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4588.7537,
+        "p05": 4542.1644,
+        "p50": 4588.7319,
+        "p95": 4635.175
+      },
+      "observed_sales_units": 4621,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10116.23,
+        "digital": 6287.97,
+        "retailer_promotion": 8763.0
+      },
+      "predictive_sales_units": {
+        "mean": 4590.0576,
+        "p05": 4392.8435,
+        "p50": 4590.3029,
+        "p95": 4788.7843
+      },
+      "residual_to_expected_mean_units": 32.2463,
+      "segment_id": null,
+      "time_index": 34,
+      "week_start": "2023-08-21"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4474.676,
+        "p05": 4431.5387,
+        "p50": 4474.4908,
+        "p95": 4516.6295
+      },
+      "observed_sales_units": 4513,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6902.83,
+        "digital": 4817.62,
+        "retailer_promotion": 5524.3
+      },
+      "predictive_sales_units": {
+        "mean": 4476.2315,
+        "p05": 4278.6745,
+        "p50": 4475.8111,
+        "p95": 4675.2291
+      },
+      "residual_to_expected_mean_units": 38.324,
+      "segment_id": null,
+      "time_index": 35,
+      "week_start": "2023-08-28"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4593.7338,
+        "p05": 4552.1274,
+        "p50": 4593.2775,
+        "p95": 4636.6214
+      },
+      "observed_sales_units": 4767,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8688.41,
+        "digital": 5923.09,
+        "retailer_promotion": 7974.51
+      },
+      "predictive_sales_units": {
+        "mean": 4593.5474,
+        "p05": 4401.5445,
+        "p50": 4593.9829,
+        "p95": 4783.3871
+      },
+      "residual_to_expected_mean_units": 173.2662,
+      "segment_id": null,
+      "time_index": 36,
+      "week_start": "2023-09-04"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4447.6479,
+        "p05": 4406.5844,
+        "p50": 4447.6683,
+        "p95": 4489.8067
+      },
+      "observed_sales_units": 4348,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6322.71,
+        "digital": 4772.38,
+        "retailer_promotion": 6066.59
+      },
+      "predictive_sales_units": {
+        "mean": 4447.458,
+        "p05": 4252.9938,
+        "p50": 4445.6683,
+        "p95": 4640.5448
+      },
+      "residual_to_expected_mean_units": -99.6479,
+      "segment_id": null,
+      "time_index": 37,
+      "week_start": "2023-09-11"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4363.5501,
+        "p05": 4321.5424,
+        "p50": 4363.148,
+        "p95": 4405.2426
+      },
+      "observed_sales_units": 4501,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7620.36,
+        "digital": 5555.88,
+        "retailer_promotion": 7361.28
+      },
+      "predictive_sales_units": {
+        "mean": 4364.9344,
+        "p05": 4165.5016,
+        "p50": 4365.1074,
+        "p95": 4560.8502
+      },
+      "residual_to_expected_mean_units": 137.4499,
+      "segment_id": null,
+      "time_index": 38,
+      "week_start": "2023-09-18"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4510.9025,
+        "p05": 4467.7094,
+        "p50": 4511.509,
+        "p95": 4554.3707
+      },
+      "observed_sales_units": 4745,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9118.0,
+        "digital": 7293.24,
+        "retailer_promotion": 9293.74
+      },
+      "predictive_sales_units": {
+        "mean": 4512.4557,
+        "p05": 4323.7982,
+        "p50": 4509.7824,
+        "p95": 4709.5016
+      },
+      "residual_to_expected_mean_units": 234.0975,
+      "segment_id": null,
+      "time_index": 39,
+      "week_start": "2023-09-25"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4547.533,
+        "p05": 4506.5451,
+        "p50": 4546.5137,
+        "p95": 4588.1718
+      },
+      "observed_sales_units": 4454,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7612.63,
+        "digital": 5933.38,
+        "retailer_promotion": 6154.49
+      },
+      "predictive_sales_units": {
+        "mean": 4546.8768,
+        "p05": 4351.0378,
+        "p50": 4548.1428,
+        "p95": 4742.6546
+      },
+      "residual_to_expected_mean_units": -93.533,
+      "segment_id": null,
+      "time_index": 40,
+      "week_start": "2023-10-02"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4507.5288,
+        "p05": 4463.8562,
+        "p50": 4507.7925,
+        "p95": 4551.06
+      },
+      "observed_sales_units": 4473,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6824.88,
+        "digital": 5376.03,
+        "retailer_promotion": 7280.06
+      },
+      "predictive_sales_units": {
+        "mean": 4512.7286,
+        "p05": 4315.1355,
+        "p50": 4513.8739,
+        "p95": 4707.2244
+      },
+      "residual_to_expected_mean_units": -34.5288,
+      "segment_id": null,
+      "time_index": 41,
+      "week_start": "2023-10-09"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4531.5932,
+        "p05": 4490.6345,
+        "p50": 4531.5118,
+        "p95": 4572.7592
+      },
+      "observed_sales_units": 4594,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10672.67,
+        "digital": 7042.02,
+        "retailer_promotion": 7021.8
+      },
+      "predictive_sales_units": {
+        "mean": 4531.7878,
+        "p05": 4337.9043,
+        "p50": 4532.4393,
+        "p95": 4720.2046
+      },
+      "residual_to_expected_mean_units": 62.4068,
+      "segment_id": null,
+      "time_index": 42,
+      "week_start": "2023-10-16"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4517.9935,
+        "p05": 4476.9315,
+        "p50": 4518.118,
+        "p95": 4559.7306
+      },
+      "observed_sales_units": 4425,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10679.3,
+        "digital": 6411.14,
+        "retailer_promotion": 7983.98
+      },
+      "predictive_sales_units": {
+        "mean": 4517.2856,
+        "p05": 4328.5432,
+        "p50": 4517.6283,
+        "p95": 4715.4382
+      },
+      "residual_to_expected_mean_units": -92.9935,
+      "segment_id": null,
+      "time_index": 43,
+      "week_start": "2023-10-23"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4691.1458,
+        "p05": 4645.0352,
+        "p50": 4690.665,
+        "p95": 4736.4936
+      },
+      "observed_sales_units": 4573,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7860.29,
+        "digital": 5363.97,
+        "retailer_promotion": 5358.45
+      },
+      "predictive_sales_units": {
+        "mean": 4693.4269,
+        "p05": 4493.283,
+        "p50": 4694.4424,
+        "p95": 4888.5472
+      },
+      "residual_to_expected_mean_units": -118.1458,
+      "segment_id": null,
+      "time_index": 44,
+      "week_start": "2023-10-30"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4593.4331,
+        "p05": 4549.4965,
+        "p50": 4593.3496,
+        "p95": 4637.3725
+      },
+      "observed_sales_units": 4642,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6762.3,
+        "digital": 5551.94,
+        "retailer_promotion": 6008.04
+      },
+      "predictive_sales_units": {
+        "mean": 4593.4817,
+        "p05": 4394.6309,
+        "p50": 4594.2687,
+        "p95": 4782.7276
+      },
+      "residual_to_expected_mean_units": 48.5669,
+      "segment_id": null,
+      "time_index": 45,
+      "week_start": "2023-11-06"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4670.0877,
+        "p05": 4627.2592,
+        "p50": 4670.4168,
+        "p95": 4712.6919
+      },
+      "observed_sales_units": 4498,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7710.36,
+        "digital": 5378.65,
+        "retailer_promotion": 6088.29
+      },
+      "predictive_sales_units": {
+        "mean": 4673.4188,
+        "p05": 4472.953,
+        "p50": 4673.57,
+        "p95": 4874.3893
+      },
+      "residual_to_expected_mean_units": -172.0877,
+      "segment_id": null,
+      "time_index": 46,
+      "week_start": "2023-11-13"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5377.5747,
+        "p05": 5315.6356,
+        "p50": 5377.8617,
+        "p95": 5437.6087
+      },
+      "observed_sales_units": 5351,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10775.75,
+        "digital": 8267.25,
+        "retailer_promotion": 7190.12
+      },
+      "predictive_sales_units": {
+        "mean": 5377.9035,
+        "p05": 5180.5059,
+        "p50": 5377.9957,
+        "p95": 5582.8021
+      },
+      "residual_to_expected_mean_units": -26.5747,
+      "segment_id": null,
+      "time_index": 47,
+      "week_start": "2023-11-20"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5385.4715,
+        "p05": 5318.1287,
+        "p50": 5385.4946,
+        "p95": 5448.2246
+      },
+      "observed_sales_units": 5318,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9786.71,
+        "digital": 5035.01,
+        "retailer_promotion": 8052.94
+      },
+      "predictive_sales_units": {
+        "mean": 5384.908,
+        "p05": 5191.0025,
+        "p50": 5383.9788,
+        "p95": 5578.8331
+      },
+      "residual_to_expected_mean_units": -67.4715,
+      "segment_id": null,
+      "time_index": 48,
+      "week_start": "2023-11-27"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5208.9112,
+        "p05": 5148.3132,
+        "p50": 5209.4688,
+        "p95": 5267.7795
+      },
+      "observed_sales_units": 5337,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8405.0,
+        "digital": 6099.93,
+        "retailer_promotion": 7221.63
+      },
+      "predictive_sales_units": {
+        "mean": 5207.7332,
+        "p05": 5014.2317,
+        "p50": 5206.7462,
+        "p95": 5409.0418
+      },
+      "residual_to_expected_mean_units": 128.0888,
+      "segment_id": null,
+      "time_index": 49,
+      "week_start": "2023-12-04"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5437.594,
+        "p05": 5378.453,
+        "p50": 5438.9298,
+        "p95": 5493.4715
+      },
+      "observed_sales_units": 5297,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8745.97,
+        "digital": 7023.06,
+        "retailer_promotion": 7778.91
+      },
+      "predictive_sales_units": {
+        "mean": 5438.5453,
+        "p05": 5237.5246,
+        "p50": 5437.4161,
+        "p95": 5641.7514
+      },
+      "residual_to_expected_mean_units": -140.594,
+      "segment_id": null,
+      "time_index": 50,
+      "week_start": "2023-12-11"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5522.3417,
+        "p05": 5462.3358,
+        "p50": 5523.1375,
+        "p95": 5579.7128
+      },
+      "observed_sales_units": 5502,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9779.59,
+        "digital": 8116.6,
+        "retailer_promotion": 8854.1
+      },
+      "predictive_sales_units": {
+        "mean": 5522.9251,
+        "p05": 5319.6604,
+        "p50": 5524.8031,
+        "p95": 5721.3607
+      },
+      "residual_to_expected_mean_units": -20.3417,
+      "segment_id": null,
+      "time_index": 51,
+      "week_start": "2023-12-18"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5848.6473,
+        "p05": 5785.426,
+        "p50": 5849.5137,
+        "p95": 5909.8336
+      },
+      "observed_sales_units": 5915,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 12431.97,
+        "digital": 8640.91,
+        "retailer_promotion": 9358.16
+      },
+      "predictive_sales_units": {
+        "mean": 5846.843,
+        "p05": 5654.8318,
+        "p50": 5844.9443,
+        "p95": 6043.9378
+      },
+      "residual_to_expected_mean_units": 66.3527,
+      "segment_id": null,
+      "time_index": 52,
+      "week_start": "2023-12-25"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5036.4438,
+        "p05": 4991.1285,
+        "p50": 5036.2792,
+        "p95": 5081.4753
+      },
+      "observed_sales_units": 5143,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9491.79,
+        "digital": 5996.82,
+        "retailer_promotion": 8249.28
+      },
+      "predictive_sales_units": {
+        "mean": 5038.0153,
+        "p05": 4840.063,
+        "p50": 5040.0377,
+        "p95": 5232.1585
+      },
+      "residual_to_expected_mean_units": 106.5562,
+      "segment_id": null,
+      "time_index": 53,
+      "week_start": "2024-01-01"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5023.2664,
+        "p05": 4971.0965,
+        "p50": 5023.9954,
+        "p95": 5074.466
+      },
+      "observed_sales_units": 5026,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8937.9,
+        "digital": 5497.51,
+        "retailer_promotion": 7128.49
+      },
+      "predictive_sales_units": {
+        "mean": 5025.1805,
+        "p05": 4831.9789,
+        "p50": 5023.1312,
+        "p95": 5222.0729
+      },
+      "residual_to_expected_mean_units": 2.7336,
+      "segment_id": null,
+      "time_index": 54,
+      "week_start": "2024-01-08"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5192.5425,
+        "p05": 5148.0507,
+        "p50": 5192.1746,
+        "p95": 5236.6746
+      },
+      "observed_sales_units": 5200,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 12626.79,
+        "digital": 7653.13,
+        "retailer_promotion": 8054.92
+      },
+      "predictive_sales_units": {
+        "mean": 5190.8364,
+        "p05": 4990.9487,
+        "p50": 5191.6486,
+        "p95": 5385.0749
+      },
+      "residual_to_expected_mean_units": 7.4575,
+      "segment_id": null,
+      "time_index": 55,
+      "week_start": "2024-01-15"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4878.8287,
+        "p05": 4834.3831,
+        "p50": 4878.9762,
+        "p95": 4924.1953
+      },
+      "observed_sales_units": 4894,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7532.1,
+        "digital": 5478.35,
+        "retailer_promotion": 5170.24
+      },
+      "predictive_sales_units": {
+        "mean": 4879.1662,
+        "p05": 4678.4548,
+        "p50": 4880.8829,
+        "p95": 5072.2332
+      },
+      "residual_to_expected_mean_units": 15.1713,
+      "segment_id": null,
+      "time_index": 56,
+      "week_start": "2024-01-22"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5363.7587,
+        "p05": 5316.6211,
+        "p50": 5364.6383,
+        "p95": 5409.1943
+      },
+      "observed_sales_units": 5599,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9866.66,
+        "digital": 8223.97,
+        "retailer_promotion": 9956.38
+      },
+      "predictive_sales_units": {
+        "mean": 5363.6676,
+        "p05": 5168.7881,
+        "p50": 5363.1568,
+        "p95": 5560.6641
+      },
+      "residual_to_expected_mean_units": 235.2413,
+      "segment_id": null,
+      "time_index": 57,
+      "week_start": "2024-01-29"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5050.3374,
+        "p05": 5008.3794,
+        "p50": 5050.4899,
+        "p95": 5091.0095
+      },
+      "observed_sales_units": 5114,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6549.14,
+        "digital": 4348.74,
+        "retailer_promotion": 5747.93
+      },
+      "predictive_sales_units": {
+        "mean": 5052.7125,
+        "p05": 4864.0903,
+        "p50": 5054.4314,
+        "p95": 5240.3962
+      },
+      "residual_to_expected_mean_units": 63.6626,
+      "segment_id": null,
+      "time_index": 58,
+      "week_start": "2024-02-05"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5390.0323,
+        "p05": 5342.689,
+        "p50": 5390.3306,
+        "p95": 5435.0724
+      },
+      "observed_sales_units": 5462,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8909.0,
+        "digital": 7409.3,
+        "retailer_promotion": 7778.96
+      },
+      "predictive_sales_units": {
+        "mean": 5389.7634,
+        "p05": 5192.3175,
+        "p50": 5391.6544,
+        "p95": 5582.6285
+      },
+      "residual_to_expected_mean_units": 71.9677,
+      "segment_id": null,
+      "time_index": 59,
+      "week_start": "2024-02-12"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5398.1922,
+        "p05": 5355.9975,
+        "p50": 5398.6064,
+        "p95": 5439.6319
+      },
+      "observed_sales_units": 5185,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7697.59,
+        "digital": 5108.21,
+        "retailer_promotion": 6749.71
+      },
+      "predictive_sales_units": {
+        "mean": 5397.2998,
+        "p05": 5200.6506,
+        "p50": 5395.0674,
+        "p95": 5593.1104
+      },
+      "residual_to_expected_mean_units": -213.1922,
+      "segment_id": null,
+      "time_index": 60,
+      "week_start": "2024-02-19"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5178.824,
+        "p05": 5137.0514,
+        "p50": 5178.709,
+        "p95": 5220.1452
+      },
+      "observed_sales_units": 5305,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6599.82,
+        "digital": 4927.24,
+        "retailer_promotion": 5208.05
+      },
+      "predictive_sales_units": {
+        "mean": 5178.9343,
+        "p05": 4989.0536,
+        "p50": 5177.266,
+        "p95": 5368.3771
+      },
+      "residual_to_expected_mean_units": 126.176,
+      "segment_id": null,
+      "time_index": 61,
+      "week_start": "2024-02-26"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5077.5395,
+        "p05": 5036.8345,
+        "p50": 5077.9952,
+        "p95": 5118.1204
+      },
+      "observed_sales_units": 4977,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9090.56,
+        "digital": 5684.9,
+        "retailer_promotion": 6692.99
+      },
+      "predictive_sales_units": {
+        "mean": 5075.165,
+        "p05": 4877.5153,
+        "p50": 5076.1877,
+        "p95": 5269.4319
+      },
+      "residual_to_expected_mean_units": -100.5395,
+      "segment_id": null,
+      "time_index": 62,
+      "week_start": "2024-03-04"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5428.5782,
+        "p05": 5385.9276,
+        "p50": 5428.7483,
+        "p95": 5472.2097
+      },
+      "observed_sales_units": 5403,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8912.63,
+        "digital": 4634.39,
+        "retailer_promotion": 7391.65
+      },
+      "predictive_sales_units": {
+        "mean": 5428.7728,
+        "p05": 5232.0845,
+        "p50": 5427.642,
+        "p95": 5624.4522
+      },
+      "residual_to_expected_mean_units": -25.5782,
+      "segment_id": null,
+      "time_index": 63,
+      "week_start": "2024-03-11"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5366.2517,
+        "p05": 5324.4505,
+        "p50": 5366.1995,
+        "p95": 5408.3532
+      },
+      "observed_sales_units": 5360,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9875.09,
+        "digital": 6122.63,
+        "retailer_promotion": 5933.65
+      },
+      "predictive_sales_units": {
+        "mean": 5368.8854,
+        "p05": 5173.7785,
+        "p50": 5370.4698,
+        "p95": 5566.4068
+      },
+      "residual_to_expected_mean_units": -6.2517,
+      "segment_id": null,
+      "time_index": 64,
+      "week_start": "2024-03-18"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5033.4024,
+        "p05": 4993.5955,
+        "p50": 5032.9343,
+        "p95": 5073.7471
+      },
+      "observed_sales_units": 5113,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8093.72,
+        "digital": 4949.7,
+        "retailer_promotion": 7133.76
+      },
+      "predictive_sales_units": {
+        "mean": 5033.6982,
+        "p05": 4838.5104,
+        "p50": 5034.7268,
+        "p95": 5232.292
+      },
+      "residual_to_expected_mean_units": 79.5976,
+      "segment_id": null,
+      "time_index": 65,
+      "week_start": "2024-03-25"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5234.4646,
+        "p05": 5195.6221,
+        "p50": 5234.3869,
+        "p95": 5273.246
+      },
+      "observed_sales_units": 5060,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9318.08,
+        "digital": 6756.93,
+        "retailer_promotion": 6990.72
+      },
+      "predictive_sales_units": {
+        "mean": 5239.8103,
+        "p05": 5046.8324,
+        "p50": 5239.6175,
+        "p95": 5435.5666
+      },
+      "residual_to_expected_mean_units": -174.4646,
+      "segment_id": null,
+      "time_index": 66,
+      "week_start": "2024-04-01"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5327.4477,
+        "p05": 5283.3854,
+        "p50": 5327.1179,
+        "p95": 5371.4336
+      },
+      "observed_sales_units": 5301,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9906.6,
+        "digital": 6906.4,
+        "retailer_promotion": 10288.62
+      },
+      "predictive_sales_units": {
+        "mean": 5329.0478,
+        "p05": 5131.4034,
+        "p50": 5327.7482,
+        "p95": 5518.8021
+      },
+      "residual_to_expected_mean_units": -26.4477,
+      "segment_id": null,
+      "time_index": 67,
+      "week_start": "2024-04-08"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5356.1925,
+        "p05": 5317.894,
+        "p50": 5356.0887,
+        "p95": 5394.6394
+      },
+      "observed_sales_units": 5361,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8736.87,
+        "digital": 6378.81,
+        "retailer_promotion": 8363.25
+      },
+      "predictive_sales_units": {
+        "mean": 5355.9282,
+        "p05": 5163.8835,
+        "p50": 5357.9853,
+        "p95": 5545.4853
+      },
+      "residual_to_expected_mean_units": 4.8075,
+      "segment_id": null,
+      "time_index": 68,
+      "week_start": "2024-04-15"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5330.2953,
+        "p05": 5291.7879,
+        "p50": 5330.4447,
+        "p95": 5368.6024
+      },
+      "observed_sales_units": 5262,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8816.14,
+        "digital": 5261.34,
+        "retailer_promotion": 8488.11
+      },
+      "predictive_sales_units": {
+        "mean": 5332.2389,
+        "p05": 5139.2758,
+        "p50": 5333.6768,
+        "p95": 5525.3394
+      },
+      "residual_to_expected_mean_units": -68.2953,
+      "segment_id": null,
+      "time_index": 69,
+      "week_start": "2024-04-22"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5268.5306,
+        "p05": 5230.9771,
+        "p50": 5268.6585,
+        "p95": 5305.9382
+      },
+      "observed_sales_units": 5428,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7032.59,
+        "digital": 5855.7,
+        "retailer_promotion": 7643.47
+      },
+      "predictive_sales_units": {
+        "mean": 5267.064,
+        "p05": 5074.3658,
+        "p50": 5267.4036,
+        "p95": 5460.0438
+      },
+      "residual_to_expected_mean_units": 159.4694,
+      "segment_id": null,
+      "time_index": 70,
+      "week_start": "2024-04-29"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5181.4197,
+        "p05": 5142.9103,
+        "p50": 5181.6556,
+        "p95": 5220.329
+      },
+      "observed_sales_units": 5381,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6897.96,
+        "digital": 5360.68,
+        "retailer_promotion": 5750.61
+      },
+      "predictive_sales_units": {
+        "mean": 5185.8154,
+        "p05": 4993.226,
+        "p50": 5186.2517,
+        "p95": 5381.32
+      },
+      "residual_to_expected_mean_units": 199.5803,
+      "segment_id": null,
+      "time_index": 71,
+      "week_start": "2024-05-06"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5097.0438,
+        "p05": 5055.5464,
+        "p50": 5097.095,
+        "p95": 5138.5123
+      },
+      "observed_sales_units": 4996,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8625.33,
+        "digital": 5625.91,
+        "retailer_promotion": 5938.65
+      },
+      "predictive_sales_units": {
+        "mean": 5097.3357,
+        "p05": 4904.9129,
+        "p50": 5096.5184,
+        "p95": 5288.9805
+      },
+      "residual_to_expected_mean_units": -101.0438,
+      "segment_id": null,
+      "time_index": 72,
+      "week_start": "2024-05-13"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5022.9208,
+        "p05": 4982.8349,
+        "p50": 5022.9238,
+        "p95": 5062.5148
+      },
+      "observed_sales_units": 5111,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8163.61,
+        "digital": 4658.98,
+        "retailer_promotion": 5735.49
+      },
+      "predictive_sales_units": {
+        "mean": 5022.274,
+        "p05": 4822.0091,
+        "p50": 5023.3454,
+        "p95": 5216.4997
+      },
+      "residual_to_expected_mean_units": 88.0792,
+      "segment_id": null,
+      "time_index": 73,
+      "week_start": "2024-05-20"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5071.8572,
+        "p05": 5022.7786,
+        "p50": 5071.8597,
+        "p95": 5121.7715
+      },
+      "observed_sales_units": 5165,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8477.73,
+        "digital": 3556.56,
+        "retailer_promotion": 6642.96
+      },
+      "predictive_sales_units": {
+        "mean": 5075.8479,
+        "p05": 4873.4893,
+        "p50": 5075.0952,
+        "p95": 5272.6967
+      },
+      "residual_to_expected_mean_units": 93.1428,
+      "segment_id": null,
+      "time_index": 74,
+      "week_start": "2024-05-27"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4887.0201,
+        "p05": 4849.2596,
+        "p50": 4887.4111,
+        "p95": 4924.6311
+      },
+      "observed_sales_units": 4796,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9020.66,
+        "digital": 6171.52,
+        "retailer_promotion": 7726.49
+      },
+      "predictive_sales_units": {
+        "mean": 4885.25,
+        "p05": 4694.1465,
+        "p50": 4883.4334,
+        "p95": 5079.3431
+      },
+      "residual_to_expected_mean_units": -91.0201,
+      "segment_id": null,
+      "time_index": 75,
+      "week_start": "2024-06-03"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4937.6564,
+        "p05": 4900.0893,
+        "p50": 4937.8107,
+        "p95": 4974.0572
+      },
+      "observed_sales_units": 4826,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8596.67,
+        "digital": 6090.31,
+        "retailer_promotion": 7102.25
+      },
+      "predictive_sales_units": {
+        "mean": 4938.8693,
+        "p05": 4745.3321,
+        "p50": 4938.9493,
+        "p95": 5127.4864
+      },
+      "residual_to_expected_mean_units": -111.6564,
+      "segment_id": null,
+      "time_index": 76,
+      "week_start": "2024-06-10"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4655.686,
+        "p05": 4614.5567,
+        "p50": 4655.9614,
+        "p95": 4697.7456
+      },
+      "observed_sales_units": 4628,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 5383.45,
+        "digital": 3826.35,
+        "retailer_promotion": 5386.26
+      },
+      "predictive_sales_units": {
+        "mean": 4656.2719,
+        "p05": 4465.571,
+        "p50": 4656.2318,
+        "p95": 4850.4761
+      },
+      "residual_to_expected_mean_units": -27.686,
+      "segment_id": null,
+      "time_index": 77,
+      "week_start": "2024-06-17"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5149.9743,
+        "p05": 5105.9791,
+        "p50": 5150.1084,
+        "p95": 5193.6308
+      },
+      "observed_sales_units": 4996,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8543.77,
+        "digital": 6904.47,
+        "retailer_promotion": 8640.14
+      },
+      "predictive_sales_units": {
+        "mean": 5151.1575,
+        "p05": 4948.2522,
+        "p50": 5151.9171,
+        "p95": 5348.4981
+      },
+      "residual_to_expected_mean_units": -153.9743,
+      "segment_id": null,
+      "time_index": 78,
+      "week_start": "2024-06-24"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4694.2431,
+        "p05": 4653.6077,
+        "p50": 4694.626,
+        "p95": 4734.462
+      },
+      "observed_sales_units": 4601,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9436.66,
+        "digital": 6807.43,
+        "retailer_promotion": 7196.08
+      },
+      "predictive_sales_units": {
+        "mean": 4692.5479,
+        "p05": 4504.7123,
+        "p50": 4693.2511,
+        "p95": 4878.7948
+      },
+      "residual_to_expected_mean_units": -93.2431,
+      "segment_id": null,
+      "time_index": 79,
+      "week_start": "2024-07-01"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4699.942,
+        "p05": 4660.7531,
+        "p50": 4699.6737,
+        "p95": 4737.6394
+      },
+      "observed_sales_units": 4469,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7354.04,
+        "digital": 5630.31,
+        "retailer_promotion": 5808.44
+      },
+      "predictive_sales_units": {
+        "mean": 4699.6704,
+        "p05": 4511.0906,
+        "p50": 4700.195,
+        "p95": 4888.0905
+      },
+      "residual_to_expected_mean_units": -230.942,
+      "segment_id": null,
+      "time_index": 80,
+      "week_start": "2024-07-08"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4767.4542,
+        "p05": 4729.8338,
+        "p50": 4767.8542,
+        "p95": 4805.9508
+      },
+      "observed_sales_units": 4897,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6854.72,
+        "digital": 4739.43,
+        "retailer_promotion": 6415.37
+      },
+      "predictive_sales_units": {
+        "mean": 4768.9783,
+        "p05": 4574.5367,
+        "p50": 4770.8316,
+        "p95": 4958.5554
+      },
+      "residual_to_expected_mean_units": 129.5458,
+      "segment_id": null,
+      "time_index": 81,
+      "week_start": "2024-07-15"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4929.3252,
+        "p05": 4882.2671,
+        "p50": 4929.8843,
+        "p95": 4974.5988
+      },
+      "observed_sales_units": 4966,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9487.67,
+        "digital": 4580.78,
+        "retailer_promotion": 7064.42
+      },
+      "predictive_sales_units": {
+        "mean": 4926.3463,
+        "p05": 4728.3891,
+        "p50": 4924.257,
+        "p95": 5126.3766
+      },
+      "residual_to_expected_mean_units": 36.6748,
+      "segment_id": null,
+      "time_index": 82,
+      "week_start": "2024-07-22"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4645.4035,
+        "p05": 4608.7195,
+        "p50": 4645.468,
+        "p95": 4681.6128
+      },
+      "observed_sales_units": 4692,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9095.81,
+        "digital": 6652.46,
+        "retailer_promotion": 6554.48
+      },
+      "predictive_sales_units": {
+        "mean": 4643.4859,
+        "p05": 4448.7192,
+        "p50": 4643.2614,
+        "p95": 4837.2276
+      },
+      "residual_to_expected_mean_units": 46.5965,
+      "segment_id": null,
+      "time_index": 83,
+      "week_start": "2024-07-29"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4653.4847,
+        "p05": 4612.9327,
+        "p50": 4654.0117,
+        "p95": 4694.2523
+      },
+      "observed_sales_units": 4635,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7471.31,
+        "digital": 6832.56,
+        "retailer_promotion": 4920.04
+      },
+      "predictive_sales_units": {
+        "mean": 4654.0254,
+        "p05": 4459.4487,
+        "p50": 4653.0251,
+        "p95": 4850.7409
+      },
+      "residual_to_expected_mean_units": -18.4847,
+      "segment_id": null,
+      "time_index": 84,
+      "week_start": "2024-08-05"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4681.7846,
+        "p05": 4645.4865,
+        "p50": 4681.6932,
+        "p95": 4717.4619
+      },
+      "observed_sales_units": 4913,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9161.22,
+        "digital": 6304.82,
+        "retailer_promotion": 7602.55
+      },
+      "predictive_sales_units": {
+        "mean": 4683.9375,
+        "p05": 4491.1103,
+        "p50": 4684.6064,
+        "p95": 4877.9379
+      },
+      "residual_to_expected_mean_units": 231.2154,
+      "segment_id": null,
+      "time_index": 85,
+      "week_start": "2024-08-12"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4707.9726,
+        "p05": 4670.1304,
+        "p50": 4707.9544,
+        "p95": 4746.6323
+      },
+      "observed_sales_units": 4556,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8854.91,
+        "digital": 4671.74,
+        "retailer_promotion": 7077.76
+      },
+      "predictive_sales_units": {
+        "mean": 4710.8758,
+        "p05": 4517.3565,
+        "p50": 4710.2219,
+        "p95": 4901.0116
+      },
+      "residual_to_expected_mean_units": -151.9726,
+      "segment_id": null,
+      "time_index": 86,
+      "week_start": "2024-08-19"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4440.3829,
+        "p05": 4401.6439,
+        "p50": 4440.7951,
+        "p95": 4479.729
+      },
+      "observed_sales_units": 4222,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7303.7,
+        "digital": 5253.83,
+        "retailer_promotion": 6094.25
+      },
+      "predictive_sales_units": {
+        "mean": 4440.3222,
+        "p05": 4243.3558,
+        "p50": 4442.0364,
+        "p95": 4631.2181
+      },
+      "residual_to_expected_mean_units": -218.3829,
+      "segment_id": null,
+      "time_index": 87,
+      "week_start": "2024-08-26"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4545.1006,
+        "p05": 4508.5157,
+        "p50": 4544.8761,
+        "p95": 4582.6769
+      },
+      "observed_sales_units": 4577,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8484.25,
+        "digital": 6821.22,
+        "retailer_promotion": 6638.94
+      },
+      "predictive_sales_units": {
+        "mean": 4542.5231,
+        "p05": 4342.9821,
+        "p50": 4542.868,
+        "p95": 4739.7427
+      },
+      "residual_to_expected_mean_units": 31.8994,
+      "segment_id": null,
+      "time_index": 88,
+      "week_start": "2024-09-02"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4649.0402,
+        "p05": 4612.4836,
+        "p50": 4648.6728,
+        "p95": 4685.2575
+      },
+      "observed_sales_units": 4632,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9529.53,
+        "digital": 6832.24,
+        "retailer_promotion": 7836.17
+      },
+      "predictive_sales_units": {
+        "mean": 4647.8259,
+        "p05": 4459.1157,
+        "p50": 4647.6426,
+        "p95": 4836.7111
+      },
+      "residual_to_expected_mean_units": -17.0402,
+      "segment_id": null,
+      "time_index": 89,
+      "week_start": "2024-09-09"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4531.1999,
+        "p05": 4492.6459,
+        "p50": 4531.1041,
+        "p95": 4568.7565
+      },
+      "observed_sales_units": 4649,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7187.74,
+        "digital": 5964.13,
+        "retailer_promotion": 7619.96
+      },
+      "predictive_sales_units": {
+        "mean": 4532.1546,
+        "p05": 4345.9528,
+        "p50": 4534.0152,
+        "p95": 4724.5059
+      },
+      "residual_to_expected_mean_units": 117.8001,
+      "segment_id": null,
+      "time_index": 90,
+      "week_start": "2024-09-16"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4620.4897,
+        "p05": 4575.0801,
+        "p50": 4619.8921,
+        "p95": 4664.3063
+      },
+      "observed_sales_units": 4625,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7844.39,
+        "digital": 5970.86,
+        "retailer_promotion": 4488.48
+      },
+      "predictive_sales_units": {
+        "mean": 4621.856,
+        "p05": 4425.7011,
+        "p50": 4620.2405,
+        "p95": 4815.2172
+      },
+      "residual_to_expected_mean_units": 4.5103,
+      "segment_id": null,
+      "time_index": 91,
+      "week_start": "2024-09-23"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4339.2795,
+        "p05": 4295.1598,
+        "p50": 4339.0929,
+        "p95": 4383.973
+      },
+      "observed_sales_units": 4541,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 7284.79,
+        "digital": 6063.13,
+        "retailer_promotion": 5324.06
+      },
+      "predictive_sales_units": {
+        "mean": 4335.759,
+        "p05": 4139.7219,
+        "p50": 4337.3631,
+        "p95": 4533.6378
+      },
+      "residual_to_expected_mean_units": 201.7205,
+      "segment_id": null,
+      "time_index": 92,
+      "week_start": "2024-09-30"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4741.4322,
+        "p05": 4701.4049,
+        "p50": 4740.5393,
+        "p95": 4782.7588
+      },
+      "observed_sales_units": 4759,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10700.56,
+        "digital": 6505.6,
+        "retailer_promotion": 7495.78
+      },
+      "predictive_sales_units": {
+        "mean": 4741.2413,
+        "p05": 4549.2515,
+        "p50": 4743.3075,
+        "p95": 4929.2346
+      },
+      "residual_to_expected_mean_units": 17.5678,
+      "segment_id": null,
+      "time_index": 93,
+      "week_start": "2024-10-07"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4804.8946,
+        "p05": 4760.3407,
+        "p50": 4804.4398,
+        "p95": 4848.8841
+      },
+      "observed_sales_units": 4775,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9082.32,
+        "digital": 5132.68,
+        "retailer_promotion": 7966.29
+      },
+      "predictive_sales_units": {
+        "mean": 4806.9341,
+        "p05": 4615.2263,
+        "p50": 4805.6421,
+        "p95": 4993.9937
+      },
+      "residual_to_expected_mean_units": -29.8946,
+      "segment_id": null,
+      "time_index": 94,
+      "week_start": "2024-10-14"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4592.2513,
+        "p05": 4548.9091,
+        "p50": 4591.6606,
+        "p95": 4637.6358
+      },
+      "observed_sales_units": 4550,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9361.81,
+        "digital": 5525.08,
+        "retailer_promotion": 8276.11
+      },
+      "predictive_sales_units": {
+        "mean": 4590.2868,
+        "p05": 4400.6176,
+        "p50": 4590.3747,
+        "p95": 4787.549
+      },
+      "residual_to_expected_mean_units": -42.2513,
+      "segment_id": null,
+      "time_index": 95,
+      "week_start": "2024-10-21"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4674.4587,
+        "p05": 4626.1227,
+        "p50": 4674.1656,
+        "p95": 4723.7438
+      },
+      "observed_sales_units": 4849,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9335.74,
+        "digital": 7195.23,
+        "retailer_promotion": 9890.71
+      },
+      "predictive_sales_units": {
+        "mean": 4677.8537,
+        "p05": 4479.3255,
+        "p50": 4679.9068,
+        "p95": 4870.0961
+      },
+      "residual_to_expected_mean_units": 174.5413,
+      "segment_id": null,
+      "time_index": 96,
+      "week_start": "2024-10-28"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4909.827,
+        "p05": 4860.2503,
+        "p50": 4909.858,
+        "p95": 4958.1758
+      },
+      "observed_sales_units": 5042,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 6986.34,
+        "digital": 5308.39,
+        "retailer_promotion": 7357.53
+      },
+      "predictive_sales_units": {
+        "mean": 4908.3549,
+        "p05": 4718.7727,
+        "p50": 4906.9623,
+        "p95": 5097.4856
+      },
+      "residual_to_expected_mean_units": 132.173,
+      "segment_id": null,
+      "time_index": 97,
+      "week_start": "2024-11-04"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 4911.1479,
+        "p05": 4863.1456,
+        "p50": 4910.4203,
+        "p95": 4960.5342
+      },
+      "observed_sales_units": 4770,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 8869.34,
+        "digital": 6244.97,
+        "retailer_promotion": 6366.72
+      },
+      "predictive_sales_units": {
+        "mean": 4912.4032,
+        "p05": 4711.0492,
+        "p50": 4912.7488,
+        "p95": 5106.7032
+      },
+      "residual_to_expected_mean_units": -141.1479,
+      "segment_id": null,
+      "time_index": 98,
+      "week_start": "2024-11-11"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5463.9695,
+        "p05": 5400.506,
+        "p50": 5464.2623,
+        "p95": 5524.7698
+      },
+      "observed_sales_units": 5436,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 10597.62,
+        "digital": 7400.2,
+        "retailer_promotion": 9455.95
+      },
+      "predictive_sales_units": {
+        "mean": 5464.215,
+        "p05": 5257.6434,
+        "p50": 5463.8432,
+        "p95": 5660.0182
+      },
+      "residual_to_expected_mean_units": -27.9695,
+      "segment_id": null,
+      "time_index": 99,
+      "week_start": "2024-11-18"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5378.3869,
+        "p05": 5314.4213,
+        "p50": 5378.0881,
+        "p95": 5441.7225
+      },
+      "observed_sales_units": 5455,
+      "period": "training",
+      "planned_spend_usd": {
+        "coupon": 9993.6,
+        "digital": 6393.26,
+        "retailer_promotion": 8174.93
+      },
+      "predictive_sales_units": {
+        "mean": 5377.3894,
+        "p05": 5173.6661,
+        "p50": 5379.929,
+        "p95": 5574.9438
+      },
+      "residual_to_expected_mean_units": 76.6131,
+      "segment_id": null,
+      "time_index": 100,
+      "week_start": "2024-11-25"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5557.3219,
+        "p05": 5492.2881,
+        "p50": 5557.7487,
+        "p95": 5622.1348
+      },
+      "observed_sales_units": 5524,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8429.96,
+        "digital": 6122.91,
+        "retailer_promotion": 7007.4
+      },
+      "predictive_sales_units": {
+        "mean": 5556.2708,
+        "p05": 5350.7442,
+        "p50": 5557.9982,
+        "p95": 5753.6037
+      },
+      "residual_to_expected_mean_units": -33.3219,
+      "segment_id": null,
+      "time_index": 101,
+      "week_start": "2024-12-02"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5556.3223,
+        "p05": 5491.6174,
+        "p50": 5556.9087,
+        "p95": 5620.3663
+      },
+      "observed_sales_units": 5685,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8923.47,
+        "digital": 6060.6,
+        "retailer_promotion": 7933.46
+      },
+      "predictive_sales_units": {
+        "mean": 5558.3774,
+        "p05": 5354.2816,
+        "p50": 5559.9338,
+        "p95": 5756.4417
+      },
+      "residual_to_expected_mean_units": 128.6777,
+      "segment_id": null,
+      "time_index": 102,
+      "week_start": "2024-12-09"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5615.7327,
+        "p05": 5550.4302,
+        "p50": 5616.143,
+        "p95": 5682.3252
+      },
+      "observed_sales_units": 5794,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 12151.01,
+        "digital": 7110.17,
+        "retailer_promotion": 8463.74
+      },
+      "predictive_sales_units": {
+        "mean": 5613.1492,
+        "p05": 5410.7273,
+        "p50": 5611.7782,
+        "p95": 5816.0838
+      },
+      "residual_to_expected_mean_units": 178.2673,
+      "segment_id": null,
+      "time_index": 103,
+      "week_start": "2024-12-16"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 6020.0858,
+        "p05": 5950.3963,
+        "p50": 6020.8773,
+        "p95": 6087.991
+      },
+      "observed_sales_units": 6129,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 11194.13,
+        "digital": 8552.45,
+        "retailer_promotion": 11661.63
+      },
+      "predictive_sales_units": {
+        "mean": 6017.1523,
+        "p05": 5817.7632,
+        "p50": 6016.7384,
+        "p95": 6219.7199
+      },
+      "residual_to_expected_mean_units": 108.9142,
+      "segment_id": null,
+      "time_index": 104,
+      "week_start": "2024-12-23"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5216.132,
+        "p05": 5159.222,
+        "p50": 5215.4377,
+        "p95": 5272.1621
+      },
+      "observed_sales_units": 5228,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8486.86,
+        "digital": 5522.24,
+        "retailer_promotion": 6972.75
+      },
+      "predictive_sales_units": {
+        "mean": 5217.4,
+        "p05": 5012.1972,
+        "p50": 5217.3052,
+        "p95": 5413.827
+      },
+      "residual_to_expected_mean_units": 11.868,
+      "segment_id": null,
+      "time_index": 105,
+      "week_start": "2024-12-30"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5255.2475,
+        "p05": 5198.5709,
+        "p50": 5254.2775,
+        "p95": 5314.701
+      },
+      "observed_sales_units": 5346,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9238.48,
+        "digital": 5922.2,
+        "retailer_promotion": 5896.68
+      },
+      "predictive_sales_units": {
+        "mean": 5257.0864,
+        "p05": 5057.1039,
+        "p50": 5258.7603,
+        "p95": 5455.1223
+      },
+      "residual_to_expected_mean_units": 90.7525,
+      "segment_id": null,
+      "time_index": 106,
+      "week_start": "2025-01-06"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5144.0764,
+        "p05": 5088.0689,
+        "p50": 5144.2769,
+        "p95": 5200.9131
+      },
+      "observed_sales_units": 5245,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8427.93,
+        "digital": 5844.34,
+        "retailer_promotion": 7951.65
+      },
+      "predictive_sales_units": {
+        "mean": 5144.9679,
+        "p05": 4949.9292,
+        "p50": 5144.0747,
+        "p95": 5340.28
+      },
+      "residual_to_expected_mean_units": 100.9236,
+      "segment_id": null,
+      "time_index": 107,
+      "week_start": "2025-01-13"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5321.8473,
+        "p05": 5262.5881,
+        "p50": 5321.3476,
+        "p95": 5380.1004
+      },
+      "observed_sales_units": 5284,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8937.5,
+        "digital": 6104.6,
+        "retailer_promotion": 6528.74
+      },
+      "predictive_sales_units": {
+        "mean": 5320.8523,
+        "p05": 5123.5355,
+        "p50": 5318.4248,
+        "p95": 5515.2158
+      },
+      "residual_to_expected_mean_units": -37.8473,
+      "segment_id": null,
+      "time_index": 108,
+      "week_start": "2025-01-20"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5457.7341,
+        "p05": 5399.1922,
+        "p50": 5458.1668,
+        "p95": 5514.1254
+      },
+      "observed_sales_units": 5551,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8946.98,
+        "digital": 6518.61,
+        "retailer_promotion": 7526.0
+      },
+      "predictive_sales_units": {
+        "mean": 5459.258,
+        "p05": 5261.7523,
+        "p50": 5458.2544,
+        "p95": 5656.1297
+      },
+      "residual_to_expected_mean_units": 93.2659,
+      "segment_id": null,
+      "time_index": 109,
+      "week_start": "2025-01-27"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5484.4832,
+        "p05": 5424.8881,
+        "p50": 5485.2957,
+        "p95": 5542.4908
+      },
+      "observed_sales_units": 5532,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9047.01,
+        "digital": 6551.11,
+        "retailer_promotion": 7066.1
+      },
+      "predictive_sales_units": {
+        "mean": 5481.9211,
+        "p05": 5274.5307,
+        "p50": 5482.379,
+        "p95": 5682.8914
+      },
+      "residual_to_expected_mean_units": 47.5168,
+      "segment_id": null,
+      "time_index": 110,
+      "week_start": "2025-02-03"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5337.2433,
+        "p05": 5276.6009,
+        "p50": 5336.8381,
+        "p95": 5397.0958
+      },
+      "observed_sales_units": 5522,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9985.99,
+        "digital": 6240.27,
+        "retailer_promotion": 6054.49
+      },
+      "predictive_sales_units": {
+        "mean": 5337.3692,
+        "p05": 5138.1062,
+        "p50": 5337.1936,
+        "p95": 5536.0149
+      },
+      "residual_to_expected_mean_units": 184.7567,
+      "segment_id": null,
+      "time_index": 111,
+      "week_start": "2025-02-10"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5377.0827,
+        "p05": 5316.4382,
+        "p50": 5377.7215,
+        "p95": 5436.4873
+      },
+      "observed_sales_units": 5434,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 7241.04,
+        "digital": 5574.92,
+        "retailer_promotion": 7410.4
+      },
+      "predictive_sales_units": {
+        "mean": 5377.108,
+        "p05": 5179.3386,
+        "p50": 5380.1244,
+        "p95": 5579.3884
+      },
+      "residual_to_expected_mean_units": 56.9173,
+      "segment_id": null,
+      "time_index": 112,
+      "week_start": "2025-02-17"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5391.9975,
+        "p05": 5330.112,
+        "p50": 5391.9695,
+        "p95": 5453.8359
+      },
+      "observed_sales_units": 5155,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8386.44,
+        "digital": 5575.45,
+        "retailer_promotion": 5741.67
+      },
+      "predictive_sales_units": {
+        "mean": 5391.0361,
+        "p05": 5179.0769,
+        "p50": 5393.9722,
+        "p95": 5595.6918
+      },
+      "residual_to_expected_mean_units": -236.9975,
+      "segment_id": null,
+      "time_index": 113,
+      "week_start": "2025-02-24"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5589.686,
+        "p05": 5525.2614,
+        "p50": 5589.7609,
+        "p95": 5655.4277
+      },
+      "observed_sales_units": 5542,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9312.69,
+        "digital": 6915.97,
+        "retailer_promotion": 7143.01
+      },
+      "predictive_sales_units": {
+        "mean": 5588.793,
+        "p05": 5389.1835,
+        "p50": 5588.7201,
+        "p95": 5788.8389
+      },
+      "residual_to_expected_mean_units": -47.686,
+      "segment_id": null,
+      "time_index": 114,
+      "week_start": "2025-03-03"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5388.4755,
+        "p05": 5328.2757,
+        "p50": 5387.6855,
+        "p95": 5447.8874
+      },
+      "observed_sales_units": 5556,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8666.81,
+        "digital": 6196.31,
+        "retailer_promotion": 6829.06
+      },
+      "predictive_sales_units": {
+        "mean": 5390.0366,
+        "p05": 5192.6078,
+        "p50": 5389.9056,
+        "p95": 5591.5095
+      },
+      "residual_to_expected_mean_units": 167.5245,
+      "segment_id": null,
+      "time_index": 115,
+      "week_start": "2025-03-10"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5427.6507,
+        "p05": 5366.9045,
+        "p50": 5428.0079,
+        "p95": 5489.0355
+      },
+      "observed_sales_units": 5512,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8047.72,
+        "digital": 4305.7,
+        "retailer_promotion": 5300.07
+      },
+      "predictive_sales_units": {
+        "mean": 5429.0217,
+        "p05": 5225.202,
+        "p50": 5429.1945,
+        "p95": 5631.5045
+      },
+      "residual_to_expected_mean_units": 84.3493,
+      "segment_id": null,
+      "time_index": 116,
+      "week_start": "2025-03-17"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5331.6605,
+        "p05": 5268.2701,
+        "p50": 5331.1126,
+        "p95": 5396.1151
+      },
+      "observed_sales_units": 5288,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9119.02,
+        "digital": 7088.33,
+        "retailer_promotion": 7264.59
+      },
+      "predictive_sales_units": {
+        "mean": 5332.0245,
+        "p05": 5130.1526,
+        "p50": 5330.8744,
+        "p95": 5530.1892
+      },
+      "residual_to_expected_mean_units": -43.6605,
+      "segment_id": null,
+      "time_index": 117,
+      "week_start": "2025-03-24"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5526.132,
+        "p05": 5465.6268,
+        "p50": 5525.834,
+        "p95": 5586.6243
+      },
+      "observed_sales_units": 5710,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8752.48,
+        "digital": 6233.45,
+        "retailer_promotion": 7462.21
+      },
+      "predictive_sales_units": {
+        "mean": 5525.256,
+        "p05": 5326.0178,
+        "p50": 5523.0411,
+        "p95": 5726.691
+      },
+      "residual_to_expected_mean_units": 183.868,
+      "segment_id": null,
+      "time_index": 118,
+      "week_start": "2025-03-31"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5328.1356,
+        "p05": 5266.8433,
+        "p50": 5328.0108,
+        "p95": 5389.695
+      },
+      "observed_sales_units": 5221,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 8890.02,
+        "digital": 6336.46,
+        "retailer_promotion": 6426.41
+      },
+      "predictive_sales_units": {
+        "mean": 5328.1016,
+        "p05": 5128.1053,
+        "p50": 5326.7799,
+        "p95": 5528.1591
+      },
+      "residual_to_expected_mean_units": -107.1356,
+      "segment_id": null,
+      "time_index": 119,
+      "week_start": "2025-04-07"
+    },
+    {
+      "expected_sales_units": {
+        "mean": 5340.2505,
+        "p05": 5280.4567,
+        "p50": 5340.352,
+        "p95": 5400.3658
+      },
+      "observed_sales_units": 5492,
+      "period": "holdout",
+      "planned_spend_usd": {
+        "coupon": 9149.26,
+        "digital": 6081.9,
+        "retailer_promotion": 6311.89
+      },
+      "predictive_sales_units": {
+        "mean": 5338.185,
+        "p05": 5138.7208,
+        "p50": 5337.9669,
+        "p95": 5535.075
+      },
+      "residual_to_expected_mean_units": 151.7495,
+      "segment_id": null,
+      "time_index": 120,
+      "week_start": "2025-04-14"
+    }
+  ],
+  "bundle_id": "94c839081ea64e565a5c1f546e4e65f07394df9b628e98f0ec9eb58a631808c9",
   "intervals": {
     "expected_sales_units": "posterior credible 90% interval for the conditional mean",
     "predictive_sales_units": "posterior predictive 90% interval for a future observation at fixed inputs"
   },
   "reference_model": "partial",
-  "schema_version": "m4-1",
+  "schema_version": "m4-2",
   "weekly": [
     {
       "expected_sales_units": {

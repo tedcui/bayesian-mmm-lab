@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { loadModelData } from '../lib/data'
-import { regionLabel, type WeeklyFilter } from '../lib/analytics'
+import { ALL_REGIONS, regionLabel, type WeeklyFilter } from '../lib/analytics'
 import { dateLabel } from '../lib/format'
 import { Overview } from '../pages/Overview'
 import { Decomposition } from '../pages/Decomposition'
@@ -28,6 +28,7 @@ export function App() {
   const [attempt, setAttempt] = useState(0)
   const [page, setPage] = useState<Page>(pageFromHash)
   const [filter, setFilter] = useState<WeeklyFilter | null>(null)
+  const [allRegions, setAllRegions] = useState(true)
 
   useEffect(() => {
     const update = () => setPage(pageFromHash())
@@ -52,6 +53,9 @@ export function App() {
   const weeks = bundle ? bundle.overview.weekly
     .filter(row => row.segment_id === bundle.manifest.segments[0]).map(row => row.week_start) : []
   const selected = nav.find(item => item.id === page)!
+  const regionalAnalysis = page === 'overview' || page === 'decomposition'
+  const displayFilter = filter && allRegions && regionalAnalysis
+    ? { ...filter, segmentId: ALL_REGIONS } : filter
 
   return <div className="app-shell">
     <a className="skip-link" href="#main-content" onClick={event => {
@@ -104,8 +108,12 @@ export function App() {
           <section className="filter-panel" aria-label="Analysis filters">
             <div className="filter-heading"><strong>VIEW CONTROLS</strong><span>{page === 'segments' ? 'Region focus · fitted on weeks 1–100' : page === 'simulator' ? 'Region focus · fixed 12-week replay' : 'Select a region and calendar window'}</span></div>
             <div className="filter-grid">
-              <label>Business region<select aria-label="Business region" value={filter.segmentId}
-                onChange={event => setFilter({ ...filter, segmentId: event.target.value })}>
+              <label>Business region<select aria-label="Business region" value={displayFilter!.segmentId}
+                onChange={event => {
+                  if (event.target.value === ALL_REGIONS) setAllRegions(true)
+                  else { setAllRegions(false); setFilter({ ...filter, segmentId: event.target.value }) }
+                }}>
+                {regionalAnalysis && <option value={ALL_REGIONS}>All regions</option>}
                 {bundle.manifest.segments.map(id => <option value={id} key={id}>{regionLabel(id)}</option>)}
               </select></label>
               {page !== 'segments' && page !== 'simulator' && <>
@@ -125,8 +133,8 @@ export function App() {
             {page === 'segments' && <p className="filter-note">The region selector highlights a comparison row. Channel effects are fitted over the fixed training window, so changing a weekly date range cannot refit them.</p>}
             {page === 'simulator' && <p className="filter-note">The replay uses the exported final 12 holdout weeks. Region changes reset the spending controls and budget search.</p>}
           </section>
-          {page === 'overview' && <Overview bundle={bundle} filter={filter} />}
-          {page === 'decomposition' && <Decomposition bundle={bundle} filter={filter} />}
+          {page === 'overview' && <Overview bundle={bundle} filter={displayFilter!} />}
+          {page === 'decomposition' && <Decomposition bundle={bundle} filter={displayFilter!} />}
           {page === 'segments' && <Segments bundle={bundle} filter={filter} />}
           {page === 'simulator' && <Simulator key={filter.segmentId} bundle={bundle} segmentId={filter.segmentId} />}
           <footer className="page-footer">

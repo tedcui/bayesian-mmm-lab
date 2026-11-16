@@ -8,7 +8,7 @@ import numpy as np
 import pytest
 
 from mmm_lab.evaluate import posterior_components
-from mmm_lab.export import _check_lineage, export_model_data
+from mmm_lab.export import EXPORT_SEED, _check_lineage, export_model_data
 from mmm_lab.model import (CHANNELS, SALES_SCALE, SPEND_SCALE, expected_components,
                            load_model_data, sha256_file)
 from mmm_lab.paths import ARTIFACTS_DIR, DATA_DIR, WEB_MODEL_DATA_DIR
@@ -43,7 +43,7 @@ def test_committed_export_hashes_and_model_lineage_without_mcmc():
 
 def test_export_lineage_version_and_public_fields(exported):
     output, manifest, payloads = exported
-    assert manifest["schema_version"] == "m4-1"
+    assert manifest["schema_version"] == "m4-2"
     assert manifest["lineage"]["etl_version"] == "m2b-1"
     assert manifest["lineage"]["model_version"] == "m3-1"
     assert manifest["lineage"]["model_input_sha256"] == sha256_file(DATA_DIR / "processed/model_ready.parquet")
@@ -52,7 +52,7 @@ def test_export_lineage_version_and_public_fields(exported):
     for name, info in manifest["files"].items():
         assert info["sha256"] == sha256_file(output / name)
         assert info["bytes"] == (output / name).stat().st_size
-        assert info["bytes"] < 800_000
+        assert info["bytes"] < 900_000
     assert sum(info["bytes"] for info in manifest["files"].values()) < 2_000_000
     for payload in payloads.values():
         assert payload["schema_version"] == manifest["schema_version"]
@@ -68,6 +68,7 @@ def test_export_week_keys_reconciliation_and_draw_first_interval(exported):
     data = load_model_data()
     overview, contributions = payloads["overview"], payloads["contributions"]
     assert len(overview["weekly"]) == len(contributions["weekly"]) == 720
+    assert len(overview["all_regions_weekly"]) == len(contributions["all_regions_weekly"]) == 120
     assert len(overview["aggregates"]) == len(contributions["aggregates"]) == 21
     keys = [(r["segment_id"], r["week_start"]) for r in overview["weekly"]]
     assert len(set(keys)) == 720
@@ -86,7 +87,24 @@ def test_export_week_keys_reconciliation_and_draw_first_interval(exported):
                      if row["segment_id"] is None and row["period"] == "holdout")
     assert aggregate["observed_sales_units"] == int(data.sales[:, 100:].sum())
     posterior = az.from_netcdf(ARTIFACTS_DIR / "posterior_partial.nc")["posterior"]
-    baseline, channel, expected, _ = posterior_components(data, posterior)
+    baseline, channel, expected, noise = posterior_components(data, posterior)
+    predictive = expected + noise[:, :, None] * np.random.default_rng(EXPORT_SEED + 1).normal(size=expected.shape)
+    for t in (0, 99, 100, 119):
+        overall = overview["all_regions_weekly"][t]
+        parts = contributions["all_regions_weekly"][t]
+        expected_draws = expected[:, :, t].sum(axis=1)
+        assert overall["segment_id"] is None and parts["segment_id"] is None
+        assert overall["observed_sales_units"] == int(data.sales[:, t].sum())
+        assert abs(overall["expected_sales_units"]["p05"] - np.quantile(expected_draws, 0.05)) < 0.0001
+        assert abs(overall["expected_sales_units"]["p95"] - np.quantile(expected_draws, 0.95)) < 0.0001
+        predictive_draws = predictive[:, :, t].sum(axis=1)
+        assert abs(overall["predictive_sales_units"]["p05"] - np.quantile(predictive_draws, 0.05)) < 0.0001
+        assert abs(overall["predictive_sales_units"]["p95"] - np.quantile(predictive_draws, 0.95)) < 0.0001
+        naive_weekly_low = sum(row["predictive_sales_units"]["p05"] for row in overview["weekly"][t::120])
+        assert abs(overall["predictive_sales_units"]["p05"] - naive_weekly_low) > 0.01
+        channel_draws = channel[:, :, t, 0].sum(axis=1)
+        assert abs(parts["channels_units"]["coupon"]["p05"] - np.quantile(channel_draws, 0.05)) < 0.0001
+        assert abs(parts["channels_units"]["coupon"]["p95"] - np.quantile(channel_draws, 0.95)) < 0.0001
     draw_totals = expected[:, :, 100:].sum(axis=(1, 2))
     assert abs(aggregate["expected_sales_units"]["p05"] - np.quantile(draw_totals, 0.05)) < 0.0001
     assert abs(aggregate["expected_sales_units"]["p95"] - np.quantile(draw_totals, 0.95)) < 0.0001

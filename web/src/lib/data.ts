@@ -158,6 +158,52 @@ function validateWeekly(bundle: RecordValue, segmentIds: string[], firstWeek: st
       fail(`weekly[${index}]`, 'overview/contribution expected means disagree')
     }
   }
+  const allOverview = array(overview.all_regions_weekly, 'overview.all_regions_weekly', 120)
+  const allContributions = array(contributions.all_regions_weekly, 'contributions.all_regions_weekly', 120)
+  for (let t = 0; t < 120; t++) {
+    const a = object(allOverview[t], `overview.all_regions_weekly[${t}]`)
+    const b = object(allContributions[t], `contributions.all_regions_weekly[${t}]`)
+    const regionalOverview = segmentIds.map((_, s) => object(overviewWeeks[s * 120 + t], `overview.weekly[${s * 120 + t}]`))
+    const regionalContributions = segmentIds.map((_, s) => object(contributionWeeks[s * 120 + t], `contributions.weekly[${s * 120 + t}]`))
+    const observedTotal = regionalOverview.reduce((total, row) => total + number(row.observed_sales_units, 'observed'), 0)
+    for (const [label, row] of [['overview', a], ['contributions', b]] as const) {
+      const path = `${label}.all_regions_weekly[${t}]`
+      same(row.segment_id, null, `${path}.segment_id`)
+      same(isoMonday(row.week_start, `${path}.week_start`), weekFrom(firstWeek, t), `${path}.week_start`)
+      same(integer(row.time_index, `${path}.time_index`), t + 1, `${path}.time_index`)
+      same(row.period, t < 100 ? 'training' : 'holdout', `${path}.period`)
+      same(count(row.observed_sales_units, `${path}.observed_sales_units`), observedTotal, `${path}.observed_sales_units`)
+      const expected = summary(row.expected_sales_units, `${path}.expected_sales_units`)
+      const regionalExpected = regionalOverview.reduce((total, part) => total + summary(part.expected_sales_units, 'expected').mean, 0)
+      if (Math.abs(expected.mean - regionalExpected) > 0.001) fail(path, 'expected mean does not match regional sum')
+      const residual = number(row.residual_to_expected_mean_units, `${path}.residual_to_expected_mean_units`)
+      if (Math.abs(observedTotal - expected.mean - residual) > 0.0002) fail(path, 'residual does not reconcile')
+    }
+    summary(a.predictive_sales_units, `overview.all_regions_weekly[${t}].predictive_sales_units`)
+    channelMap(a.planned_spend_usd, `overview.all_regions_weekly[${t}].planned_spend_usd`, nonnegative)
+    channels.forEach(name => {
+      const regionalSpend = regionalOverview.reduce((total, part) => total + number(object(part.planned_spend_usd, 'planned_spend_usd')[name], 'spend'), 0)
+      if (Math.abs(number(object(a.planned_spend_usd, 'planned_spend_usd')[name], 'spend') - regionalSpend) > 0.001) {
+        fail(`overview.all_regions_weekly[${t}].planned_spend_usd.${name}`, 'spend does not match regional sum')
+      }
+    })
+    let componentMean = summary(b.baseline_units, `contributions.all_regions_weekly[${t}].baseline_units`).mean
+    const regionalBaseline = regionalContributions.reduce((total, part) => total + summary(part.baseline_units, 'baseline').mean, 0)
+    if (Math.abs(componentMean - regionalBaseline) > 0.001) fail(`contributions.all_regions_weekly[${t}]`, 'baseline mean does not match regional sum')
+    channelMap(b.channels_units, `contributions.all_regions_weekly[${t}].channels_units`, (value, path) => {
+      const name = path.split('.').at(-1) as typeof channels[number]
+      const mean = summary(value, path).mean
+      componentMean += mean
+      const regionalMean = regionalContributions.reduce((total, part) => total + summary(object(part.channels_units, 'channels_units')[name], 'channel').mean, 0)
+      if (Math.abs(mean - regionalMean) > 0.001) fail(path, 'channel mean does not match regional sum')
+    })
+    if (Math.abs(componentMean - summary(b.expected_sales_units, 'expected').mean) > 0.0003) {
+      fail(`contributions.all_regions_weekly[${t}]`, 'component means do not reconcile')
+    }
+    if (Math.abs(summary(a.expected_sales_units, 'expected').mean - summary(b.expected_sales_units, 'expected').mean) > 0.0001) {
+      fail(`all_regions_weekly[${t}]`, 'overview/contribution expected means disagree')
+    }
+  }
   for (const [label, rows] of [['overview', overview.aggregates], ['contributions', contributions.aggregates]] as const) {
     array(rows, `${label}.aggregates`, 21).forEach((entry, i) => {
       const row = object(entry, `${label}.aggregates[${i}]`)
@@ -294,7 +340,7 @@ export function validateModelDataBundle(value: unknown): ModelDataBundle {
   finiteDeep(value, 'bundle')
   const bundle = object(value, 'bundle')
   const manifest = object(bundle.manifest, 'manifest')
-  same(manifest.schema_version, 'm4-1', 'manifest.schema_version')
+  same(manifest.schema_version, 'm4-2', 'manifest.schema_version')
   hash(manifest.bundle_id, 'manifest.bundle_id')
   const generatedAt = string(manifest.generated_at_utc, 'manifest.generated_at_utc')
   if (!/(Z|\+00:00)$/.test(generatedAt) || Number.isNaN(Date.parse(generatedAt))) {
@@ -334,7 +380,7 @@ export function validateModelDataBundle(value: unknown): ModelDataBundle {
   string(manifest.disclosure, 'manifest.disclosure')
   for (const name of ['overview', 'contributions', 'segments', 'simulator']) {
     const payload = object(bundle[name], name)
-    same(payload.schema_version, 'm4-1', `${name}.schema_version`)
+    same(payload.schema_version, 'm4-2', `${name}.schema_version`)
     same(payload.bundle_id, manifest.bundle_id, `${name}.bundle_id`)
     if (name === 'overview' || name === 'contributions') same(payload.reference_model, 'partial', `${name}.reference_model`)
   }

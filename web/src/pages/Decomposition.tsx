@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { PlotChart, type PlotTrace } from '../components/PlotChart'
 import { MetricCard } from '../components/MetricCard'
-import { channelColor, channelLabel, channelOrder, decompositionTotals, filterWeeks,
-  matchingAggregate, regionLabel, type WeeklyFilter } from '../lib/analytics'
+import { ALL_REGIONS, channelColor, channelLabel, channelOrder, decompositionTotals,
+  filterWeeks, matchingAggregate, regionLabel, type WeeklyFilter } from '../lib/analytics'
 import { dateLabel, decimal, units } from '../lib/format'
 import type { Channel, ModelDataBundle } from '../types/modelData'
 
 export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; filter: WeeklyFilter }) {
   const [channel, setChannel] = useState<Channel>('coupon')
-  const rows = filterWeeks(bundle.contributions.weekly, filter)
-  if (!rows.length) return <div className="empty-panel" role="status">No contribution weeks match this region and date range.</div>
+  const allRegions = filter.segmentId === ALL_REGIONS
+  const rows = allRegions
+    ? bundle.contributions.all_regions_weekly.filter(row => row.week_start >= filter.startWeek && row.week_start <= filter.endWeek)
+    : filterWeeks(bundle.contributions.weekly, filter)
+  if (!rows.length) return <div className="empty-panel" role="status">No contribution weeks match this view and date range.</div>
   const totals = decompositionTotals(rows)
   const promo = channelOrder.reduce((sum, name) => sum + totals.channels[name], 0)
   const dates = bundle.manifest.dates
@@ -59,7 +62,7 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
       <PlotChart label={`Modeled baseline and three channel contributions with observed sales for ${regionLabel(filter.segmentId)}`}
         traces={stack} height={390} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
           yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
-      <p className="chart-caption">Stacked areas sum the <strong>posterior mean</strong> baseline and modeled channel contributions. The observed line can differ because sales include residual variation. Campaigns are correlated and targeted; this allocation is assumption dependent.</p>
+      <p className="chart-caption">Stacked areas sum the <strong>posterior mean</strong> baseline and modeled channel contributions{allRegions ? ' across all six regions' : ''}. The observed line can differ because sales include residual variation. Campaigns are correlated and targeted; this allocation is assumption dependent.</p>
     </section>
     <div className="two-column decomposition-lower">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">UNCERTAINTY</p><h3>Channel contribution band</h3></div>
@@ -67,10 +70,10 @@ export function Decomposition({ bundle, filter }: { bundle: ModelDataBundle; fil
           onChange={event => setChannel(event.target.value as Channel)}>
           {channelOrder.map(name => <option value={name} key={name}>{channelLabel[name]}</option>)}
         </select></label></div>
-        <PlotChart label={`Weekly modeled ${channelLabel[channel]} contribution with 90% credible interval`}
+        <PlotChart label={`Weekly modeled ${channelLabel[channel]} contribution for ${regionLabel(filter.segmentId)} with 90% credible interval`}
           traces={band} height={295} layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
             yaxis: { title: 'Contribution units', rangemode: 'tozero', gridcolor: '#e9edf0' } }} />
-        <p className="chart-caption">The shaded 5th–95th percentile band is a <strong>90% credible interval for each week's expected channel contribution</strong>, not a prediction interval for observed sales.</p>
+        <p className="chart-caption">The shaded 5th–95th percentile band is a <strong>90% credible interval for each week's expected channel contribution</strong>{allRegions ? ', summed across six regions within each joint posterior draw' : ''}. It is not a prediction interval for observed sales.</p>
       </section>
       <section className="detail-card"><p className="section-kicker">ACCOUNTING CHECK</p><h3>Reconciliation</h3>
         <div className="equation"><span>Expected sales</span><strong>{units(totals.expected)}</strong></div>

@@ -14,7 +14,7 @@ export interface Summary {
 export type ChannelMap<T> = Record<Channel, T>
 
 export interface ExportManifest {
-  schema_version: 'm4-1'
+  schema_version: 'm4-2'
   bundle_id: string
   generated_at_utc: string
   reference_model: 'partial'
@@ -64,6 +64,9 @@ export interface ContributionWeek extends WeeklyKey {
   residual_to_expected_mean_units: number
 }
 
+export type AllRegionsOverviewWeek = Omit<OverviewWeek, 'segment_id'> & { segment_id: null }
+export type AllRegionsContributionWeek = Omit<ContributionWeek, 'segment_id'> & { segment_id: null }
+
 export interface Aggregate {
   segment_id: string | null
   period: AggregatePeriod
@@ -80,7 +83,7 @@ export interface ContributionAggregate extends Aggregate {
 }
 
 interface PayloadBase {
-  schema_version: 'm4-1'
+  schema_version: 'm4-2'
   bundle_id: string
   reference_model: 'partial'
 }
@@ -88,12 +91,14 @@ interface PayloadBase {
 export interface OverviewData extends PayloadBase {
   intervals: { expected_sales_units: string; predictive_sales_units: string }
   weekly: OverviewWeek[]
+  all_regions_weekly: AllRegionsOverviewWeek[]
   aggregates: Aggregate[]
 }
 
 export interface ContributionsData extends PayloadBase {
   interpretation: string
   weekly: ContributionWeek[]
+  all_regions_weekly: AllRegionsContributionWeek[]
   aggregates: ContributionAggregate[]
 }
 
@@ -107,7 +112,7 @@ export interface SegmentEffect {
 }
 
 export interface SegmentData {
-  schema_version: 'm4-1'
+  schema_version: 'm4-2'
   bundle_id: string
   effect_definition: string
   interval_definition: string

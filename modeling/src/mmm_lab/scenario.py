@@ -72,7 +72,7 @@ def _matrix(value: Any, rows: int, columns: int, name: str, *, nonnegative: bool
 
 def prepare_scenario(manifest: dict, simulator: dict, segment_id: str) -> PreparedScenario:
     """Validate M4 identity and cache adstock history and fixed controls once."""
-    if (manifest.get("schema_version") != "m4-1" or simulator.get("schema_version") != "m4-1" or
+    if (manifest.get("schema_version") != "m4-2" or simulator.get("schema_version") != "m4-2" or
             manifest.get("bundle_id") != simulator.get("bundle_id") or
             manifest.get("reference_model") != "partial" or simulator.get("reference_model") != "partial"):
         raise ValueError("Scenario source/version mismatch")

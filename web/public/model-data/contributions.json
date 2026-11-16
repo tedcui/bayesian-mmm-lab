@@ -1030,10 +1030,4812 @@
       "segment_id": "pacific_coast"
     }
   ],
-  "bundle_id": "befeea8d6e700c01bb1a13cf877729ad7c3f80dee0779ff5861c66e88aa42db8",
+  "all_regions_weekly": [
+    {
+      "baseline_units": {
+        "mean": 4320.4549,
+        "p05": 4089.4956,
+        "p50": 4324.2558,
+        "p95": 4529.1195
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 124.9954,
+          "p05": 41.3718,
+          "p50": 114.8817,
+          "p95": 241.2807
+        },
+        "digital": {
+          "mean": 154.2146,
+          "p05": 61.3953,
+          "p50": 148.6615,
+          "p95": 270.1787
+        },
+        "retailer_promotion": {
+          "mean": 236.0099,
+          "p05": 128.9316,
+          "p50": 230.0877,
+          "p95": 360.2656
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4835.6748,
+        "p05": 4718.8189,
+        "p50": 4837.3931,
+        "p95": 4948.5752
+      },
+      "observed_sales_units": 4835,
+      "period": "training",
+      "residual_to_expected_mean_units": -0.6748,
+      "segment_id": null,
+      "time_index": 1,
+      "week_start": "2023-01-02"
+    },
+    {
+      "baseline_units": {
+        "mean": 4237.6631,
+        "p05": 4007.5698,
+        "p50": 4242.7213,
+        "p95": 4441.8937
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 147.8824,
+          "p05": 46.7533,
+          "p50": 132.7405,
+          "p95": 296.1594
+        },
+        "digital": {
+          "mean": 188.7652,
+          "p05": 77.3168,
+          "p50": 179.4602,
+          "p95": 333.2446
+        },
+        "retailer_promotion": {
+          "mean": 219.4398,
+          "p05": 114.2648,
+          "p50": 210.7521,
+          "p95": 352.5862
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4793.7505,
+        "p05": 4705.4916,
+        "p50": 4795.3594,
+        "p95": 4877.0948
+      },
+      "observed_sales_units": 4644,
+      "period": "training",
+      "residual_to_expected_mean_units": -149.7505,
+      "segment_id": null,
+      "time_index": 2,
+      "week_start": "2023-01-09"
+    },
+    {
+      "baseline_units": {
+        "mean": 4253.1128,
+        "p05": 4021.3757,
+        "p50": 4256.8963,
+        "p95": 4458.7497
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 187.3369,
+          "p05": 61.9248,
+          "p50": 170.6447,
+          "p95": 364.0886
+        },
+        "digital": {
+          "mean": 217.6628,
+          "p05": 88.4325,
+          "p50": 206.1584,
+          "p95": 390.1724
+        },
+        "retailer_promotion": {
+          "mean": 244.87,
+          "p05": 128.5035,
+          "p50": 234.3612,
+          "p95": 397.0745
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4902.9825,
+        "p05": 4831.6407,
+        "p50": 4903.7391,
+        "p95": 4973.6552
+      },
+      "observed_sales_units": 4863,
+      "period": "training",
+      "residual_to_expected_mean_units": -39.9825,
+      "segment_id": null,
+      "time_index": 3,
+      "week_start": "2023-01-16"
+    },
+    {
+      "baseline_units": {
+        "mean": 4133.8303,
+        "p05": 3900.6989,
+        "p50": 4138.2132,
+        "p95": 4339.4175
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 186.0265,
+          "p05": 56.2073,
+          "p50": 166.4164,
+          "p95": 377.387
+        },
+        "digital": {
+          "mean": 218.3611,
+          "p05": 87.8107,
+          "p50": 204.3938,
+          "p95": 400.2813
+        },
+        "retailer_promotion": {
+          "mean": 240.0279,
+          "p05": 125.9517,
+          "p50": 229.6123,
+          "p95": 387.7153
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4778.2459,
+        "p05": 4717.7349,
+        "p50": 4779.7115,
+        "p95": 4834.9033
+      },
+      "observed_sales_units": 4736,
+      "period": "training",
+      "residual_to_expected_mean_units": -42.2459,
+      "segment_id": null,
+      "time_index": 4,
+      "week_start": "2023-01-23"
+    },
+    {
+      "baseline_units": {
+        "mean": 4477.1821,
+        "p05": 4242.5651,
+        "p50": 4482.2151,
+        "p95": 4683.9355
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 205.6616,
+          "p05": 64.4668,
+          "p50": 185.5666,
+          "p95": 406.6035
+        },
+        "digital": {
+          "mean": 222.5855,
+          "p05": 87.6168,
+          "p50": 208.0795,
+          "p95": 410.769
+        },
+        "retailer_promotion": {
+          "mean": 287.316,
+          "p05": 155.4843,
+          "p50": 277.4504,
+          "p95": 449.4135
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5192.7451,
+        "p05": 5138.44,
+        "p50": 5192.838,
+        "p95": 5245.5463
+      },
+      "observed_sales_units": 5143,
+      "period": "training",
+      "residual_to_expected_mean_units": -49.7451,
+      "segment_id": null,
+      "time_index": 5,
+      "week_start": "2023-01-30"
+    },
+    {
+      "baseline_units": {
+        "mean": 4491.5495,
+        "p05": 4255.0865,
+        "p50": 4496.053,
+        "p95": 4701.0974
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 213.4869,
+          "p05": 66.083,
+          "p50": 192.4951,
+          "p95": 423.8646
+        },
+        "digital": {
+          "mean": 219.0721,
+          "p05": 84.8149,
+          "p50": 202.3666,
+          "p95": 412.8154
+        },
+        "retailer_promotion": {
+          "mean": 283.3716,
+          "p05": 151.629,
+          "p50": 272.9544,
+          "p95": 448.8014
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5207.4802,
+        "p05": 5153.2258,
+        "p50": 5207.5468,
+        "p95": 5261.8607
+      },
+      "observed_sales_units": 5027,
+      "period": "training",
+      "residual_to_expected_mean_units": -180.4802,
+      "segment_id": null,
+      "time_index": 6,
+      "week_start": "2023-02-06"
+    },
+    {
+      "baseline_units": {
+        "mean": 4378.0879,
+        "p05": 4141.4445,
+        "p50": 4383.6046,
+        "p95": 4587.4909
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 212.4023,
+          "p05": 63.1349,
+          "p50": 189.6255,
+          "p95": 428.632
+        },
+        "digital": {
+          "mean": 222.5401,
+          "p05": 86.5797,
+          "p50": 205.9975,
+          "p95": 419.5976
+        },
+        "retailer_promotion": {
+          "mean": 282.748,
+          "p05": 150.9976,
+          "p50": 271.6777,
+          "p95": 450.5548
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5095.7782,
+        "p05": 5052.1444,
+        "p50": 5095.6684,
+        "p95": 5138.9158
+      },
+      "observed_sales_units": 5105,
+      "period": "training",
+      "residual_to_expected_mean_units": 9.2218,
+      "segment_id": null,
+      "time_index": 7,
+      "week_start": "2023-02-13"
+    },
+    {
+      "baseline_units": {
+        "mean": 4349.4984,
+        "p05": 4113.391,
+        "p50": 4353.0565,
+        "p95": 4557.9297
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 220.1838,
+          "p05": 66.2579,
+          "p50": 197.4257,
+          "p95": 441.0888
+        },
+        "digital": {
+          "mean": 228.254,
+          "p05": 89.4875,
+          "p50": 210.8511,
+          "p95": 427.6954
+        },
+        "retailer_promotion": {
+          "mean": 274.8241,
+          "p05": 145.8063,
+          "p50": 263.3285,
+          "p95": 441.9153
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5072.7603,
+        "p05": 5030.599,
+        "p50": 5072.5424,
+        "p95": 5114.7161
+      },
+      "observed_sales_units": 5070,
+      "period": "training",
+      "residual_to_expected_mean_units": -2.7603,
+      "segment_id": null,
+      "time_index": 8,
+      "week_start": "2023-02-20"
+    },
+    {
+      "baseline_units": {
+        "mean": 4450.4348,
+        "p05": 4209.301,
+        "p50": 4456.1461,
+        "p95": 4665.4931
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 222.6687,
+          "p05": 65.5406,
+          "p50": 199.1439,
+          "p95": 449.7609
+        },
+        "digital": {
+          "mean": 214.6223,
+          "p05": 78.5471,
+          "p50": 193.7034,
+          "p95": 424.1316
+        },
+        "retailer_promotion": {
+          "mean": 248.4871,
+          "p05": 126.2231,
+          "p50": 235.0311,
+          "p95": 415.4062
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5136.2128,
+        "p05": 5091.9238,
+        "p50": 5136.5441,
+        "p95": 5180.2685
+      },
+      "observed_sales_units": 5284,
+      "period": "training",
+      "residual_to_expected_mean_units": 147.7872,
+      "segment_id": null,
+      "time_index": 9,
+      "week_start": "2023-02-27"
+    },
+    {
+      "baseline_units": {
+        "mean": 4334.9518,
+        "p05": 4098.9062,
+        "p50": 4340.5268,
+        "p95": 4545.748
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 212.1123,
+          "p05": 52.4469,
+          "p50": 187.0974,
+          "p95": 447.1704
+        },
+        "digital": {
+          "mean": 215.7708,
+          "p05": 79.2619,
+          "p50": 195.3175,
+          "p95": 425.82
+        },
+        "retailer_promotion": {
+          "mean": 237.4036,
+          "p05": 119.3103,
+          "p50": 224.7259,
+          "p95": 401.0386
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5000.2384,
+        "p05": 4958.0205,
+        "p50": 5000.7651,
+        "p95": 5041.3072
+      },
+      "observed_sales_units": 4698,
+      "period": "training",
+      "residual_to_expected_mean_units": -302.2384,
+      "segment_id": null,
+      "time_index": 10,
+      "week_start": "2023-03-06"
+    },
+    {
+      "baseline_units": {
+        "mean": 4336.3925,
+        "p05": 4097.7318,
+        "p50": 4341.7428,
+        "p95": 4548.1639
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 217.0716,
+          "p05": 59.3011,
+          "p50": 190.9232,
+          "p95": 446.6933
+        },
+        "digital": {
+          "mean": 221.9679,
+          "p05": 84.1066,
+          "p50": 202.5708,
+          "p95": 429.054
+        },
+        "retailer_promotion": {
+          "mean": 232.3799,
+          "p05": 118.7592,
+          "p50": 219.5756,
+          "p95": 393.4525
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5007.8118,
+        "p05": 4968.2133,
+        "p50": 5007.8649,
+        "p95": 5047.1501
+      },
+      "observed_sales_units": 5258,
+      "period": "training",
+      "residual_to_expected_mean_units": 250.1882,
+      "segment_id": null,
+      "time_index": 11,
+      "week_start": "2023-03-13"
+    },
+    {
+      "baseline_units": {
+        "mean": 4547.3714,
+        "p05": 4310.3277,
+        "p50": 4552.2248,
+        "p95": 4757.4697
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 221.9034,
+          "p05": 62.6458,
+          "p50": 196.4127,
+          "p95": 452.4733
+        },
+        "digital": {
+          "mean": 241.5498,
+          "p05": 95.8082,
+          "p50": 224.7463,
+          "p95": 448.9257
+        },
+        "retailer_promotion": {
+          "mean": 293.7391,
+          "p05": 159.9481,
+          "p50": 283.8195,
+          "p95": 455.8671
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5304.5637,
+        "p05": 5268.0485,
+        "p50": 5304.3429,
+        "p95": 5342.2924
+      },
+      "observed_sales_units": 5237,
+      "period": "training",
+      "residual_to_expected_mean_units": -67.5637,
+      "segment_id": null,
+      "time_index": 12,
+      "week_start": "2023-03-20"
+    },
+    {
+      "baseline_units": {
+        "mean": 4448.1323,
+        "p05": 4206.1671,
+        "p50": 4453.379,
+        "p95": 4660.3676
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 226.1835,
+          "p05": 64.9976,
+          "p50": 200.7572,
+          "p95": 460.1494
+        },
+        "digital": {
+          "mean": 223.8476,
+          "p05": 82.6008,
+          "p50": 203.1974,
+          "p95": 438.7462
+        },
+        "retailer_promotion": {
+          "mean": 280.9925,
+          "p05": 148.0777,
+          "p50": 269.8773,
+          "p95": 448.4735
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5179.156,
+        "p05": 5139.3917,
+        "p50": 5179.1176,
+        "p95": 5217.6183
+      },
+      "observed_sales_units": 5157,
+      "period": "training",
+      "residual_to_expected_mean_units": -22.156,
+      "segment_id": null,
+      "time_index": 13,
+      "week_start": "2023-03-27"
+    },
+    {
+      "baseline_units": {
+        "mean": 4291.8413,
+        "p05": 4055.875,
+        "p50": 4297.2072,
+        "p95": 4504.3382
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 224.723,
+          "p05": 61.0105,
+          "p50": 197.5718,
+          "p95": 463.2056
+        },
+        "digital": {
+          "mean": 216.5415,
+          "p05": 78.5399,
+          "p50": 194.2642,
+          "p95": 431.1735
+        },
+        "retailer_promotion": {
+          "mean": 276.1847,
+          "p05": 144.9246,
+          "p50": 264.1165,
+          "p95": 446.444
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5009.2905,
+        "p05": 4972.269,
+        "p50": 5009.3502,
+        "p95": 5045.4578
+      },
+      "observed_sales_units": 5066,
+      "period": "training",
+      "residual_to_expected_mean_units": 56.7095,
+      "segment_id": null,
+      "time_index": 14,
+      "week_start": "2023-04-03"
+    },
+    {
+      "baseline_units": {
+        "mean": 4318.9409,
+        "p05": 4080.133,
+        "p50": 4324.0232,
+        "p95": 4533.8152
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 227.4371,
+          "p05": 62.7317,
+          "p50": 200.2522,
+          "p95": 466.9308
+        },
+        "digital": {
+          "mean": 233.8558,
+          "p05": 89.3484,
+          "p50": 214.3535,
+          "p95": 445.8126
+        },
+        "retailer_promotion": {
+          "mean": 294.3551,
+          "p05": 159.2611,
+          "p50": 284.0681,
+          "p95": 463.2383
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5074.5889,
+        "p05": 5036.3865,
+        "p50": 5074.2997,
+        "p95": 5112.804
+      },
+      "observed_sales_units": 5037,
+      "period": "training",
+      "residual_to_expected_mean_units": -37.5889,
+      "segment_id": null,
+      "time_index": 15,
+      "week_start": "2023-04-10"
+    },
+    {
+      "baseline_units": {
+        "mean": 4394.9686,
+        "p05": 4157.2793,
+        "p50": 4399.3627,
+        "p95": 4610.9792
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 230.076,
+          "p05": 64.0882,
+          "p50": 203.3804,
+          "p95": 471.0743
+        },
+        "digital": {
+          "mean": 243.4039,
+          "p05": 94.4141,
+          "p50": 224.5898,
+          "p95": 456.3619
+        },
+        "retailer_promotion": {
+          "mean": 294.3806,
+          "p05": 157.4023,
+          "p50": 283.8573,
+          "p95": 465.4377
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5162.8291,
+        "p05": 5127.8666,
+        "p50": 5162.702,
+        "p95": 5197.8462
+      },
+      "observed_sales_units": 4957,
+      "period": "training",
+      "residual_to_expected_mean_units": -205.8291,
+      "segment_id": null,
+      "time_index": 16,
+      "week_start": "2023-04-17"
+    },
+    {
+      "baseline_units": {
+        "mean": 4357.9582,
+        "p05": 4118.1302,
+        "p50": 4363.2981,
+        "p95": 4574.3806
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 229.9116,
+          "p05": 63.8375,
+          "p50": 203.2685,
+          "p95": 470.8267
+        },
+        "digital": {
+          "mean": 242.3261,
+          "p05": 94.0872,
+          "p50": 223.5701,
+          "p95": 455.6877
+        },
+        "retailer_promotion": {
+          "mean": 284.2883,
+          "p05": 151.6316,
+          "p50": 273.4152,
+          "p95": 452.7339
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5114.4842,
+        "p05": 5080.1919,
+        "p50": 5114.1511,
+        "p95": 5149.3017
+      },
+      "observed_sales_units": 5146,
+      "period": "training",
+      "residual_to_expected_mean_units": 31.5158,
+      "segment_id": null,
+      "time_index": 17,
+      "week_start": "2023-04-24"
+    },
+    {
+      "baseline_units": {
+        "mean": 4382.0938,
+        "p05": 4141.1047,
+        "p50": 4386.6282,
+        "p95": 4595.3312
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 227.8695,
+          "p05": 60.9236,
+          "p50": 199.9662,
+          "p95": 471.1075
+        },
+        "digital": {
+          "mean": 224.1127,
+          "p05": 82.0935,
+          "p50": 201.92,
+          "p95": 439.6691
+        },
+        "retailer_promotion": {
+          "mean": 271.9746,
+          "p05": 143.2123,
+          "p50": 260.194,
+          "p95": 441.8388
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5106.0506,
+        "p05": 5069.2543,
+        "p50": 5105.9455,
+        "p95": 5143.267
+      },
+      "observed_sales_units": 5288,
+      "period": "training",
+      "residual_to_expected_mean_units": 181.9494,
+      "segment_id": null,
+      "time_index": 18,
+      "week_start": "2023-05-01"
+    },
+    {
+      "baseline_units": {
+        "mean": 4325.9636,
+        "p05": 4085.4965,
+        "p50": 4329.9544,
+        "p95": 4538.9523
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 230.0981,
+          "p05": 62.7513,
+          "p50": 202.2378,
+          "p95": 473.2187
+        },
+        "digital": {
+          "mean": 249.1749,
+          "p05": 97.1444,
+          "p50": 230.9218,
+          "p95": 463.1808
+        },
+        "retailer_promotion": {
+          "mean": 283.6932,
+          "p05": 152.2155,
+          "p50": 273.0199,
+          "p95": 452.2267
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5088.9298,
+        "p05": 5050.2703,
+        "p50": 5088.4843,
+        "p95": 5127.8571
+      },
+      "observed_sales_units": 5124,
+      "period": "training",
+      "residual_to_expected_mean_units": 35.0702,
+      "segment_id": null,
+      "time_index": 19,
+      "week_start": "2023-05-08"
+    },
+    {
+      "baseline_units": {
+        "mean": 3990.5653,
+        "p05": 3749.6952,
+        "p50": 3994.0915,
+        "p95": 4206.4119
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 239.7808,
+          "p05": 70.1663,
+          "p50": 213.8748,
+          "p95": 483.4809
+        },
+        "digital": {
+          "mean": 247.8273,
+          "p05": 97.8546,
+          "p50": 228.981,
+          "p95": 464.7888
+        },
+        "retailer_promotion": {
+          "mean": 282.632,
+          "p05": 149.1976,
+          "p50": 271.2823,
+          "p95": 452.9156
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4760.8054,
+        "p05": 4718.8729,
+        "p50": 4760.8072,
+        "p95": 4804.1613
+      },
+      "observed_sales_units": 4994,
+      "period": "training",
+      "residual_to_expected_mean_units": 233.1946,
+      "segment_id": null,
+      "time_index": 20,
+      "week_start": "2023-05-15"
+    },
+    {
+      "baseline_units": {
+        "mean": 4035.1947,
+        "p05": 3799.0154,
+        "p50": 4039.8979,
+        "p95": 4248.2478
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 232.9964,
+          "p05": 63.0796,
+          "p50": 205.1559,
+          "p95": 480.1705
+        },
+        "digital": {
+          "mean": 223.2725,
+          "p05": 80.2911,
+          "p50": 199.8667,
+          "p95": 444.8773
+        },
+        "retailer_promotion": {
+          "mean": 263.4342,
+          "p05": 137.0858,
+          "p50": 251.2474,
+          "p95": 429.7698
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4754.8978,
+        "p05": 4716.0566,
+        "p50": 4754.9118,
+        "p95": 4794.4345
+      },
+      "observed_sales_units": 4705,
+      "period": "training",
+      "residual_to_expected_mean_units": -49.8978,
+      "segment_id": null,
+      "time_index": 21,
+      "week_start": "2023-05-22"
+    },
+    {
+      "baseline_units": {
+        "mean": 4017.2538,
+        "p05": 3780.972,
+        "p50": 4021.3044,
+        "p95": 4229.137
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 229.9709,
+          "p05": 59.4026,
+          "p50": 201.6173,
+          "p95": 478.4766
+        },
+        "digital": {
+          "mean": 236.4694,
+          "p05": 89.0609,
+          "p50": 215.7995,
+          "p95": 455.9697
+        },
+        "retailer_promotion": {
+          "mean": 256.5614,
+          "p05": 132.9159,
+          "p50": 242.8461,
+          "p95": 426.778
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4740.2554,
+        "p05": 4703.1626,
+        "p50": 4740.0437,
+        "p95": 4778.1833
+      },
+      "observed_sales_units": 4781,
+      "period": "training",
+      "residual_to_expected_mean_units": 40.7446,
+      "segment_id": null,
+      "time_index": 22,
+      "week_start": "2023-05-29"
+    },
+    {
+      "baseline_units": {
+        "mean": 4120.6367,
+        "p05": 3879.5687,
+        "p50": 4124.5562,
+        "p95": 4335.1995
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 231.8109,
+          "p05": 63.0941,
+          "p50": 203.8931,
+          "p95": 478.6505
+        },
+        "digital": {
+          "mean": 241.4345,
+          "p05": 92.988,
+          "p50": 221.2379,
+          "p95": 460.4925
+        },
+        "retailer_promotion": {
+          "mean": 265.3687,
+          "p05": 140.2306,
+          "p50": 253.2498,
+          "p95": 432.0937
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4859.2508,
+        "p05": 4823.2269,
+        "p50": 4859.3371,
+        "p95": 4896.2091
+      },
+      "observed_sales_units": 4877,
+      "period": "training",
+      "residual_to_expected_mean_units": 17.7492,
+      "segment_id": null,
+      "time_index": 23,
+      "week_start": "2023-06-05"
+    },
+    {
+      "baseline_units": {
+        "mean": 4105.5329,
+        "p05": 3865.3136,
+        "p50": 4109.5933,
+        "p95": 4321.2058
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 230.0129,
+          "p05": 60.9629,
+          "p50": 201.677,
+          "p95": 477.4195
+        },
+        "digital": {
+          "mean": 246.7547,
+          "p05": 96.3446,
+          "p50": 227.98,
+          "p95": 462.5895
+        },
+        "retailer_promotion": {
+          "mean": 274.3977,
+          "p05": 145.2186,
+          "p50": 262.5973,
+          "p95": 445.3682
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4856.6982,
+        "p05": 4820.1673,
+        "p50": 4856.4288,
+        "p95": 4893.9276
+      },
+      "observed_sales_units": 4880,
+      "period": "training",
+      "residual_to_expected_mean_units": 23.3018,
+      "segment_id": null,
+      "time_index": 24,
+      "week_start": "2023-06-12"
+    },
+    {
+      "baseline_units": {
+        "mean": 4043.4917,
+        "p05": 3805.0029,
+        "p50": 4047.3812,
+        "p95": 4257.9689
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.4195,
+          "p05": 68.4055,
+          "p50": 211.0963,
+          "p95": 483.5351
+        },
+        "digital": {
+          "mean": 251.8111,
+          "p05": 98.2817,
+          "p50": 233.5187,
+          "p95": 470.2299
+        },
+        "retailer_promotion": {
+          "mean": 287.7006,
+          "p05": 154.0375,
+          "p50": 276.4891,
+          "p95": 458.1226
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4821.4229,
+        "p05": 4783.8123,
+        "p50": 4821.4526,
+        "p95": 4860.2666
+      },
+      "observed_sales_units": 4808,
+      "period": "training",
+      "residual_to_expected_mean_units": -13.4229,
+      "segment_id": null,
+      "time_index": 25,
+      "week_start": "2023-06-19"
+    },
+    {
+      "baseline_units": {
+        "mean": 3981.4521,
+        "p05": 3743.1155,
+        "p50": 3985.1507,
+        "p95": 4197.572
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.4378,
+          "p05": 71.5122,
+          "p50": 215.6958,
+          "p95": 486.6921
+        },
+        "digital": {
+          "mean": 266.9524,
+          "p05": 106.6652,
+          "p50": 250.8121,
+          "p95": 486.6812
+        },
+        "retailer_promotion": {
+          "mean": 320.1753,
+          "p05": 175.3772,
+          "p50": 309.6326,
+          "p95": 495.2806
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4811.0176,
+        "p05": 4768.4721,
+        "p50": 4810.6704,
+        "p95": 4853.2486
+      },
+      "observed_sales_units": 4804,
+      "period": "training",
+      "residual_to_expected_mean_units": -7.0176,
+      "segment_id": null,
+      "time_index": 26,
+      "week_start": "2023-06-26"
+    },
+    {
+      "baseline_units": {
+        "mean": 3859.6596,
+        "p05": 3624.4965,
+        "p50": 3862.978,
+        "p95": 4068.0448
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.3363,
+          "p05": 61.4113,
+          "p50": 206.2338,
+          "p95": 485.3064
+        },
+        "digital": {
+          "mean": 225.716,
+          "p05": 80.4133,
+          "p50": 201.4389,
+          "p95": 454.1287
+        },
+        "retailer_promotion": {
+          "mean": 258.2977,
+          "p05": 129.9243,
+          "p50": 244.3549,
+          "p95": 435.6259
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4578.0097,
+        "p05": 4536.0407,
+        "p50": 4578.5918,
+        "p95": 4620.2758
+      },
+      "observed_sales_units": 4618,
+      "period": "training",
+      "residual_to_expected_mean_units": 39.9903,
+      "segment_id": null,
+      "time_index": 27,
+      "week_start": "2023-07-03"
+    },
+    {
+      "baseline_units": {
+        "mean": 3733.1767,
+        "p05": 3494.7456,
+        "p50": 3737.3949,
+        "p95": 3948.1069
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 232.2804,
+          "p05": 58.0596,
+          "p50": 203.7464,
+          "p95": 484.9546
+        },
+        "digital": {
+          "mean": 222.6726,
+          "p05": 78.5377,
+          "p50": 198.4628,
+          "p95": 449.0399
+        },
+        "retailer_promotion": {
+          "mean": 191.0926,
+          "p05": 85.0822,
+          "p50": 172.7395,
+          "p95": 358.6451
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4379.2224,
+        "p05": 4329.3474,
+        "p50": 4379.3428,
+        "p95": 4429.027
+      },
+      "observed_sales_units": 4167,
+      "period": "training",
+      "residual_to_expected_mean_units": -212.2224,
+      "segment_id": null,
+      "time_index": 28,
+      "week_start": "2023-07-10"
+    },
+    {
+      "baseline_units": {
+        "mean": 3796.1178,
+        "p05": 3556.9248,
+        "p50": 3800.1564,
+        "p95": 4009.4721
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 226.189,
+          "p05": 53.0798,
+          "p50": 198.6244,
+          "p95": 477.8449
+        },
+        "digital": {
+          "mean": 230.6801,
+          "p05": 86.0031,
+          "p50": 208.9494,
+          "p95": 452.5667
+        },
+        "retailer_promotion": {
+          "mean": 233.0015,
+          "p05": 118.9773,
+          "p50": 220.2866,
+          "p95": 391.4774
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4485.9884,
+        "p05": 4440.8715,
+        "p50": 4486.1619,
+        "p95": 4529.3606
+      },
+      "observed_sales_units": 4383,
+      "period": "training",
+      "residual_to_expected_mean_units": -102.9884,
+      "segment_id": null,
+      "time_index": 29,
+      "week_start": "2023-07-17"
+    },
+    {
+      "baseline_units": {
+        "mean": 3850.7928,
+        "p05": 3612.9417,
+        "p50": 3854.8525,
+        "p95": 4066.2881
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 231.0019,
+          "p05": 59.2018,
+          "p50": 202.9232,
+          "p95": 479.937
+        },
+        "digital": {
+          "mean": 245.6344,
+          "p05": 95.417,
+          "p50": 226.5107,
+          "p95": 464.7562
+        },
+        "retailer_promotion": {
+          "mean": 285.7397,
+          "p05": 153.5872,
+          "p50": 275.3654,
+          "p95": 447.2385
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4613.1687,
+        "p05": 4570.15,
+        "p50": 4613.5574,
+        "p95": 4655.5778
+      },
+      "observed_sales_units": 4527,
+      "period": "training",
+      "residual_to_expected_mean_units": -86.1687,
+      "segment_id": null,
+      "time_index": 30,
+      "week_start": "2023-07-24"
+    },
+    {
+      "baseline_units": {
+        "mean": 3731.262,
+        "p05": 3494.3407,
+        "p50": 3735.5343,
+        "p95": 3943.6956
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.3332,
+          "p05": 68.7093,
+          "p50": 213.6277,
+          "p95": 484.7049
+        },
+        "digital": {
+          "mean": 242.6203,
+          "p05": 90.9503,
+          "p50": 221.7486,
+          "p95": 465.4025
+        },
+        "retailer_promotion": {
+          "mean": 289.78,
+          "p05": 153.9982,
+          "p50": 278.5026,
+          "p95": 462.1239
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4503.9956,
+        "p05": 4462.3752,
+        "p50": 4504.1746,
+        "p95": 4544.5248
+      },
+      "observed_sales_units": 4453,
+      "period": "training",
+      "residual_to_expected_mean_units": -50.9956,
+      "segment_id": null,
+      "time_index": 31,
+      "week_start": "2023-07-31"
+    },
+    {
+      "baseline_units": {
+        "mean": 3587.696,
+        "p05": 3354.8849,
+        "p50": 3591.2822,
+        "p95": 3798.544
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.654,
+          "p05": 66.3799,
+          "p50": 211.0025,
+          "p95": 485.6389
+        },
+        "digital": {
+          "mean": 228.554,
+          "p05": 83.2583,
+          "p50": 205.369,
+          "p95": 449.0324
+        },
+        "retailer_promotion": {
+          "mean": 259.5427,
+          "p05": 134.1549,
+          "p50": 246.4885,
+          "p95": 427.5509
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4314.4467,
+        "p05": 4272.9709,
+        "p50": 4314.1773,
+        "p95": 4356.2659
+      },
+      "observed_sales_units": 4328,
+      "period": "training",
+      "residual_to_expected_mean_units": 13.5533,
+      "segment_id": null,
+      "time_index": 32,
+      "week_start": "2023-08-07"
+    },
+    {
+      "baseline_units": {
+        "mean": 3860.6114,
+        "p05": 3627.6309,
+        "p50": 3864.4848,
+        "p95": 4073.4139
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.5297,
+          "p05": 68.2172,
+          "p50": 213.6084,
+          "p95": 485.91
+        },
+        "digital": {
+          "mean": 252.5232,
+          "p05": 99.9926,
+          "p50": 234.1539,
+          "p95": 469.5579
+        },
+        "retailer_promotion": {
+          "mean": 290.9676,
+          "p05": 155.7082,
+          "p50": 279.8014,
+          "p95": 457.6792
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4644.6319,
+        "p05": 4606.0225,
+        "p50": 4644.634,
+        "p95": 4683.0303
+      },
+      "observed_sales_units": 4781,
+      "period": "training",
+      "residual_to_expected_mean_units": 136.3681,
+      "segment_id": null,
+      "time_index": 33,
+      "week_start": "2023-08-14"
+    },
+    {
+      "baseline_units": {
+        "mean": 3777.3346,
+        "p05": 3542.778,
+        "p50": 3779.9111,
+        "p95": 3991.1292
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.7984,
+          "p05": 70.3686,
+          "p50": 217.1657,
+          "p95": 490.5359
+        },
+        "digital": {
+          "mean": 252.0244,
+          "p05": 97.9193,
+          "p50": 232.2254,
+          "p95": 472.2006
+        },
+        "retailer_promotion": {
+          "mean": 315.5963,
+          "p05": 172.1843,
+          "p50": 304.4704,
+          "p95": 489.5483
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4588.7537,
+        "p05": 4542.1644,
+        "p50": 4588.7319,
+        "p95": 4635.175
+      },
+      "observed_sales_units": 4621,
+      "period": "training",
+      "residual_to_expected_mean_units": 32.2463,
+      "segment_id": null,
+      "time_index": 34,
+      "week_start": "2023-08-21"
+    },
+    {
+      "baseline_units": {
+        "mean": 3749.505,
+        "p05": 3518.8974,
+        "p50": 3752.2643,
+        "p95": 3959.714
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 235.7502,
+          "p05": 61.9484,
+          "p50": 207.487,
+          "p95": 486.017
+        },
+        "digital": {
+          "mean": 234.1106,
+          "p05": 85.8295,
+          "p50": 211.4202,
+          "p95": 458.8626
+        },
+        "retailer_promotion": {
+          "mean": 255.3103,
+          "p05": 129.4835,
+          "p50": 240.9419,
+          "p95": 425.2468
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4474.676,
+        "p05": 4431.5387,
+        "p50": 4474.4908,
+        "p95": 4516.6295
+      },
+      "observed_sales_units": 4513,
+      "period": "training",
+      "residual_to_expected_mean_units": 38.324,
+      "segment_id": null,
+      "time_index": 35,
+      "week_start": "2023-08-28"
+    },
+    {
+      "baseline_units": {
+        "mean": 3825.9756,
+        "p05": 3590.7129,
+        "p50": 3829.2961,
+        "p95": 4037.307
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.2531,
+          "p05": 66.4903,
+          "p50": 212.612,
+          "p95": 488.4146
+        },
+        "digital": {
+          "mean": 237.0045,
+          "p05": 88.2175,
+          "p50": 215.2029,
+          "p95": 456.114
+        },
+        "retailer_promotion": {
+          "mean": 290.5007,
+          "p05": 156.1939,
+          "p50": 279.5776,
+          "p95": 459.0983
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4593.7338,
+        "p05": 4552.1274,
+        "p50": 4593.2775,
+        "p95": 4636.6214
+      },
+      "observed_sales_units": 4767,
+      "period": "training",
+      "residual_to_expected_mean_units": 173.2662,
+      "segment_id": null,
+      "time_index": 36,
+      "week_start": "2023-09-04"
+    },
+    {
+      "baseline_units": {
+        "mean": 3728.5824,
+        "p05": 3490.9547,
+        "p50": 3732.4919,
+        "p95": 3942.7314
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 232.0715,
+          "p05": 57.5181,
+          "p50": 203.8594,
+          "p95": 485.019
+        },
+        "digital": {
+          "mean": 225.8833,
+          "p05": 82.5239,
+          "p50": 203.4022,
+          "p95": 445.1784
+        },
+        "retailer_promotion": {
+          "mean": 261.1107,
+          "p05": 134.0436,
+          "p50": 247.5199,
+          "p95": 429.3797
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4447.6479,
+        "p05": 4406.5844,
+        "p50": 4447.6683,
+        "p95": 4489.8067
+      },
+      "observed_sales_units": 4348,
+      "period": "training",
+      "residual_to_expected_mean_units": -99.6479,
+      "segment_id": null,
+      "time_index": 37,
+      "week_start": "2023-09-11"
+    },
+    {
+      "baseline_units": {
+        "mean": 3620.9766,
+        "p05": 3386.4128,
+        "p50": 3624.2663,
+        "p95": 3837.1448
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.3463,
+          "p05": 61.679,
+          "p50": 206.1058,
+          "p95": 484.467
+        },
+        "digital": {
+          "mean": 227.9441,
+          "p05": 84.4154,
+          "p50": 206.1651,
+          "p95": 443.291
+        },
+        "retailer_promotion": {
+          "mean": 280.2831,
+          "p05": 147.9141,
+          "p50": 268.7169,
+          "p95": 448.3967
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4363.5501,
+        "p05": 4321.5424,
+        "p50": 4363.148,
+        "p95": 4405.2426
+      },
+      "observed_sales_units": 4501,
+      "period": "training",
+      "residual_to_expected_mean_units": 137.4499,
+      "segment_id": null,
+      "time_index": 38,
+      "week_start": "2023-09-18"
+    },
+    {
+      "baseline_units": {
+        "mean": 3701.9481,
+        "p05": 3466.2424,
+        "p50": 3706.573,
+        "p95": 3917.8728
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.0164,
+          "p05": 66.7844,
+          "p50": 212.3163,
+          "p95": 487.4198
+        },
+        "digital": {
+          "mean": 253.8626,
+          "p05": 100.5365,
+          "p50": 236.6608,
+          "p95": 465.5113
+        },
+        "retailer_promotion": {
+          "mean": 315.0755,
+          "p05": 171.5594,
+          "p50": 304.3064,
+          "p95": 490.0153
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4510.9025,
+        "p05": 4467.7094,
+        "p50": 4511.509,
+        "p95": 4554.3707
+      },
+      "observed_sales_units": 4745,
+      "period": "training",
+      "residual_to_expected_mean_units": 234.0975,
+      "segment_id": null,
+      "time_index": 39,
+      "week_start": "2023-09-25"
+    },
+    {
+      "baseline_units": {
+        "mean": 3783.7944,
+        "p05": 3550.0417,
+        "p50": 3787.9568,
+        "p95": 3998.7815
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.7088,
+          "p05": 62.8955,
+          "p50": 209.758,
+          "p95": 489.1849
+        },
+        "digital": {
+          "mean": 247.7857,
+          "p05": 95.1185,
+          "p50": 228.0047,
+          "p95": 466.1993
+        },
+        "retailer_promotion": {
+          "mean": 278.244,
+          "p05": 143.9423,
+          "p50": 264.928,
+          "p95": 456.7058
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4547.533,
+        "p05": 4506.5451,
+        "p50": 4546.5137,
+        "p95": 4588.1718
+      },
+      "observed_sales_units": 4454,
+      "period": "training",
+      "residual_to_expected_mean_units": -93.533,
+      "segment_id": null,
+      "time_index": 40,
+      "week_start": "2023-10-02"
+    },
+    {
+      "baseline_units": {
+        "mean": 3766.8443,
+        "p05": 3536.766,
+        "p50": 3770.153,
+        "p95": 3978.7226
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 231.1787,
+          "p05": 58.1935,
+          "p50": 203.311,
+          "p95": 483.0645
+        },
+        "digital": {
+          "mean": 228.0227,
+          "p05": 84.6178,
+          "p50": 205.7143,
+          "p95": 448.3569
+        },
+        "retailer_promotion": {
+          "mean": 281.4831,
+          "p05": 148.8572,
+          "p50": 269.8978,
+          "p95": 454.3748
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4507.5288,
+        "p05": 4463.8562,
+        "p50": 4507.7925,
+        "p95": 4551.06
+      },
+      "observed_sales_units": 4473,
+      "period": "training",
+      "residual_to_expected_mean_units": -34.5288,
+      "segment_id": null,
+      "time_index": 41,
+      "week_start": "2023-10-09"
+    },
+    {
+      "baseline_units": {
+        "mean": 3769.2521,
+        "p05": 3534.6824,
+        "p50": 3772.3412,
+        "p95": 3982.4868
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.5733,
+          "p05": 68.7204,
+          "p50": 213.9324,
+          "p95": 486.5314
+        },
+        "digital": {
+          "mean": 246.6812,
+          "p05": 97.5486,
+          "p50": 228.2456,
+          "p95": 459.0901
+        },
+        "retailer_promotion": {
+          "mean": 275.0865,
+          "p05": 146.1739,
+          "p50": 263.5048,
+          "p95": 443.0194
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4531.5932,
+        "p05": 4490.6345,
+        "p50": 4531.5118,
+        "p95": 4572.7592
+      },
+      "observed_sales_units": 4594,
+      "period": "training",
+      "residual_to_expected_mean_units": 62.4068,
+      "segment_id": null,
+      "time_index": 42,
+      "week_start": "2023-10-16"
+    },
+    {
+      "baseline_units": {
+        "mean": 3726.2691,
+        "p05": 3489.7129,
+        "p50": 3730.654,
+        "p95": 3941.4526
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 248.5528,
+          "p05": 72.7835,
+          "p50": 221.2768,
+          "p95": 496.3862
+        },
+        "digital": {
+          "mean": 245.6598,
+          "p05": 95.0425,
+          "p50": 226.8022,
+          "p95": 462.4532
+        },
+        "retailer_promotion": {
+          "mean": 297.5117,
+          "p05": 160.7001,
+          "p50": 286.0801,
+          "p95": 472.2149
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4517.9935,
+        "p05": 4476.9315,
+        "p50": 4518.118,
+        "p95": 4559.7306
+      },
+      "observed_sales_units": 4425,
+      "period": "training",
+      "residual_to_expected_mean_units": -92.9935,
+      "segment_id": null,
+      "time_index": 43,
+      "week_start": "2023-10-23"
+    },
+    {
+      "baseline_units": {
+        "mean": 3972.4829,
+        "p05": 3735.0182,
+        "p50": 3976.413,
+        "p95": 4189.6576
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.2214,
+          "p05": 65.4578,
+          "p50": 212.4057,
+          "p95": 491.592
+        },
+        "digital": {
+          "mean": 232.3128,
+          "p05": 85.6444,
+          "p50": 209.7865,
+          "p95": 452.7767
+        },
+        "retailer_promotion": {
+          "mean": 246.1288,
+          "p05": 124.5289,
+          "p50": 232.2484,
+          "p95": 414.102
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4691.1458,
+        "p05": 4645.0352,
+        "p50": 4690.665,
+        "p95": 4736.4936
+      },
+      "observed_sales_units": 4573,
+      "period": "training",
+      "residual_to_expected_mean_units": -118.1458,
+      "segment_id": null,
+      "time_index": 44,
+      "week_start": "2023-10-30"
+    },
+    {
+      "baseline_units": {
+        "mean": 3869.2378,
+        "p05": 3635.0247,
+        "p50": 3873.6792,
+        "p95": 4082.1538
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.6415,
+          "p05": 59.079,
+          "p50": 206.335,
+          "p95": 488.7725
+        },
+        "digital": {
+          "mean": 234.614,
+          "p05": 88.3503,
+          "p50": 213.6397,
+          "p95": 453.92
+        },
+        "retailer_promotion": {
+          "mean": 254.9399,
+          "p05": 132.2501,
+          "p50": 242.6744,
+          "p95": 419.5587
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4593.4331,
+        "p05": 4549.4965,
+        "p50": 4593.3496,
+        "p95": 4637.3725
+      },
+      "observed_sales_units": 4642,
+      "period": "training",
+      "residual_to_expected_mean_units": 48.5669,
+      "segment_id": null,
+      "time_index": 45,
+      "week_start": "2023-11-06"
+    },
+    {
+      "baseline_units": {
+        "mean": 3944.8162,
+        "p05": 3705.1488,
+        "p50": 3949.0775,
+        "p95": 4158.3812
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.0467,
+          "p05": 61.5659,
+          "p50": 207.9204,
+          "p95": 487.6062
+        },
+        "digital": {
+          "mean": 233.1433,
+          "p05": 86.8297,
+          "p50": 211.5124,
+          "p95": 453.3521
+        },
+        "retailer_promotion": {
+          "mean": 256.0815,
+          "p05": 133.3018,
+          "p50": 244.5054,
+          "p95": 418.677
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4670.0877,
+        "p05": 4627.2592,
+        "p50": 4670.4168,
+        "p95": 4712.6919
+      },
+      "observed_sales_units": 4498,
+      "period": "training",
+      "residual_to_expected_mean_units": -172.0877,
+      "segment_id": null,
+      "time_index": 46,
+      "week_start": "2023-11-13"
+    },
+    {
+      "baseline_units": {
+        "mean": 4581.5867,
+        "p05": 4333.8956,
+        "p50": 4581.8548,
+        "p95": 4816.4748
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 245.4414,
+          "p05": 71.143,
+          "p50": 218.58,
+          "p95": 491.6781
+        },
+        "digital": {
+          "mean": 271.9908,
+          "p05": 110.6371,
+          "p50": 257.2223,
+          "p95": 493.4405
+        },
+        "retailer_promotion": {
+          "mean": 278.5558,
+          "p05": 147.1238,
+          "p50": 267.225,
+          "p95": 445.0016
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5377.5747,
+        "p05": 5315.6356,
+        "p50": 5377.8617,
+        "p95": 5437.6087
+      },
+      "observed_sales_units": 5351,
+      "period": "training",
+      "residual_to_expected_mean_units": -26.5747,
+      "segment_id": null,
+      "time_index": 47,
+      "week_start": "2023-11-20"
+    },
+    {
+      "baseline_units": {
+        "mean": 4605.5447,
+        "p05": 4354.6081,
+        "p50": 4607.1923,
+        "p95": 4841.4211
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 244.9685,
+          "p05": 69.6983,
+          "p50": 218.3908,
+          "p95": 492.931
+        },
+        "digital": {
+          "mean": 240.9393,
+          "p05": 88.9119,
+          "p50": 218.6709,
+          "p95": 467.4629
+        },
+        "retailer_promotion": {
+          "mean": 294.019,
+          "p05": 157.276,
+          "p50": 282.897,
+          "p95": 463.2666
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5385.4715,
+        "p05": 5318.1287,
+        "p50": 5385.4946,
+        "p95": 5448.2246
+      },
+      "observed_sales_units": 5318,
+      "period": "training",
+      "residual_to_expected_mean_units": -67.4715,
+      "segment_id": null,
+      "time_index": 48,
+      "week_start": "2023-11-27"
+    },
+    {
+      "baseline_units": {
+        "mean": 4432.5467,
+        "p05": 4184.327,
+        "p50": 4432.9412,
+        "p95": 4670.782
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 241.8296,
+          "p05": 66.8913,
+          "p50": 214.087,
+          "p95": 491.9548
+        },
+        "digital": {
+          "mean": 245.7659,
+          "p05": 93.2372,
+          "p50": 224.88,
+          "p95": 469.3555
+        },
+        "retailer_promotion": {
+          "mean": 288.769,
+          "p05": 152.9167,
+          "p50": 277.3168,
+          "p95": 461.025
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5208.9112,
+        "p05": 5148.3132,
+        "p50": 5209.4688,
+        "p95": 5267.7795
+      },
+      "observed_sales_units": 5337,
+      "period": "training",
+      "residual_to_expected_mean_units": 128.0888,
+      "segment_id": null,
+      "time_index": 49,
+      "week_start": "2023-12-04"
+    },
+    {
+      "baseline_units": {
+        "mean": 4637.7667,
+        "p05": 4386.1317,
+        "p50": 4638.8801,
+        "p95": 4876.1694
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.9352,
+          "p05": 67.4995,
+          "p50": 215.2627,
+          "p95": 493.1538
+        },
+        "digital": {
+          "mean": 260.6253,
+          "p05": 102.7332,
+          "p50": 241.9939,
+          "p95": 482.8065
+        },
+        "retailer_promotion": {
+          "mean": 296.2667,
+          "p05": 158.2469,
+          "p50": 285.3086,
+          "p95": 471.1073
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5437.594,
+        "p05": 5378.453,
+        "p50": 5438.9298,
+        "p95": 5493.4715
+      },
+      "observed_sales_units": 5297,
+      "period": "training",
+      "residual_to_expected_mean_units": -140.594,
+      "segment_id": null,
+      "time_index": 50,
+      "week_start": "2023-12-11"
+    },
+    {
+      "baseline_units": {
+        "mean": 4688.5192,
+        "p05": 4436.1453,
+        "p50": 4689.8846,
+        "p95": 4926.9947
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 246.5069,
+          "p05": 70.2903,
+          "p50": 219.5657,
+          "p95": 497.5078
+        },
+        "digital": {
+          "mean": 274.131,
+          "p05": 109.5365,
+          "p50": 257.357,
+          "p95": 501.4145
+        },
+        "retailer_promotion": {
+          "mean": 313.1846,
+          "p05": 170.3488,
+          "p50": 301.9603,
+          "p95": 490.9722
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5522.3417,
+        "p05": 5462.3358,
+        "p50": 5523.1375,
+        "p95": 5579.7128
+      },
+      "observed_sales_units": 5502,
+      "period": "training",
+      "residual_to_expected_mean_units": -20.3417,
+      "segment_id": null,
+      "time_index": 51,
+      "week_start": "2023-12-18"
+    },
+    {
+      "baseline_units": {
+        "mean": 4989.487,
+        "p05": 4734.027,
+        "p50": 4990.9891,
+        "p95": 5227.7626
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 253.66,
+          "p05": 76.1489,
+          "p50": 227.999,
+          "p95": 503.8952
+        },
+        "digital": {
+          "mean": 280.4127,
+          "p05": 113.1864,
+          "p50": 264.4765,
+          "p95": 508.2647
+        },
+        "retailer_promotion": {
+          "mean": 325.0876,
+          "p05": 177.7972,
+          "p50": 314.0788,
+          "p95": 507.7424
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5848.6473,
+        "p05": 5785.426,
+        "p50": 5849.5137,
+        "p95": 5909.8336
+      },
+      "observed_sales_units": 5915,
+      "period": "training",
+      "residual_to_expected_mean_units": 66.3527,
+      "segment_id": null,
+      "time_index": 52,
+      "week_start": "2023-12-25"
+    },
+    {
+      "baseline_units": {
+        "mean": 4207.917,
+        "p05": 3964.3354,
+        "p50": 4213.3342,
+        "p95": 4422.7428
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 249.5853,
+          "p05": 71.0803,
+          "p50": 222.5859,
+          "p95": 502.4146
+        },
+        "digital": {
+          "mean": 261.2647,
+          "p05": 100.0437,
+          "p50": 240.3313,
+          "p95": 495.9611
+        },
+        "retailer_promotion": {
+          "mean": 317.6767,
+          "p05": 170.7048,
+          "p50": 305.3729,
+          "p95": 504.5706
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5036.4438,
+        "p05": 4991.1285,
+        "p50": 5036.2792,
+        "p95": 5081.4753
+      },
+      "observed_sales_units": 5143,
+      "period": "training",
+      "residual_to_expected_mean_units": 106.5562,
+      "segment_id": null,
+      "time_index": 53,
+      "week_start": "2024-01-01"
+    },
+    {
+      "baseline_units": {
+        "mean": 4256.052,
+        "p05": 4014.953,
+        "p50": 4260.8256,
+        "p95": 4470.0844
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.4833,
+          "p05": 66.7408,
+          "p50": 215.7937,
+          "p95": 497.2281
+        },
+        "digital": {
+          "mean": 242.7314,
+          "p05": 90.1593,
+          "p50": 218.9119,
+          "p95": 471.9863
+        },
+        "retailer_promotion": {
+          "mean": 280.9997,
+          "p05": 145.175,
+          "p50": 267.5225,
+          "p95": 458.3471
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5023.2664,
+        "p05": 4971.0965,
+        "p50": 5023.9954,
+        "p95": 5074.466
+      },
+      "observed_sales_units": 5026,
+      "period": "training",
+      "residual_to_expected_mean_units": 2.7336,
+      "segment_id": null,
+      "time_index": 54,
+      "week_start": "2024-01-08"
+    },
+    {
+      "baseline_units": {
+        "mean": 4386.8548,
+        "p05": 4147.129,
+        "p50": 4391.3576,
+        "p95": 4604.1038
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 252.129,
+          "p05": 75.2805,
+          "p50": 225.2689,
+          "p95": 501.7536
+        },
+        "digital": {
+          "mean": 263.12,
+          "p05": 105.2211,
+          "p50": 244.5905,
+          "p95": 485.8635
+        },
+        "retailer_promotion": {
+          "mean": 290.4387,
+          "p05": 154.6084,
+          "p50": 279.5206,
+          "p95": 461.5035
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5192.5425,
+        "p05": 5148.0507,
+        "p50": 5192.1746,
+        "p95": 5236.6746
+      },
+      "observed_sales_units": 5200,
+      "period": "training",
+      "residual_to_expected_mean_units": 7.4575,
+      "segment_id": null,
+      "time_index": 55,
+      "week_start": "2024-01-15"
+    },
+    {
+      "baseline_units": {
+        "mean": 4140.2609,
+        "p05": 3891.3241,
+        "p50": 4145.4258,
+        "p95": 4359.5911
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.0553,
+          "p05": 64.4628,
+          "p50": 214.6856,
+          "p95": 495.448
+        },
+        "digital": {
+          "mean": 242.5503,
+          "p05": 89.534,
+          "p50": 219.7466,
+          "p95": 467.7217
+        },
+        "retailer_promotion": {
+          "mean": 253.9622,
+          "p05": 127.9298,
+          "p50": 240.3037,
+          "p95": 427.2552
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4878.8287,
+        "p05": 4834.3831,
+        "p50": 4878.9762,
+        "p95": 4924.1953
+      },
+      "observed_sales_units": 4894,
+      "period": "training",
+      "residual_to_expected_mean_units": 15.1713,
+      "segment_id": null,
+      "time_index": 56,
+      "week_start": "2024-01-22"
+    },
+    {
+      "baseline_units": {
+        "mean": 4537.9956,
+        "p05": 4292.8474,
+        "p50": 4542.4797,
+        "p95": 4757.1878
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.5763,
+          "p05": 67.8201,
+          "p50": 216.3113,
+          "p95": 494.0751
+        },
+        "digital": {
+          "mean": 262.7019,
+          "p05": 105.0818,
+          "p50": 246.1644,
+          "p95": 481.8791
+        },
+        "retailer_promotion": {
+          "mean": 319.4849,
+          "p05": 175.2016,
+          "p50": 308.7616,
+          "p95": 492.039
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5363.7587,
+        "p05": 5316.6211,
+        "p50": 5364.6383,
+        "p95": 5409.1943
+      },
+      "observed_sales_units": 5599,
+      "period": "training",
+      "residual_to_expected_mean_units": 235.2413,
+      "segment_id": null,
+      "time_index": 57,
+      "week_start": "2024-01-29"
+    },
+    {
+      "baseline_units": {
+        "mean": 4313.4551,
+        "p05": 4067.9868,
+        "p50": 4317.5325,
+        "p95": 4531.2707
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.303,
+          "p05": 59.7803,
+          "p50": 208.1578,
+          "p95": 491.0099
+        },
+        "digital": {
+          "mean": 232.6932,
+          "p05": 82.9078,
+          "p50": 208.5853,
+          "p95": 460.1377
+        },
+        "retailer_promotion": {
+          "mean": 267.8861,
+          "p05": 136.6892,
+          "p50": 254.2068,
+          "p95": 442.888
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5050.3374,
+        "p05": 5008.3794,
+        "p50": 5050.4899,
+        "p95": 5091.0095
+      },
+      "observed_sales_units": 5114,
+      "period": "training",
+      "residual_to_expected_mean_units": 63.6626,
+      "segment_id": null,
+      "time_index": 58,
+      "week_start": "2024-02-05"
+    },
+    {
+      "baseline_units": {
+        "mean": 4609.7576,
+        "p05": 4363.9644,
+        "p50": 4613.1455,
+        "p95": 4835.245
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.2924,
+          "p05": 63.262,
+          "p50": 209.2449,
+          "p95": 489.1995
+        },
+        "digital": {
+          "mean": 252.5027,
+          "p05": 99.3119,
+          "p50": 234.017,
+          "p95": 471.7327
+        },
+        "retailer_promotion": {
+          "mean": 290.4796,
+          "p05": 155.5939,
+          "p50": 279.147,
+          "p95": 461.2723
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5390.0323,
+        "p05": 5342.689,
+        "p50": 5390.3306,
+        "p95": 5435.0724
+      },
+      "observed_sales_units": 5462,
+      "period": "training",
+      "residual_to_expected_mean_units": 71.9677,
+      "segment_id": null,
+      "time_index": 59,
+      "week_start": "2024-02-12"
+    },
+    {
+      "baseline_units": {
+        "mean": 4648.8778,
+        "p05": 4400.9686,
+        "p50": 4653.1063,
+        "p95": 4874.5209
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 235.6511,
+          "p05": 62.4881,
+          "p50": 207.9066,
+          "p95": 488.1699
+        },
+        "digital": {
+          "mean": 236.4933,
+          "p05": 87.7093,
+          "p50": 214.0012,
+          "p95": 460.1528
+        },
+        "retailer_promotion": {
+          "mean": 277.1701,
+          "p05": 144.6571,
+          "p50": 264.9951,
+          "p95": 448.7202
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5398.1922,
+        "p05": 5355.9975,
+        "p50": 5398.6064,
+        "p95": 5439.6319
+      },
+      "observed_sales_units": 5185,
+      "period": "training",
+      "residual_to_expected_mean_units": -213.1922,
+      "segment_id": null,
+      "time_index": 60,
+      "week_start": "2024-02-19"
+    },
+    {
+      "baseline_units": {
+        "mean": 4467.3044,
+        "p05": 4218.1986,
+        "p50": 4470.6035,
+        "p95": 4692.6048
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 231.2991,
+          "p05": 55.5189,
+          "p50": 203.7109,
+          "p95": 487.8865
+        },
+        "digital": {
+          "mean": 231.9809,
+          "p05": 85.0618,
+          "p50": 208.8591,
+          "p95": 455.662
+        },
+        "retailer_promotion": {
+          "mean": 248.2396,
+          "p05": 125.3933,
+          "p50": 233.8333,
+          "p95": 418.9691
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5178.824,
+        "p05": 5137.0514,
+        "p50": 5178.709,
+        "p95": 5220.1452
+      },
+      "observed_sales_units": 5305,
+      "period": "training",
+      "residual_to_expected_mean_units": 126.176,
+      "segment_id": null,
+      "time_index": 61,
+      "week_start": "2024-02-26"
+    },
+    {
+      "baseline_units": {
+        "mean": 4335.1623,
+        "p05": 4087.205,
+        "p50": 4339.5624,
+        "p95": 4560.2874
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 239.1971,
+          "p05": 65.8385,
+          "p50": 211.3637,
+          "p95": 488.7102
+        },
+        "digital": {
+          "mean": 233.2415,
+          "p05": 87.2976,
+          "p50": 211.747,
+          "p95": 452.8679
+        },
+        "retailer_promotion": {
+          "mean": 269.9384,
+          "p05": 142.5003,
+          "p50": 257.5171,
+          "p95": 440.22
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5077.5395,
+        "p05": 5036.8345,
+        "p50": 5077.9952,
+        "p95": 5118.1204
+      },
+      "observed_sales_units": 4977,
+      "period": "training",
+      "residual_to_expected_mean_units": -100.5395,
+      "segment_id": null,
+      "time_index": 62,
+      "week_start": "2024-03-04"
+    },
+    {
+      "baseline_units": {
+        "mean": 4695.0212,
+        "p05": 4447.2572,
+        "p50": 4700.2596,
+        "p95": 4919.3677
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.7149,
+          "p05": 65.0567,
+          "p50": 210.3572,
+          "p95": 488.8032
+        },
+        "digital": {
+          "mean": 219.3638,
+          "p05": 78.7032,
+          "p50": 194.6808,
+          "p95": 439.1979
+        },
+        "retailer_promotion": {
+          "mean": 275.4783,
+          "p05": 146.3958,
+          "p50": 262.925,
+          "p95": 446.3018
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5428.5782,
+        "p05": 5385.9276,
+        "p50": 5428.7483,
+        "p95": 5472.2097
+      },
+      "observed_sales_units": 5403,
+      "period": "training",
+      "residual_to_expected_mean_units": -25.5782,
+      "segment_id": null,
+      "time_index": 63,
+      "week_start": "2024-03-11"
+    },
+    {
+      "baseline_units": {
+        "mean": 4626.2965,
+        "p05": 4379.0833,
+        "p50": 4630.913,
+        "p95": 4854.1311
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.9042,
+          "p05": 69.6461,
+          "p50": 217.5047,
+          "p95": 491.7892
+        },
+        "digital": {
+          "mean": 235.0392,
+          "p05": 90.5292,
+          "p50": 215.9102,
+          "p95": 449.2489
+        },
+        "retailer_promotion": {
+          "mean": 261.0117,
+          "p05": 134.9933,
+          "p50": 248.5343,
+          "p95": 430.6331
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5366.2517,
+        "p05": 5324.4505,
+        "p50": 5366.1995,
+        "p95": 5408.3532
+      },
+      "observed_sales_units": 5360,
+      "period": "training",
+      "residual_to_expected_mean_units": -6.2517,
+      "segment_id": null,
+      "time_index": 64,
+      "week_start": "2024-03-18"
+    },
+    {
+      "baseline_units": {
+        "mean": 4295.3433,
+        "p05": 4046.7438,
+        "p50": 4299.1568,
+        "p95": 4521.4657
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.9866,
+          "p05": 65.1662,
+          "p50": 210.4532,
+          "p95": 488.4123
+        },
+        "digital": {
+          "mean": 225.821,
+          "p05": 83.2008,
+          "p50": 203.5249,
+          "p95": 441.6584
+        },
+        "retailer_promotion": {
+          "mean": 274.2515,
+          "p05": 145.4165,
+          "p50": 263.4162,
+          "p95": 440.8723
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5033.4024,
+        "p05": 4993.5955,
+        "p50": 5032.9343,
+        "p95": 5073.7471
+      },
+      "observed_sales_units": 5113,
+      "period": "training",
+      "residual_to_expected_mean_units": 79.5976,
+      "segment_id": null,
+      "time_index": 65,
+      "week_start": "2024-03-25"
+    },
+    {
+      "baseline_units": {
+        "mean": 4477.2665,
+        "p05": 4225.6064,
+        "p50": 4482.2977,
+        "p95": 4705.636
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.7311,
+          "p05": 66.4753,
+          "p50": 212.8676,
+          "p95": 490.0026
+        },
+        "digital": {
+          "mean": 240.1091,
+          "p05": 92.342,
+          "p50": 221.3118,
+          "p95": 454.5148
+        },
+        "retailer_promotion": {
+          "mean": 276.3578,
+          "p05": 147.0179,
+          "p50": 265.3445,
+          "p95": 445.1802
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5234.4646,
+        "p05": 5195.6221,
+        "p50": 5234.3869,
+        "p95": 5273.246
+      },
+      "observed_sales_units": 5060,
+      "period": "training",
+      "residual_to_expected_mean_units": -174.4646,
+      "segment_id": null,
+      "time_index": 66,
+      "week_start": "2024-04-01"
+    },
+    {
+      "baseline_units": {
+        "mean": 4502.6496,
+        "p05": 4254.8441,
+        "p50": 4506.4827,
+        "p95": 4732.6392
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.2249,
+          "p05": 68.8092,
+          "p50": 215.4886,
+          "p95": 489.9154
+        },
+        "digital": {
+          "mean": 250.6979,
+          "p05": 98.6632,
+          "p50": 232.1393,
+          "p95": 465.8191
+        },
+        "retailer_promotion": {
+          "mean": 331.8752,
+          "p05": 183.3931,
+          "p50": 321.6651,
+          "p95": 507.3932
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5327.4477,
+        "p05": 5283.3854,
+        "p50": 5327.1179,
+        "p95": 5371.4336
+      },
+      "observed_sales_units": 5301,
+      "period": "training",
+      "residual_to_expected_mean_units": -26.4477,
+      "segment_id": null,
+      "time_index": 67,
+      "week_start": "2024-04-08"
+    },
+    {
+      "baseline_units": {
+        "mean": 4563.2261,
+        "p05": 4308.944,
+        "p50": 4568.0654,
+        "p95": 4794.1479
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 241.5205,
+          "p05": 67.3898,
+          "p50": 213.9536,
+          "p95": 490.0394
+        },
+        "digital": {
+          "mean": 247.293,
+          "p05": 95.6749,
+          "p50": 228.1984,
+          "p95": 464.8246
+        },
+        "retailer_promotion": {
+          "mean": 304.1529,
+          "p05": 164.0406,
+          "p50": 292.7937,
+          "p95": 480.997
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5356.1925,
+        "p05": 5317.894,
+        "p50": 5356.0887,
+        "p95": 5394.6394
+      },
+      "observed_sales_units": 5361,
+      "period": "training",
+      "residual_to_expected_mean_units": 4.8075,
+      "segment_id": null,
+      "time_index": 68,
+      "week_start": "2024-04-15"
+    },
+    {
+      "baseline_units": {
+        "mean": 4555.1316,
+        "p05": 4299.9792,
+        "p50": 4559.3726,
+        "p95": 4790.4316
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.2449,
+          "p05": 66.0279,
+          "p50": 212.824,
+          "p95": 490.2678
+        },
+        "digital": {
+          "mean": 233.4121,
+          "p05": 86.4058,
+          "p50": 210.9074,
+          "p95": 454.5902
+        },
+        "retailer_promotion": {
+          "mean": 301.5068,
+          "p05": 162.3638,
+          "p50": 289.7993,
+          "p95": 476.7735
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5330.2953,
+        "p05": 5291.7879,
+        "p50": 5330.4447,
+        "p95": 5368.6024
+      },
+      "observed_sales_units": 5262,
+      "period": "training",
+      "residual_to_expected_mean_units": -68.2953,
+      "segment_id": null,
+      "time_index": 69,
+      "week_start": "2024-04-22"
+    },
+    {
+      "baseline_units": {
+        "mean": 4493.297,
+        "p05": 4239.1804,
+        "p50": 4497.7581,
+        "p95": 4724.9067
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.3884,
+          "p05": 60.2637,
+          "p50": 206.8248,
+          "p95": 488.0862
+        },
+        "digital": {
+          "mean": 244.6194,
+          "p05": 92.939,
+          "p50": 225.1506,
+          "p95": 464.8667
+        },
+        "retailer_promotion": {
+          "mean": 296.2257,
+          "p05": 157.2386,
+          "p50": 284.9715,
+          "p95": 470.4045
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5268.5306,
+        "p05": 5230.9771,
+        "p50": 5268.6585,
+        "p95": 5305.9382
+      },
+      "observed_sales_units": 5428,
+      "period": "training",
+      "residual_to_expected_mean_units": 159.4694,
+      "segment_id": null,
+      "time_index": 70,
+      "week_start": "2024-04-29"
+    },
+    {
+      "baseline_units": {
+        "mean": 4460.0868,
+        "p05": 4209.9532,
+        "p50": 4464.2328,
+        "p95": 4691.3862
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 229.5049,
+          "p05": 57.139,
+          "p50": 201.538,
+          "p95": 484.2617
+        },
+        "digital": {
+          "mean": 232.0266,
+          "p05": 86.4034,
+          "p50": 210.5838,
+          "p95": 450.3974
+        },
+        "retailer_promotion": {
+          "mean": 259.8014,
+          "p05": 132.4068,
+          "p50": 246.137,
+          "p95": 431.6712
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5181.4197,
+        "p05": 5142.9103,
+        "p50": 5181.6556,
+        "p95": 5220.329
+      },
+      "observed_sales_units": 5381,
+      "period": "training",
+      "residual_to_expected_mean_units": 199.5803,
+      "segment_id": null,
+      "time_index": 71,
+      "week_start": "2024-05-06"
+    },
+    {
+      "baseline_units": {
+        "mean": 4372.7116,
+        "p05": 4119.5168,
+        "p50": 4375.791,
+        "p95": 4605.4412
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.8645,
+          "p05": 63.6124,
+          "p50": 207.5688,
+          "p95": 484.7154
+        },
+        "digital": {
+          "mean": 233.4631,
+          "p05": 87.8927,
+          "p50": 212.7905,
+          "p95": 451.3235
+        },
+        "retailer_promotion": {
+          "mean": 256.0046,
+          "p05": 131.7483,
+          "p50": 243.3863,
+          "p95": 424.1897
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5097.0438,
+        "p05": 5055.5464,
+        "p50": 5097.095,
+        "p95": 5138.5123
+      },
+      "observed_sales_units": 4996,
+      "period": "training",
+      "residual_to_expected_mean_units": -101.0438,
+      "segment_id": null,
+      "time_index": 72,
+      "week_start": "2024-05-13"
+    },
+    {
+      "baseline_units": {
+        "mean": 4301.7588,
+        "p05": 4046.0992,
+        "p50": 4306.5134,
+        "p95": 4533.8059
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.0004,
+          "p05": 65.1527,
+          "p50": 210.1386,
+          "p95": 487.9324
+        },
+        "digital": {
+          "mean": 228.0931,
+          "p05": 83.2024,
+          "p50": 205.5278,
+          "p95": 447.6681
+        },
+        "retailer_promotion": {
+          "mean": 255.0686,
+          "p05": 130.8233,
+          "p50": 242.6953,
+          "p95": 422.4278
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5022.9208,
+        "p05": 4982.8349,
+        "p50": 5022.9238,
+        "p95": 5062.5148
+      },
+      "observed_sales_units": 5111,
+      "period": "training",
+      "residual_to_expected_mean_units": 88.0792,
+      "segment_id": null,
+      "time_index": 73,
+      "week_start": "2024-05-20"
+    },
+    {
+      "baseline_units": {
+        "mean": 4365.4692,
+        "p05": 4111.9896,
+        "p50": 4368.0254,
+        "p95": 4593.8575
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.9252,
+          "p05": 65.3233,
+          "p50": 210.4483,
+          "p95": 488.326
+        },
+        "digital": {
+          "mean": 200.6833,
+          "p05": 66.8621,
+          "p50": 172.1176,
+          "p95": 425.8212
+        },
+        "retailer_promotion": {
+          "mean": 266.7794,
+          "p05": 140.3215,
+          "p50": 255.0989,
+          "p95": 433.2445
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5071.8572,
+        "p05": 5022.7786,
+        "p50": 5071.8597,
+        "p95": 5121.7715
+      },
+      "observed_sales_units": 5165,
+      "period": "training",
+      "residual_to_expected_mean_units": 93.1428,
+      "segment_id": null,
+      "time_index": 74,
+      "week_start": "2024-05-27"
+    },
+    {
+      "baseline_units": {
+        "mean": 4151.8249,
+        "p05": 3902.7898,
+        "p50": 4155.3502,
+        "p95": 4379.2721
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.9568,
+          "p05": 64.4565,
+          "p50": 208.9193,
+          "p95": 487.7403
+        },
+        "digital": {
+          "mean": 225.8748,
+          "p05": 86.0054,
+          "p50": 205.3664,
+          "p95": 433.5287
+        },
+        "retailer_promotion": {
+          "mean": 272.3635,
+          "p05": 144.8967,
+          "p50": 261.9798,
+          "p95": 434.6959
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4887.0201,
+        "p05": 4849.2596,
+        "p50": 4887.4111,
+        "p95": 4924.6311
+      },
+      "observed_sales_units": 4796,
+      "period": "training",
+      "residual_to_expected_mean_units": -91.0201,
+      "segment_id": null,
+      "time_index": 75,
+      "week_start": "2024-06-03"
+    },
+    {
+      "baseline_units": {
+        "mean": 4186.914,
+        "p05": 3937.6444,
+        "p50": 4191.2811,
+        "p95": 4416.335
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.2618,
+          "p05": 64.2634,
+          "p50": 208.7359,
+          "p95": 487.7998
+        },
+        "digital": {
+          "mean": 236.9373,
+          "p05": 90.7442,
+          "p50": 217.7982,
+          "p95": 447.5109
+        },
+        "retailer_promotion": {
+          "mean": 276.5433,
+          "p05": 146.5554,
+          "p50": 266.2251,
+          "p95": 442.8456
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4937.6564,
+        "p05": 4900.0893,
+        "p50": 4937.8107,
+        "p95": 4974.0572
+      },
+      "observed_sales_units": 4826,
+      "period": "training",
+      "residual_to_expected_mean_units": -111.6564,
+      "segment_id": null,
+      "time_index": 76,
+      "week_start": "2024-06-10"
+    },
+    {
+      "baseline_units": {
+        "mean": 3973.0751,
+        "p05": 3725.1241,
+        "p50": 3975.8947,
+        "p95": 4198.5853
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 224.2658,
+          "p05": 51.3761,
+          "p50": 195.3744,
+          "p95": 481.1623
+        },
+        "digital": {
+          "mean": 208.8676,
+          "p05": 73.0157,
+          "p50": 184.6273,
+          "p95": 425.9158
+        },
+        "retailer_promotion": {
+          "mean": 249.4775,
+          "p05": 126.8584,
+          "p50": 235.9037,
+          "p95": 419.0819
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4655.686,
+        "p05": 4614.5567,
+        "p50": 4655.9614,
+        "p95": 4697.7456
+      },
+      "observed_sales_units": 4628,
+      "period": "training",
+      "residual_to_expected_mean_units": -27.686,
+      "segment_id": null,
+      "time_index": 77,
+      "week_start": "2024-06-17"
+    },
+    {
+      "baseline_units": {
+        "mean": 4365.4002,
+        "p05": 4111.5593,
+        "p50": 4368.6869,
+        "p95": 4594.7907
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 235.2534,
+          "p05": 63.0726,
+          "p50": 207.8432,
+          "p95": 486.1182
+        },
+        "digital": {
+          "mean": 246.2066,
+          "p05": 96.8823,
+          "p50": 227.824,
+          "p95": 457.1315
+        },
+        "retailer_promotion": {
+          "mean": 303.114,
+          "p05": 164.5185,
+          "p50": 292.0789,
+          "p95": 474.0122
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5149.9743,
+        "p05": 5105.9791,
+        "p50": 5150.1084,
+        "p95": 5193.6308
+      },
+      "observed_sales_units": 4996,
+      "period": "training",
+      "residual_to_expected_mean_units": -153.9743,
+      "segment_id": null,
+      "time_index": 78,
+      "week_start": "2024-06-24"
+    },
+    {
+      "baseline_units": {
+        "mean": 3933.6902,
+        "p05": 3686.2553,
+        "p50": 3937.0419,
+        "p95": 4161.5115
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.2685,
+          "p05": 64.5888,
+          "p50": 208.4592,
+          "p95": 485.5434
+        },
+        "digital": {
+          "mean": 244.4494,
+          "p05": 94.519,
+          "p50": 225.4907,
+          "p95": 459.8767
+        },
+        "retailer_promotion": {
+          "mean": 279.8349,
+          "p05": 148.0321,
+          "p50": 268.1496,
+          "p95": 450.1524
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4694.2431,
+        "p05": 4653.6077,
+        "p50": 4694.626,
+        "p95": 4734.462
+      },
+      "observed_sales_units": 4601,
+      "period": "training",
+      "residual_to_expected_mean_units": -93.2431,
+      "segment_id": null,
+      "time_index": 79,
+      "week_start": "2024-07-01"
+    },
+    {
+      "baseline_units": {
+        "mean": 3964.2848,
+        "p05": 3715.1656,
+        "p50": 3968.0997,
+        "p95": 4190.8753
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.4439,
+          "p05": 63.1927,
+          "p50": 207.7856,
+          "p95": 487.9277
+        },
+        "digital": {
+          "mean": 242.8025,
+          "p05": 91.9862,
+          "p50": 221.7638,
+          "p95": 463.342
+        },
+        "retailer_promotion": {
+          "mean": 256.4109,
+          "p05": 130.4669,
+          "p50": 242.516,
+          "p95": 430.344
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4699.942,
+        "p05": 4660.7531,
+        "p50": 4699.6737,
+        "p95": 4737.6394
+      },
+      "observed_sales_units": 4469,
+      "period": "training",
+      "residual_to_expected_mean_units": -230.942,
+      "segment_id": null,
+      "time_index": 80,
+      "week_start": "2024-07-08"
+    },
+    {
+      "baseline_units": {
+        "mean": 4044.408,
+        "p05": 3793.5,
+        "p50": 4048.7257,
+        "p95": 4274.6181
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 233.8207,
+          "p05": 59.3769,
+          "p50": 205.2661,
+          "p95": 487.6787
+        },
+        "digital": {
+          "mean": 228.6437,
+          "p05": 83.1182,
+          "p50": 205.4462,
+          "p95": 450.8202
+        },
+        "retailer_promotion": {
+          "mean": 260.5818,
+          "p05": 137.0183,
+          "p50": 247.4728,
+          "p95": 427.7109
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4767.4542,
+        "p05": 4729.8338,
+        "p50": 4767.8542,
+        "p95": 4805.9508
+      },
+      "observed_sales_units": 4897,
+      "period": "training",
+      "residual_to_expected_mean_units": 129.5458,
+      "segment_id": null,
+      "time_index": 81,
+      "week_start": "2024-07-15"
+    },
+    {
+      "baseline_units": {
+        "mean": 4197.5869,
+        "p05": 3945.6367,
+        "p50": 4201.827,
+        "p95": 4429.004
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.3622,
+          "p05": 65.1715,
+          "p50": 209.0053,
+          "p95": 487.0977
+        },
+        "digital": {
+          "mean": 218.537,
+          "p05": 78.7154,
+          "p50": 195.6103,
+          "p95": 437.5099
+        },
+        "retailer_promotion": {
+          "mean": 275.839,
+          "p05": 146.0821,
+          "p50": 264.6637,
+          "p95": 443.5703
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4929.3252,
+        "p05": 4882.2671,
+        "p50": 4929.8843,
+        "p95": 4974.5988
+      },
+      "observed_sales_units": 4966,
+      "period": "training",
+      "residual_to_expected_mean_units": 36.6748,
+      "segment_id": null,
+      "time_index": 82,
+      "week_start": "2024-07-22"
+    },
+    {
+      "baseline_units": {
+        "mean": 3889.4493,
+        "p05": 3639.4696,
+        "p50": 3893.4125,
+        "p95": 4116.4083
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.3366,
+          "p05": 67.4657,
+          "p50": 213.1409,
+          "p95": 487.7572
+        },
+        "digital": {
+          "mean": 244.4774,
+          "p05": 95.5095,
+          "p50": 226.2749,
+          "p95": 456.9776
+        },
+        "retailer_promotion": {
+          "mean": 271.1402,
+          "p05": 141.8407,
+          "p50": 258.9018,
+          "p95": 439.4973
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4645.4035,
+        "p05": 4608.7195,
+        "p50": 4645.468,
+        "p95": 4681.6128
+      },
+      "observed_sales_units": 4692,
+      "period": "training",
+      "residual_to_expected_mean_units": 46.5965,
+      "segment_id": null,
+      "time_index": 83,
+      "week_start": "2024-07-29"
+    },
+    {
+      "baseline_units": {
+        "mean": 3935.113,
+        "p05": 3688.3129,
+        "p50": 3939.6768,
+        "p95": 4160.8138
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 233.4551,
+          "p05": 61.4329,
+          "p50": 205.2256,
+          "p95": 484.4755
+        },
+        "digital": {
+          "mean": 247.5574,
+          "p05": 96.822,
+          "p50": 229.0604,
+          "p95": 460.527
+        },
+        "retailer_promotion": {
+          "mean": 237.3592,
+          "p05": 118.7882,
+          "p50": 223.8524,
+          "p95": 403.0021
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4653.4847,
+        "p05": 4612.9327,
+        "p50": 4654.0117,
+        "p95": 4694.2523
+      },
+      "observed_sales_units": 4635,
+      "period": "training",
+      "residual_to_expected_mean_units": -18.4847,
+      "segment_id": null,
+      "time_index": 84,
+      "week_start": "2024-08-05"
+    },
+    {
+      "baseline_units": {
+        "mean": 3921.9702,
+        "p05": 3678.3186,
+        "p50": 3924.8075,
+        "p95": 4145.8261
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 239.1534,
+          "p05": 66.6112,
+          "p50": 211.3547,
+          "p95": 487.0342
+        },
+        "digital": {
+          "mean": 242.6022,
+          "p05": 93.8142,
+          "p50": 223.907,
+          "p95": 456.5014
+        },
+        "retailer_promotion": {
+          "mean": 278.0588,
+          "p05": 150.0443,
+          "p50": 267.1208,
+          "p95": 442.4116
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4681.7846,
+        "p05": 4645.4865,
+        "p50": 4681.6932,
+        "p95": 4717.4619
+      },
+      "observed_sales_units": 4913,
+      "period": "training",
+      "residual_to_expected_mean_units": 231.2154,
+      "segment_id": null,
+      "time_index": 85,
+      "week_start": "2024-08-12"
+    },
+    {
+      "baseline_units": {
+        "mean": 3974.0271,
+        "p05": 3728.4988,
+        "p50": 3977.5263,
+        "p95": 4202.1228
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.5165,
+          "p05": 65.2104,
+          "p50": 208.9668,
+          "p95": 486.1933
+        },
+        "digital": {
+          "mean": 221.2526,
+          "p05": 81.1067,
+          "p50": 199.0503,
+          "p95": 436.8274
+        },
+        "retailer_promotion": {
+          "mean": 275.1764,
+          "p05": 145.0254,
+          "p50": 263.5009,
+          "p95": 441.9937
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4707.9726,
+        "p05": 4670.1304,
+        "p50": 4707.9544,
+        "p95": 4746.6323
+      },
+      "observed_sales_units": 4556,
+      "period": "training",
+      "residual_to_expected_mean_units": -151.9726,
+      "segment_id": null,
+      "time_index": 86,
+      "week_start": "2024-08-19"
+    },
+    {
+      "baseline_units": {
+        "mean": 3714.1578,
+        "p05": 3463.9216,
+        "p50": 3718.0961,
+        "p95": 3941.4761
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 233.7424,
+          "p05": 61.7205,
+          "p50": 206.6498,
+          "p95": 484.9519
+        },
+        "digital": {
+          "mean": 226.8985,
+          "p05": 84.2689,
+          "p50": 205.7001,
+          "p95": 440.7294
+        },
+        "retailer_promotion": {
+          "mean": 265.5842,
+          "p05": 137.5001,
+          "p50": 253.1889,
+          "p95": 435.3549
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4440.3829,
+        "p05": 4401.6439,
+        "p50": 4440.7951,
+        "p95": 4479.729
+      },
+      "observed_sales_units": 4222,
+      "period": "training",
+      "residual_to_expected_mean_units": -218.3829,
+      "segment_id": null,
+      "time_index": 87,
+      "week_start": "2024-08-26"
+    },
+    {
+      "baseline_units": {
+        "mean": 3786.6132,
+        "p05": 3538.2323,
+        "p50": 3790.634,
+        "p95": 4013.4266
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.3272,
+          "p05": 65.0462,
+          "p50": 209.9203,
+          "p95": 487.4642
+        },
+        "digital": {
+          "mean": 247.1637,
+          "p05": 97.2464,
+          "p50": 228.9809,
+          "p95": 460.4423
+        },
+        "retailer_promotion": {
+          "mean": 272.9965,
+          "p05": 143.3106,
+          "p50": 260.8471,
+          "p95": 442.6746
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4545.1006,
+        "p05": 4508.5157,
+        "p50": 4544.8761,
+        "p95": 4582.6769
+      },
+      "observed_sales_units": 4577,
+      "period": "training",
+      "residual_to_expected_mean_units": 31.8994,
+      "segment_id": null,
+      "time_index": 88,
+      "week_start": "2024-09-02"
+    },
+    {
+      "baseline_units": {
+        "mean": 3879.4012,
+        "p05": 3636.0456,
+        "p50": 3883.3149,
+        "p95": 4103.3268
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.7521,
+          "p05": 63.571,
+          "p50": 206.4926,
+          "p95": 483.9615
+        },
+        "digital": {
+          "mean": 250.6423,
+          "p05": 99.0982,
+          "p50": 232.5296,
+          "p95": 465.6953
+        },
+        "retailer_promotion": {
+          "mean": 284.2447,
+          "p05": 152.5945,
+          "p50": 273.3271,
+          "p95": 451.0692
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4649.0402,
+        "p05": 4612.4836,
+        "p50": 4648.6728,
+        "p95": 4685.2575
+      },
+      "observed_sales_units": 4632,
+      "period": "training",
+      "residual_to_expected_mean_units": -17.0402,
+      "segment_id": null,
+      "time_index": 89,
+      "week_start": "2024-09-09"
+    },
+    {
+      "baseline_units": {
+        "mean": 3760.8269,
+        "p05": 3513.1144,
+        "p50": 3765.3052,
+        "p95": 3986.8028
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 233.3704,
+          "p05": 61.7511,
+          "p50": 205.4376,
+          "p95": 483.9747
+        },
+        "digital": {
+          "mean": 246.1884,
+          "p05": 94.8162,
+          "p50": 227.1772,
+          "p95": 464.0868
+        },
+        "retailer_promotion": {
+          "mean": 290.8142,
+          "p05": 155.1265,
+          "p50": 279.8113,
+          "p95": 461.7962
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4531.1999,
+        "p05": 4492.6459,
+        "p50": 4531.1041,
+        "p95": 4568.7565
+      },
+      "observed_sales_units": 4649,
+      "period": "training",
+      "residual_to_expected_mean_units": 117.8001,
+      "segment_id": null,
+      "time_index": 90,
+      "week_start": "2024-09-16"
+    },
+    {
+      "baseline_units": {
+        "mean": 3918.3719,
+        "p05": 3667.9714,
+        "p50": 3924.6404,
+        "p95": 4145.6557
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 232.3127,
+          "p05": 61.3603,
+          "p50": 203.8851,
+          "p95": 482.6518
+        },
+        "digital": {
+          "mean": 239.134,
+          "p05": 90.1556,
+          "p50": 218.4946,
+          "p95": 459.6093
+        },
+        "retailer_promotion": {
+          "mean": 230.6711,
+          "p05": 112.7363,
+          "p50": 216.0622,
+          "p95": 397.2232
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4620.4897,
+        "p05": 4575.0801,
+        "p50": 4619.8921,
+        "p95": 4664.3063
+      },
+      "observed_sales_units": 4625,
+      "period": "training",
+      "residual_to_expected_mean_units": 4.5103,
+      "segment_id": null,
+      "time_index": 91,
+      "week_start": "2024-09-23"
+    },
+    {
+      "baseline_units": {
+        "mean": 3631.6373,
+        "p05": 3387.7291,
+        "p50": 3635.0334,
+        "p95": 3852.8687
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 226.9148,
+          "p05": 57.3639,
+          "p50": 199.5036,
+          "p95": 477.2707
+        },
+        "digital": {
+          "mean": 240.0604,
+          "p05": 90.9631,
+          "p50": 219.5852,
+          "p95": 457.283
+        },
+        "retailer_promotion": {
+          "mean": 240.6669,
+          "p05": 122.6899,
+          "p50": 228.0567,
+          "p95": 403.8861
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4339.2795,
+        "p05": 4295.1598,
+        "p50": 4339.0929,
+        "p95": 4383.973
+      },
+      "observed_sales_units": 4541,
+      "period": "training",
+      "residual_to_expected_mean_units": 201.7205,
+      "segment_id": null,
+      "time_index": 92,
+      "week_start": "2024-09-30"
+    },
+    {
+      "baseline_units": {
+        "mean": 3963.4062,
+        "p05": 3715.7672,
+        "p50": 3966.8333,
+        "p95": 4190.9273
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.257,
+          "p05": 69.8039,
+          "p50": 214.5283,
+          "p95": 483.5303
+        },
+        "digital": {
+          "mean": 252.7497,
+          "p05": 98.584,
+          "p50": 233.7126,
+          "p95": 472.4556
+        },
+        "retailer_promotion": {
+          "mean": 285.0192,
+          "p05": 153.6018,
+          "p50": 273.6843,
+          "p95": 452.7005
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4741.4322,
+        "p05": 4701.4049,
+        "p50": 4740.5393,
+        "p95": 4782.7588
+      },
+      "observed_sales_units": 4759,
+      "period": "training",
+      "residual_to_expected_mean_units": 17.5678,
+      "segment_id": null,
+      "time_index": 93,
+      "week_start": "2024-10-07"
+    },
+    {
+      "baseline_units": {
+        "mean": 4039.8054,
+        "p05": 3793.5033,
+        "p50": 4043.2261,
+        "p95": 4264.5312
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.1946,
+          "p05": 67.0825,
+          "p50": 211.8037,
+          "p95": 483.785
+        },
+        "digital": {
+          "mean": 236.0498,
+          "p05": 87.7983,
+          "p50": 213.7404,
+          "p95": 458.7093
+        },
+        "retailer_promotion": {
+          "mean": 290.8448,
+          "p05": 155.9929,
+          "p50": 280.0738,
+          "p95": 459.482
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4804.8946,
+        "p05": 4760.3407,
+        "p50": 4804.4398,
+        "p95": 4848.8841
+      },
+      "observed_sales_units": 4775,
+      "period": "training",
+      "residual_to_expected_mean_units": -29.8946,
+      "segment_id": null,
+      "time_index": 94,
+      "week_start": "2024-10-14"
+    },
+    {
+      "baseline_units": {
+        "mean": 3808.2754,
+        "p05": 3560.4834,
+        "p50": 3813.9408,
+        "p95": 4034.8048
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.862,
+          "p05": 69.1328,
+          "p50": 216.6064,
+          "p95": 488.3139
+        },
+        "digital": {
+          "mean": 238.3437,
+          "p05": 87.4164,
+          "p50": 215.673,
+          "p95": 462.579
+        },
+        "retailer_promotion": {
+          "mean": 302.7702,
+          "p05": 163.2644,
+          "p50": 291.2633,
+          "p95": 478.1404
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4592.2513,
+        "p05": 4548.9091,
+        "p50": 4591.6606,
+        "p95": 4637.6358
+      },
+      "observed_sales_units": 4550,
+      "period": "training",
+      "residual_to_expected_mean_units": -42.2513,
+      "segment_id": null,
+      "time_index": 95,
+      "week_start": "2024-10-21"
+    },
+    {
+      "baseline_units": {
+        "mean": 3850.6036,
+        "p05": 3601.5148,
+        "p50": 3855.1428,
+        "p95": 4076.4913
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 240.7559,
+          "p05": 67.2765,
+          "p50": 214.14,
+          "p95": 488.1961
+        },
+        "digital": {
+          "mean": 254.1329,
+          "p05": 99.0166,
+          "p50": 234.584,
+          "p95": 474.8153
+        },
+        "retailer_promotion": {
+          "mean": 328.9663,
+          "p05": 180.0601,
+          "p50": 317.8735,
+          "p95": 510.1938
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4674.4587,
+        "p05": 4626.1227,
+        "p50": 4674.1656,
+        "p95": 4723.7438
+      },
+      "observed_sales_units": 4849,
+      "period": "training",
+      "residual_to_expected_mean_units": 174.5413,
+      "segment_id": null,
+      "time_index": 96,
+      "week_start": "2024-10-28"
+    },
+    {
+      "baseline_units": {
+        "mean": 4144.3779,
+        "p05": 3891.925,
+        "p50": 4147.7557,
+        "p95": 4375.6543
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 234.3208,
+          "p05": 59.1212,
+          "p50": 206.7094,
+          "p95": 487.9168
+        },
+        "digital": {
+          "mean": 232.4671,
+          "p05": 85.2199,
+          "p50": 209.5333,
+          "p95": 454.9012
+        },
+        "retailer_promotion": {
+          "mean": 298.6611,
+          "p05": 158.005,
+          "p50": 285.972,
+          "p95": 478.5644
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4909.827,
+        "p05": 4860.2503,
+        "p50": 4909.858,
+        "p95": 4958.1758
+      },
+      "observed_sales_units": 5042,
+      "period": "training",
+      "residual_to_expected_mean_units": 132.173,
+      "segment_id": null,
+      "time_index": 97,
+      "week_start": "2024-11-04"
+    },
+    {
+      "baseline_units": {
+        "mean": 4163.3326,
+        "p05": 3915.1784,
+        "p50": 4167.9586,
+        "p95": 4390.8392
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.2798,
+          "p05": 64.3227,
+          "p50": 208.715,
+          "p95": 486.8259
+        },
+        "digital": {
+          "mean": 241.9773,
+          "p05": 93.5811,
+          "p50": 222.718,
+          "p95": 462.0291
+        },
+        "retailer_promotion": {
+          "mean": 269.5582,
+          "p05": 139.0098,
+          "p50": 256.154,
+          "p95": 445.5775
+        }
+      },
+      "expected_sales_units": {
+        "mean": 4911.1479,
+        "p05": 4863.1456,
+        "p50": 4910.4203,
+        "p95": 4960.5342
+      },
+      "observed_sales_units": 4770,
+      "period": "training",
+      "residual_to_expected_mean_units": -141.1479,
+      "segment_id": null,
+      "time_index": 98,
+      "week_start": "2024-11-11"
+    },
+    {
+      "baseline_units": {
+        "mean": 4634.5406,
+        "p05": 4373.5064,
+        "p50": 4635.4403,
+        "p95": 4880.3287
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.9161,
+          "p05": 70.7876,
+          "p50": 217.9126,
+          "p95": 489.2793
+        },
+        "digital": {
+          "mean": 265.3125,
+          "p05": 105.7704,
+          "p50": 248.4582,
+          "p95": 485.8495
+        },
+        "retailer_promotion": {
+          "mean": 320.2002,
+          "p05": 174.908,
+          "p50": 308.7175,
+          "p95": 498.8103
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5463.9695,
+        "p05": 5400.506,
+        "p50": 5464.2623,
+        "p95": 5524.7698
+      },
+      "observed_sales_units": 5436,
+      "period": "training",
+      "residual_to_expected_mean_units": -27.9695,
+      "segment_id": null,
+      "time_index": 99,
+      "week_start": "2024-11-18"
+    },
+    {
+      "baseline_units": {
+        "mean": 4558.203,
+        "p05": 4295.3009,
+        "p50": 4559.7336,
+        "p95": 4804.102
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 245.7945,
+          "p05": 71.4552,
+          "p50": 219.3544,
+          "p95": 493.1236
+        },
+        "digital": {
+          "mean": 259.7341,
+          "p05": 101.0298,
+          "p50": 240.0877,
+          "p95": 487.2794
+        },
+        "retailer_promotion": {
+          "mean": 314.6553,
+          "p05": 168.4442,
+          "p50": 303.1008,
+          "p95": 498.3182
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5378.3869,
+        "p05": 5314.4213,
+        "p50": 5378.0881,
+        "p95": 5441.7225
+      },
+      "observed_sales_units": 5455,
+      "period": "training",
+      "residual_to_expected_mean_units": 76.6131,
+      "segment_id": null,
+      "time_index": 100,
+      "week_start": "2024-11-25"
+    },
+    {
+      "baseline_units": {
+        "mean": 4778.8402,
+        "p05": 4513.9957,
+        "p50": 4779.8901,
+        "p95": 5025.756
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.0231,
+          "p05": 65.9821,
+          "p50": 214.1188,
+          "p95": 493.2961
+        },
+        "digital": {
+          "mean": 248.0833,
+          "p05": 92.9774,
+          "p50": 225.0771,
+          "p95": 479.4901
+        },
+        "retailer_promotion": {
+          "mean": 288.3753,
+          "p05": 151.3669,
+          "p50": 274.3821,
+          "p95": 471.6617
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5557.3219,
+        "p05": 5492.2881,
+        "p50": 5557.7487,
+        "p95": 5622.1348
+      },
+      "observed_sales_units": 5524,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -33.3219,
+      "segment_id": null,
+      "time_index": 101,
+      "week_start": "2024-12-02"
+    },
+    {
+      "baseline_units": {
+        "mean": 4762.6055,
+        "p05": 4497.3311,
+        "p50": 4764.1826,
+        "p95": 5012.7195
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 244.3557,
+          "p05": 67.9055,
+          "p50": 217.2293,
+          "p95": 495.2386
+        },
+        "digital": {
+          "mean": 244.9707,
+          "p05": 92.2763,
+          "p50": 222.3798,
+          "p95": 472.2473
+        },
+        "retailer_promotion": {
+          "mean": 304.3904,
+          "p05": 163.293,
+          "p50": 291.9201,
+          "p95": 485.2372
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5556.3223,
+        "p05": 5491.6174,
+        "p50": 5556.9087,
+        "p95": 5620.3663
+      },
+      "observed_sales_units": 5685,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 128.6777,
+      "segment_id": null,
+      "time_index": 102,
+      "week_start": "2024-12-09"
+    },
+    {
+      "baseline_units": {
+        "mean": 4797.165,
+        "p05": 4531.2898,
+        "p50": 4799.3886,
+        "p95": 5047.08
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 250.6415,
+          "p05": 74.0943,
+          "p50": 224.333,
+          "p95": 500.1103
+        },
+        "digital": {
+          "mean": 254.5137,
+          "p05": 98.9517,
+          "p50": 234.4918,
+          "p95": 479.4984
+        },
+        "retailer_promotion": {
+          "mean": 313.4126,
+          "p05": 167.8396,
+          "p50": 301.8975,
+          "p95": 496.1667
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5615.7327,
+        "p05": 5550.4302,
+        "p50": 5616.143,
+        "p95": 5682.3252
+      },
+      "observed_sales_units": 5794,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 178.2673,
+      "segment_id": null,
+      "time_index": 103,
+      "week_start": "2024-12-16"
+    },
+    {
+      "baseline_units": {
+        "mean": 5127.1723,
+        "p05": 4858.3764,
+        "p50": 5129.2022,
+        "p95": 5375.7487
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 256.1052,
+          "p05": 77.5997,
+          "p50": 230.3402,
+          "p95": 508.8438
+        },
+        "digital": {
+          "mean": 281.1877,
+          "p05": 113.8081,
+          "p50": 265.1704,
+          "p95": 509.4918
+        },
+        "retailer_promotion": {
+          "mean": 355.6206,
+          "p05": 197.0105,
+          "p50": 344.9815,
+          "p95": 543.2656
+        }
+      },
+      "expected_sales_units": {
+        "mean": 6020.0858,
+        "p05": 5950.3963,
+        "p50": 6020.8773,
+        "p95": 6087.991
+      },
+      "observed_sales_units": 6129,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 108.9142,
+      "segment_id": null,
+      "time_index": 104,
+      "week_start": "2024-12-23"
+    },
+    {
+      "baseline_units": {
+        "mean": 4418.5672,
+        "p05": 4167.2004,
+        "p50": 4421.6559,
+        "p95": 4651.3781
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 247.143,
+          "p05": 69.0269,
+          "p50": 219.6,
+          "p95": 501.6144
+        },
+        "digital": {
+          "mean": 250.3144,
+          "p05": 92.5069,
+          "p50": 226.3059,
+          "p95": 484.3104
+        },
+        "retailer_promotion": {
+          "mean": 300.1073,
+          "p05": 157.0697,
+          "p50": 286.4145,
+          "p95": 487.848
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5216.132,
+        "p05": 5159.222,
+        "p50": 5215.4377,
+        "p95": 5272.1621
+      },
+      "observed_sales_units": 5228,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 11.868,
+      "segment_id": null,
+      "time_index": 105,
+      "week_start": "2024-12-30"
+    },
+    {
+      "baseline_units": {
+        "mean": 4492.0324,
+        "p05": 4237.8089,
+        "p50": 4494.6051,
+        "p95": 4725.146
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 246.5384,
+          "p05": 68.9268,
+          "p50": 219.1175,
+          "p95": 499.8179
+        },
+        "digital": {
+          "mean": 247.6063,
+          "p05": 93.3501,
+          "p50": 225.1784,
+          "p95": 476.3262
+        },
+        "retailer_promotion": {
+          "mean": 269.0706,
+          "p05": 136.7853,
+          "p50": 254.0686,
+          "p95": 449.1832
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5255.2475,
+        "p05": 5198.5709,
+        "p50": 5254.2775,
+        "p95": 5314.701
+      },
+      "observed_sales_units": 5346,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 90.7525,
+      "segment_id": null,
+      "time_index": 106,
+      "week_start": "2025-01-06"
+    },
+    {
+      "baseline_units": {
+        "mean": 4364.4368,
+        "p05": 4109.4862,
+        "p50": 4367.2659,
+        "p95": 4600.3264
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 245.2857,
+          "p05": 67.4959,
+          "p50": 217.3141,
+          "p95": 498.4799
+        },
+        "digital": {
+          "mean": 240.7211,
+          "p05": 90.9139,
+          "p50": 218.522,
+          "p95": 465.0077
+        },
+        "retailer_promotion": {
+          "mean": 293.6328,
+          "p05": 156.5223,
+          "p50": 281.212,
+          "p95": 467.8861
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5144.0764,
+        "p05": 5088.0689,
+        "p50": 5144.2769,
+        "p95": 5200.9131
+      },
+      "observed_sales_units": 5245,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 100.9236,
+      "segment_id": null,
+      "time_index": 107,
+      "week_start": "2025-01-13"
+    },
+    {
+      "baseline_units": {
+        "mean": 4565.2637,
+        "p05": 4307.0484,
+        "p50": 4569.2557,
+        "p95": 4801.6709
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 244.0403,
+          "p05": 67.0641,
+          "p50": 215.9661,
+          "p95": 496.895
+        },
+        "digital": {
+          "mean": 242.4958,
+          "p05": 90.952,
+          "p50": 220.5734,
+          "p95": 465.1803
+        },
+        "retailer_promotion": {
+          "mean": 270.0474,
+          "p05": 140.2046,
+          "p50": 256.9336,
+          "p95": 443.4149
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5321.8473,
+        "p05": 5262.5881,
+        "p50": 5321.3476,
+        "p95": 5380.1004
+      },
+      "observed_sales_units": 5284,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -37.8473,
+      "segment_id": null,
+      "time_index": 108,
+      "week_start": "2025-01-20"
+    },
+    {
+      "baseline_units": {
+        "mean": 4666.6156,
+        "p05": 4403.5507,
+        "p50": 4669.9285,
+        "p95": 4908.9017
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.1709,
+          "p05": 65.8944,
+          "p50": 215.0948,
+          "p95": 496.5496
+        },
+        "digital": {
+          "mean": 254.9315,
+          "p05": 98.8955,
+          "p50": 235.4103,
+          "p95": 479.5067
+        },
+        "retailer_promotion": {
+          "mean": 293.0161,
+          "p05": 156.5076,
+          "p50": 281.4853,
+          "p95": 469.0871
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5457.7341,
+        "p05": 5399.1922,
+        "p50": 5458.1668,
+        "p95": 5514.1254
+      },
+      "observed_sales_units": 5551,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 93.2659,
+      "segment_id": null,
+      "time_index": 109,
+      "week_start": "2025-01-27"
+    },
+    {
+      "baseline_units": {
+        "mean": 4711.1698,
+        "p05": 4449.0122,
+        "p50": 4713.5446,
+        "p95": 4954.8785
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 239.9893,
+          "p05": 65.3031,
+          "p50": 211.8967,
+          "p95": 493.1794
+        },
+        "digital": {
+          "mean": 250.4423,
+          "p05": 95.8577,
+          "p50": 230.0756,
+          "p95": 474.8793
+        },
+        "retailer_promotion": {
+          "mean": 282.8818,
+          "p05": 150.2099,
+          "p50": 270.5424,
+          "p95": 457.6553
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5484.4832,
+        "p05": 5424.8881,
+        "p50": 5485.2957,
+        "p95": 5542.4908
+      },
+      "observed_sales_units": 5532,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 47.5168,
+      "segment_id": null,
+      "time_index": 110,
+      "week_start": "2025-02-03"
+    },
+    {
+      "baseline_units": {
+        "mean": 4587.733,
+        "p05": 4321.7187,
+        "p50": 4590.7836,
+        "p95": 4829.3213
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.7235,
+          "p05": 69.0519,
+          "p50": 217.2163,
+          "p95": 493.0453
+        },
+        "digital": {
+          "mean": 247.0043,
+          "p05": 93.9522,
+          "p50": 225.6127,
+          "p95": 472.6976
+        },
+        "retailer_promotion": {
+          "mean": 258.7825,
+          "p05": 134.5221,
+          "p50": 245.7274,
+          "p95": 428.3506
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5337.2433,
+        "p05": 5276.6009,
+        "p50": 5336.8381,
+        "p95": 5397.0958
+      },
+      "observed_sales_units": 5522,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 184.7567,
+      "segment_id": null,
+      "time_index": 111,
+      "week_start": "2025-02-10"
+    },
+    {
+      "baseline_units": {
+        "mean": 4623.696,
+        "p05": 4359.8199,
+        "p50": 4626.2869,
+        "p95": 4868.7852
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 236.8599,
+          "p05": 62.1877,
+          "p50": 209.3167,
+          "p95": 490.4807
+        },
+        "digital": {
+          "mean": 236.3333,
+          "p05": 89.0474,
+          "p50": 213.5626,
+          "p95": 460.2308
+        },
+        "retailer_promotion": {
+          "mean": 280.1936,
+          "p05": 148.3669,
+          "p50": 269.0471,
+          "p95": 447.0418
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5377.0827,
+        "p05": 5316.4382,
+        "p50": 5377.7215,
+        "p95": 5436.4873
+      },
+      "observed_sales_units": 5434,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 56.9173,
+      "segment_id": null,
+      "time_index": 112,
+      "week_start": "2025-02-17"
+    },
+    {
+      "baseline_units": {
+        "mean": 4667.3264,
+        "p05": 4399.4178,
+        "p50": 4669.5662,
+        "p95": 4911.323
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 239.4922,
+          "p05": 64.8115,
+          "p50": 211.8662,
+          "p95": 490.7802
+        },
+        "digital": {
+          "mean": 231.5393,
+          "p05": 86.0072,
+          "p50": 209.0603,
+          "p95": 451.9586
+        },
+        "retailer_promotion": {
+          "mean": 253.6396,
+          "p05": 130.5857,
+          "p50": 240.4974,
+          "p95": 422.8717
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5391.9975,
+        "p05": 5330.112,
+        "p50": 5391.9695,
+        "p95": 5453.8359
+      },
+      "observed_sales_units": 5155,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -236.9975,
+      "segment_id": null,
+      "time_index": 113,
+      "week_start": "2025-02-24"
+    },
+    {
+      "baseline_units": {
+        "mean": 4831.5099,
+        "p05": 4564.5727,
+        "p50": 4833.3141,
+        "p95": 5079.543
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.8871,
+          "p05": 64.9589,
+          "p50": 210.4912,
+          "p95": 490.3344
+        },
+        "digital": {
+          "mean": 242.4619,
+          "p05": 94.0119,
+          "p50": 223.6305,
+          "p95": 459.2085
+        },
+        "retailer_promotion": {
+          "mean": 276.8271,
+          "p05": 145.4591,
+          "p50": 265.6786,
+          "p95": 445.064
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5589.686,
+        "p05": 5525.2614,
+        "p50": 5589.7609,
+        "p95": 5655.4277
+      },
+      "observed_sales_units": 5542,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -47.686,
+      "segment_id": null,
+      "time_index": 114,
+      "week_start": "2025-03-03"
+    },
+    {
+      "baseline_units": {
+        "mean": 4639.8106,
+        "p05": 4373.5337,
+        "p50": 4642.1591,
+        "p95": 4881.4612
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 238.5378,
+          "p05": 64.2572,
+          "p50": 210.3434,
+          "p95": 490.4918
+        },
+        "digital": {
+          "mean": 239.5543,
+          "p05": 91.1819,
+          "p50": 218.8651,
+          "p95": 457.1441
+        },
+        "retailer_promotion": {
+          "mean": 270.5727,
+          "p05": 142.8211,
+          "p50": 259.1105,
+          "p95": 439.1302
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5388.4755,
+        "p05": 5328.2757,
+        "p50": 5387.6855,
+        "p95": 5447.8874
+      },
+      "observed_sales_units": 5556,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 167.5245,
+      "segment_id": null,
+      "time_index": 115,
+      "week_start": "2025-03-10"
+    },
+    {
+      "baseline_units": {
+        "mean": 4714.1028,
+        "p05": 4445.7719,
+        "p50": 4716.4232,
+        "p95": 4958.7364
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 237.7901,
+          "p05": 63.7434,
+          "p50": 209.5027,
+          "p95": 490.1831
+        },
+        "digital": {
+          "mean": 225.5387,
+          "p05": 80.3197,
+          "p50": 201.3858,
+          "p95": 450.6582
+        },
+        "retailer_promotion": {
+          "mean": 250.2191,
+          "p05": 126.9503,
+          "p50": 237.3703,
+          "p95": 419.1864
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5427.6507,
+        "p05": 5366.9045,
+        "p50": 5428.0079,
+        "p95": 5489.0355
+      },
+      "observed_sales_units": 5512,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 84.3493,
+      "segment_id": null,
+      "time_index": 116,
+      "week_start": "2025-03-17"
+    },
+    {
+      "baseline_units": {
+        "mean": 4554.0005,
+        "p05": 4283.8755,
+        "p50": 4555.905,
+        "p95": 4800.9839
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 243.1347,
+          "p05": 68.1835,
+          "p50": 215.2497,
+          "p95": 494.2674
+        },
+        "digital": {
+          "mean": 255.5202,
+          "p05": 100.5409,
+          "p50": 237.2413,
+          "p95": 475.3185
+        },
+        "retailer_promotion": {
+          "mean": 279.0051,
+          "p05": 148.5063,
+          "p50": 267.7911,
+          "p95": 446.7564
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5331.6605,
+        "p05": 5268.2701,
+        "p50": 5331.1126,
+        "p95": 5396.1151
+      },
+      "observed_sales_units": 5288,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -43.6605,
+      "segment_id": null,
+      "time_index": 117,
+      "week_start": "2025-03-24"
+    },
+    {
+      "baseline_units": {
+        "mean": 4741.5174,
+        "p05": 4472.6184,
+        "p50": 4743.5024,
+        "p95": 4989.9571
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 242.4483,
+          "p05": 67.0815,
+          "p50": 214.6172,
+          "p95": 493.8224
+        },
+        "digital": {
+          "mean": 249.7247,
+          "p05": 96.8867,
+          "p50": 230.0933,
+          "p95": 471.6427
+        },
+        "retailer_promotion": {
+          "mean": 292.4416,
+          "p05": 155.821,
+          "p50": 281.1915,
+          "p95": 465.2695
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5526.132,
+        "p05": 5465.6268,
+        "p50": 5525.834,
+        "p95": 5586.6243
+      },
+      "observed_sales_units": 5710,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 183.868,
+      "segment_id": null,
+      "time_index": 118,
+      "week_start": "2025-03-31"
+    },
+    {
+      "baseline_units": {
+        "mean": 4568.5245,
+        "p05": 4303.2038,
+        "p50": 4570.7637,
+        "p95": 4810.769
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 241.4083,
+          "p05": 66.1791,
+          "p50": 213.5391,
+          "p95": 494.1664
+        },
+        "digital": {
+          "mean": 251.1058,
+          "p05": 97.6901,
+          "p50": 231.2494,
+          "p95": 473.2769
+        },
+        "retailer_promotion": {
+          "mean": 267.097,
+          "p05": 139.1729,
+          "p50": 254.9312,
+          "p95": 437.0206
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5328.1356,
+        "p05": 5266.8433,
+        "p50": 5328.0108,
+        "p95": 5389.695
+      },
+      "observed_sales_units": 5221,
+      "period": "holdout",
+      "residual_to_expected_mean_units": -107.1356,
+      "segment_id": null,
+      "time_index": 119,
+      "week_start": "2025-04-07"
+    },
+    {
+      "baseline_units": {
+        "mean": 4586.9281,
+        "p05": 4316.9795,
+        "p50": 4589.2862,
+        "p95": 4833.1463
+      },
+      "channels_units": {
+        "coupon": {
+          "mean": 241.2129,
+          "p05": 66.7807,
+          "p50": 213.3305,
+          "p95": 492.8406
+        },
+        "digital": {
+          "mean": 244.489,
+          "p05": 94.3591,
+          "p50": 224.502,
+          "p95": 466.1001
+        },
+        "retailer_promotion": {
+          "mean": 267.6205,
+          "p05": 139.1117,
+          "p50": 255.9763,
+          "p95": 437.0222
+        }
+      },
+      "expected_sales_units": {
+        "mean": 5340.2505,
+        "p05": 5280.4567,
+        "p50": 5340.352,
+        "p95": 5400.3658
+      },
+      "observed_sales_units": 5492,
+      "period": "holdout",
+      "residual_to_expected_mean_units": 151.7495,
+      "segment_id": null,
+      "time_index": 120,
+      "week_start": "2025-04-14"
+    }
+  ],
+  "bundle_id": "94c839081ea64e565a5c1f546e4e65f07394df9b628e98f0ec9eb58a631808c9",
   "interpretation": "Modeled, assumption-dependent contributions; not experiment-validated causal lift.",
   "reference_model": "partial",
-  "schema_version": "m4-1",
+  "schema_version": "m4-2",
   "weekly": [
     {
       "baseline_units": {

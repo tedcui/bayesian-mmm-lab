@@ -5,7 +5,8 @@ import contributions from '../../public/model-data/contributions.json'
 import segments from '../../public/model-data/segments.json'
 import simulator from '../../public/model-data/simulator.json'
 import { validateModelDataBundle } from '../lib/data'
-import { decompositionTotals, filterWeeks, holdoutMetrics, matchingAggregate, spendTotals } from '../lib/analytics'
+import { ALL_REGIONS, decompositionTotals, filterWeeks, holdoutMetrics, matchingAggregate,
+  rollupContributionWeeks, rollupOverviewWeeks, spendTotals } from '../lib/analytics'
 
 const bundle = validateModelDataBundle({ manifest, overview, contributions, segments, simulator })
 const dates = bundle.manifest.dates
@@ -50,5 +51,46 @@ describe('M5 export-derived selectors', () => {
     expect(matchingAggregate(bundle.contributions.aggregates,
       { ...filter, startWeek: dates.last_training_week }, dates.first_week,
       dates.last_training_week, dates.first_holdout_week, dates.last_week)).toBeNull()
+  })
+
+  it('matches exported all-region intervals to regional means without a seventh fitting segment', () => {
+    const filter = { segmentId: ALL_REGIONS, startWeek: dates.first_week, endWeek: dates.last_week }
+    const overviewRows = rollupOverviewWeeks(bundle.overview.weekly, filter, bundle.manifest.segments)
+    const contributionRows = rollupContributionWeeks(bundle.contributions.weekly, filter, bundle.manifest.segments)
+    const overviewAggregate = matchingAggregate(bundle.overview.aggregates, filter,
+      dates.first_week, dates.last_training_week, dates.first_holdout_week, dates.last_week)!
+    const contributionAggregate = matchingAggregate(bundle.contributions.aggregates, filter,
+      dates.first_week, dates.last_training_week, dates.first_holdout_week, dates.last_week)!
+    expect(overviewRows).toHaveLength(120)
+    expect(contributionRows).toHaveLength(120)
+    expect(bundle.overview.all_regions_weekly).toHaveLength(120)
+    expect(bundle.contributions.all_regions_weekly).toHaveLength(120)
+    expect(overviewRows.reduce((sum, row) => sum + row.observed_sales_units, 0))
+      .toBe(overviewAggregate.observed_sales_units)
+    expect(overviewRows.reduce((sum, row) => sum + row.expected_sales_units.mean, 0))
+      .toBeCloseTo(overviewAggregate.expected_sales_units.mean, 0)
+    expect(spendTotals(overviewRows).digital).toBeCloseTo(overviewAggregate.planned_spend_usd.digital, 2)
+    expect(decompositionTotals(contributionRows).channels.coupon)
+      .toBeCloseTo(contributionAggregate.channels_units.coupon.mean, 0)
+    expect(bundle.overview.all_regions_weekly[0].expected_sales_units.mean)
+      .toBeCloseTo(overviewRows[0].expected_sales_units.mean, 3)
+    expect(bundle.contributions.all_regions_weekly[0].channels_units.coupon.mean)
+      .toBeCloseTo(contributionRows[0].channels_units.coupon.mean, 3)
+    expect(bundle.overview.all_regions_weekly[0].predictive_sales_units.p95)
+      .toBeGreaterThan(bundle.overview.all_regions_weekly[0].predictive_sales_units.p05)
+    expect(bundle.contributions.all_regions_weekly[0].channels_units.coupon.p95)
+      .toBeGreaterThan(bundle.contributions.all_regions_weekly[0].channels_units.coupon.p05)
+    expect(matchingAggregate(bundle.overview.aggregates,
+      { ...filter, endWeek: dates.last_training_week }, dates.first_week,
+      dates.last_training_week, dates.first_holdout_week, dates.last_week)?.period).toBe('training')
+    expect(matchingAggregate(bundle.overview.aggregates,
+      { ...filter, startWeek: dates.first_holdout_week }, dates.first_week,
+      dates.last_training_week, dates.first_holdout_week, dates.last_week)?.period).toBe('holdout')
+    expect(matchingAggregate(bundle.overview.aggregates,
+      { ...filter, startWeek: dates.last_training_week }, dates.first_week,
+      dates.last_training_week, dates.first_holdout_week, dates.last_week)).toBeNull()
+    expect(() => rollupOverviewWeeks(bundle.overview.weekly.slice(120), filter,
+      bundle.manifest.segments)).toThrow(/Incomplete or inconsistent all-region week/)
+    expect(holdoutMetrics(overviewRows)?.weeks).toBe(20)
   })
 })

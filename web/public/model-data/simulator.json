@@ -1,5 +1,5 @@
 {
-  "bundle_id": "befeea8d6e700c01bb1a13cf877729ad7c3f80dee0779ff5861c66e88aa42db8",
+  "bundle_id": "94c839081ea64e565a5c1f546e4e65f07394df9b628e98f0ec9eb58a631808c9",
   "chain_count": 4,
   "channel_order": [
     "coupon",
@@ -7058,7 +7058,7 @@
   ],
   "reference_model": "partial",
   "scenario_context": "Retrospective replay of the last 12 holdout weeks with fixed plans and pre-outcome context; not an unconditional future forecast.",
-  "schema_version": "m4-1",
+  "schema_version": "m4-2",
   "segment_order": [
     "northeast",
     "southeast",

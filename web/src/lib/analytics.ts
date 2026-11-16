@@ -1,4 +1,27 @@
-import type { Aggregate, Channel, ContributionAggregate, ContributionWeek, OverviewWeek } from '../types/modelData'
+import type { Aggregate, Channel, ChannelMap, ContributionAggregate, ContributionWeek,
+  OverviewWeek, Period } from '../types/modelData'
+
+export const ALL_REGIONS = '__all_regions__'
+
+interface MeanSummary { mean: number }
+
+export interface OverviewMeanWeek {
+  week_start: string
+  period: Period
+  observed_sales_units: number
+  planned_spend_usd: ChannelMap<number>
+  expected_sales_units: MeanSummary
+}
+
+export interface ContributionMeanWeek {
+  week_start: string
+  period: Period
+  observed_sales_units: number
+  baseline_units: MeanSummary
+  channels_units: ChannelMap<MeanSummary>
+  expected_sales_units: MeanSummary
+  residual_to_expected_mean_units: number
+}
 
 export interface WeeklyFilter {
   segmentId: string
@@ -21,6 +44,7 @@ export const channelColor: Record<Channel, string> = {
 }
 
 export function regionLabel(id: string): string {
+  if (id === ALL_REGIONS) return 'All regions'
   return id.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(' ')
 }
 
@@ -32,7 +56,55 @@ export function filterWeeks<T extends { segment_id: string; week_start: string }
     row.week_start >= filter.startWeek && row.week_start <= filter.endWeek)
 }
 
-export function holdoutMetrics(rows: OverviewWeek[]): { weeks: number; maeUnits: number; wape: number; biasUnits: number } | null {
+function completeRegionalWeeks<T extends { segment_id: string; week_start: string; period: Period }>(
+  rows: T[], filter: WeeklyFilter, segmentIds: string[],
+): T[][] {
+  if (filter.startWeek > filter.endWeek) return []
+  const byWeek = new Map<string, T[]>()
+  for (const row of rows) {
+    if (row.week_start < filter.startWeek || row.week_start > filter.endWeek) continue
+    const week = byWeek.get(row.week_start) ?? []
+    week.push(row)
+    byWeek.set(row.week_start, week)
+  }
+  return [...byWeek.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([date, week]) => {
+    if (week.length !== segmentIds.length ||
+        !segmentIds.every(id => week.some(row => row.segment_id === id)) ||
+        !week.every(row => row.period === week[0].period)) {
+      throw new Error(`Incomplete or inconsistent all-region week: ${date}`)
+    }
+    return week
+  })
+}
+
+/** Add only additive means and observed values. Weekly interval endpoints are not additive. */
+export function rollupOverviewWeeks(rows: OverviewWeek[], filter: WeeklyFilter,
+  segmentIds: string[]): OverviewMeanWeek[] {
+  return completeRegionalWeeks(rows, filter, segmentIds).map(week => ({
+    week_start: week[0].week_start,
+    period: week[0].period,
+    observed_sales_units: week.reduce((sum, row) => sum + row.observed_sales_units, 0),
+    expected_sales_units: { mean: week.reduce((sum, row) => sum + row.expected_sales_units.mean, 0) },
+    planned_spend_usd: Object.fromEntries(channelOrder.map(channel => [channel,
+      week.reduce((sum, row) => sum + row.planned_spend_usd[channel], 0)])) as ChannelMap<number>,
+  }))
+}
+
+export function rollupContributionWeeks(rows: ContributionWeek[], filter: WeeklyFilter,
+  segmentIds: string[]): ContributionMeanWeek[] {
+  return completeRegionalWeeks(rows, filter, segmentIds).map(week => ({
+    week_start: week[0].week_start,
+    period: week[0].period,
+    observed_sales_units: week.reduce((sum, row) => sum + row.observed_sales_units, 0),
+    baseline_units: { mean: week.reduce((sum, row) => sum + row.baseline_units.mean, 0) },
+    channels_units: Object.fromEntries(channelOrder.map(channel => [channel, { mean:
+      week.reduce((sum, row) => sum + row.channels_units[channel].mean, 0) }])) as ChannelMap<MeanSummary>,
+    expected_sales_units: { mean: week.reduce((sum, row) => sum + row.expected_sales_units.mean, 0) },
+    residual_to_expected_mean_units: week.reduce((sum, row) => sum + row.residual_to_expected_mean_units, 0),
+  }))
+}
+
+export function holdoutMetrics(rows: OverviewMeanWeek[]): { weeks: number; maeUnits: number; wape: number; biasUnits: number } | null {
   const holdout = rows.filter(row => row.period === 'holdout')
   if (!holdout.length) return null
   const errors = holdout.map(row => row.expected_sales_units.mean - row.observed_sales_units)
@@ -44,12 +116,12 @@ export function holdoutMetrics(rows: OverviewWeek[]): { weeks: number; maeUnits:
     biasUnits: errors.reduce((sum, value) => sum + value, 0) / holdout.length }
 }
 
-export function spendTotals(rows: OverviewWeek[]): Record<Channel, number> {
+export function spendTotals(rows: OverviewMeanWeek[]): Record<Channel, number> {
   return Object.fromEntries(channelOrder.map(channel => [channel,
     rows.reduce((sum, row) => sum + row.planned_spend_usd[channel], 0)])) as Record<Channel, number>
 }
 
-export function decompositionTotals(rows: ContributionWeek[]) {
+export function decompositionTotals(rows: ContributionMeanWeek[]) {
   const baseline = rows.reduce((sum, row) => sum + row.baseline_units.mean, 0)
   const channels = Object.fromEntries(channelOrder.map(channel => [channel,
     rows.reduce((sum, row) => sum + row.channels_units[channel].mean, 0)])) as Record<Channel, number>
@@ -67,5 +139,6 @@ export function matchingAggregate<T extends Aggregate | ContributionAggregate>(
   const period = filter.startWeek === firstWeek && filter.endWeek === lastWeek ? 'all'
     : filter.startWeek === firstWeek && filter.endWeek === lastTrainingWeek ? 'training'
       : filter.startWeek === firstHoldoutWeek && filter.endWeek === lastWeek ? 'holdout' : null
-  return period ? aggregates.find(row => row.segment_id === filter.segmentId && row.period === period) ?? null : null
+  const segmentId = filter.segmentId === ALL_REGIONS ? null : filter.segmentId
+  return period ? aggregates.find(row => row.segment_id === segmentId && row.period === period) ?? null : null
 }

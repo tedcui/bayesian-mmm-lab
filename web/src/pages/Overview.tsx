@@ -1,13 +1,16 @@
 import { PlotChart, type PlotTrace } from '../components/PlotChart'
 import { MetricCard } from '../components/MetricCard'
-import { filterWeeks, holdoutMetrics, matchingAggregate, regionLabel, spendTotals,
-  channelOrder, channelLabel, channelColor, type WeeklyFilter } from '../lib/analytics'
+import { ALL_REGIONS, filterWeeks, holdoutMetrics, matchingAggregate, regionLabel,
+  spendTotals, channelOrder, channelLabel, channelColor, type WeeklyFilter } from '../lib/analytics'
 import { dateLabel, dollars, decimal, percent, units } from '../lib/format'
 import type { ModelDataBundle } from '../types/modelData'
 
 export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: WeeklyFilter }) {
-  const rows = filterWeeks(bundle.overview.weekly, filter)
-  if (!rows.length) return <div className="empty-panel" role="status">No model weeks match this region and date range.</div>
+  const allRegions = filter.segmentId === ALL_REGIONS
+  const rows = allRegions
+    ? bundle.overview.all_regions_weekly.filter(row => row.week_start >= filter.startWeek && row.week_start <= filter.endWeek)
+    : filterWeeks(bundle.overview.weekly, filter)
+  if (!rows.length) return <div className="empty-panel" role="status">No model weeks match this view and date range.</div>
   const dates = bundle.manifest.dates
   const observed = rows.reduce((sum, row) => sum + row.observed_sales_units, 0)
   const predicted = rows.reduce((sum, row) => sum + row.expected_sales_units.mean, 0)
@@ -51,7 +54,7 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
         tip="Conditional expected sales from the fitted model, given observed planned spend and context." />
       <MetricCard label="Holdout WAPE" value={metrics ? percent(metrics.wape) : '—'}
         sub={metrics ? `${metrics.weeks} selected holdout weeks` : 'Select holdout weeks to calculate'}
-        tip="Weighted absolute percentage error: sum of absolute weekly prediction errors divided by observed holdout units. Uses conditional mean predictions." />
+        tip="Weighted absolute percentage error: sum of absolute weekly prediction errors divided by observed holdout units. The all-regions view adds regions before calculating each week's error." />
       <MetricCard label="Holdout MAE" value={metrics ? units(metrics.maeUnits) : '—'}
         sub={metrics ? 'Units per selected holdout week' : 'No holdout weeks in view'}
         tip="Mean absolute error of weekly conditional expected sales versus observed holdout sales, in units." />
@@ -65,7 +68,7 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
           yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#e9edf0' },
           shapes: boundary, annotations: boundaryVisible ? [{ x: dates.first_holdout_week, y: 1.02,
             yref: 'paper', text: 'HOLDOUT START', showarrow: false, font: { size: 10, color: '#b05b47' } }] : [] }} />
-      <p className="chart-caption"><strong>90% predictive interval</strong> includes modeled observation noise for an individual week. The central line is the posterior mean of expected sales. These holdout values condition on realized planned spend and pre-outcome context; they are not ex-ante forecasts. {boundaryVisible && `The dotted line marks the first holdout week, ${dateLabel(dates.first_holdout_week)}.`}</p>
+      <p className="chart-caption"><strong>90% predictive interval</strong> includes modeled observation noise for an individual week{allRegions ? ' summed across six regions within each joint posterior draw' : ''}. The central line is the posterior mean of expected sales. These holdout values condition on realized planned spend and pre-outcome context; they are not ex-ante forecasts. {boundaryVisible && `The dotted line marks the first holdout week, ${dateLabel(dates.first_holdout_week)}.`}</p>
     </section>
     <div className="two-column">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">PLANNED INPUTS</p><h3>Marketing spend</h3></div><span className="tiny-badge">USD</span></div>
@@ -87,6 +90,6 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
           : <p className="detail-note">The selected custom date range has a sum of weekly means. A valid total credible interval is unavailable for custom ranges in this export; weekly interval endpoints cannot be added.</p>}
       </section>
     </div>
-    <p className="method-note"><strong>Reading these metrics</strong> · Holdout WAPE and MAE are calculated only for the selected region and holdout weeks shown. Expected sales, predictive sales and 90% intervals describe different quantities. Model fit on synthetic data does not establish causal promotional lift. Holdout mean bias is {metrics ? `${decimal(metrics.biasUnits)} units per week (predicted minus observed)` : 'unavailable for a training-only selection'}.</p>
+    <p className="method-note"><strong>Reading these metrics</strong> · Holdout WAPE and MAE use {allRegions ? 'weekly totals across all six regions' : 'the selected region'} and only the holdout weeks shown. {allRegions ? 'The total-period credible interval is available only for the exact exported periods.' : 'Expected sales, predictive sales and 90% intervals describe different quantities.'} Model fit on synthetic data does not establish causal promotional lift. Holdout mean bias is {metrics ? `${decimal(metrics.biasUnits)} units per week (predicted minus observed)` : 'unavailable for a training-only selection'}.</p>
   </div>
 }

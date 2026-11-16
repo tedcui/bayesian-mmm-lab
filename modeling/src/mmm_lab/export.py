@@ -15,7 +15,7 @@ from mmm_lab.model import (CHANNELS, CONTROL_NAMES, POOLING, SALES_SCALE,
                            SPEND_SCALE, load_model_data, sha256_file)
 from mmm_lab.paths import ARTIFACTS_DIR, DATA_DIR, WEB_MODEL_DATA_DIR
 
-SCHEMA_VERSION = "m4-1"
+SCHEMA_VERSION = "m4-2"
 REFERENCE_MODEL = "partial"  # comparison reference, not a best-model claim
 EXPORT_SEED = 20261114
 SIMULATOR_DRAWS = 96
@@ -64,8 +64,8 @@ def _check_lineage(data_root: Path, artifact_dir: Path, data) -> tuple[dict, dic
     return source, etl, fit, evaluation
 
 
-def _weekly_and_aggregates(data, baseline, channel, expected, predictive) -> tuple[list, list, list]:
-    overview_rows, contribution_rows, aggregates = [], [], []
+def _weekly_and_aggregates(data, baseline, channel, expected, predictive) -> tuple[list, list, list, list, list]:
+    overview_rows, contribution_rows, all_overview_rows, all_contribution_rows, aggregates = [], [], [], [], []
     for s, segment in enumerate(data.segments):
         for t, week in enumerate(data.weeks):
             key = {"segment_id": segment, "week_start": week, "time_index": t + 1,
@@ -85,6 +85,26 @@ def _weekly_and_aggregates(data, baseline, channel, expected, predictive) -> tup
                                                          for c, name in enumerate(CHANNELS)},
                                       "expected_sales_units": expected_summary,
                                       "residual_to_expected_mean_units": residual})
+    for t, week in enumerate(data.weeks):
+        key = {"segment_id": None, "week_start": week, "time_index": t + 1,
+               "period": "training" if t < 100 else "holdout"}
+        observed = int(data.sales[:, t].sum())
+        base_draws = baseline[:, :, t].sum(axis=1)
+        channel_draws = channel[:, :, t, :].sum(axis=1)
+        expected_draws = expected[:, :, t].sum(axis=1)
+        if not np.allclose(base_draws + channel_draws.sum(axis=1), expected_draws, atol=1e-7):
+            raise ValueError("All-region weekly expected sales do not reconcile within draws")
+        expected_summary = _summary(expected_draws)
+        common = {**key, "observed_sales_units": observed,
+                  "expected_sales_units": expected_summary,
+                  "residual_to_expected_mean_units": round(observed - expected_summary["mean"], 4)}
+        all_overview_rows.append({**common,
+                                  "planned_spend_usd": {name: round(float(data.spend[:, t, c].sum()), 2)
+                                                        for c, name in enumerate(CHANNELS)},
+                                  "predictive_sales_units": _summary(predictive[:, :, t].sum(axis=1))})
+        all_contribution_rows.append({**common, "baseline_units": _summary(base_draws),
+                                      "channels_units": {name: _summary(channel_draws[:, c])
+                                                         for c, name in enumerate(CHANNELS)}})
     for s in (None, *range(6)):
         segment_slice = slice(None) if s is None else slice(s, s + 1)
         for period, week_slice in (("all", slice(None)), ("training", slice(0, 100)),
@@ -107,7 +127,7 @@ def _weekly_and_aggregates(data, baseline, channel, expected, predictive) -> tup
                 "predictive_sales_units": _summary(predictive[:, segment_slice, week_slice].sum(axis=(1, 2))),
                 "residual_to_expected_mean_units": round(observed - expected_summary["mean"], 4),
             })
-    return overview_rows, contribution_rows, aggregates
+    return overview_rows, contribution_rows, all_overview_rows, all_contribution_rows, aggregates
 
 
 def _segments(data, posteriors: dict, evaluation: dict, bundle_id: str) -> dict:
@@ -213,12 +233,13 @@ def export_model_data(*, data_root: Path = DATA_DIR, artifact_dir: Path = ARTIFA
         posteriors[pooling] = posterior
     baseline, channel, expected, noise = posterior_components(data, posteriors[REFERENCE_MODEL])
     predictive = expected + noise[:, :, None] * np.random.default_rng(EXPORT_SEED + 1).normal(size=expected.shape)
-    overview_rows, contribution_rows, aggregates = _weekly_and_aggregates(data, baseline, channel, expected, predictive)
+    overview_rows, contribution_rows, all_overview_rows, all_contribution_rows, aggregates = (
+        _weekly_and_aggregates(data, baseline, channel, expected, predictive))
     overview = {"schema_version": SCHEMA_VERSION, "bundle_id": bundle_id,
                 "reference_model": REFERENCE_MODEL,
                 "intervals": {"expected_sales_units": "posterior credible 90% interval for the conditional mean",
                               "predictive_sales_units": "posterior predictive 90% interval for a future observation at fixed inputs"},
-                "weekly": overview_rows,
+                "weekly": overview_rows, "all_regions_weekly": all_overview_rows,
                 "aggregates": [{key: row[key] for key in ("segment_id", "period", "observed_sales_units",
                                                      "planned_spend_usd", "expected_sales_units",
                                                      "predictive_sales_units", "residual_to_expected_mean_units")}
@@ -226,7 +247,8 @@ def export_model_data(*, data_root: Path = DATA_DIR, artifact_dir: Path = ARTIFA
     contributions = {"schema_version": SCHEMA_VERSION, "bundle_id": bundle_id,
                      "reference_model": REFERENCE_MODEL,
                      "interpretation": "Modeled, assumption-dependent contributions; not experiment-validated causal lift.",
-                     "weekly": contribution_rows, "aggregates": aggregates}
+                     "weekly": contribution_rows, "all_regions_weekly": all_contribution_rows,
+                     "aggregates": aggregates}
     payloads = {"overview.json": overview, "contributions.json": contributions,
                 "segments.json": _segments(data, posteriors, evaluation, bundle_id),
                 "simulator.json": _simulator(data, posteriors[REFERENCE_MODEL], bundle_id, simulator_draws)}

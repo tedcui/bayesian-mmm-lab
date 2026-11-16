@@ -69,7 +69,7 @@ function matrix(value: unknown, rows: number, columns: number, name: string, non
 /** Validate source identity and precompute 108-week adstock state per draw. */
 export function prepareScenario(bundle: ModelDataBundle, segmentId: string): PreparedScenario {
   const { manifest, simulator } = bundle
-  if (manifest.schema_version !== 'm4-1' || simulator.schema_version !== 'm4-1' ||
+  if (manifest.schema_version !== 'm4-2' || simulator.schema_version !== 'm4-2' ||
       manifest.bundle_id !== simulator.bundle_id || manifest.reference_model !== 'partial' ||
       simulator.reference_model !== 'partial') throw new Error('Scenario source/version mismatch')
   if (simulator.channel_order.join() !== channels.join() || simulator.control_order.join() !== controls.join() ||

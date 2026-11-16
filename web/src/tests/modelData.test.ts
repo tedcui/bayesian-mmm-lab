@@ -14,6 +14,8 @@ describe('M4 static export contract', () => {
     const bundle = validateModelDataBundle(copy())
     expect(bundle.overview.weekly).toHaveLength(720)
     expect(bundle.contributions.weekly).toHaveLength(720)
+    expect(bundle.overview.all_regions_weekly).toHaveLength(120)
+    expect(bundle.contributions.all_regions_weekly).toHaveLength(120)
     expect(bundle.segments.effects).toHaveLength(54)
     expect(bundle.simulator.draws).toHaveLength(96)
   })
@@ -44,5 +46,14 @@ describe('M4 static export contract', () => {
     const duplicate = copy() as typeof files
     duplicate.simulator.draws[1].joint_draw_index = duplicate.simulator.draws[0].joint_draw_index
     expect(() => validateModelDataBundle(duplicate)).toThrow(/duplicate joint draw/)
+
+    const wrongAllRegions = copy() as typeof files
+    wrongAllRegions.overview.all_regions_weekly[0].observed_sales_units += 1
+    expect(() => validateModelDataBundle(wrongAllRegions)).toThrow(/observed_sales_units/)
+
+    const wrongInterval = copy() as typeof files
+    wrongInterval.contributions.all_regions_weekly[0].channels_units.coupon.p05 =
+      wrongInterval.contributions.all_regions_weekly[0].channels_units.coupon.p95 + 1
+    expect(() => validateModelDataBundle(wrongInterval)).toThrow(/quantiles out of order/)
   })
 })

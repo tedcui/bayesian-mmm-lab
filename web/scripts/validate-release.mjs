@@ -23,7 +23,7 @@ for (const name of names) {
   bytes.set(name, content)
 }
 const manifest = JSON.parse(bytes.get('manifest.json').toString('utf8'))
-if (manifest.schema_version !== 'm4-1' || manifest.reference_model !== 'partial' ||
+if (manifest.schema_version !== 'm4-2' || manifest.reference_model !== 'partial' ||
     Object.keys(manifest.files).sort().join('|') !== names.filter(name => name !== 'manifest.json').join('|')) {
   throw new Error('Manifest version or payload inventory mismatch')
 }

@@ -8,8 +8,8 @@ import segments from '../../public/model-data/segments.json'
 import simulator from '../../public/model-data/simulator.json'
 import { App } from '../app/App'
 import { loadModelData, validateModelDataBundle } from '../lib/data'
-import { filterWeeks, holdoutMetrics } from '../lib/analytics'
-import { percent } from '../lib/format'
+import { ALL_REGIONS, filterWeeks, holdoutMetrics } from '../lib/analytics'
+import { percent, units } from '../lib/format'
 
 vi.mock('../lib/data', async importOriginal => ({
   ...await importOriginal<typeof import('../lib/data')>(),
@@ -34,6 +34,7 @@ describe('M5 analytical UI', () => {
     render(<App />)
     expect(screen.getByRole('status').textContent).toContain('Loading validated model results')
     await screen.findByRole('heading', { name: 'Observed vs modeled demand' })
+    expect((screen.getByLabelText('Business region') as HTMLSelectElement).value).toBe(ALL_REGIONS)
     expect(screen.getByText((_, element) => element?.tagName === 'P' &&
       (element.textContent?.includes('90% predictive interval includes modeled observation noise') ?? false))).toBeTruthy()
     expect(screen.getByText(/business-defined regions from store geography/)).toBeTruthy()
@@ -66,6 +67,30 @@ describe('M5 analytical UI', () => {
     expect(screen.queryByText(/Known synthetic truth:/)).toBeNull()
     fireEvent.click(screen.getByLabelText(/Show known synthetic truth/))
     expect(screen.getByText(/Known synthetic truth:/)).toBeTruthy()
+  })
+
+  it('defaults to all-region totals with draw-first weekly intervals', async () => {
+    render(<App />)
+    await screen.findByRole('heading', { name: 'Observed vs modeled demand' })
+    expect(screen.getByText('All regions sales pulse')).toBeTruthy()
+    expect(screen.getByText(units(bundle.overview.aggregates[0].observed_sales_units))).toBeTruthy()
+    expect(screen.getByRole('img', { name: /90% predictive interval for All regions/ })).toBeTruthy()
+    expect(screen.getByText(/summed across six regions within each joint posterior draw/)).toBeTruthy()
+    expect(screen.getByText(/For this exact all period/)).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('link', { name: /Decomposition/ }))
+    await screen.findByRole('heading', { name: 'Where expected units are assigned' })
+    expect(screen.getByRole('img', { name: /All regions with 90% credible interval/ })).toBeTruthy()
+    expect(screen.getByText(/90% credible interval for each week's expected channel contribution/)).toBeTruthy()
+    fireEvent.change(screen.getByLabelText('From week'),
+      { target: { value: manifest.dates.first_holdout_week } })
+    expect(screen.getByText(/For this exact holdout period/)).toBeTruthy()
+
+    fireEvent.click(screen.getByRole('link', { name: /Segment comparison/ }))
+    await screen.findByRole('heading', { name: 'What pooling changes' })
+    expect((screen.getByLabelText('Business region') as HTMLSelectElement).value)
+      .toBe(bundle.manifest.segments[0])
+    expect(screen.queryByRole('option', { name: 'All regions' })).toBeNull()
   })
 
   it('shows load failure and succeeds on retry', async () => {
