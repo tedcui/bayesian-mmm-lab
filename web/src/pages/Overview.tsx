@@ -65,10 +65,10 @@ export function Overview({ bundle, filter }: { bundle: ModelDataBundle; filter: 
       <PlotChart label={`Observed sales, expected sales and 90% predictive interval for ${regionLabel(filter.segmentId)}`}
         traces={salesTraces} height={390}
         layout={{ xaxis: { title: 'Week starting Monday', type: 'date', showgrid: false },
-          yaxis: { title: 'Sales units', rangemode: 'tozero', gridcolor: '#dedfd5' },
+          yaxis: { title: 'Sales units', autorange: true, gridcolor: '#dedfd5' },
           shapes: boundary, annotations: boundaryVisible ? [{ x: dates.first_holdout_week, y: 1.02,
             yref: 'paper', text: 'HOLDOUT START', showarrow: false, font: { size: 10, color: '#a2623b' } }] : [] }} />
-      <p className="chart-caption">The shaded area is a <strong>90% predictive interval</strong> for weekly sales{allRegions ? ' across all regions' : ''}. The line shows modeled average sales. Holdout results use spending and market conditions recorded for those weeks, so they are a look back, not a future forecast. {boundaryVisible && `The dotted line marks the start of the holdout period, ${dateLabel(dates.first_holdout_week)}.`}</p>
+      <p className="chart-caption">The shaded area is a <strong>90% predictive interval</strong> for weekly sales{allRegions ? ' across all regions' : ''}. The line shows modeled average sales. The vertical scale follows the selected data and may not start at zero. Holdout results use spending and market conditions recorded for those weeks, so they are a look back, not a future forecast. {boundaryVisible && `The dotted line marks the start of the holdout period, ${dateLabel(dates.first_holdout_week)}.`}</p>
     </section>
     <div className="two-column">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">PLANNED INPUTS</p><h3>Marketing spend</h3></div><span className="tiny-badge">USD</span></div>
