@@ -396,7 +396,7 @@ export function validateModelDataBundle(value: unknown): ModelDataBundle {
 }
 
 async function fetchVerified(base: string, name: string, expectedHash: string, expectedBytes: number): Promise<unknown> {
-  const response = await fetch(`${base}${name}`)
+  const response = await fetch(`${base}${name}`, { cache: 'no-store' })
   if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`)
   const bytes = await response.arrayBuffer()
   if (bytes.byteLength !== expectedBytes) throw new Error(`${name}: byte count differs from manifest`)
@@ -408,7 +408,7 @@ async function fetchVerified(base: string, name: string, expectedHash: string, e
 
 /** Load static assets with content hashes; no backend or inference file is requested. */
 export async function loadModelData(base = `${import.meta.env.BASE_URL}model-data/`): Promise<ModelDataBundle> {
-  const response = await fetch(`${base}manifest.json`)
+  const response = await fetch(`${base}manifest.json`, { cache: 'no-store' })
   if (!response.ok) throw new Error(`manifest.json: HTTP ${response.status}`)
   const manifest = await response.json() as RecordValue
   const files = object(manifest.files, 'manifest.files')

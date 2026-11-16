@@ -1,15 +1,31 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import manifest from '../../public/model-data/manifest.json'
 import overview from '../../public/model-data/overview.json'
 import contributions from '../../public/model-data/contributions.json'
 import segments from '../../public/model-data/segments.json'
 import simulator from '../../public/model-data/simulator.json'
-import { validateModelDataBundle } from '../lib/data'
+import { loadModelData, validateModelDataBundle } from '../lib/data'
 
 const files = { manifest, overview, contributions, segments, simulator }
 const copy = (): unknown => structuredClone(files)
 
 describe('M4 static export contract', () => {
+  it('requests the current manifest and payloads after a release', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce({ ok: true, json: async () => manifest })
+      .mockResolvedValue({ ok: false, status: 503 })
+    vi.stubGlobal('fetch', fetchMock)
+    try {
+      await expect(loadModelData('/bayesian-mmm-lab/model-data/')).rejects.toThrow(/HTTP 503/)
+      expect(fetchMock).toHaveBeenCalledTimes(5)
+      for (const [, options] of fetchMock.mock.calls) {
+        expect(options).toEqual({ cache: 'no-store' })
+      }
+    } finally {
+      vi.unstubAllGlobals()
+    }
+  })
+
   it('accepts the actual fitted-model exports', () => {
     const bundle = validateModelDataBundle(copy())
     expect(bundle.overview.weekly).toHaveLength(720)

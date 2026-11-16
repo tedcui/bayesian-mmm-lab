@@ -85,8 +85,9 @@ export function App() {
           <h1>Loading dashboard</h1><p>Preparing sales and marketing results.</p></div>}
         {!loading && error && <div className="state-panel" role="alert">
           <h1>Dashboard data is unavailable</h1>
-          <p>Please check your connection and try again.</p>
+          <p>Please try again. If the problem continues, share the error details below.</p>
           <button className="primary-button" type="button" onClick={() => { setLoading(true); setError(null); setAttempt(v => v + 1) }}>Retry loading</button>
+          <details><summary>Error details</summary><p>{error}</p></details>
         </div>}
         {!loading && bundle && filter && <>
           <div className="page-heading">
