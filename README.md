@@ -1,6 +1,6 @@
 # Bayesian MMM Decision Lab
 
-A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results; M5–M6 present them in a four-page analytical dashboard and conditional decision simulator. M7 prepares local release checks and a manual Pages workflow; no site has been published.
+A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fits and evaluates three real Bayesian pooling specifications on the validated M2B panel; M4 exports their versioned results; M5–M6 present them in a four-page analytical dashboard and conditional decision simulator. The static dashboard is published at [tedcui.github.io/bayesian-mmm-lab](https://tedcui.github.io/bayesian-mmm-lab/).
 
 ## Current architecture
 
@@ -12,7 +12,7 @@ A synthetic, source-driven Bayesian marketing mix modeling demonstration. M3 fit
 - Three PyMC posterior fits, [model specification](docs/MODEL_SPECIFICATION.md), and [evaluation report](modeling/artifacts/evaluation.json)
 - Versioned, lineage-checked [M4 browser exports](docs/EXPORT_CONTRACT.md) in `web/public/model-data/`
 - React/TypeScript/Vite, Plotly and Tailwind analytical dashboard in `web/`, with Overview, Decomposition, Segment Comparison and Decision Simulator pages
-- GitHub Actions CI for locked checks and a manual-only Pages workflow; no deployment has run
+- GitHub Actions CI for locked checks and a manual-only Pages workflow for a future standalone source repository
 
 The exact 44 transaction, 42 store, and 19 product column inventories are documented in [the source contract](docs/SOURCE_SCHEMA_AND_ETL.md). [The modeling data contract](docs/MODELING_DATA_CONTRACT.md) describes the later source-to-mart route. [Milestone prompts](docs/CODEX_PROMPTS.md) supersede the earlier direct-panel M2.
 
@@ -89,7 +89,7 @@ Enter a single absolute 12-week USD budget to search for an allocation across ch
 
 The four hash routes are `#/overview`, `#/decomposition`, `#/segments`, and `#/simulator`. The Vite base is `/bayesian-mmm-lab/`, so the local preview and intended GitHub Pages project URL use that subpath. From `web/`, run `npm ci`, `npm run validate:public`, `npm run typecheck`, `npm test`, `npm run build`, and `npm run validate:dist`; then `npm run preview` to inspect the built site. The release validator checks the exact five committed JSON files, manifest hashes, the approved posterior subset, the Pages asset paths, and unexpected or sensitive artifact files. CI runs Python source-generation/ETL tests and these frontend gates without refitting the Bayesian models.
 
-The Pages workflow in `.github/workflows/deploy.yml` is **manual only** and accepts `main` only. It validates committed M4 exports, tests and builds the static site, then uses the protected `github-pages` environment. No Git remote is configured in this checkout, and neither Pages settings nor a deployment has been changed. Before any public push, review the [source metadata and release findings](docs/PUBLIC_RELEASE_REVIEW.md) and explicitly approve the publication scope. Then set **Settings → Pages → Build and deployment → Source: GitHub Actions**, require a reviewer and restrict `github-pages` to `main` under **Settings → Environments**, run the workflow manually after passing CI, and verify all four pages on the actual GitHub Pages URL. A connected visual browser was unavailable during M7, so desktop/mobile inspection remains a release check.
+The static build in `web/dist/` is currently published through the separate `tedcui/tedcui.github.io` portfolio repository under `public/bayesian-mmm-lab/`. The portfolio's Pages workflow deploys on pushes to `main`. This source checkout has no Git remote, so its own `.github/workflows/deploy.yml` has not run; that workflow remains manual-only for a future standalone repository. The latest portfolio deployment for this dashboard update is [GitHub Actions run 44191317924](https://github.com/tedcui/tedcui.github.io/actions/runs/44191317924), which completed successfully. The synthetic-data disclosure and identification limitations in the [release review](docs/PUBLIC_RELEASE_REVIEW.md) still apply. Direct live-page interaction could not be checked from this environment because the public URL was inaccessible to its browser and HTTP tools.
 
 ## Reproducibility and artifact policy
 

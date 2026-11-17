@@ -198,6 +198,10 @@ def evaluate_scenario(prepared: PreparedScenario, baseline_plan_usd: Any,
                         "baseline_expected_units": base_total,
                         "alternative_expected_units": alt_total,
                         "incremental_expected_units": alt_total - base_total,
+                        "baseline_channel_units": {name: base_channel[c]
+                                                   for c, name in enumerate(CHANNELS)},
+                        "alternative_channel_units": {name: alt_channel[c]
+                                                      for c, name in enumerate(CHANNELS)},
                         "channel_difference_units": {name: alt_channel[c] - base_channel[c]
                                                      for c, name in enumerate(CHANNELS)}})
     baseline_by_channel = {name: float(baseline[:, c].sum()) for c, name in enumerate(CHANNELS)}
@@ -215,6 +219,10 @@ def evaluate_scenario(prepared: PreparedScenario, baseline_plan_usd: Any,
             "baseline_expected_units": _summary([row["baseline_expected_units"] for row in results]),
             "alternative_expected_units": _summary([row["alternative_expected_units"] for row in results]),
             "incremental_expected_units": _summary([row["incremental_expected_units"] for row in results]),
+            "baseline_channel_units": {name: _summary([row["baseline_channel_units"][name]
+                                                        for row in results]) for name in CHANNELS},
+            "alternative_channel_units": {name: _summary([row["alternative_channel_units"][name]
+                                                           for row in results]) for name in CHANNELS},
             "channel_difference_units": {name: _summary([row["channel_difference_units"][name]
                                                         for row in results]) for name in CHANNELS},
         },

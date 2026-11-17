@@ -26,6 +26,8 @@ export interface ScenarioDrawResult {
   baseline_expected_units: number
   alternative_expected_units: number
   incremental_expected_units: number
+  baseline_channel_units: Record<Channel, number>
+  alternative_channel_units: Record<Channel, number>
   channel_difference_units: Record<Channel, number>
 }
 export interface ScenarioResult {
@@ -44,6 +46,8 @@ export interface ScenarioResult {
     baseline_expected_units: Summary
     alternative_expected_units: Summary
     incremental_expected_units: Summary
+    baseline_channel_units: Record<Channel, Summary>
+    alternative_channel_units: Record<Channel, Summary>
     channel_difference_units: Record<Channel, Summary>
   }
 }
@@ -194,9 +198,16 @@ export function evaluateScenario(prepared: PreparedScenario, baselinePlanUsd: Sp
       throw new Error('Scenario expected units overflowed')
     }
     const differences = {} as Record<Channel, number>
-    for (let c = 0; c < 3; c++) differences[channels[c]] = altChannel[c] - baseChannel[c]
+    const baselineChannel = {} as Record<Channel, number>
+    const alternativeChannel = {} as Record<Channel, number>
+    for (let c = 0; c < 3; c++) {
+      baselineChannel[channels[c]] = baseChannel[c]
+      alternativeChannel[channels[c]] = altChannel[c]
+      differences[channels[c]] = altChannel[c] - baseChannel[c]
+    }
     draws.push({ joint_draw_index: draw.joint_draw_index, baseline_expected_units: baselineTotal,
       alternative_expected_units: alternateTotal, incremental_expected_units: alternateTotal - baselineTotal,
+      baseline_channel_units: baselineChannel, alternative_channel_units: alternativeChannel,
       channel_difference_units: differences })
   }
   const spend = (plan: SpendPlan) => {
@@ -205,7 +216,13 @@ export function evaluateScenario(prepared: PreparedScenario, baselinePlanUsd: Sp
     return { by_channel: byChannel, total: channels.reduce((sum, name) => sum + byChannel[name], 0) }
   }
   const channelDifference = {} as Record<Channel, Summary>
-  for (const name of channels) channelDifference[name] = summary(draws.map(row => row.channel_difference_units[name]))
+  const baselineChannel = {} as Record<Channel, Summary>
+  const alternativeChannel = {} as Record<Channel, Summary>
+  for (const name of channels) {
+    baselineChannel[name] = summary(draws.map(row => row.baseline_channel_units[name]))
+    alternativeChannel[name] = summary(draws.map(row => row.alternative_channel_units[name]))
+    channelDifference[name] = summary(draws.map(row => row.channel_difference_units[name]))
+  }
   return { scenario_version: scenarioVersion, bundle_id: prepared.bundleId,
     segment_id: prepared.segmentId, horizon_week_starts: prepared.simulator.horizon_week_starts,
     draw_count: draws.length, uncertainty: 'parameter_credible_90; expected sales units; no observation noise',
@@ -215,5 +232,7 @@ export function evaluateScenario(prepared: PreparedScenario, baselinePlanUsd: Sp
     summary: { baseline_expected_units: summary(draws.map(row => row.baseline_expected_units)),
       alternative_expected_units: summary(draws.map(row => row.alternative_expected_units)),
       incremental_expected_units: summary(draws.map(row => row.incremental_expected_units)),
+      baseline_channel_units: baselineChannel,
+      alternative_channel_units: alternativeChannel,
       channel_difference_units: channelDifference } }
 }

@@ -37,12 +37,24 @@ describe('M6A posterior scenario engine', () => {
         close(row.baseline_expected_units, expected[1])
         close(row.alternative_expected_units, expected[2])
         close(row.incremental_expected_units, expected[3])
-        bundle.manifest.channels.forEach((channel, c) => close(row.channel_difference_units[channel], expected[c + 4]))
+        bundle.manifest.channels.forEach((channel, c) => {
+          close(row.channel_difference_units[channel], expected[c + 4])
+          close(row.baseline_channel_units[channel], expected[c + 7])
+          close(row.alternative_channel_units[channel], expected[c + 10])
+          close(row.alternative_channel_units[channel] - row.baseline_channel_units[channel],
+            row.channel_difference_units[channel])
+        })
+        close(row.baseline_expected_units - Object.values(row.baseline_channel_units).reduce((sum, value) => sum + value, 0),
+          prepared.nonmarketingTotals[position])
+        close(row.alternative_expected_units - Object.values(row.alternative_channel_units).reduce((sum, value) => sum + value, 0),
+          prepared.nonmarketingTotals[position])
       })
       for (const key of ['baseline_expected_units', 'alternative_expected_units', 'incremental_expected_units'] as const) {
         for (const stat of ['mean', 'p05', 'p50', 'p95'] as const) close(actual.summary[key][stat], scenario.summary[key][stat])
       }
       for (const channel of bundle.manifest.channels) for (const stat of ['mean', 'p05', 'p50', 'p95'] as const) {
+        close(actual.summary.baseline_channel_units[channel][stat], scenario.summary.baseline_channel_units[channel][stat])
+        close(actual.summary.alternative_channel_units[channel][stat], scenario.summary.alternative_channel_units[channel][stat])
         close(actual.summary.channel_difference_units[channel][stat], scenario.summary.channel_difference_units[channel][stat])
       }
     }

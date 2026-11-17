@@ -22,7 +22,9 @@ def main() -> None:
         cases.append({"segment_id": segment_id, "channel_multipliers": multipliers,
                       "draw_rows": [[row["joint_draw_index"], row["baseline_expected_units"],
                                      row["alternative_expected_units"], row["incremental_expected_units"],
-                                     *(row["channel_difference_units"][name] for name in simulator["channel_order"])]
+                                     *(row["channel_difference_units"][name] for name in simulator["channel_order"]),
+                                     *(row["baseline_channel_units"][name] for name in simulator["channel_order"]),
+                                     *(row["alternative_channel_units"][name] for name in simulator["channel_order"])]
                                     for row in result["draws"]],
                       "summary": result["summary"],
                       "baseline_spend_usd": result["baseline_spend_usd"],
@@ -32,7 +34,9 @@ def main() -> None:
                "simulator_sha256": manifest["files"]["simulator.json"]["sha256"],
                "draw_row_fields": ["joint_draw_index", "baseline_expected_units", "alternative_expected_units",
                                    "incremental_expected_units", "coupon_difference_units",
-                                   "retailer_promotion_difference_units", "digital_difference_units"],
+                                   "retailer_promotion_difference_units", "digital_difference_units",
+                                   "coupon_baseline_units", "retailer_promotion_baseline_units", "digital_baseline_units",
+                                   "coupon_alternative_units", "retailer_promotion_alternative_units", "digital_alternative_units"],
                "numeric_tolerance": {"absolute": 1e-8, "relative": 1e-10},
                "cases": cases}
     path = REPOSITORY_ROOT / "web/src/tests/fixtures/scenario_parity.json"

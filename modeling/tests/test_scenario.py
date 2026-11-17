@@ -43,19 +43,24 @@ def test_selected_genuine_draws_and_summaries_match_shared_fixture(source):
             for channel, value in case[key]["by_channel"].items():
                 _close(actual[key]["by_channel"][channel], value, tolerance)
         assert len(case["draw_rows"]) == 96
-        for row, expected in zip(actual["draws"], case["draw_rows"], strict=True):
+        for draw_index, (row, expected) in enumerate(zip(actual["draws"], case["draw_rows"], strict=True)):
             assert row["joint_draw_index"] == expected[0]
             for key, value in zip(("baseline_expected_units", "alternative_expected_units",
                                    "incremental_expected_units"), expected[1:4], strict=True):
                 _close(row[key], value, tolerance)
-            for channel, value in zip(simulator["channel_order"], expected[4:], strict=True):
-                _close(row["channel_difference_units"][channel], value, tolerance)
+            for offset, key in ((4, "channel_difference_units"), (7, "baseline_channel_units"),
+                                (10, "alternative_channel_units")):
+                for channel, value in zip(simulator["channel_order"], expected[offset:offset + 3], strict=True):
+                    _close(row[key][channel], value, tolerance)
+            _close(row["baseline_expected_units"] - sum(row["baseline_channel_units"].values()),
+                   prepared.nonmarketing_totals[draw_index], tolerance)
         for key in ("baseline_expected_units", "alternative_expected_units", "incremental_expected_units"):
             for statistic, value in case["summary"][key].items():
                 _close(actual["summary"][key][statistic], value, tolerance)
-        for channel, expected in case["summary"]["channel_difference_units"].items():
-            for statistic, value in expected.items():
-                _close(actual["summary"]["channel_difference_units"][channel][statistic], value, tolerance)
+        for key in ("baseline_channel_units", "alternative_channel_units", "channel_difference_units"):
+            for channel, expected in case["summary"][key].items():
+                for statistic, value in expected.items():
+                    _close(actual["summary"][key][channel][statistic], value, tolerance)
 
 
 def test_baseline_replay_matches_m4_full_draw_weekly_means_with_subset_tolerance(source):
