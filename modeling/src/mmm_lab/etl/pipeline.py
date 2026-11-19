@@ -17,7 +17,7 @@ from mmm_lab.paths import DATA_DIR
 
 
 def _write_json(path: Path, value: dict) -> None:
-    path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
+    path.write_bytes((json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8"))
 
 
 def _write_fact(path: Path, source: pa.Table, enriched: pd.DataFrame) -> None:

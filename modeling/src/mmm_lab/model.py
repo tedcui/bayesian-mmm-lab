@@ -228,7 +228,7 @@ def fit_models(*, draws: int = 600, tune: int = 600, chains: int = 2,
         "files": files, "sales_scale": SALES_SCALE, "spend_scale": SPEND_SCALE,
         "train_weeks": [1, 100], "holdout_weeks": [101, 120], "pooling": list(POOLING),
     }
-    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    manifest_path.write_bytes((json.dumps(manifest, indent=2, sort_keys=True) + "\n").encode("utf-8"))
     return manifest
 
 

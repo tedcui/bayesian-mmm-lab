@@ -34,6 +34,8 @@ def test_source_provenance_and_no_truth_dependency(sample, tmp_path):
     assert result["reconciliation"]["segment_weeks_reconciled"] == 24
     assert result["lineage"]["source_manifest_sha256"] == inputs.manifest_sha256
     assert "ground_truth" not in json.dumps(result["lineage"])
+    for name in ("etl_manifest.json", "etl_quality.json", "etl_reconciliation.json"):
+        assert b"\r\n" not in (tmp_path / "metadata" / name).read_bytes()
 
 
 def test_reference_joins_preserve_lines_and_nullable_upc(sample):

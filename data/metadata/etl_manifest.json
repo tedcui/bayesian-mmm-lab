@@ -3,7 +3,7 @@
     "aggregate": "6d69d267033692e654d8620b9f26aa7ed8e304a7fdba046d1893b6150a3e192d",
     "enrich": "d9cc450d14cd6e1fb70105f6cac20cc696e9b87227f09aa23739e694d5f7d53a",
     "features": "78b32e277cef8f87ff5aed5deab1ada5d81621fa338aa977cfefdad7d01c9c42",
-    "pipeline": "6e968b2548bdf204e18fe601fab74d1693ec75b627ab76ca1ee195b9e34ac97c",
+    "pipeline": "d3d9962dae7e1a174d7b09a70e4e09abea4018b30e9dee2f7e97e5b4d1b64a0f",
     "report": "d276c64cad9086f59f75cf75f16b519c53046a0d36e946536d3c3458d4a0e067",
     "validation": "9826f0187fb55af48af7e835c9a711cdd5a751f870c6bd1c7f2260d804c75c46"
   },
@@ -23,8 +23,8 @@
     "digital_spend"
   ],
   "output_hashes": {
-    "etl_quality": "5f4c86186116a70c02e5f1db593486874c3c37382540d4d6eae4551721a77e73",
-    "etl_reconciliation": "5bf058a14f9275bd153261a15d25b1559385ca6411df38331ee715647c10f3f8",
+    "etl_quality": "087f41d04222c9968405692b726c37b0ad5ddd38164eaf58ed5a9a7aae9c9d41",
+    "etl_reconciliation": "c7fcab5e272183743c4c6f900fbbb38cd18456f7abf9dff010e83eaf55d70527",
     "fact_transactions_enriched": "621b7a8ac40a578001c2a467c6a7865699ad27f5e773d7939cb1358f2fddd9cb",
     "mart_segment_week": "6fd61fe691e7bf80c54df66506ea15b5faf24fa0a0da23f48ba42d3694d981c5",
     "model_ready": "3789d2ca5a41317de5566097b4be4969aceca0cd83a216cb1de4e4dc3c0a188d"
@@ -58,7 +58,7 @@
     "unit_scale": 1.0,
     "weeks": 120
   },
-  "source_manifest_sha256": "4f601bc597a370e2dfab4e8ab2e637070a6bc14cc9dd312f1e931aa20c35ac9d",
+  "source_manifest_sha256": "70afebfa6c11aafa193ed4d5a79466368db1ca89c0345283d7aa1a6809fe20b6",
   "source_to_feature": {
     "competitor_index": "SIM_MARKET_CONTEXT.competitor_index",
     "coupon_spend": "SIM_MARKETING_PLAN planned_spend where channel=coupon",

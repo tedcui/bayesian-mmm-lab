@@ -205,8 +205,8 @@ def evaluate_models(*, data_root: Path = DATA_DIR, artifact_dir: Path = ARTIFACT
             "Prior sensitivity reweights one population prior only; poor importance ESS would require an independent refit.",
         ],
     }
-    (artifact_dir / "evaluation.json").write_text(
-        json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8")
+    (artifact_dir / "evaluation.json").write_bytes(
+        (json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8"))
     return result
 
 

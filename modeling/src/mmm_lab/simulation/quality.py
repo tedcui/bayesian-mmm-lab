@@ -184,7 +184,7 @@ def validate_sources(root: Path, *, save_report: bool = True) -> dict:
         **reference,
     }
     if save_report:
-        (root / "metadata" / "source_quality.json").write_text(
-            json.dumps(report, indent=2) + "\n", encoding="utf-8"
+        (root / "metadata" / "source_quality.json").write_bytes(
+            (json.dumps(report, indent=2) + "\n").encode("utf-8")
         )
     return report

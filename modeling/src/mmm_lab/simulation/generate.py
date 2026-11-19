@@ -336,7 +336,7 @@ def generate_sources(config: SimulationConfig = SimulationConfig(), output_root:
         "segment_weeks": truth_rows,
     }
     truth_path = metadata / "ground_truth.json"
-    truth_path.write_text(json.dumps(truth, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    truth_path.write_bytes((json.dumps(truth, indent=2, allow_nan=False) + "\n").encode("utf-8"))
     file_info = {
         name: {"relative_path": str(path.relative_to(root)).replace("\\", "/"),
                "rows": (transaction_count if name == "source_transactions" else
@@ -361,7 +361,7 @@ def generate_sources(config: SimulationConfig = SimulationConfig(), output_root:
                           "realized_units", "transaction_detail"],
         "files": file_info, "ground_truth_sha256": _sha256(truth_path),
     }
-    (metadata / "source_manifest.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    (metadata / "source_manifest.json").write_bytes((json.dumps(manifest, indent=2) + "\n").encode("utf-8"))
     from mmm_lab.simulation.quality import validate_sources
 
     validate_sources(root)

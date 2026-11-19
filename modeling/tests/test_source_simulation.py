@@ -108,6 +108,14 @@ def test_regeneration_is_byte_identical(tmp_path):
     assert (tmp_path / "first" / "metadata" / "ground_truth.json").read_bytes() == (tmp_path / "second" / "metadata" / "ground_truth.json").read_bytes()
 
 
+def test_generated_metadata_uses_portable_lf_bytes(sample):
+    root, _ = sample
+    for name in ("ground_truth.json", "source_manifest.json", "source_quality.json"):
+        content = (root / "metadata" / name).read_bytes()
+        assert content.endswith(b"\n")
+        assert b"\r\n" not in content
+
+
 def test_reference_duplicates_fail_fast_and_missing_products_are_counted(sample, tmp_path):
     root, _ = sample
     stores = pq.read_table(root / "silver" / "source_stores.parquet")

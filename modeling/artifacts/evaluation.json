@@ -1,5 +1,5 @@
 {
-  "fit_manifest_sha256": "4bf0243b328871f99b67a7d87aa8f2a003b5dbb904334b68389197794037dba4",
+  "fit_manifest_sha256": "425648d6062c420e69bb94ff5fe798782fdf90856ff3bcf83be77332ad054ad1",
   "holdout_observations": 120,
   "limitations": [
     "Synthetic generator truth is available for evaluation only, never model fitting.",

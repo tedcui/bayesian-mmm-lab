@@ -41,8 +41,7 @@ def main() -> None:
                "cases": cases}
     path = REPOSITORY_ROOT / "web/src/tests/fixtures/scenario_parity.json"
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(fixture, indent=2, sort_keys=True, allow_nan=False) + "\n",
-                    encoding="utf-8")
+    path.write_bytes((json.dumps(fixture, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8"))
     print(f"Wrote {path.relative_to(REPOSITORY_ROOT)}")
 
 
