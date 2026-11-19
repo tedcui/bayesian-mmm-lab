@@ -1,5 +1,7 @@
 # M7 public-release review
 
+> Historical pre-publication assessment. On November 18, 2026, the owner explicitly approved publishing the current source publicly. The source now lives in [`tedcui/bayesian-mmm-lab`](https://github.com/tedcui/bayesian-mmm-lab), with its own GitHub Pages deployment. The portfolio repository retains the homepage and case studies. The release gates and pending decisions below describe the earlier local assessment, not the current deployment status.
+
 ## Dashboard usability follow-up
 
 The local dashboard review added one-click all/training/holdout date ranges on Overview and Decomposition, clarified that the end date is inclusive and the simulator is region-specific, increased small secondary text to 12px with darker contrast, and arranged the footer disclosures in two columns on desktop and one on mobile. The quick-range buttons expose their selected state with `aria-pressed`; a custom date choice clears that state. Reduced-motion users no longer see the loading spinner animate.

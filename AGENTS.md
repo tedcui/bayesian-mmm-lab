@@ -217,7 +217,7 @@ CI runs schema/ETL numerical tests, lightweight Python unit tests, frontend type
 - **M4 COMPLETE** — Versioned fitted-model exports, TypeScript contracts, and validation exist.
 - **M5 COMPLETE** — Overview, Decomposition, and Segment Comparison use validated exports.
 - **M6 COMPLETE** — Paired-draw simulator and bounded fixed-budget search passed parity and UI checks.
-- **M7 LOCAL WORKFLOW PREPARED; STATIC DASHBOARD PUBLISHED SEPARATELY** — The validated `web/dist/` build is published at `https://tedcui.github.io/bayesian-mmm-lab/` through `tedcui/tedcui.github.io` after explicit user authorization. The source checkout has no Git remote and its manual Pages workflow has not run. GitHub Actions deployment succeeded; direct live HTTP and browser verification were unavailable from this environment.
+- **M7 PUBLISHED** — After explicit user authorization, `tedcui/bayesian-mmm-lab` hosts this source and its manual GitHub Pages workflow publishes `https://tedcui.github.io/bayesian-mmm-lab/`. The portfolio repository hosts the homepage and case studies separately. CI and Pages deployment passed, and the live model-data manifest was verified over HTTP. A connected visual browser was unavailable for direct UI interaction checks.
 - **M8 OPTIONAL** — Cloudflare AI explanations.
 
 Use the precise sequential Codex prompts in `docs/CODEX_PROMPTS.md`. Each milestone stops after testing and reporting.
