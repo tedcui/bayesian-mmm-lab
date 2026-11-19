@@ -58,7 +58,7 @@
     "unit_scale": 1.0,
     "weeks": 120
   },
-  "source_manifest_sha256": "70afebfa6c11aafa193ed4d5a79466368db1ca89c0345283d7aa1a6809fe20b6",
+  "source_manifest_sha256": "a982f2c4d277991e071a306c5a8b5c204e93fc378be0197e9310ddce1a70d302",
   "source_to_feature": {
     "competitor_index": "SIM_MARKET_CONTEXT.competitor_index",
     "coupon_spend": "SIM_MARKETING_PLAN planned_spend where channel=coupon",

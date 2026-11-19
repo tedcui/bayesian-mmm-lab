@@ -15,7 +15,8 @@
     "promotion_flag": "A simulated receipt-level promotion or redemption, not a planned budget",
     "planned_spend": "USD budget set before the sales week in a separate synthetic source",
     "event_timezone": "Naive business event timestamps; submission and audit timestamps use UTC",
-    "reference_mapping": "Current-state submitted identity to master identity; no historical versions"
+    "reference_mapping": "Current-state submitted identity to master identity; no historical versions",
+    "ground_truth_precision": "Evaluation-only floating components rounded to 9 decimal places for cross-platform reproducibility"
   },
   "lineage_order": [
     "reference_tables",
@@ -51,5 +52,5 @@
       "sha256": "ef11de60ba930f3654786908e7f1306cd583529cbf2fef14eeed1d7a614fcb5a"
     }
   },
-  "ground_truth_sha256": "6d5218dbff024d277d6811aa02b957127b65ee09bf4504018d65d4aeb5bfdae3"
+  "ground_truth_sha256": "e5c31b33caefc242e03ce566fc68012e4c923b1fa6d52a71f8a32c1ee0af0467"
 }

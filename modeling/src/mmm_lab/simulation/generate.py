@@ -205,11 +205,16 @@ def _demand(config: SimulationConfig, rng: np.random.Generator, weeks: list[date
             noise = float(rng.normal(0, NOISE_SIGMAS[segment] * config.unit_scale))
             realized = max(0, round(expected + noise))
             targets[(segment, week)] = realized
+            # libm can differ in the last binary digit across operating systems.
+            # Quantize evaluation-only truth, then retain exact reconstruction.
+            stored_parts = {key: round(float(value), 9) for key, value in parts.items()}
+            stored_expected = round(sum(stored_parts.values()), 9)
+            stored_noise = round(noise, 9)
             truth_rows.append({
                 "segment_id": segment, "week_start": week.isoformat(), "week_index": week_no,
-                "components": {key: float(value) for key, value in parts.items()},
-                "expected_sales_units": expected, "noise": noise,
-                "rounding_adjustment": realized - expected - noise,
+                "components": stored_parts,
+                "expected_sales_units": stored_expected, "noise": stored_noise,
+                "rounding_adjustment": round(realized - stored_expected - stored_noise, 9),
                 "sales_units": realized,
             })
     return truth_rows, targets
@@ -356,6 +361,7 @@ def generate_sources(config: SimulationConfig = SimulationConfig(), output_root:
             "planned_spend": "USD budget set before the sales week in a separate synthetic source",
             "event_timezone": "Naive business event timestamps; submission and audit timestamps use UTC",
             "reference_mapping": "Current-state submitted identity to master identity; no historical versions",
+            "ground_truth_precision": "Evaluation-only floating components rounded to 9 decimal places for cross-platform reproducibility",
         },
         "lineage_order": ["reference_tables", "planned_marketing_and_context", "latent_demand",
                           "realized_units", "transaction_detail"],

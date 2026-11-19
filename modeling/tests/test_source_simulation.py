@@ -96,6 +96,9 @@ def test_quantities_baskets_and_event_timing_reconcile(sample):
     for row in truth["segment_weeks"]:
         assert row["sales_units"] >= 0
         assert abs(sum(row["components"].values()) + row["noise"] + row["rounding_adjustment"] - row["sales_units"]) < 1e-8
+        assert all(round(value, 9) == value for value in row["components"].values())
+        assert all(round(row[key], 9) == row[key]
+                   for key in ("expected_sales_units", "noise", "rounding_adjustment"))
 
 
 def test_regeneration_is_byte_identical(tmp_path):
