@@ -25,6 +25,8 @@ jobs:
       - name: Reconcile source-derived mart
         run: uv run --locked mmm-build-mart
         working-directory: modeling
+      - name: Compare regenerated lineage with committed manifests
+        run: git diff -- data/metadata/source_manifest.json data/metadata/etl_manifest.json
       - name: Schema, ETL, export, and scenario tests
         run: uv run --locked pytest -q
         working-directory: modeling
