@@ -148,7 +148,7 @@ export function Simulator({ bundle, segmentId }: { bundle: ModelDataBundle; segm
       <MetricCard label="Planned spend change" value={signedDollars(spendDelta)} sub="Across all 12 weeks" />
     </div>
 
-    <div className="page-stack">
+    <div className="two-column">
       <section className="chart-card"><div className="card-header"><div><p className="section-kicker">02 / EXPECTED DEMAND</p>
         <h2>Baseline vs alternative</h2></div></div>
         <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
